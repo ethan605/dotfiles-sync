@@ -10,7 +10,7 @@ const sequence = require('gulp-sequence');
 const childProcess = require('child_process');
 const fs = require('fs');
 
-const DEST_DIR = './files';
+const DEST_DIR = './backup';
 
 const wrapHomeDir = filename => `${process.env.HOME}/${filename}`;
 
