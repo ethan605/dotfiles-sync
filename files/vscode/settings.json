@@ -1,0 +1,12 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.fontSize": 14,
+    "editor.fontFamily": "Hack",
+    "editor.tabSize": 2,
+    "editor.wrappingColumn": 100,
+    "editor.rulers": [
+      100
+    ],
+    "editor.renderIndentGuides": true,
+    "workbench.welcome.enabled": false
+  }

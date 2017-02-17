@@ -29,6 +29,7 @@
     "gulp-clean": "^0.3.2",
     "gulp-file": "^0.3.0",
     "gulp-filenames": "^4.0.1",
+    "gulp-run": "^1.7.1",
     "gulp-sequence": "^0.4.6",
     "gulp-shell": "^0.5.2"
   }

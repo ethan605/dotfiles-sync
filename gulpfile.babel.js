@@ -3,9 +3,9 @@ const gulp = require('gulp');
 const clean = require('gulp-clean');
 const file = require('gulp-file');
 const sequence = require('gulp-sequence');
-// const shell = require('gulp-shell');
 
 // Helpers
+const childProcess = require('child_process');
 const fs = require('fs');
 
 const DEST_DIR = './files';
@@ -36,11 +36,23 @@ gulp.task('backup:oh-my-zsh', () => {
     '.oh-my-zsh/custom/**/*',
   ].map(wrapHomeDir);
 
-  gulp.src(fileNames).pipe(gulp.dest(`${DEST_DIR}/oh-my-zsh`));
+  gulp.src(fileNames)
+    .pipe(gulp.dest(`${DEST_DIR}/oh-my-zsh`));
+});
+
+gulp.task('backup:vscode', () => {
+  const vscode = '/Applications/Visual\\ Studio\\ Code.app/Contents/Resources/app/bin/code';
+  const extensions = childProcess.execSync(`${vscode} --list-extensions`).toString();
+  const settings = wrapHomeDir('Library/Application Support/Code/User/settings.json');
+
+  return gulp.src(settings)
+    .pipe(file('extensions', extensions))
+    .pipe(gulp.dest(`${DEST_DIR}/vscode`));
 });
 
 gulp.task('backup', sequence(
   'backup:clean',
-  // 'backup:oh-my-zsh',
+  'backup:oh-my-zsh',
   'backup:sublime',
+  'backup:vscode',
 ));
