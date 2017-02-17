@@ -2,7 +2,10 @@
 const gulp = require('gulp');
 const clean = require('gulp-clean');
 const file = require('gulp-file');
+const prompt = require('gulp-prompt');
+const run = require('gulp-run');
 const sequence = require('gulp-sequence');
+const zip = require('gulp-zip');
 
 // Helpers
 const childProcess = require('child_process');
@@ -13,9 +16,26 @@ const DEST_DIR = './files';
 const wrapHomeDir = filename => `${process.env.HOME}/${filename}`;
 
 gulp.task('tst', () => {
+  
 });
 
 gulp.task('backup:clean', () => gulp.src(DEST_DIR).pipe(clean()));
+
+gulp.task('backup:ssh', () => {
+  const sshPath = wrapHomeDir('.ssh/*');
+
+  gulp.src(sshPath)
+    .pipe(gulp.dest(`${DEST_DIR}/ssh`))
+    .pipe(prompt.prompt({
+      type: 'password',
+      name: 'password',
+      message: 'Enter password for SSH configs zip file',
+    }, ({ password }) => (
+      gulp.src(`${DEST_DIR}/ssh`)
+        .pipe(run(`cd ${DEST_DIR} && zip -P ${password} -0r ssh.zip ssh`))
+        .pipe(clean())
+    )));
+});
 
 gulp.task('backup:sublime', () => {
   const packagesPath = wrapHomeDir('Library/Application Support/Sublime Text 3/Packages');
@@ -31,18 +51,18 @@ gulp.task('backup:sublime', () => {
 });
 
 gulp.task('backup:oh-my-zsh', () => {
-  const fileNames = [
+  const filePaths = [
     '.zshrc',
     '.oh-my-zsh/custom/**/*',
   ].map(wrapHomeDir);
 
-  gulp.src(fileNames)
+  gulp.src(filePaths)
     .pipe(gulp.dest(`${DEST_DIR}/oh-my-zsh`));
 });
 
 gulp.task('backup:vscode', () => {
-  const vscode = '/Applications/Visual\\ Studio\\ Code.app/Contents/Resources/app/bin/code';
-  const extensions = childProcess.execSync(`${vscode} --list-extensions`).toString();
+  const command = '/Applications/Visual\\ Studio\\ Code.app/Contents/Resources/app/bin/code';
+  const extensions = childProcess.execSync(`${command} --list-extensions`).toString();
   const settings = wrapHomeDir('Library/Application Support/Code/User/settings.json');
 
   return gulp.src(settings)
@@ -55,4 +75,5 @@ gulp.task('backup', sequence(
   'backup:oh-my-zsh',
   'backup:sublime',
   'backup:vscode',
+  'backup:ssh',
 ));
