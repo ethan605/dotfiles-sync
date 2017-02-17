@@ -81,9 +81,11 @@ gulp.task('backup:vscode', () => {
 
 gulp.task('backup', sequence(
   'backup:clean',
-  'backup:brew',
-  'backup:oh-my-zsh',
-  'backup:sublime',
-  'backup:vscode',
+  [
+    'backup:brew',
+    'backup:oh-my-zsh',
+    'backup:sublime',
+    'backup:vscode',
+  ],
   'backup:ssh',
 ));
