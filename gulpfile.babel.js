@@ -10,7 +10,7 @@ const sequence = require('gulp-sequence');
 const childProcess = require('child_process');
 const fs = require('fs');
 
-const DEST_DIR = './backup';
+const BACKUP_DIR = './backup';
 
 const wrapHomeDir = filename => `${process.env.HOME}/${filename}`;
 
@@ -21,24 +21,24 @@ gulp.task('backup:brew', () => {
 
   return gulp.src('!dotfiles')
     .pipe(file('packages', packages))
-    .pipe(gulp.dest(`${DEST_DIR}/brew`));
+    .pipe(gulp.dest(`${BACKUP_DIR}/brew`));
 });
 
-gulp.task('backup:clean', () => gulp.src(DEST_DIR).pipe(clean()));
+gulp.task('backup:clean', () => gulp.src(BACKUP_DIR).pipe(clean()));
 
 gulp.task('backup:ssh', () => {
   const sshPath = wrapHomeDir('.ssh/*');
 
   gulp.src(sshPath)
-    .pipe(gulp.dest(`${DEST_DIR}/ssh`))
+    .pipe(gulp.dest(`${BACKUP_DIR}/ssh`))
     .pipe(prompt.prompt({
       type: 'password',
       name: 'password',
       message: 'Enter password for SSH configs zip file',
     }, ({ password }) => (
-      gulp.src(`${DEST_DIR}/ssh`)
+      gulp.src(`${BACKUP_DIR}/ssh`)
         .pipe(run(
-          `cd ${DEST_DIR} && \
+          `cd ${BACKUP_DIR} && \
           zip -P ${password} -0r ssh.zip ssh && \
           rm -rf ssh`,
           { silent: true, verbosity: 0 }
@@ -56,7 +56,7 @@ gulp.task('backup:sublime', () => {
 
   return gulp.src(`${packagesPath}/User/Preferences.sublime-settings`)
     .pipe(file('packages', packages.join('\n')))
-    .pipe(gulp.dest(`${DEST_DIR}/sublime`));
+    .pipe(gulp.dest(`${BACKUP_DIR}/sublime`));
 });
 
 gulp.task('backup:oh-my-zsh', () => {
@@ -66,7 +66,7 @@ gulp.task('backup:oh-my-zsh', () => {
   ].map(wrapHomeDir);
 
   gulp.src(filePaths)
-    .pipe(gulp.dest(`${DEST_DIR}/oh-my-zsh`));
+    .pipe(gulp.dest(`${BACKUP_DIR}/oh-my-zsh`));
 });
 
 gulp.task('backup:vscode', () => {
@@ -76,7 +76,7 @@ gulp.task('backup:vscode', () => {
 
   return gulp.src(settings)
     .pipe(file('extensions', extensions))
-    .pipe(gulp.dest(`${DEST_DIR}/vscode`));
+    .pipe(gulp.dest(`${BACKUP_DIR}/vscode`));
 });
 
 gulp.task('backup', sequence(
