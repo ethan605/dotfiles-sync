@@ -5,7 +5,6 @@ const file = require('gulp-file');
 const prompt = require('gulp-prompt');
 const run = require('gulp-run');
 const sequence = require('gulp-sequence');
-const zip = require('gulp-zip');
 
 // Helpers
 const childProcess = require('child_process');
@@ -15,8 +14,14 @@ const DEST_DIR = './files';
 
 const wrapHomeDir = filename => `${process.env.HOME}/${filename}`;
 
-gulp.task('tst', () => {
-  
+gulp.task('exp', () => {});
+
+gulp.task('backup:brew', () => {
+  const packages = childProcess.execSync('brew list --versions').toString();
+
+  return gulp.src('!dotfiles')
+    .pipe(file('packages', packages))
+    .pipe(gulp.dest(`${DEST_DIR}/brew`));
 });
 
 gulp.task('backup:clean', () => gulp.src(DEST_DIR).pipe(clean()));
@@ -32,8 +37,12 @@ gulp.task('backup:ssh', () => {
       message: 'Enter password for SSH configs zip file',
     }, ({ password }) => (
       gulp.src(`${DEST_DIR}/ssh`)
-        .pipe(run(`cd ${DEST_DIR} && zip -P ${password} -0r ssh.zip ssh`))
-        .pipe(clean())
+        .pipe(run(
+          `cd ${DEST_DIR} && \
+          zip -P ${password} -0r ssh.zip ssh && \
+          rm -rf ssh`,
+          { silent: true, verbosity: 0 }
+        ))
     )));
 });
 
@@ -72,6 +81,7 @@ gulp.task('backup:vscode', () => {
 
 gulp.task('backup', sequence(
   'backup:clean',
+  'backup:brew',
   'backup:oh-my-zsh',
   'backup:sublime',
   'backup:vscode',
