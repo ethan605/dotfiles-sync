@@ -1,0 +1,26 @@
+{
+  "name": "dotfiles",
+  "version": "1.0.0",
+  "description": "Ethan's system files & automated backup-restore scripts",
+  "scripts": {
+    "backup": "gulp backup",
+    "restore": "gulp restore"
+  },
+  "repository": "git+https://github.com/ethan605/dotfiles.git",
+  "keywords": [
+    "dotfiles",
+    "automation",
+    "scripts",
+    "gulp"
+  ],
+  "author": "ethan605",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ethan605/dotfiles/issues"
+  },
+  "homepage": "https://github.com/ethan605/dotfiles#readme",
+  "main": "index.js",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
