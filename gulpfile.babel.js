@@ -1,14 +1,14 @@
 // Gulp modules
-const gulp = require('gulp');
-const clean = require('gulp-clean');
-const file = require('gulp-file');
-const prompt = require('gulp-prompt');
-const run = require('gulp-run');
-const sequence = require('gulp-sequence');
+import gulp from 'gulp';
+import clean from 'gulp-clean';
+import file from 'gulp-file';
+import prompt from 'gulp-prompt';
+import run from 'gulp-run';
+import sequence from 'gulp-sequence';
 
 // Helpers
-const childProcess = require('child_process');
-const fs = require('fs');
+import childProcess from 'child_process';
+import fs from 'fs';
 
 const BACKUP_DIR = './backup';
 
@@ -87,5 +87,5 @@ gulp.task('backup', sequence(
     'backup:sublime',
     'backup:vscode',
   ],
-  'backup:ssh',
+  'backup:ssh'
 ));
