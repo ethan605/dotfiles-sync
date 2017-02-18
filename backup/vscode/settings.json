@@ -8,5 +8,6 @@
       100
     ],
     "editor.renderIndentGuides": true,
-    "workbench.welcome.enabled": false
+    "workbench.welcome.enabled": false,
+    "java.errors.incompleteClasspath.severity": "ignore"
   }

@@ -12,9 +12,37 @@ import fs from 'fs';
 
 const BACKUP_DIR = './backup';
 
-const wrapHomeDir = filename => `${process.env.HOME}/${filename}`;
+const PASSWORD_PROMPT_SOURCES = [
+  {
+    path: wrapHomeDir('.gradle/gradle.properties'),
+    moduleName: 'gradle',
+  },
+  {
+    path: wrapHomeDir('.ssh/*'),
+    moduleName: 'ssh',
+  },
+];
+
+function wrapHomeDir(filename, excluded = false) {
+  return `${excluded ? '!' : ''}${process.env.HOME}/${filename}`;
+}
+
+function passwordPromptHandler(passwords) {
+  PASSWORD_PROMPT_SOURCES.forEach(({ moduleName }) => {
+    const { [`${moduleName}Password`]: password } = passwords;
+    gulp.src(`${BACKUP_DIR}/${moduleName}`)
+      .pipe(run(
+        `cd ${BACKUP_DIR} && \
+        zip -P ${password} -0r ${moduleName}.zip ${moduleName} && \
+        rm -rf ${moduleName}`,
+        { silent: true, verbosity: 0 }
+      ));
+  });
+}
 
 gulp.task('exp', () => {});
+
+gulp.task('backup:cleanup', () => gulp.src(BACKUP_DIR).pipe(clean()));
 
 gulp.task('backup:brew', () => {
   const packages = childProcess.execSync('brew list --versions').toString();
@@ -22,28 +50,6 @@ gulp.task('backup:brew', () => {
   return gulp.src('!dotfiles')
     .pipe(file('packages', packages))
     .pipe(gulp.dest(`${BACKUP_DIR}/brew`));
-});
-
-gulp.task('backup:clean', () => gulp.src(BACKUP_DIR).pipe(clean()));
-
-gulp.task('backup:ssh', () => {
-  const sshPath = wrapHomeDir('.ssh/*');
-
-  gulp.src(sshPath)
-    .pipe(gulp.dest(`${BACKUP_DIR}/ssh`))
-    .pipe(prompt.prompt({
-      type: 'password',
-      name: 'password',
-      message: 'Enter password for SSH configs zip file',
-    }, ({ password }) => (
-      gulp.src(`${BACKUP_DIR}/ssh`)
-        .pipe(run(
-          `cd ${BACKUP_DIR} && \
-          zip -P ${password} -0r ssh.zip ssh && \
-          rm -rf ssh`,
-          { silent: true, verbosity: 0 }
-        ))
-    )));
 });
 
 gulp.task('backup:sublime', () => {
@@ -61,9 +67,10 @@ gulp.task('backup:sublime', () => {
 
 gulp.task('backup:oh-my-zsh', () => {
   const filePaths = [
-    '.zshrc',
-    '.oh-my-zsh/custom/**/*',
-  ].map(wrapHomeDir);
+    wrapHomeDir('.zshrc'),
+    wrapHomeDir('.oh-my-zsh/custom/**/*'),
+    wrapHomeDir('.oh-my-zsh/**/*example*', true),
+  ];
 
   gulp.src(filePaths)
     .pipe(gulp.dest(`${BACKUP_DIR}/oh-my-zsh`));
@@ -79,13 +86,35 @@ gulp.task('backup:vscode', () => {
     .pipe(gulp.dest(`${BACKUP_DIR}/vscode`));
 });
 
+gulp.task('backup:password-prompt:prepare', () => (
+  PASSWORD_PROMPT_SOURCES.forEach(({ path, moduleName }) =>
+    gulp.src(path).pipe(gulp.dest(`${BACKUP_DIR}/${moduleName}`))
+  )
+));
+
+gulp.task('backup:password-prompt:prompt', () => {
+  const prompts = PASSWORD_PROMPT_SOURCES.map(({ moduleName }) => ({
+    message: `Enter password for ${moduleName} zip file`,
+    name: `${moduleName}Password`,
+    type: 'password',
+  }));
+
+  gulp.src('.')
+    .pipe(prompt.prompt(prompts, passwordPromptHandler));
+});
+
+gulp.task('backup:password-prompt', sequence(
+  'backup:password-prompt:prepare',
+  'backup:password-prompt:prompt'
+));
+
 gulp.task('backup', sequence(
-  'backup:clean',
+  'backup:cleanup',
   [
     'backup:brew',
     'backup:oh-my-zsh',
     'backup:sublime',
     'backup:vscode',
   ],
-  'backup:ssh'
+  'backup:password-prompt'
 ));
