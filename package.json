@@ -6,7 +6,7 @@
     "backup": "gulp backup",
     "restore": "gulp restore"
   },
-  "repository": "git+https://github.com/ethan605/dotfiles.git",
+  "repository": "git://github.com/ethan605/dotfiles.git",
   "keywords": [
     "dotfiles",
     "automation",
