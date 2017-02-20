@@ -49,3 +49,5 @@ alias rndev="adb shell input keyevent 82"
 
 alias checkswap="ls -la /private/var/vm/swapfile*"
 alias cleanswap="sudo rm -rf /private/var/vm/swapfile*"
+
+alias auth-ssh="ssh-add /Users/ethanify/.ssh/*_rsa"

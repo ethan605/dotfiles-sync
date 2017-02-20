@@ -10,6 +10,8 @@ libtool 2.4.6_1
 libyaml 0.1.7
 node 7.5.0
 openssl 1.0.2k
+pcre 8.39
 pkg-config 0.29.1_2
 readline 7.0.1
+watchman 4.7.0
 yarn 0.20.3
