@@ -10,5 +10,10 @@
     "editor.renderIndentGuides": true,
     "workbench.welcome.enabled": false,
     "java.errors.incompleteClasspath.severity": "ignore",
-    "git.confirmSync": false
+    "git.confirmSync": false,
+    "search.exclude": {
+      "**/node_modules": false,
+      "**/bower_components": true
+    },
+    "editor.wordWrap": true
   }
