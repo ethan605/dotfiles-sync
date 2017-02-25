@@ -52,6 +52,11 @@ gulp.task('backup:brew', () => {
     .pipe(gulp.dest(`${BACKUP_DIR}/brew`));
 });
 
+gulp.task('backup:neovim', () => (
+  gulp.src(wrapHomeDir('.config/nvim/init.vim'))
+    .pipe(gulp.dest(`${BACKUP_DIR}/neovim`))
+));
+
 gulp.task('backup:sublime', () => {
   const packagesPath = wrapHomeDir('Library/Application Support/Sublime Text 3/Packages');
   
@@ -112,6 +117,7 @@ gulp.task('backup', sequence(
   'backup:cleanup',
   [
     'backup:brew',
+    'backup:neovim',
     'backup:oh-my-zsh',
     'backup:sublime',
     'backup:vscode',
