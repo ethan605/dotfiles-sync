@@ -9,6 +9,7 @@ import sequence from 'gulp-sequence';
 
 // Helpers
 import fs from 'fs';
+import _ from 'lodash';
 import { readCommandOutputs, wrapHomeDir } from '../helpers';
 
 const BACKUP_DIR = './backup';
@@ -46,12 +47,8 @@ gulp.task('backup:neovim', () => (
 ));
 
 gulp.task('backup:sublime', () => {
-  const packagesPath = wrapHomeDir(SUBLIME_PACKAGES_PATH);
-  
-  const packages = fs.readdirSync(packagesPath).filter(file =>
-    fs.statSync(`${packagesPath}/${file}`).isDirectory() &&
-    file !== 'User' // exclude User from packages
-  );
+  const packages = fs.readdirSync(wrapHomeDir(SUBLIME_PACKAGES_PATH));
+  _.remove(packages, filename => (filename === '.DS_Store' || filename === 'User'));
 
   return gulp.src(wrapHomeDir(SUBLIME_SETTINGS_PATH))
     .pipe(file('packages', packages.join('\n')))
