@@ -1,8 +1,9 @@
 # Add RVM to PATH for scripting
-# export JAVA_HOME=$(/usr/libexec/java_home)
+export JAVA_HOME=$(/usr/libexec/java_home)
 export ANDROID_HOME=/Users/ethanify/Library/Android/sdk
 export TOOLCHAINS=swift
-export HOMEBREW_GITHUB_API_TOKEN="84d7958a86fe20cad06a042e27d249bfea8da5d4"
+export HOMEBREW_GITHUB_API_TOKEN=""
+export JEKYLL_GITHUB_TOKEN=""
 PATH=$HOME/.rvm/bin:$ANDROID_HOME:/usr/local/sbin:/usr/local/bin:/usr/local/heroku/bin:~/Library/Android/sdk/platform-tools:$PATH
 export PATH
 
