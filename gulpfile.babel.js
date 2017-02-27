@@ -27,19 +27,6 @@ function wrapHomeDir(filename, excluded = false) {
   return `${excluded ? '!' : ''}${process.env.HOME}/${filename}`;
 }
 
-function passwordPromptHandler(passwords) {
-  PASSWORD_PROMPT_SOURCES.forEach(({ moduleName }) => {
-    const { [`${moduleName}Password`]: password } = passwords;
-    gulp.src(`${BACKUP_DIR}/${moduleName}`)
-      .pipe(run(
-        `cd ${BACKUP_DIR} && \
-        zip -P ${password} -0r ${moduleName}.zip ${moduleName} && \
-        rm -rf ${moduleName}`,
-        { silent: true, verbosity: 0 }
-      ));
-  });
-}
-
 gulp.task('exp', () => {});
 
 gulp.task('backup:cleanup', () => gulp.src(BACKUP_DIR).pipe(clean()));
@@ -98,14 +85,25 @@ gulp.task('backup:password-prompt:prepare', () => (
 ));
 
 gulp.task('backup:password-prompt:prompt', () => {
-  const prompts = PASSWORD_PROMPT_SOURCES.map(({ moduleName }) => ({
-    message: `Enter password for ${moduleName} zip file`,
-    name: `${moduleName}Password`,
+  const promptConfigs = {
+    message: 'Enter password for zip files',
+    name: 'password',
     type: 'password',
-  }));
+  };
 
-  gulp.src('.')
-    .pipe(prompt.prompt(prompts, passwordPromptHandler));
+  const promptHandler = ({ password }) => (
+    PASSWORD_PROMPT_SOURCES.forEach(({ moduleName }) => {
+      gulp.src(`${BACKUP_DIR}/${moduleName}`)
+        .pipe(run(
+          `cd ${BACKUP_DIR} && \
+          zip -P ${password} -0r ${moduleName}.zip ${moduleName} && \
+          rm -rf ${moduleName}`,
+          { silent: true, verbosity: 0 }
+        ));
+    })
+  );
+
+  gulp.src('.').pipe(prompt.prompt(promptConfigs, promptHandler));
 });
 
 gulp.task('backup:password-prompt', sequence(

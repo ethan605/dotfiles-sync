@@ -19,7 +19,7 @@ node 7.6.0
 openssl 1.0.2k
 pcre 8.39
 pkg-config 0.29.1_2
-readline 7.0.1
+readline 7.0.3
 unibilium 1.2.0
 watchman 4.7.0
 yarn 0.20.3
