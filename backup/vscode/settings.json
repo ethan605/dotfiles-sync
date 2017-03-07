@@ -3,10 +3,7 @@
     "editor.fontSize": 14,
     "editor.fontFamily": "Hack",
     "editor.tabSize": 2,
-    "editor.wrappingColumn": 100,
-    "editor.rulers": [
-      100
-    ],
+    "editor.rulers": [100],
     "editor.renderIndentGuides": true,
     "workbench.welcome.enabled": false,
     "java.errors.incompleteClasspath.severity": "ignore",
@@ -15,5 +12,9 @@
       "**/node_modules": false,
       "**/bower_components": true
     },
-    "editor.wordWrap": true
+    "editor.wordWrap": "wordWrapColumn",
+    "workbench.colorTheme": "Behave",
+    "editor.selectionHighlight": false,
+    "editor.wordWrapColumn": 100,
+    "workbench.iconTheme": "vscode-great-icons"
   }
