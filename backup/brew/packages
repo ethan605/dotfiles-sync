@@ -15,7 +15,7 @@ libvterm 681
 libyaml 0.1.7
 msgpack 2.1.1
 neovim 0.1.7
-node 7.7.3
+node 7.7.4
 openssl 1.0.2k
 pcre 8.40
 pkg-config 0.29.1_2

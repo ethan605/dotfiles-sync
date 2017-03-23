@@ -52,3 +52,5 @@ alias checkswap="ls -la /private/var/vm/swapfile*"
 alias cleanswap="sudo rm -rf /private/var/vm/swapfile*"
 
 alias auth-ssh="ssh-add /Users/ethanify/.ssh/*_rsa"
+alias policy.on="sudo spctl --master-enable"
+alias policy.off="sudo spctl --master-disable"
