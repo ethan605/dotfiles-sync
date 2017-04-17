@@ -17,6 +17,6 @@
     "editor.selectionHighlight": false,
     "editor.wordWrapColumn": 100,
     "workbench.iconTheme": "file-icons",
-    "todohighlight.isEnable": false,
-    "window.zoomLevel": 0
+    "window.zoomLevel": 0,
+    "javascript.validate.enable": false
   }

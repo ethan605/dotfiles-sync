@@ -4,7 +4,7 @@ export ANDROID_HOME=/Users/ethanify/Library/Android/sdk
 export TOOLCHAINS=swift
 export HOMEBREW_GITHUB_API_TOKEN=""
 export JEKYLL_GITHUB_TOKEN=""
-PATH=$JAVA_HOME:$HOME/.rvm/bin:$ANDROID_HOME:/usr/local/sbin:/usr/local/bin:/usr/local/heroku/bin:~/Library/Android/sdk/platform-tools:$PATH
+PATH=$JAVA_HOME:$HOME/.rvm/bin:$ANDROID_HOME:/usr/local/sbin:/usr/local/bin:/usr/local/heroku/bin:~/Library/Android/sdk/platform-tools:./node_modules/.bin:$PATH
 export PATH
 
 export LANG="en_US.UTF-8"

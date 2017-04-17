@@ -1,7 +1,7 @@
 autoconf 2.69
 automake 1.15
 axel 2.12
-cmake 3.7.2
+cmake 3.8.0
 coreutils 8.27
 gettext 0.19.8.1
 icu4c 58.2
@@ -15,11 +15,11 @@ libvterm 681
 libyaml 0.1.7
 msgpack 2.1.1
 neovim 0.1.7
-node 7.7.4
+node 7.9.0
 openssl 1.0.2k
 pcre 8.40
-pkg-config 0.29.1_2
+pkg-config 0.29.2
 readline 7.0.3_1
 unibilium 1.2.0
 watchman 4.7.0
-yarn 0.21.3
+yarn 0.23.2
