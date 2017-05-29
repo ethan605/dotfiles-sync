@@ -1,4 +1,5 @@
 EQuimper.react-native-react-redux
+Tyriar.sort-lines
 balmor.behave
 cdsama.shell-snippets
 christian-kohler.path-intellisense
@@ -8,13 +9,9 @@ donjayamanne.python
 eg2.tslint
 emmanuelbeziat.vscode-great-icons
 eriklynd.json-tools
-esbenp.prettier-vscode
 fallenwood.vimL
 file-icons.file-icons
-flowtype.flow-for-vscode
-formulahendry.auto-close-tag
 formulahendry.auto-rename-tag
-gcazaciuc.vscode-flow-ide
 ginfuru.vscode-jekyll-snippets
 infeng.vscode-react-typescript
 joelday.docthis
@@ -23,8 +20,10 @@ mitaki28.vscode-clang
 ms-vscode.sublime-keybindings
 naumovs.color-highlight
 neilding.language-liquid
+peterjuras.sort-imports
 rebornix.Ruby
 redhat.java
+richie5um2.vscode-sort-json
 robertohuertasm.vscode-icons
 tomoki1207.vscode-gfm-preview
 vsmobile.vscode-react-native

@@ -8,6 +8,7 @@ PATH=$JAVA_HOME:$HOME/.rvm/bin:$ANDROID_HOME:/usr/local/sbin:/usr/local/bin:/usr
 export PATH
 
 export LANG="en_US.UTF-8"
+export REACT_EDITOR=vscode
 
 # Oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh

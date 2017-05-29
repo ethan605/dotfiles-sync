@@ -1,22 +1,28 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "editor.fontSize": 14,
-    "editor.fontFamily": "Hack",
-    "editor.tabSize": 2,
-    "editor.rulers": [100],
-    "editor.renderIndentGuides": true,
-    "workbench.welcome.enabled": false,
-    "java.errors.incompleteClasspath.severity": "ignore",
-    "git.confirmSync": false,
-    "search.exclude": {
-      "**/node_modules": false,
-      "**/bower_components": true
-    },
-    "editor.wordWrap": "wordWrapColumn",
-    "workbench.colorTheme": "Behave",
-    "editor.selectionHighlight": false,
-    "editor.wordWrapColumn": 100,
-    "workbench.iconTheme": "file-icons",
-    "window.zoomLevel": 0,
-    "javascript.validate.enable": false
-  }
+  "color-highlight.markerType": "underline",
+  "editor.fontFamily": "Hack",
+  "editor.fontSize": 14,
+  "editor.renderIndentGuides": true,
+  "editor.rulers": [
+    100
+  ],
+  "editor.selectionHighlight": false,
+  "editor.snippetSuggestions": "top",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 100,
+  "git.confirmSync": false,
+  "java.errors.incompleteClasspath.severity": "ignore",
+  "javascript.validate.enable": false,
+  "search.exclude": {
+    "**/bower_components": true,
+    "**/node_modules": false
+  },
+  "window.nativeTabs": false,
+  "window.zoomLevel": 0,
+  "workbench.colorTheme": "Behave",
+  "workbench.iconTheme": "file-icons",
+  "workbench.welcome.enabled": false,
+  "sortImports.onSave": false
+}
