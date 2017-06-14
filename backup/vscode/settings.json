@@ -23,5 +23,6 @@
   "window.zoomLevel": 0,
   "workbench.colorTheme": "Behave",
   "workbench.iconTheme": "file-icons",
-  "workbench.welcome.enabled": false
+  "workbench.welcome.enabled": false,
+  "typescript.check.tscVersion": false
 }

@@ -8,7 +8,7 @@ icu4c 58.2
 jemalloc 4.5.0
 libgpg-error 1.27
 libksba 1.3.5
-libtermkey 0.19
+libtermkey 0.20
 libtool 2.4.6_1
 libuv 1.12.0
 libvterm 681
