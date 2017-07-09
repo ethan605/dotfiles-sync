@@ -22,7 +22,7 @@ POWERLINE_RIGHT_A=""
 POWERLINE_RIGHT_B="mixed"
 POWERLINE_SHOW_GIT_ON_RIGHT="true"
 
-plugins=(git osx)
+plugins=(git osx zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
