@@ -23,5 +23,6 @@
   "window.zoomLevel": 0,
   "workbench.colorTheme": "Behave",
   "workbench.iconTheme": "file-icons",
-  "typescript.tsdk": "/usr/local/lib/node_modules/typescript/lib"
+  "typescript.tsdk": "/usr/local/lib/node_modules/typescript/lib",
+  "workbench.startupEditor": "newUntitledFile"
 }
