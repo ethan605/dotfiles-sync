@@ -46,9 +46,9 @@ alias postgres.trace="tail -f /usr/local/var/postgres/server.log"
 alias dmac="docker-machine"
 alias dcom="docker-compose"
 
-alias uptodate="brew update --verbose && brew upgrade --verbose && brew prune --verbose && upgrade_oh_my_zsh --verbose && brew cleanup --verbose"
+alias uptodate="brew update --verbose && brew upgrade --verbose && brew prune --verbose && brew cleanup --verbose && upgrade_oh_my_zsh --verbose"
 alias rndev="adb shell input keyevent 82"
-alias rnclean="watchman watch-del-all && rm -rf node_modules && rm -fr $TMPDIR/react-* && npm cache clearn --force && yarn cache clean"
+alias rnclean="watchman watch-del-all && rm -rf node_modules && rm -fr $TMPDIR/react-* && npm cache clean --force && yarn cache clean"
 
 alias checkswap="ls -la /private/var/vm/swapfile*"
 alias cleanswap="sudo rm -rf /private/var/vm/swapfile*"
