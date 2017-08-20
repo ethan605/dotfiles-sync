@@ -118,7 +118,7 @@ gulp.task('backup', sequence(
     'backup:brew',
     'backup:neovim',
     'backup:oh-my-zsh',
-    'backup:sublime',
+    // 'backup:sublime',
     'backup:vscode',
   ],
   'backup:password-prompt'
