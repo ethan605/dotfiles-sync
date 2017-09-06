@@ -1,4 +1,3 @@
-// Place your settings in this file to overwrite the default settings
 {
   "color-highlight.markerType": "underline",
   "editor.fontFamily": "Hack",
@@ -12,6 +11,10 @@
   "editor.tabSize": 2,
   "editor.wordWrap": "wordWrapColumn",
   "editor.wordWrapColumn": 100,
+  "files.associations": {
+    "*.js": "javascriptreact",
+    "*.jsx": "javascriptreact"
+  },
   "git.confirmSync": false,
   "java.errors.incompleteClasspath.severity": "ignore",
   "javascript.validate.enable": false,
@@ -19,10 +22,10 @@
     "**/bower_components": true,
     "**/node_modules": false
   },
+  "typescript.tsdk": "/usr/local/lib/node_modules/typescript/lib",
   "window.nativeTabs": false,
   "window.zoomLevel": 0,
   "workbench.colorTheme": "Behave",
   "workbench.iconTheme": "file-icons",
-  "typescript.tsdk": "/usr/local/lib/node_modules/typescript/lib",
   "workbench.startupEditor": "newUntitledFile"
 }

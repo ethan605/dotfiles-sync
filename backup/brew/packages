@@ -2,7 +2,7 @@ autoconf 2.69
 automake 1.15.1
 axel 2.13.1
 cmake 3.9.1
-coreutils 8.27
+coreutils 8.28
 gettext 0.19.8.1
 icu4c 59.1
 jemalloc 5.0.1
@@ -15,6 +15,7 @@ libvterm 681
 libyaml 0.1.7
 msgpack 2.1.5
 neovim 0.2.0_1
+nginx 1.12.1
 node 8.4.0
 openssl 1.0.2l
 openssl@1.1 1.1.0f
@@ -23,6 +24,6 @@ pkg-config 0.29.2
 readline 7.0.3_1
 screenfetch 3.8.0
 tree 1.7.0
-unibilium 1.2.0
+unibilium 1.2.1
 watchman 4.9.0
 yarn 0.27.5_1
