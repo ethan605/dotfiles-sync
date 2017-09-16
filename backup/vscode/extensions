@@ -6,6 +6,7 @@ cdsama.shell-snippets
 christian-kohler.path-intellisense
 dbaeumer.vscode-eslint
 donjayamanne.python
+dsznajder.es7-react-js-snippets
 eg2.vscode-npm-script
 eriklynd.json-tools
 fallenwood.vimL
@@ -25,6 +26,7 @@ neilding.language-liquid
 rebornix.Ruby
 redhat.java
 richie5um2.vscode-sort-json
+shanoor.vscode-nginx
 vsmobile.vscode-react-native
 waderyan.gitblame
 wayou.vscode-todo-highlight

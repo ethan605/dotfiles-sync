@@ -4,13 +4,13 @@
   "editor.fontSize": 14,
   "editor.renderIndentGuides": true,
   "editor.rulers": [
-    100
+    120
   ],
   "editor.selectionHighlight": false,
   "editor.snippetSuggestions": "top",
   "editor.tabSize": 2,
   "editor.wordWrap": "wordWrapColumn",
-  "editor.wordWrapColumn": 100,
+  "editor.wordWrapColumn": 120,
   "files.associations": {
     "*.js": "javascriptreact",
     "*.jsx": "javascriptreact"
