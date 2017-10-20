@@ -26,7 +26,7 @@
   "typescript.tsdk": "/usr/local/lib/node_modules/typescript/lib",
   "window.nativeTabs": false,
   "window.zoomLevel": 0,
-  "workbench.colorTheme": "Behave",
+  "workbench.colorTheme": "Tomorrow Night Operator Mono",
   "workbench.iconTheme": "file-icons",
   "workbench.startupEditor": "newUntitledFile"
 }
