@@ -1,7 +1,8 @@
 {
   "color-highlight.markerType": "underline",
-  "editor.fontFamily": "Hack",
-  "editor.fontSize": 14,
+  "editor.fontFamily": "Operator Mono, Hack, Menlo, Monaco, monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 15,
   "editor.renderIndentGuides": true,
   "editor.rulers": [
     120

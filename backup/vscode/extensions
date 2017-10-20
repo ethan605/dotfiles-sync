@@ -2,6 +2,7 @@ DotJoshJohnson.xml
 Tyriar.sort-lines
 abusaidm.html-snippets
 balmor.behave
+blanu.vscode-styled-jsx
 cdsama.shell-snippets
 christian-kohler.path-intellisense
 dbaeumer.vscode-eslint
@@ -29,6 +30,7 @@ rebornix.Ruby
 redhat.java
 richie5um2.vscode-sort-json
 shanoor.vscode-nginx
+shinnn.stylelint
 vscjava.vscode-java-debug
 vscjava.vscode-java-pack
 vsmobile.vscode-react-native
