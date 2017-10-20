@@ -29,7 +29,7 @@
     "gulp-debug": "^3.1.0",
     "gulp-file": "^0.3.0",
     "gulp-filenames": "^4.0.1",
-    "gulp-prompt": "^0.2.0",
+    "gulp-prompt": "^0.4.1",
     "gulp-replace": "^0.6.1",
     "gulp-run": "^1.7.1",
     "gulp-sequence": "^0.4.6",

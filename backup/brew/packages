@@ -6,7 +6,7 @@ coreutils 8.28_1
 msgpack 2.1.5
 libksba 1.3.5
 unibilium 1.2.1
-heroku 6.14.34
+heroku 6.14.35
 cmake 3.9.4_1
 libuv 1.15.0
 libyaml 0.1.7
@@ -17,7 +17,7 @@ screenfetch 3.8.0
 sqlite 3.20.1
 libgpg-error 1.27
 yarn 1.2.1
-nginx 1.12.1
+nginx 1.12.2
 gettext 0.19.8.1
 watchman 4.9.0
 axel 2.15
