@@ -6,7 +6,7 @@ coreutils 8.28_1
 msgpack 2.1.5
 libksba 1.3.5
 unibilium 1.2.1
-heroku 6.14.35
+heroku 6.14.36
 cmake 3.9.4_1
 libuv 1.15.0
 libyaml 0.1.7
