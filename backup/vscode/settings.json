@@ -14,7 +14,8 @@
   "editor.wordWrapColumn": 120,
   "files.associations": {
     "*.js": "javascriptreact",
-    "*.jsx": "javascriptreact"
+    "*.jsx": "javascriptreact",
+    "*.css": "source.css.styled"
   },
   "git.confirmSync": false,
   "java.errors.incompleteClasspath.severity": "ignore",
@@ -28,5 +29,8 @@
   "window.zoomLevel": 0,
   "workbench.colorTheme": "Tomorrow Night Operator Mono",
   "workbench.iconTheme": "file-icons",
-  "workbench.startupEditor": "newUntitledFile"
+  "workbench.startupEditor": "newUntitledFile",
+  "sublimeTextKeymap.promptV3Features": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.formatOnPaste": true
 }

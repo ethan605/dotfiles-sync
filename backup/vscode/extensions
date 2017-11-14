@@ -1,5 +1,7 @@
 DotJoshJohnson.xml
 HookyQR.beautify
+HookyQR.minify
+Orta.vscode-ios-common-files
 Tyriar.sort-lines
 abusaidm.html-snippets
 balmor.behave
@@ -8,7 +10,6 @@ cdsama.shell-snippets
 chiragpat.tomorrow-and-tomorrow-night-operator-mono-theme
 christian-kohler.path-intellisense
 dbaeumer.vscode-eslint
-donjayamanne.python
 dsznajder.es7-react-js-snippets
 eg2.vscode-npm-script
 eriklynd.json-tools
@@ -23,6 +24,7 @@ joelday.docthis
 jpoissonnier.vscode-styled-components
 leizongmin.node-module-intellisense
 mitaki28.vscode-clang
+ms-python.python
 ms-vscode.cpptools
 ms-vscode.node-debug2
 ms-vscode.sublime-keybindings
@@ -32,6 +34,7 @@ rebornix.Ruby
 redhat.java
 richie5um2.vscode-sort-json
 shanoor.vscode-nginx
+shd101wyy.markdown-preview-enhanced
 shinnn.stylelint
 vscjava.vscode-java-debug
 vscjava.vscode-java-pack
