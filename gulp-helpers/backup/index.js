@@ -7,6 +7,7 @@ import sequence from 'gulp-sequence';
 import { BACKUP_DIR } from '../constants';
 
 import './brew';
+import './karabiner';
 import './neovim';
 import './oh-my-zsh';
 import './password-protect';
