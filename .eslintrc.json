@@ -192,7 +192,7 @@
     ],
     "max-len": [
       "warn",
-      100
+      120
     ],
     "comma-style": [
       "error",
