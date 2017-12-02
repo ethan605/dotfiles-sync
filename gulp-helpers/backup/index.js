@@ -20,6 +20,7 @@ gulp.task('backup', sequence(
   'backup:cleanup',
   [
     'backup:brew',
+    'backup:karabiner',
     'backup:neovim',
     'backup:oh-my-zsh',
     'backup:vscode',
