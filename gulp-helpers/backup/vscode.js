@@ -6,7 +6,10 @@ import file from 'gulp-file';
 import { readCommandOutputs, wrapHomeDir } from '../helpers';
 
 // Constants
-import { BACKUP_DIR, VSCODE_COMMAND, VSCODE_SETTINGS_PATH } from '../constants';
+import { BACKUP_DIR } from '../constants';
+
+const VSCODE_COMMAND = '"/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"';
+const VSCODE_SETTINGS_PATH = 'Library/Application Support/Code/User/settings.json';
 
 gulp.task('backup:vscode', () => {
   const extensions = readCommandOutputs(`${VSCODE_COMMAND} --list-extensions`).toString();

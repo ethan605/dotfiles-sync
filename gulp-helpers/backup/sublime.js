@@ -8,7 +8,10 @@ import _ from 'lodash';
 import { wrapHomeDir } from '../helpers';
 
 // Constants
-import { BACKUP_DIR, SUBLIME_PACKAGES_PATH, SUBLIME_SETTINGS_PATH } from '../constants';
+import { BACKUP_DIR } from '../constants';
+
+const SUBLIME_PACKAGES_PATH = 'Library/Application Support/Sublime Text 3/Packages';
+const SUBLIME_SETTINGS_PATH = `${SUBLIME_PACKAGES_PATH}/User/Preferences.sublime-settings`;
 
 gulp.task('backup:sublime', () => {
   const packages = fs.readdirSync(wrapHomeDir(SUBLIME_PACKAGES_PATH));
