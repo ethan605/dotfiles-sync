@@ -4,7 +4,16 @@ export ANDROID_HOME=/Users/ethanify/Library/Android/sdk
 export TOOLCHAINS=swift
 export HOMEBREW_GITHUB_API_TOKEN=""
 export JEKYLL_GITHUB_TOKEN=""
-PATH=$JAVA_HOME:$HOME/.rvm/bin:$ANDROID_HOME:/usr/local/sbin:/usr/local/bin:/usr/local/heroku/bin:~/Library/Android/sdk/platform-tools:./node_modules/.bin:$PATH
+
+PATH=$JAVA_HOME:$PATH
+PATH=$HOME/.rvm/bin:$PATH
+PATH=$ANDROID_HOME:$PATH
+PATH=/usr/local/sbin:$PATH
+PATH=/usr/local/bin:$PATH
+PATH=/usr/local/heroku/bin:$PATH
+PATH=~/Library/Android/sdk/platform-tools:$PATH
+PATH=./node_modules/.bin:$PATH
+PATH=/usr/local/share/dotnet:$PATH
 export PATH
 
 export LANG="en_US.UTF-8"
@@ -15,16 +24,17 @@ ZSH=$HOME/.oh-my-zsh
 
 # Powerline theme
 # Look in ~/.oh-my-zsh/custom/themes/
-ZSH_THEME="powerline"
-POWERLINE_HIDE_HOST_NAME="true"
-POWERLINE_PATH="short"
-POWERLINE_RIGHT_A=""
-POWERLINE_RIGHT_B="mixed"
-POWERLINE_SHOW_GIT_ON_RIGHT="true"
-
+# ZSH_THEME="powerline"
+# POWERLINE_HIDE_HOST_NAME="true"
+# POWERLINE_PATH="short"
+# POWERLINE_RIGHT_A=""
+# POWERLINE_RIGHT_B="mixed"
+# POWERLINE_SHOW_GIT_ON_RIGHT="true"
 plugins=(git osx zsh-autosuggestions)
-
 source $ZSH/oh-my-zsh.sh
+
+autoload -U promptinit; promptinit
+prompt pure
 
 alias auth-ssh="ssh-add /Users/ethanify/.ssh/*_rsa"
 

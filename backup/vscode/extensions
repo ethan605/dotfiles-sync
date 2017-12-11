@@ -11,6 +11,7 @@ chiragpat.tomorrow-and-tomorrow-night-operator-mono-theme
 christian-kohler.path-intellisense
 dbaeumer.vscode-eslint
 dsznajder.es7-react-js-snippets
+eg2.tslint
 eg2.vscode-npm-script
 eriklynd.json-tools
 fallenwood.vimL
@@ -20,6 +21,7 @@ formulahendry.auto-close-tag
 formulahendry.auto-rename-tag
 ginfuru.ginfuru-vscode-jekyll-syntax
 ginfuru.vscode-jekyll-snippets
+gozala.flow-language-mode
 joelday.docthis
 jpoissonnier.vscode-styled-components
 lXSPandora.vscode-styled-components-snippets
@@ -27,6 +29,7 @@ leizongmin.node-module-intellisense
 mitaki28.vscode-clang
 ms-python.python
 ms-vscode.cpptools
+ms-vscode.csharp
 ms-vscode.node-debug2
 ms-vscode.sublime-keybindings
 naumovs.color-highlight

@@ -1,8 +1,11 @@
 {
   "color-highlight.markerType": "underline",
+  "csharp.suppressDotnetInstallWarning": true,
   "editor.fontFamily": "Operator Mono, Hack, Menlo, Monaco, monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 15,
+  "editor.formatOnPaste": true,
+  "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderIndentGuides": true,
   "editor.rulers": [
     120
@@ -13,9 +16,9 @@
   "editor.wordWrap": "wordWrapColumn",
   "editor.wordWrapColumn": 120,
   "files.associations": {
+    "*.css": "source.css.styled",
     "*.js": "javascriptreact",
-    "*.jsx": "javascriptreact",
-    "*.css": "source.css.styled"
+    "*.jsx": "javascriptreact"
   },
   "git.confirmSync": false,
   "java.errors.incompleteClasspath.severity": "ignore",
@@ -24,13 +27,11 @@
     "**/bower_components": true,
     "**/node_modules": false
   },
-  "typescript.tsdk": "/usr/local/lib/node_modules/typescript/lib",
+  "sublimeTextKeymap.promptV3Features": true,
   "window.nativeTabs": false,
   "window.zoomLevel": 0,
   "workbench.colorTheme": "Tomorrow Night Operator Mono",
   "workbench.iconTheme": "file-icons",
   "workbench.startupEditor": "newUntitledFile",
-  "sublimeTextKeymap.promptV3Features": true,
-  "editor.multiCursorModifier": "ctrlCmd",
-  "editor.formatOnPaste": true
+  "[javascriptreact]": {}
 }
