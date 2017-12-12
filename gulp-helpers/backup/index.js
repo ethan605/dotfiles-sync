@@ -7,6 +7,7 @@ import sequence from 'gulp-sequence';
 import { BACKUP_DIR } from '../constants';
 
 import './brew';
+import './hyper';
 import './karabiner';
 import './neovim';
 import './oh-my-zsh';
@@ -20,6 +21,7 @@ gulp.task('backup', sequence(
   'backup:cleanup',
   [
     'backup:brew',
+    'backup:hyper',
     'backup:karabiner',
     'backup:neovim',
     'backup:oh-my-zsh',

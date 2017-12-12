@@ -30,10 +30,11 @@ ZSH=$HOME/.oh-my-zsh
 # POWERLINE_RIGHT_A=""
 # POWERLINE_RIGHT_B="mixed"
 # POWERLINE_SHOW_GIT_ON_RIGHT="true"
-plugins=(git osx zsh-autosuggestions)
+plugins=(git osx zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 autoload -U promptinit; promptinit
+PURE_PROMPT_SYMBOL="λ"
 prompt pure
 
 alias auth-ssh="ssh-add /Users/ethanify/.ssh/*_rsa"
