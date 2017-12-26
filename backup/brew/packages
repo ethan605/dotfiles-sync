@@ -5,7 +5,7 @@ cmake 3.10.1
 coreutils 8.28_1
 gdbm 1.13
 gettext 0.19.8.1
-heroku 6.14.42
+heroku 6.14.43
 icu4c 60.2
 jemalloc 5.0.1
 libgpg-error 1.27
