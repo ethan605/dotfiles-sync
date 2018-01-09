@@ -2,10 +2,10 @@ autoconf 2.69
 automake 1.15.1
 axel 2.15
 cmake 3.10.1
-coreutils 8.28_1
-gdbm 1.13
+coreutils 8.29
+gdbm 1.14.1_1
 gettext 0.19.8.1
-heroku 6.14.43
+heroku 6.15.11
 icu4c 60.2
 jemalloc 5.0.1
 libgpg-error 1.27
@@ -24,7 +24,7 @@ openssl 1.0.2n
 openssl@1.1 1.1.0g
 pcre 8.41
 pkg-config 0.29.2
-python3 3.6.4
+python3 3.6.4_2
 readline 7.0.3_1
 screenfetch 3.8.0
 sqlite 3.21.0

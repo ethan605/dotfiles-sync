@@ -1,4 +1,6 @@
-# Add RVM to PATH for scripting
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 export JAVA_HOME=$(/usr/libexec/java_home)
 export ANDROID_HOME=/Users/ethanify/Library/Android/sdk
 export TOOLCHAINS=swift
@@ -16,7 +18,6 @@ PATH=./node_modules/.bin:$PATH
 PATH=/usr/local/share/dotnet:$PATH
 export PATH
 
-export LANG="en_US.UTF-8"
 export REACT_EDITOR=code
 
 # Oh-my-zsh configuration.
