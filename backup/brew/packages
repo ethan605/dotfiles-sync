@@ -5,7 +5,7 @@ cmake 3.10.1
 coreutils 8.29
 gdbm 1.14.1_1
 gettext 0.19.8.1
-heroku 6.15.11
+heroku 6.15.13
 icu4c 60.2
 jemalloc 5.0.1
 libgpg-error 1.27
@@ -19,9 +19,9 @@ luajit 2.0.5
 msgpack 2.1.5
 neovim 0.2.2
 nginx 1.12.2_1
-node 9.3.0_1
+node 9.4.0
 openssl 1.0.2n
-openssl@1.1 1.1.0g
+openssl@1.1 1.1.0g_1
 pcre 8.41
 pkg-config 0.29.2
 python3 3.6.4_2

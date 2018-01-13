@@ -62,3 +62,5 @@ alias uptodate="brew update --verbose && brew upgrade --verbose && brew prune --
 
 alias vsc="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code ."
 alias vscode="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
+
+alias adb-screenshot="adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ~/Downloads/Android_screenshot_`date +%Y-%m-%d_%H.%M.%S`.png"

@@ -128,7 +128,8 @@ module.exports = {
     'hyperterm-paste',
     'hyper-no-close',
     'hyperterm-tabs',
-    'hyper-confirm'
+    'hyper-confirm',
+    "hypercwd"
   ],
 
   // in development, you can create a directory under
