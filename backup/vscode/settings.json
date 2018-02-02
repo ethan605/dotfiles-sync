@@ -1,4 +1,5 @@
 {
+  "[javascriptreact]": {},
   "color-highlight.markerType": "underline",
   "csharp.suppressDotnetInstallWarning": true,
   "editor.fontFamily": "Operator Mono, Hack, Menlo, Monaco, monospace",
@@ -23,6 +24,7 @@
   "git.confirmSync": false,
   "java.errors.incompleteClasspath.severity": "ignore",
   "javascript.validate.enable": false,
+  "jest.enableCodeLens": false,
   "search.exclude": {
     "**/bower_components": true,
     "**/node_modules": false
@@ -33,5 +35,5 @@
   "workbench.colorTheme": "Tomorrow Night Operator Mono",
   "workbench.iconTheme": "file-icons",
   "workbench.startupEditor": "newUntitledFile",
-  "[javascriptreact]": {}
+  "jest.autoEnable": false
 }

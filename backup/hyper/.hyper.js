@@ -118,7 +118,6 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     'hyper-match',
-    'hyper-quit',
     'hyper-search',
     'hyper-snazzy',
     'hyper-statusline',
@@ -127,7 +126,6 @@ module.exports = {
     'hyperterm-dibdabs',
     'hyperterm-paste',
     'hyper-no-close',
-    'hyperterm-tabs',
     'hyper-confirm',
     "hypercwd"
   ],
