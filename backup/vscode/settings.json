@@ -35,5 +35,7 @@
   "workbench.colorTheme": "Tomorrow Night Operator Mono",
   "workbench.iconTheme": "file-icons",
   "workbench.startupEditor": "newUntitledFile",
-  "jest.autoEnable": false
+  "jest.autoEnable": false,
+  "jest.enableSnapshotUpdateMessages": false,
+  "jest.enableSnapshotPreviews": false
 }
