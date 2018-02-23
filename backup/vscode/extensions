@@ -41,6 +41,8 @@ shd101wyy.markdown-preview-enhanced
 shinnn.stylelint
 vscjava.vscode-java-debug
 vscjava.vscode-java-pack
+vscjava.vscode-java-test
+vscjava.vscode-maven
 vsmobile.vscode-react-native
 waderyan.gitblame
 wayou.vscode-todo-highlight
