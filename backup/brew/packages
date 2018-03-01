@@ -1,6 +1,6 @@
 applesimutils HEAD-90855d1
 autoconf 2.69
-automake 1.15.1
+automake 1.16
 axel 2.15
 cmake 3.10.2
 coreutils 8.29
@@ -20,7 +20,7 @@ luajit 2.0.5
 msgpack 2.1.5
 neovim 0.2.2_1
 nginx 1.13.9
-node 9.5.0
+node 9.6.1
 openssl 1.0.2n
 openssl@1.1 1.1.0g_1
 pcre 8.41
@@ -33,4 +33,4 @@ tree 1.7.0
 unibilium 2.0.0
 watchman 4.9.0
 xz 5.2.3
-yarn 1.3.2
+yarn 1.5.1
