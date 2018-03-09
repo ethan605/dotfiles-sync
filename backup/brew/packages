@@ -6,7 +6,7 @@ cmake 3.10.2
 coreutils 8.29
 gdbm 1.14.1_1
 gettext 0.19.8.1
-heroku 6.15.26
+heroku 6.15.31
 icu4c 60.2
 jemalloc 5.0.1
 libgpg-error 1.27
@@ -20,12 +20,12 @@ luajit 2.0.5
 msgpack 2.1.5
 neovim 0.2.2_1
 nginx 1.13.9
-node 9.6.1
+node 9.7.1_1
 openssl 1.0.2n
 openssl@1.1 1.1.0g_1
 pcre 8.41
 pkg-config 0.29.2
-python3 3.6.4_2
+python 3.6.4_3
 readline 7.0.3_1
 screenfetch 3.8.0
 sqlite 3.22.0
@@ -33,4 +33,4 @@ tree 1.7.0
 unibilium 2.0.0
 watchman 4.9.0
 xz 5.2.3
-yarn 1.5.1
+yarn 1.5.1_1
