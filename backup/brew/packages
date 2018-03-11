@@ -20,14 +20,15 @@ luajit 2.0.5
 msgpack 2.1.5
 neovim 0.2.2_1
 nginx 1.13.9
-node 9.7.1_1
+node 9.8.0
 openssl 1.0.2n
 openssl@1.1 1.1.0g_1
 pcre 8.41
 pkg-config 0.29.2
-python 3.6.4_3
+python 3.6.4_4
 readline 7.0.3_1
 screenfetch 3.8.0
+sphinx-doc 1.7.1
 sqlite 3.22.0
 tree 1.7.0
 unibilium 2.0.0
