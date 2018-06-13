@@ -1,6 +1,5 @@
 AndrewRazumovsky.vscode-styled-jsx-languageserver
 DotJoshJohnson.xml
-HookyQR.beautify
 HookyQR.minify
 Orta.vscode-ios-common-files
 Orta.vscode-jest
@@ -23,11 +22,14 @@ formulahendry.auto-rename-tag
 ginfuru.ginfuru-vscode-jekyll-syntax
 ginfuru.vscode-jekyll-snippets
 gozala.flow-language-mode
+HookyQR.beautify
 joelday.docthis
 jpoissonnier.vscode-styled-components
+kumar-harsh.graphql-for-vscode
 lXSPandora.vscode-styled-components-snippets
 leizongmin.node-module-intellisense
 mitaki28.vscode-clang
+mquandalle.graphql
 ms-python.python
 ms-vscode.cpptools
 ms-vscode.csharp
