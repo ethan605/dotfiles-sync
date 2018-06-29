@@ -1,5 +1,4 @@
 AndrewRazumovsky.vscode-styled-jsx-languageserver
-DotJoshJohnson.xml
 HookyQR.minify
 Orta.vscode-ios-common-files
 Orta.vscode-jest
@@ -12,6 +11,7 @@ cdsama.shell-snippets
 chiragpat.tomorrow-and-tomorrow-night-operator-mono-theme
 christian-kohler.path-intellisense
 dbaeumer.vscode-eslint
+DotJoshJohnson.xml
 eg2.tslint
 eg2.vscode-npm-script
 eriklynd.json-tools
