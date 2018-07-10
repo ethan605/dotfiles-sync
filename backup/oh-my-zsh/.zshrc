@@ -7,8 +7,8 @@ export TOOLCHAINS=swift
 export HOMEBREW_GITHUB_API_TOKEN=""
 export JEKYLL_GITHUB_TOKEN=""
 
+PATH=$GEM_HOME/bin:$PATH
 PATH=$JAVA_HOME:$PATH
-PATH=$HOME/.rvm/bin:$PATH
 PATH=$ANDROID_HOME:$PATH
 PATH=/usr/local/sbin:$PATH
 PATH=/usr/local/bin:$PATH
@@ -17,6 +17,13 @@ PATH=~/Library/Android/sdk/platform-tools:$PATH
 PATH=./node_modules/.bin:$PATH
 PATH=/usr/local/share/dotnet:$PATH
 export PATH
+
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# [[ "$APP" = *"/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/"* ]] && {
+#   echo Xcode detected
+#   rvm use system
+# }
 
 export REACT_EDITOR=code
 

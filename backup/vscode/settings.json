@@ -29,7 +29,6 @@
     "**/bower_components": true,
     "**/node_modules": false
   },
-  "sublimeTextKeymap.promptV3Features": true,
   "window.nativeTabs": false,
   "window.zoomLevel": 0,
   "workbench.colorTheme": "Tomorrow Night Operator Mono",
@@ -38,5 +37,7 @@
   "jest.autoEnable": false,
   "jest.enableSnapshotUpdateMessages": false,
   "jest.enableSnapshotPreviews": false,
-  "git.ignoreMissingGitWarning": true
+  "git.ignoreMissingGitWarning": true,
+  "prettier.eslintIntegration": true,
+  "prettier.trailingComma": "es5"
 }
