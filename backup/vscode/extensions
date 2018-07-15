@@ -24,7 +24,6 @@ ginfuru.ginfuru-vscode-jekyll-syntax
 ginfuru.vscode-jekyll-snippets
 gozala.flow-language-mode
 HookyQR.beautify
-joelday.docthis
 jpoissonnier.vscode-styled-components
 kumar-harsh.graphql-for-vscode
 lXSPandora.vscode-styled-components-snippets
@@ -44,6 +43,8 @@ richie5um2.vscode-sort-json
 shanoor.vscode-nginx
 shd101wyy.markdown-preview-enhanced
 shinnn.stylelint
+sidneys1.gitconfig
+stevencl.addDocComments
 vscjava.vscode-java-debug
 vscjava.vscode-java-pack
 vscjava.vscode-java-test

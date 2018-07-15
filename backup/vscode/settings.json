@@ -39,5 +39,6 @@
   "jest.enableSnapshotPreviews": false,
   "git.ignoreMissingGitWarning": true,
   "prettier.eslintIntegration": true,
-  "prettier.trailingComma": "es5"
+  "prettier.trailingComma": "es5",
+  "javascript.updateImportsOnFileMove.enabled": "never"
 }
