@@ -40,5 +40,6 @@
   "git.ignoreMissingGitWarning": true,
   "prettier.eslintIntegration": true,
   "prettier.trailingComma": "es5",
-  "javascript.updateImportsOnFileMove.enabled": "never"
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "eslint.packageManager": "yarn"
 }

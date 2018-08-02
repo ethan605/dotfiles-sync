@@ -1,7 +1,6 @@
 AndrewRazumovsky.vscode-styled-jsx-languageserver
 HookyQR.minify
 Orta.vscode-ios-common-files
-Orta.vscode-jest
 Tyriar.sort-lines
 abusaidm.html-snippets
 balmor.behave
@@ -39,6 +38,7 @@ ms-vscode.node-debug2
 ms-vscode.sublime-keybindings
 naumovs.color-highlight
 neilding.language-liquid
+Orta.vscode-jest
 rebornix.Ruby
 redhat.java
 richie5um2.vscode-sort-json
