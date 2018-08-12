@@ -1,6 +1,5 @@
 AndrewRazumovsky.vscode-styled-jsx-languageserver
 HookyQR.minify
-Orta.vscode-ios-common-files
 Tyriar.sort-lines
 abusaidm.html-snippets
 balmor.behave
@@ -11,6 +10,7 @@ chiragpat.tomorrow-and-tomorrow-night-operator-mono-theme
 christian-kohler.path-intellisense
 dbaeumer.vscode-eslint
 DotJoshJohnson.xml
+EditorConfig.EditorConfig
 eg2.tslint
 eg2.vscode-npm-script
 EQuimper.react-native-react-redux
@@ -38,14 +38,15 @@ ms-vscode.node-debug2
 ms-vscode.sublime-keybindings
 naumovs.color-highlight
 neilding.language-liquid
+Orta.vscode-ios-common-files
 Orta.vscode-jest
-rebornix.Ruby
+rebornix.ruby
 redhat.java
 richie5um2.vscode-sort-json
 shanoor.vscode-nginx
-shd101wyy.markdown-preview-enhanced
 shinnn.stylelint
 sidneys1.gitconfig
+tomoki1207.vscode-gfm-preview
 vscjava.vscode-java-debug
 vscjava.vscode-java-pack
 vscjava.vscode-java-test
@@ -53,4 +54,5 @@ vscjava.vscode-maven
 vsmobile.vscode-react-native
 waderyan.gitblame
 wayou.vscode-todo-highlight
+yzhang.markdown-all-in-one
 zhengxiaoyao0716.intelligence-change-case
