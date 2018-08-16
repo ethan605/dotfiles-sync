@@ -14,6 +14,7 @@ EditorConfig.EditorConfig
 eg2.tslint
 eg2.vscode-npm-script
 EQuimper.react-native-react-redux
+Equinusocio.vsc-material-theme
 eriklynd.json-tools
 esbenp.prettier-vscode
 fallenwood.vimL
@@ -40,9 +41,11 @@ naumovs.color-highlight
 neilding.language-liquid
 Orta.vscode-ios-common-files
 Orta.vscode-jest
+PKief.material-icon-theme
 rebornix.ruby
 redhat.java
 richie5um2.vscode-sort-json
+robertohuertasm.vscode-icons
 shanoor.vscode-nginx
 shinnn.stylelint
 sidneys1.gitconfig

@@ -32,7 +32,6 @@
   "window.nativeTabs": false,
   "window.zoomLevel": 0,
   "workbench.colorTheme": "Tomorrow Night Operator Mono",
-  "workbench.iconTheme": "file-icons",
   "workbench.startupEditor": "newUntitledFile",
   "jest.autoEnable": false,
   "jest.enableSnapshotUpdateMessages": false,
@@ -41,5 +40,7 @@
   "prettier.eslintIntegration": true,
   "prettier.trailingComma": "es5",
   "javascript.updateImportsOnFileMove.enabled": "never",
-  "eslint.packageManager": "yarn"
+  "eslint.packageManager": "yarn",
+  "materialTheme.fixIconsRunning": false,
+  "workbench.iconTheme": "file-icons"
 }
