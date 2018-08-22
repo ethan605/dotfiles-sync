@@ -7,37 +7,26 @@ export TOOLCHAINS=swift
 export HOMEBREW_GITHUB_API_TOKEN=""
 export JEKYLL_GITHUB_TOKEN=""
 
-PATH=$GEM_HOME/bin:$PATH
-PATH=$JAVA_HOME:$PATH
-PATH=$ANDROID_HOME:$PATH
-PATH=/usr/local/sbin:$PATH
-PATH=/usr/local/bin:$PATH
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+PATH=/usr/local/share/dotnet:$PATH
 PATH=/usr/local/heroku/bin:$PATH
+PATH=/usr/local/bin:$PATH
+PATH=/usr/local/sbin:$PATH
 PATH=~/Library/Android/sdk/platform-tools:$PATH
 PATH=./node_modules/.bin:$PATH
-PATH=/usr/local/share/dotnet:$PATH
+PATH=$ANDROID_HOME:$PATH
+PATH=$JAVA_HOME:$PATH
+PATH=$GEM_HOME/bin:$PATH
 export PATH
-
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-# [[ "$APP" = *"/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/"* ]] && {
-#   echo Xcode detected
-#   rvm use system
-# }
 
 export REACT_EDITOR=code
 
 # Oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-# Powerline theme
-# Look in ~/.oh-my-zsh/custom/themes/
-# ZSH_THEME="powerline"
-# POWERLINE_HIDE_HOST_NAME="true"
-# POWERLINE_PATH="short"
-# POWERLINE_RIGHT_A=""
-# POWERLINE_RIGHT_B="mixed"
-# POWERLINE_SHOW_GIT_ON_RIGHT="true"
 plugins=(git osx zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
@@ -65,7 +54,7 @@ alias postgres.trace="tail -f /usr/local/var/postgres/server.log"
 alias rnclean="watchman watch-del-all && rm -rf node_modules && rm -fr $TMPDIR/react-* && npm cache clean --force && yarn cache clean"
 alias rndev="adb shell input keyevent 82"
 
-alias uptodate="brew update --verbose && brew upgrade --verbose && brew prune --verbose && brew cleanup --verbose && upgrade_oh_my_zsh --verbose"
+alias uptodate="brew update --verbose && brew upgrade --verbose && brew prune --verbose && brew cleanup && upgrade_oh_my_zsh --verbose"
 
 alias vsc="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code ."
 alias vscode="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
