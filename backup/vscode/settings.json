@@ -2,7 +2,7 @@
   "[javascriptreact]": {},
   "color-highlight.markerType": "underline",
   "csharp.suppressDotnetInstallWarning": true,
-  "editor.fontFamily": "Operator Mono, Hack, Menlo, Monaco, monospace",
+  "editor.fontFamily": "Operator Mono Lig, Hack, Menlo, Monaco, monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 15,
   "editor.formatOnPaste": true,
@@ -27,7 +27,7 @@
   "jest.enableCodeLens": false,
   "search.exclude": {
     "**/bower_components": true,
-    "**/node_modules": false
+    "**/node_modules": false,
   },
   "window.nativeTabs": false,
   "window.zoomLevel": 0,
@@ -42,5 +42,7 @@
   "javascript.updateImportsOnFileMove.enabled": "never",
   "eslint.packageManager": "yarn",
   "materialTheme.fixIconsRunning": false,
-  "workbench.iconTheme": "file-icons"
+  "workbench.iconTheme": "file-icons",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "diffEditor.ignoreTrimWhitespace": true
 }
