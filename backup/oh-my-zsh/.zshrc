@@ -41,16 +41,12 @@ alias gdf="git diff --color"
 alias gdn="git diff --name-only"
 alias gs="git status"
 
-alias rn-clean="watchman watch-del-all && rm -rf node_modules && rm -fr $TMPDIR/react-* && npm cache clean --force && yarn cache clean"
-alias rn-dev="adb shell input keyevent 82"
+alias rnclean="watchman watch-del-all && rm -rf node_modules && rm -fr $TMPDIR/react-* && npm cache clean --force && yarn cache clean"
+alias rndev="adb shell input keyevent 82"
 
-alias up-to-date="brew update --verbose && brew upgrade --verbose && brew prune --verbose && brew cleanup && upgrade_oh_my_zsh --verbose"
+alias uptodate="brew update --verbose && brew upgrade --verbose && brew prune --verbose && brew cleanup && upgrade_oh_my_zsh --verbose"
 
 alias adb-screenshot="adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ~/Downloads/Android_screenshot_`date +%Y-%m-%d_%H.%M.%S`.png"
-
-alias npmg-check="npm -g outdated"
-alias npmg-list="npm -g list --depth=0"
-alias npmg-upgrade="npm -g upgrade"
 
 alias policy-off="sudo spctl --master-disable"
 alias policy-on="sudo spctl --master-enable"
