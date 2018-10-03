@@ -20,7 +20,7 @@ gdbm 1.18
 gdk-pixbuf 2.38.0
 gdmap 0.8.1_1
 gettext 0.19.8.1
-git 2.19.0_1
+git 2.19.0_2
 glib 2.58.1
 gmp 6.1.2_2
 gnutls 3.5.19
@@ -58,7 +58,7 @@ mpfr 4.0.1
 msgpack 3.1.1
 neovim 0.3.1
 nettle 3.4
-nginx 1.15.4
+nginx 1.15.5
 node 10.11.0
 openssl 1.0.2p
 openssl@1.1 1.1.1
