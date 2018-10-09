@@ -1,4 +1,4 @@
-applesimutils HEAD-90855d1
+applesimutils HEAD-fdc5a3b
 atk 2.30.0
 autoconf 2.69
 automake 1.16.1_1
@@ -8,7 +8,7 @@ avrdude 6.3_1
 axel 2.15
 blueutil 2.1.0
 cairo 1.14.12
-cmake 3.12.2
+cmake 3.12.3
 coreutils 8.30
 dfc 3.1.1
 dfu-programmer 0.7.2
@@ -20,7 +20,7 @@ gdbm 1.18
 gdk-pixbuf 2.38.0
 gdmap 0.8.1_1
 gettext 0.19.8.1
-git 2.19.0_2
+git 2.19.1
 glib 2.58.1
 gmp 6.1.2_2
 gnutls 3.5.19
