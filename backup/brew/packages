@@ -6,7 +6,7 @@ avr-binutils 2.31.1
 avr-gcc@7 7.3.0
 avrdude 6.3_1
 axel 2.15
-blueutil 2.1.0
+blueutil 2.1.0 2.2.0
 cairo 1.14.12
 cmake 3.12.3
 coreutils 8.30
@@ -59,7 +59,7 @@ msgpack 3.1.1
 neovim 0.3.1
 nettle 3.4
 nginx 1.15.5
-node 10.11.0
+node 10.11.0 10.12.0
 openssl 1.0.2p
 openssl@1.1 1.1.1
 p11-kit 0.23.14
@@ -76,6 +76,6 @@ sphinx-doc 1.8.1
 sqlite 3.25.2
 tree 1.7.0
 unibilium 2.0.0
-watchman 4.9.0
+watchman 4.9.0 4.9.0_1
 xz 5.2.4
 yarn 1.10.1
