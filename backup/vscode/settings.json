@@ -19,7 +19,8 @@
   "files.associations": {
     "*.css": "source.css.styled",
     "*.js": "javascriptreact",
-    "*.jsx": "javascriptreact"
+    "*.jsx": "javascriptreact",
+    "*.h": "objective-c"
   },
   "git.confirmSync": false,
   "java.errors.incompleteClasspath.severity": "ignore",
