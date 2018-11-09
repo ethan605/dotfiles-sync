@@ -70,15 +70,15 @@ pcre 8.42
 pcre2 10.32
 pixman 0.34.0_1
 pkg-config 0.29.2
-python 3.7.0 3.7.1
+python 3.7.1
 python@2 2.7.15_1
 readline 7.0.5
 screenfetch 3.8.0
 sphinx-doc 1.8.1
-sqlite 3.25.3 3.25.2
+sqlite 3.25.3
 tree 1.7.0
 unibilium 2.0.0
 watchman 4.9.0_2
 webp 1.0.0
 xz 5.2.4
-yarn 1.12.1
+yarn 1.12.3
