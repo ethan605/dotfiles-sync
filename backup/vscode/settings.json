@@ -45,5 +45,6 @@
   "materialTheme.fixIconsRunning": false,
   "workbench.iconTheme": "file-icons",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "diffEditor.ignoreTrimWhitespace": true
+  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.renderSideBySide": false
 }
