@@ -44,6 +44,7 @@ alias gs="git status"
 alias rnclean="watchman watch-del-all && rm -rf node_modules && rm -fr $TMPDIR/react-* && npm cache clean --force && yarn cache clean"
 alias rndev="adb shell input keyevent 82"
 alias rnfix-ios="cd ./node_modules/react-native && ./scripts/ios-install-third-party.sh && cd ./third-party/glog-0.3.4 && ./configure"
+alias rnlog-android="adb logcat *:S ReactNative:V ReactNativeJS:V"
 
 alias uptodate="brew update --verbose && brew upgrade --verbose && brew prune --verbose && brew cleanup && upgrade_oh_my_zsh --verbose"
 
