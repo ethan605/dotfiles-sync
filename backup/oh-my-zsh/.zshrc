@@ -46,7 +46,7 @@ alias rndev="adb shell input keyevent 82"
 alias rnfix-ios="cd ./node_modules/react-native && ./scripts/ios-install-third-party.sh && cd ./third-party/glog-0.3.4 && ./configure"
 alias rnlog-android="adb logcat *:S ReactNative:V ReactNativeJS:V"
 
-alias uptodate="brew update --verbose && brew upgrade --verbose && brew prune --verbose && brew cleanup && upgrade_oh_my_zsh --verbose"
+alias uptodate="brew update --verbose && brew upgrade --verbose && brew cleanup --prune-prefix && brew cleanup && upgrade_oh_my_zsh --verbose"
 
 alias adb-screenshot="adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ~/Downloads/Android_screenshot_`date +%Y-%m-%d_%H.%M.%S`.png"
 

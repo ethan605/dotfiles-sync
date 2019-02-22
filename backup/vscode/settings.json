@@ -46,5 +46,7 @@
   "workbench.iconTheme": "file-icons",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "diffEditor.ignoreTrimWhitespace": true,
-  "diffEditor.renderSideBySide": false
+  "diffEditor.renderSideBySide": false,
+  "material-icon-theme.showWelcomeMessage": false,
+  "git.autofetch": true
 }
