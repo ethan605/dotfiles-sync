@@ -21,6 +21,7 @@ PATH=$ANDROID_HOME:$PATH
 PATH=$ANDROID_HOME/tools:$PATH
 PATH=$JAVA_HOME:$PATH
 PATH=$GEM_HOME/bin:$PATH
+PATH=~/Library/Python/3.7/bin:$PATH
 export PATH
 
 export REACT_EDITOR=code
@@ -54,3 +55,12 @@ alias policy-off="sudo spctl --master-disable"
 alias policy-on="sudo spctl --master-enable"
 
 alias link-system-node="ln -s $NVM_BIN/node /usr/local/bin/node"
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/ethanify/Documents/Workspaces/Personal/pttv/laso-generator/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/ethanify/Documents/Workspaces/Personal/pttv/laso-generator/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/ethanify/Documents/Workspaces/Personal/pttv/laso-generator/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/ethanify/Documents/Workspaces/Personal/pttv/laso-generator/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/ethanify/Documents/Workspaces/Personal/pttv/laso-generator/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/ethanify/Documents/Workspaces/Personal/pttv/laso-generator/node_modules/tabtab/.completions/slss.zsh

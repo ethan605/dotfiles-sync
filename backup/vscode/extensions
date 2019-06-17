@@ -1,5 +1,4 @@
 AndrewRazumovsky.vscode-styled-jsx-languageserver
-HookyQR.minify
 abusaidm.html-snippets
 balmor.behave
 blanu.vscode-styled-jsx
@@ -26,6 +25,7 @@ ginfuru.vscode-jekyll-snippets
 gozala.flow-language-mode
 GrapeCity.gc-excelviewer
 HookyQR.beautify
+HookyQR.minify
 joelday.docthis
 jpoissonnier.vscode-styled-components
 kumar-harsh.graphql-for-vscode
@@ -40,6 +40,7 @@ ms-vscode.cpptools
 ms-vscode.csharp
 ms-vscode.node-debug2
 ms-vscode.sublime-keybindings
+msjsdiag.vscode-react-native
 naumovs.color-highlight
 neilding.language-liquid
 Orta.vscode-ios-common-files
@@ -48,7 +49,6 @@ PKief.material-icon-theme
 rebornix.ruby
 redhat.java
 richie5um2.vscode-sort-json
-robertohuertasm.vscode-icons
 shanoor.vscode-nginx
 shinnn.stylelint
 sidneys1.gitconfig
@@ -60,7 +60,7 @@ vscjava.vscode-java-dependency
 vscjava.vscode-java-pack
 vscjava.vscode-java-test
 vscjava.vscode-maven
-vsmobile.vscode-react-native
+vscode-icons-team.vscode-icons
 waderyan.gitblame
 wayou.vscode-todo-highlight
 yzhang.markdown-all-in-one

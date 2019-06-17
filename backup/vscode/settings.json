@@ -1,5 +1,7 @@
 {
-  "[javascriptreact]": {},
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "color-highlight.markerType": "underline",
   "csharp.suppressDotnetInstallWarning": true,
   "editor.fontFamily": "Operator Mono Lig, Hack, Menlo, Monaco, monospace",
@@ -20,7 +22,8 @@
     "*.css": "source.css.styled",
     "*.js": "javascriptreact",
     "*.jsx": "javascriptreact",
-    "*.h": "objective-c"
+    "*.h": "objective-c",
+    ".stylelintrc": "json"
   },
   "git.confirmSync": false,
   "java.errors.incompleteClasspath.severity": "ignore",
@@ -48,5 +51,14 @@
   "diffEditor.ignoreTrimWhitespace": true,
   "diffEditor.renderSideBySide": false,
   "material-icon-theme.showWelcomeMessage": false,
-  "git.autofetch": true
+  "git.autofetch": true,
+  "editor.minimap.enabled": true,
+  "editor.renderControlCharacters": true,
+  "breadcrumbs.enabled": false,
+  "editor.renderWhitespace": "none",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
 }
