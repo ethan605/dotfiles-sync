@@ -32,9 +32,9 @@
     "gulp-replace": "^1.0.0",
     "gulp-run": "^1.7.1",
     "gulp-sequence": "^1.0.0",
-    "gulp-shell": "^0.6.3",
+    "gulp-shell": "^0.7.1",
     "gulp-util": "^3.0.8",
-    "gulp-zip": "^4.0.0",
+    "gulp-zip": "^5.0.0",
     "lodash": "^4.17.4",
     "through2": "^3.0.0"
   },
