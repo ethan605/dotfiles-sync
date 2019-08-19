@@ -64,3 +64,5 @@ alias link-system-node="ln -s $NVM_BIN/node /usr/local/bin/node"
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/ethanify/Documents/Workspaces/Personal/pttv/laso-generator/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/ethanify/Documents/Workspaces/Personal/pttv/laso-generator/node_modules/tabtab/.completions/slss.zsh
+
+alias launch-android-emu="cd $ANDROID_HOME/tools && emulator -avd"
