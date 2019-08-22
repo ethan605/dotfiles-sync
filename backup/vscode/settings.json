@@ -23,7 +23,10 @@
     "*.js": "javascriptreact",
     "*.jsx": "javascriptreact",
     "*.h": "objective-c",
-    ".stylelintrc": "json"
+    ".stylelintrc": "json",
+    "*.prisma": "prisma",
+    "*.graphql": "graphql",
+    ".graphqlconfig": "json"
   },
   "git.confirmSync": false,
   "java.errors.incompleteClasspath.severity": "ignore",
@@ -85,5 +88,6 @@
   ],
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "material-icon-theme.folders.theme": "classic"
 }

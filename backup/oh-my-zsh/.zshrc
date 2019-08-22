@@ -47,7 +47,7 @@ alias rndev="adb shell input keyevent 82"
 alias rnfix-ios="cd ./node_modules/react-native && ./scripts/ios-install-third-party.sh && cd ./third-party/glog-0.3.4 && ./configure"
 alias rnlog-android="adb logcat *:S ReactNative:V ReactNativeJS:V"
 
-alias uptodate="brew update --verbose && brew upgrade --verbose && brew cleanup --prune-prefix && brew cleanup && upgrade_oh_my_zsh --verbose"
+alias uptodate="brew update --verbose && brew upgrade --verbose && brew cleanup --prune-prefix && upgrade_oh_my_zsh --verbose"
 
 alias adb-screenshot="adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ~/Downloads/Android_screenshot_`date +%Y-%m-%d_%H.%M.%S`.png"
 
@@ -66,3 +66,5 @@ alias link-system-node="ln -s $NVM_BIN/node /usr/local/bin/node"
 [[ -f /Users/ethanify/Documents/Workspaces/Personal/pttv/laso-generator/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/ethanify/Documents/Workspaces/Personal/pttv/laso-generator/node_modules/tabtab/.completions/slss.zsh
 
 alias launch-android-emu="cd $ANDROID_HOME/tools && emulator -avd"
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
