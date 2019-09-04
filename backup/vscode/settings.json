@@ -24,9 +24,10 @@
     "*.jsx": "javascriptreact",
     "*.h": "objective-c",
     ".stylelintrc": "json",
-    "*.prisma": "prisma",
+    "*.prisma": "graphql",
     "*.graphql": "graphql",
-    ".graphqlconfig": "json"
+    ".graphqlconfig": "json",
+    ".gqlconfig": "json5"
   },
   "git.confirmSync": false,
   "java.errors.incompleteClasspath.severity": "ignore",
@@ -89,5 +90,7 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "material-icon-theme.folders.theme": "classic"
+  "material-icon-theme.folders.theme": "classic",
+  "window.closeWhenEmpty": true,
+  "window.titleBarStyle": "native"
 }
