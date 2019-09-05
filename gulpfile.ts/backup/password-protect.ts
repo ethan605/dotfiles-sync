@@ -1,7 +1,10 @@
 import _ from 'lodash';
 import gulp from 'gulp';
+import clean from 'gulp-clean';
 import { prompt, Question } from 'gulp-prompt';
-import run from 'gulp-run';
+import { exec } from 'child_process';
+import tap from 'gulp-tap';
+import File from 'vinyl';
 
 // Constants
 import { BACKUP_DIR } from '../constants';
@@ -25,31 +28,15 @@ interface PromptResponse {
   passwordConfirm: string;
 }
 
-const validatePasswords = (passwordConfirm: string, { password }: PromptResponse): boolean => {
-  if (password !== passwordConfirm) console.log('Invalid confirmation password!');
-  return password === passwordConfirm;
-};
+const prepareZipFolders = gulp.parallel(
+  _.map(PASSWORD_PROTECTED_SOURCES, ({ path, moduleName }) => {
+    const prepareZipFolder = (): NodeJS.ReadWriteStream => {
+      return gulp.src(path).pipe(gulp.dest(`${BACKUP_DIR}/${moduleName}`));
+    };
 
-const handlePasswordPrompted = ({ password }: PromptResponse): void => {
-  _.each(PASSWORD_PROTECTED_SOURCES, ({ moduleName }) => {
-    gulp.src(`${BACKUP_DIR}/${moduleName}`).pipe(
-      run(
-        `cd ${BACKUP_DIR} && \
-          zip -P ${password} -0r ${moduleName}.zip ${moduleName} && \
-          rm -rf ${moduleName}`,
-        { silent: true, verbosity: 0 }
-      )
-    );
-  });
-};
-
-const prepareZipFolders = (callback: Function): void => {
-  _.each(PASSWORD_PROTECTED_SOURCES, ({ path, moduleName }) =>
-    gulp.src(path).pipe(gulp.dest(`${BACKUP_DIR}/${moduleName}`))
-  );
-
-  callback();
-};
+    return prepareZipFolder;
+  })
+);
 
 const promptPassword = (): NodeJS.ReadWriteStream => {
   const question: Question[] = [
@@ -57,16 +44,29 @@ const promptPassword = (): NodeJS.ReadWriteStream => {
       message: 'Enter password for zip files',
       name: 'password',
       type: 'password',
+      validate: (password: string): boolean => {
+        if (_.isEmpty(password)) console.log('Password must not be empty!');
+        return !_.isEmpty(password);
+      },
     },
     {
       message: 'Confirm password for zip files',
       name: 'passwordConfirm',
       type: 'password',
-      validate: validatePasswords,
+      validate: (passwordConfirm: string, { password }: PromptResponse): boolean => {
+        if (password !== passwordConfirm) console.log('Invalid confirmation password!');
+        return password === passwordConfirm;
+      },
     },
   ];
 
-  return gulp.src('.').pipe(prompt(question, handlePasswordPrompted));
+  let zipPassword = '';
+
+  return gulp
+    .src(_.map(PASSWORD_PROTECTED_SOURCES, ({ moduleName }) => `${BACKUP_DIR}/${moduleName}`))
+    .pipe(prompt(question, ({ password }: PromptResponse): string => (zipPassword = password)))
+    .pipe(tap((file: File) => exec(`cd ${BACKUP_DIR} && zip -P ${zipPassword} -0r ${file.stem}.zip ${file.stem}`)))
+    .pipe(clean());
 };
 
 export default gulp.series(prepareZipFolders, promptPassword);
