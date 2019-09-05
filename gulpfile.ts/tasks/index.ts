@@ -7,12 +7,12 @@ import { BACKUP_DIR } from '../constants';
 
 import brew from './brew';
 import hyper from './hyper';
-import './karabiner';
-import './neovim';
-import './oh-my-zsh';
+import karabiner from './karabiner';
+import neovim from './neovim';
+import ohMyZsh from './oh-my-zsh';
+import sublime from './sublime';
+import vscode from './vscode';
 import './password-protect';
-import './sublime';
-import './vscode';
 
 const cleanUp = (): NodeJS.ReadWriteStream => gulp.src(BACKUP_DIR, { allowEmpty: true }).pipe(clean());
 
@@ -20,14 +20,7 @@ gulp.task(
   'backup',
   gulp.series(
     cleanUp,
-    gulp.parallel(
-      brew,
-      hyper
-      // 'backup:karabiner',
-      // 'backup:neovim',
-      // 'backup:oh-my-zsh',
-      // 'backup:vscode'
-    )
+    gulp.parallel(brew, hyper, karabiner, neovim, ohMyZsh, sublime, vscode)
     // 'backup:password-protect'
   )
 );

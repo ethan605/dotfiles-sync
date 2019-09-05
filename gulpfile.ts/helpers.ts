@@ -1,8 +1,8 @@
-// Helpers
+import _ from 'lodash';
 import childProcess from 'child_process';
 
 export const readCommandOutputs = (...commands: string[]): string[] =>
-  commands.map(command => childProcess.execSync(command).toString());
+  _.map(commands, command => childProcess.execSync(command).toString());
 
 interface WrapperOptions {
   excluded?: boolean;
