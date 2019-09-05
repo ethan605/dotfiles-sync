@@ -12,15 +12,11 @@ import neovim from './neovim';
 import ohMyZsh from './oh-my-zsh';
 import sublime from './sublime';
 import vscode from './vscode';
-import './password-protect';
+import passwordProtect from './password-protect';
 
 const cleanUp = (): NodeJS.ReadWriteStream => gulp.src(BACKUP_DIR, { allowEmpty: true }).pipe(clean());
 
 gulp.task(
   'backup',
-  gulp.series(
-    cleanUp,
-    gulp.parallel(brew, hyper, karabiner, neovim, ohMyZsh, sublime, vscode)
-    // 'backup:password-protect'
-  )
+  gulp.series(cleanUp, gulp.parallel(brew, hyper, karabiner, neovim, ohMyZsh, sublime, vscode), passwordProtect)
 );
