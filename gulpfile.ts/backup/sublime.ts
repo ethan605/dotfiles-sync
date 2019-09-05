@@ -4,7 +4,7 @@ import gulp from 'gulp';
 import file from 'gulp-file';
 
 // Constants
-import { BACKUP_DIR } from './constants';
+import { BACKUP_DIR } from '../constants';
 
 // Helpers
 import { wrapHomeDir } from '../helpers';

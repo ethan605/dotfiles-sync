@@ -4,7 +4,21 @@ import { prompt, Question } from 'gulp-prompt';
 import run from 'gulp-run';
 
 // Constants
-import { BACKUP_DIR, PASSWORD_PROMPT_SOURCES } from './constants';
+import { BACKUP_DIR } from '../constants';
+
+// Helpers
+import { wrapHomeDir } from '../helpers';
+
+const PASSWORD_PROTECTED_SOURCES = [
+  {
+    moduleName: 'gradle',
+    path: wrapHomeDir('.gradle/gradle.properties'),
+  },
+  {
+    moduleName: 'ssh',
+    path: wrapHomeDir('.ssh/*'),
+  },
+];
 
 interface PromptResponse {
   password: string;
@@ -17,7 +31,7 @@ const validatePasswords = (passwordConfirm: string, { password }: PromptResponse
 };
 
 const handlePasswordPrompted = ({ password }: PromptResponse): void => {
-  _.each(PASSWORD_PROMPT_SOURCES, ({ moduleName }) => {
+  _.each(PASSWORD_PROTECTED_SOURCES, ({ moduleName }) => {
     gulp.src(`${BACKUP_DIR}/${moduleName}`).pipe(
       run(
         `cd ${BACKUP_DIR} && \
@@ -30,7 +44,7 @@ const handlePasswordPrompted = ({ password }: PromptResponse): void => {
 };
 
 const prepareZipFolders = (callback: Function): void => {
-  _.each(PASSWORD_PROMPT_SOURCES, ({ path, moduleName }) =>
+  _.each(PASSWORD_PROTECTED_SOURCES, ({ path, moduleName }) =>
     gulp.src(path).pipe(gulp.dest(`${BACKUP_DIR}/${moduleName}`))
   );
 

@@ -3,7 +3,7 @@ import gulp from 'gulp';
 import clean from 'gulp-clean';
 
 // Constants
-import { BACKUP_DIR } from './constants';
+import { BACKUP_DIR } from '../constants';
 
 import brew from './brew';
 import hyper from './hyper';
