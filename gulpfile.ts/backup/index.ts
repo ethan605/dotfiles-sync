@@ -1,6 +1,6 @@
-// Gulp modules
+import del from 'del';
 import gulp from 'gulp';
-import clean from 'gulp-clean';
+import vinylPaths from 'vinyl-paths';
 
 // Constants
 import { BACKUP_DIR } from '../constants';
@@ -14,7 +14,7 @@ import sublime from './sublime';
 import vscode from './vscode';
 import passwordProtect from './password-protect';
 
-const cleanUp = (): NodeJS.ReadWriteStream => gulp.src(BACKUP_DIR, { allowEmpty: true }).pipe(clean());
+const cleanUp = (): NodeJS.ReadWriteStream => gulp.src(BACKUP_DIR, { allowEmpty: true }).pipe(vinylPaths(del));
 
 gulp.task(
   'backup',

@@ -1,9 +1,10 @@
 import { execSync } from 'child_process';
 import _ from 'lodash';
+import del from 'del';
 import gulp from 'gulp';
-import clean from 'gulp-clean';
 import { prompt, Question } from 'gulp-prompt';
 import tap from 'gulp-tap';
+import vinylPaths from 'vinyl-paths';
 
 // Constants
 import { BACKUP_DIR } from '../constants';
@@ -69,7 +70,7 @@ const promptPassword = (): NodeJS.ReadWriteStream => {
         execSync(`cd ${BACKUP_DIR} && zip -P ${zipPassword} -0r ${file.stem}.zip ${file.stem}`);
       })
     )
-    .pipe(clean());
+    .pipe(vinylPaths(del));
 };
 
 export default gulp.series(prepareZipFolders, promptPassword);

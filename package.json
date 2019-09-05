@@ -29,12 +29,12 @@
     "@typescript-eslint/parser": "^2.1.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^10.0.3",
+    "del": "^5.1.0",
     "eslint": "^6.3.0",
     "eslint-config-prettier": "^6.2.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.0",
     "gulp": "^4.0.2",
-    "gulp-clean": "^0.4.0",
     "gulp-debug": "^4.0.0",
     "gulp-file": "^0.4.0",
     "gulp-filenames": "^4.0.1",
@@ -48,7 +48,8 @@
     "prettier": "^1.18.2",
     "through2": "^3.0.0",
     "ts-node": "^8.3.0",
-    "typescript": "3.5.2"
+    "typescript": "3.5.2",
+    "vinyl-paths": "^3.0.0"
   },
   "dependencies": {}
 }
