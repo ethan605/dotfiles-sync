@@ -722,6 +722,13 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/gulp-debug@^2.0.31":
+  version "2.0.31"
+  resolved "https://registry.yarnpkg.com/@types/gulp-debug/-/gulp-debug-2.0.31.tgz#7800e85c347791ed7e25437dc697b9b5ba8c1f4f"
+  integrity sha512-y2pav+vXAHhbCdG6dL2wedAn1ToGyqy6pmmQrfs6TTo+195QUHmZNXZpEtk3IG2pegLu2j7PpfR3DHx9noFryQ==
+  dependencies:
+    "@types/node" "*"
+
 "@types/gulp@^4.0.6":
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/@types/gulp/-/gulp-4.0.6.tgz#68fe0e1f0ff3657cfca46fb564806b744a1bf899"
@@ -771,6 +778,13 @@
     "@types/glob-stream" "*"
     "@types/node" "*"
     "@types/vinyl" "*"
+
+"@types/vinyl-paths@^0.0.31":
+  version "0.0.31"
+  resolved "https://registry.yarnpkg.com/@types/vinyl-paths/-/vinyl-paths-0.0.31.tgz#fad5a5b221511bbebd99df12371ca76ebad3862b"
+  integrity sha512-sw1o+DVXwEuPN4YsirTYTSmtuTDeoyJU217CZ4EuJkerdo7h6lacj7wGUA6mQNl0YgYmu+pTM1FrusLhWlELWg==
+  dependencies:
+    "@types/node" "*"
 
 "@types/vinyl@*":
   version "2.0.3"
@@ -2567,13 +2581,6 @@ gulp-shell@^0.7.1:
     plugin-error "^1.0.1"
     through2 "^3.0.1"
     tslib "^1.9.3"
-
-gulp-tap@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/gulp-tap/-/gulp-tap-2.0.0.tgz#6f66b79870dcbfc364cf4ebe0735b6008473200f"
-  integrity sha512-U5/v1bTozx672QHzrvzPe6fPl2io7Wqyrx2y30AG53eMU/idH4BrY/b2yikOkdyhjDqGgPoMUMnpBg9e9LK8Nw==
-  dependencies:
-    through2 "^3.0.1"
 
 gulp-util@>=2.2.0, gulp-util@^3.0.8:
   version "3.0.8"
