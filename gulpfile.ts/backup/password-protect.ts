@@ -1,8 +1,8 @@
+import { execSync } from 'child_process';
 import _ from 'lodash';
 import gulp from 'gulp';
 import clean from 'gulp-clean';
 import { prompt, Question } from 'gulp-prompt';
-import { exec } from 'child_process';
 import tap from 'gulp-tap';
 import File from 'vinyl';
 
@@ -65,7 +65,7 @@ const promptPassword = (): NodeJS.ReadWriteStream => {
   return gulp
     .src(_.map(PASSWORD_PROTECTED_SOURCES, ({ moduleName }) => `${BACKUP_DIR}/${moduleName}`))
     .pipe(prompt(question, ({ password }: PromptResponse): string => (zipPassword = password)))
-    .pipe(tap((file: File) => exec(`cd ${BACKUP_DIR} && zip -P ${zipPassword} -0r ${file.stem}.zip ${file.stem}`)))
+    .pipe(tap((file: File) => execSync(`cd ${BACKUP_DIR} && zip -P ${zipPassword} -0r ${file.stem}.zip ${file.stem}`)))
     .pipe(clean());
 };
 
