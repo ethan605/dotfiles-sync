@@ -2,7 +2,6 @@ import { execSync } from 'child_process';
 import _ from 'lodash';
 import del from 'del';
 import gulp from 'gulp';
-import debug from 'gulp-debug';
 import { prompt, Question } from 'gulp-prompt';
 import path from 'path';
 import vinylPaths from 'vinyl-paths';
