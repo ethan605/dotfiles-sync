@@ -6,7 +6,7 @@ import file from 'gulp-file';
 import { readCommandOutputs } from '../helpers';
 
 // Constants
-import { BACKUP_DIR } from '../constants';
+import { BACKUP_DIR } from './constants';
 
 const brew = (callback: Function): void => {
   const packages = readCommandOutputs('brew list --versions').toString();

@@ -6,7 +6,7 @@ import replace from 'gulp-replace';
 import { wrapHomeDir } from '../helpers';
 
 // Constants
-import { BACKUP_DIR } from '../constants';
+import { BACKUP_DIR } from './constants';
 
 const dest = `${BACKUP_DIR}/oh-my-zsh`;
 

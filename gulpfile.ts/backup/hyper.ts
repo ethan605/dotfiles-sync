@@ -5,7 +5,7 @@ import gulp from 'gulp';
 import { wrapHomeDir } from '../helpers';
 
 // Constants
-import { BACKUP_DIR } from '../constants';
+import { BACKUP_DIR } from './constants';
 
 const hyper = (): NodeJS.ReadWriteStream => {
   return gulp.src(wrapHomeDir('.hyper.js')).pipe(gulp.dest(`${BACKUP_DIR}/hyper`));

@@ -1,4 +1,4 @@
-import { wrapHomeDir } from './helpers';
+import { wrapHomeDir } from '../helpers';
 
 export const BACKUP_DIR = './backup';
 

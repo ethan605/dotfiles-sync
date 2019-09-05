@@ -4,7 +4,7 @@ import { prompt, Question } from 'gulp-prompt';
 import run from 'gulp-run';
 
 // Constants
-import { BACKUP_DIR, PASSWORD_PROMPT_SOURCES } from '../constants';
+import { BACKUP_DIR, PASSWORD_PROMPT_SOURCES } from './constants';
 
 interface PromptResponse {
   password: string;
