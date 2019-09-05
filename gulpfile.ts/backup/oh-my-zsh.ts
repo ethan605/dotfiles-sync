@@ -22,4 +22,4 @@ const removeSensitiveData = (): NodeJS.ReadWriteStream =>
     .pipe(replace(/JEKYLL_GITHUB_TOKEN=".*"/gi, 'JEKYLL_GITHUB_TOKEN=""'))
     .pipe(gulp.dest(dest));
 
-export default gulp.series(copyFiles, removeSensitiveData);
+export default gulp.parallel(copyFiles, removeSensitiveData);
