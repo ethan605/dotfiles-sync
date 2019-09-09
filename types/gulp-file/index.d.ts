@@ -10,15 +10,8 @@ declare module 'gulp-file' {
     src?: boolean;
   }
 
-  type SingleFileHandler = (name: string, source: Buffer | string, options?: Options) => Transform;
-  type MultipleFilesHandler = (sourceArray: string | Source[], options?: Options) => Transform;
+  function file(name: string, source: Buffer | string, options?: Options): Transform;
+  function file(sourceArray: string | Source[], options?: Options): Transform;
 
-  const file: SingleFileHandler | MultipleFilesHandler;
   export default file;
-
-  // export default function file(
-  //   source: Source[],
-  //   sourceArrayOrOptions?: (string & Options) | (Buffer & Options),
-  //   options?: Options
-  // ): Transform;
 }

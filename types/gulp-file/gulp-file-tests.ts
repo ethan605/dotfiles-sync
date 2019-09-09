@@ -11,3 +11,18 @@ file('test.txt', new Buffer('Test buffer content'));
 
 // Single source, Buffer content, replace gulp.src()
 file('test.txt', new Buffer('Test buffer content'), { src: true });
+
+// Multiple sources
+file([
+  { name: 'test_string.txt', source: 'Test string content' },
+  { name: 'test_buffer.txt', source: new Buffer('Test buffer content') },
+]);
+
+// Multiple sources, replace gulp.src()
+file(
+  [
+    { name: 'test_string.txt', source: 'Test string content' },
+    { name: 'test_buffer.txt', source: new Buffer('Test buffer content') },
+  ],
+  { src: true }
+);
