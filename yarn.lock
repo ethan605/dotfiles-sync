@@ -2582,13 +2582,6 @@ gulp-shell@^0.7.1:
     through2 "^3.0.1"
     tslib "^1.9.3"
 
-gulp-tap@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/gulp-tap/-/gulp-tap-2.0.0.tgz#6f66b79870dcbfc364cf4ebe0735b6008473200f"
-  integrity sha512-U5/v1bTozx672QHzrvzPe6fPl2io7Wqyrx2y30AG53eMU/idH4BrY/b2yikOkdyhjDqGgPoMUMnpBg9e9LK8Nw==
-  dependencies:
-    through2 "^3.0.1"
-
 gulp-util@>=2.2.0, gulp-util@^3.0.8:
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/gulp-util/-/gulp-util-3.0.8.tgz#0054e1e744502e27c04c187c3ecc505dd54bbb4f"
