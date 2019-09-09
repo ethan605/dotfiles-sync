@@ -1,3 +1,5 @@
+// Definitions by: Ethan N. <https://github.com/ethan605>
+
 declare module 'gulp-replace' {
   import { Transform } from 'stream';
 
