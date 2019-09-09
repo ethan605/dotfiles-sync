@@ -1,12 +1,12 @@
 declare module 'gulp-tap' {
   import stream, { Transform } from 'stream';
-  import VinylFile from 'vinyl';
+  import File from 'vinyl';
 
   interface Utils {
-    through: (filter: Function, args: Array) => stream;
+    through: (filter: Function, args: any[]) => stream;
   }
 
-  type Callback = (file: VinylFile, utils: Utils) => stream | void;
+  type Callback = (file: File, utils: Utils) => stream | void;
 
   export default function tap(callback: Callback): Transform;
 }

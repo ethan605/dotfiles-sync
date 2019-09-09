@@ -43,6 +43,7 @@
     "gulp-prompt": "^1.0.0",
     "gulp-replace": "^1.0.0",
     "gulp-shell": "^0.7.1",
+    "gulp-tap": "^2.0.0",
     "gulp-util": "^3.0.8",
     "gulp-zip": "^5.0.0",
     "lodash": "^4.17.4",
