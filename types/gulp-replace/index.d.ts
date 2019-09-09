@@ -5,7 +5,7 @@ declare module 'gulp-replace' {
     skipBinary?: boolean;
   }
 
-  type ReplaceFunction = (match: string, p1: string, offset: number, string: string) => string;
+  type ReplaceFunction = (match: string, p1?: string, offset?: number, string?: string) => string;
 
   export default function replace(
     search: RegExp | string,
