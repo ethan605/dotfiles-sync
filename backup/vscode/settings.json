@@ -1,6 +1,6 @@
 {
   "[javascriptreact]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "color-highlight.markerType": "underline",
   "csharp.suppressDotnetInstallWarning": true,

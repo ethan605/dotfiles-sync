@@ -10,6 +10,7 @@ export TOOLCHAINS=swift
 # Paths
 export ANDROID_HOME=~/Library/Android/sdk
 export JAVA_HOME=$(/usr/libexec/java_home)
+export GPG_TTY=$(tty)
 
 PATH=$JAVA_HOME:$PATH
 PATH=$ANDROID_HOME:$PATH

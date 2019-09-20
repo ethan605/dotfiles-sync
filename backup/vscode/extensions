@@ -1,4 +1,6 @@
+alexdima.copy-relative-path
 andrejunges.Handlebars
+apollographql.vscode-apollo
 blanu.vscode-styled-jsx
 castwide.solargraph
 cdsama.shell-snippets
@@ -21,6 +23,7 @@ jpoissonnier.vscode-styled-components
 kumar-harsh.graphql-for-vscode
 lXSPandora.vscode-styled-components-snippets
 leizongmin.node-module-intellisense
+leveluptutorials.react-apollo-snippets
 mariusschulz.yarn-lock-syntax
 mechatroner.rainbow-csv
 mitaki28.vscode-clang
