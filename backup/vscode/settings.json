@@ -10,9 +10,7 @@
   "editor.formatOnPaste": true,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderIndentGuides": true,
-  "editor.rulers": [
-    120
-  ],
+  "editor.rulers": [120],
   "editor.selectionHighlight": false,
   "editor.snippetSuggestions": "top",
   "editor.tabSize": 2,
@@ -35,7 +33,7 @@
   "jest.enableCodeLens": false,
   "search.exclude": {
     "**/bower_components": true,
-    "**/node_modules": false,
+    "**/node_modules": false
   },
   "window.nativeTabs": false,
   "window.zoomLevel": 0,
@@ -81,16 +79,12 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "material-icon-theme.folders.theme": "classic",
   "window.closeWhenEmpty": true,
-  "window.titleBarStyle": "native"
+  "window.titleBarStyle": "native",
+  "editor.formatOnSave": true
 }
