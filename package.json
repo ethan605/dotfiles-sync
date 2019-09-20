@@ -61,11 +61,9 @@
     }
   },
   "lint-staged": {
-    "linters": {
-      "(gulp-file.ts)/**/*.(ts|js|json|md)": [
-        "prettier --write",
-        "git add"
-      ]
-    }
+    "(gulp-file.ts)/**/*.(ts|js|json|md)": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
