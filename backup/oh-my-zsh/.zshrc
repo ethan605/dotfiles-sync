@@ -19,6 +19,8 @@ PATH=$ANDROID_HOME/platform-tools:$PATH
 PATH=./node_modules/.bin:$PATH
 export PATH
 
+fpath+=${ZDOTDIR:-~}/.zsh_functions
+
 # Oh-my-zsh configurations
 ZSH=$HOME/.oh-my-zsh
 plugins=(git osx zsh-autosuggestions zsh-syntax-highlighting)
