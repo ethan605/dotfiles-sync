@@ -7,6 +7,7 @@ import { BACKUP_DIR } from '../constants';
 
 import brew from './brew';
 import git from './git';
+import gnupg from './gnupg';
 import hyper from './hyper';
 import karabiner from './karabiner';
 import neovim from './neovim';
@@ -19,5 +20,9 @@ const cleanUp = (): NodeJS.ReadWriteStream => gulp.src(BACKUP_DIR, { allowEmpty:
 
 gulp.task(
   'backup',
-  gulp.series(cleanUp, gulp.parallel(brew, git, hyper, karabiner, neovim, ohMyZsh, sublime, vscode), passwordProtect)
+  gulp.series(
+    cleanUp,
+    gulp.parallel(brew, git, gnupg, hyper, karabiner, neovim, ohMyZsh, sublime, vscode),
+    passwordProtect
+  )
 );
