@@ -1,19 +1,22 @@
 " First install VimPlug: https://github.com/junegunn/vim-plug
 call plug#begin()
 
+" Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ryanoasis/vim-devicons'
+" Plug 'sbdchd/neoformat'
 Plug '/usr/local/bin/fzf'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'ryanoasis/vim-devicons'
-Plug 'sbdchd/neoformat'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'scrooloose/nerdTree'
 Plug 'scrooloose/nerdcommenter'
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
@@ -41,7 +44,8 @@ set ruler               " Show the line and column numbers of the cursor.
 set shiftwidth=2        " Indentation amount for < and > commands.
 set showcmd             " Show (partial) command in status line.
 set showmatch           " Show matching brackets.
-set showmode            " Show current mode. set splitbelow          " Horizontal split below current.
+set showmode            " Show current mode.
+set splitbelow          " Horizontal split below current.
 set splitright          " Vertical split to right of current.
 set tabstop=2           " Render TABs using this many spaces.
 set textwidth=0         " Hard-wrap long lines as you type them.
@@ -91,9 +95,14 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Copy current file's path
 map <C-y><C-f> :let @+=@%<CR>
-map <C-n> :NERDTreeToggle<CR>
+map <C-o> :NERDTreeToggle<CR>
+map <C-p> :GFiles<CR>
 map <Leader> <Plug>(easymotion-prefix)
 
 filetype plugin on
-autocmd BufWritePre *.js Neoformat
+call matchadd('ColorColumn', '\%81v', 100)
+
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
