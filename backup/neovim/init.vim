@@ -5,7 +5,6 @@ Plug '/usr/local/bin/fzf'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
-" Plug 'dense-analysis/ale'
 Plug 'easymotion/vim-easymotion'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'junegunn/fzf.vim'
@@ -16,6 +15,7 @@ Plug 'scrooloose/nerdTree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'Yggdroot/indentLine'
+Plug 'ap/vim-css-color'
 
 call plug#end()
 
@@ -25,21 +25,35 @@ let g:NERDSpaceDelims = 1
 " Ignore pattterns for NERDTree
 let g:NERDTreeIgnore = ['\~$', 'vendor', 'node_modules']
 
-set clipboard=unnamed   " Use system clipboard over vim's buffers
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Auto format for Prettier
+let g:prettier#autoformat = 0
+
+set clipboard+=unnamed  " Use system clipboard over vim's buffers
 set cmdheight=2         " Better display for messages
 set encoding=UTF-8      " Encoding
 set expandtab           " Insert spaces when TAB is pressed.
+set foldlevel=2					" Fold level
+set foldmethod=indent   " Code folding by indents
+set foldnestmax=10			" Max nesting for code folding
 set formatoptions+=o    " Continue comment marker in new lines.
 set linespace=0         " Set line-spacing to minimum.
 set modeline            " Enable modeline.
 set noerrorbells        " No beeps.
+set nofoldenable				" Not folding by default
 set nojoinspaces        " Prevents inserting two spaces after punctuation on a join (J)
 set nostartofline       " Do not jump to first character with page commands.
 set number              " Show the line numbers on the left side.
+set paste               " Paste from a windows or from vim
 set ruler               " Show the line and column numbers of the cursor.
 set scrolloff=3         " Show next 3 lines while scrolling.
 set shiftwidth=2        " Indentation amount for < and > commands.
-set shortmess+=c        " don't give |ins-completion-menu| messages.
+set shortmess+=c        " don't give 'ins-completion-menu' messages.
 set showcmd             " Show (partial) command in status line.
 set showmatch           " Show matching brackets.
 set showmode            " Show current mode.
@@ -53,6 +67,10 @@ set updatetime=300      " You will have bad experience for diagnostic messages w
 
 " For fzf
 set rtp+=/usr/local/opt/fzf 
+
+" Search highlight colors
+hi Search ctermbg=DarkMagenta
+hi Search ctermfg=White
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -76,12 +94,6 @@ imap <C-l> <Plug>(coc-snippets-expand)
 " Use <C-j> for select text for visual placeholder of snippet.
 vmap <C-j> <Plug>(coc-snippets-select)
 
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
-
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
@@ -96,12 +108,13 @@ nmap <C-o> :NERDTreeToggle<CR>
 nmap <C-p> :GFiles<CR>
 nmap <C-s> :Ag<space>
 nmap <Leader> <Plug>(easymotion-prefix)
-nmap ycf :let @+=@%<CR>
 
-filetype plugin on
+" Copy current file's path
+nmap ycf :let @+=@%<CR>
 
 " Show a mark for characters at column 120
 call matchadd('ColorColumn', '\%120v', 100)
 
-let g:prettier#autoformat = 0
+filetype plugin on
+
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
