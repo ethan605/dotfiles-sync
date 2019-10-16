@@ -19,6 +19,9 @@ PATH=$ANDROID_HOME/platform-tools:$PATH
 PATH=./node_modules/.bin:$PATH
 export PATH
 
+export GOOGLE_APPLICATION_CREDENTIALS="~/Documents/Workspaces/Dev/pi-top/matt-sandbox-155112-6b6046440734.json"
+export GOOGLE_PROJECT_ID="matt-sandbox-155112"
+
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 # Oh-my-zsh configurations

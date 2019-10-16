@@ -1,37 +1,33 @@
 " First install VimPlug: https://github.com/junegunn/vim-plug
 call plug#begin()
 
-" Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'ryanoasis/vim-devicons'
-" Plug 'sbdchd/neoformat'
 Plug '/usr/local/bin/fzf'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
+" Plug 'dense-analysis/ale'
 Plug 'easymotion/vim-easymotion'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'scrooloose/nerdTree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
 " Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
+let g:NERDSpaceDelims = 1 
 
-let g:vim_markdown_folding_disabled = 1
-let g:ctrlp_show_hidden = 1
+" Ignore pattterns for NERDTree
 let g:NERDTreeIgnore = ['\~$', 'vendor', 'node_modules']
-let g:ctrlp_custom_ignore = {
-  \ 'dir': '\v[\/](\.git|node_modules|\.sass-cache|bower_components|build)$' 
-  \ }
 
 set clipboard=unnamed   " Use system clipboard over vim's buffers
-set encoding=UTF-8
+set cmdheight=2         " Better display for messages
+set encoding=UTF-8      " Encoding
 set expandtab           " Insert spaces when TAB is pressed.
 set formatoptions+=o    " Continue comment marker in new lines.
 set linespace=0         " Set line-spacing to minimum.
@@ -41,37 +37,22 @@ set nojoinspaces        " Prevents inserting two spaces after punctuation on a j
 set nostartofline       " Do not jump to first character with page commands.
 set number              " Show the line numbers on the left side.
 set ruler               " Show the line and column numbers of the cursor.
+set scrolloff=3         " Show next 3 lines while scrolling.
 set shiftwidth=2        " Indentation amount for < and > commands.
+set shortmess+=c        " don't give |ins-completion-menu| messages.
 set showcmd             " Show (partial) command in status line.
 set showmatch           " Show matching brackets.
 set showmode            " Show current mode.
+set sidescrolloff=5     " Show next 5 columns while side-scrolling.
+set signcolumn=yes      " always show signcolumns
 set splitbelow          " Horizontal split below current.
 set splitright          " Vertical split to right of current.
 set tabstop=2           " Render TABs using this many spaces.
 set textwidth=0         " Hard-wrap long lines as you type them.
-
-if !&scrolloff
-  set scrolloff=3       " Show next 3 lines while scrolling.
-endif
-
-if !&sidescrolloff
-  set sidescrolloff=5   " Show next 5 columns while side-scrolling.
-endif
-
-" Better display for messages
-set cmdheight=2
-
-" You will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300
-
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-
-" always show signcolumns
-set signcolumn=yes
+set updatetime=300      " You will have bad experience for diagnostic messages when it's default 4000.
 
 " For fzf
-set rtp+=/usr/local/opt/fzf
+set rtp+=/usr/local/opt/fzf 
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -89,6 +70,21 @@ endfunction
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
 " coc.nvim gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -96,13 +92,16 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Copy current file's path
-map <C-y><C-f> :let @+=@%<CR>
-map <C-o> :NERDTreeToggle<CR>
-map <C-p> :GFiles<CR>
-map <Leader> <Plug>(easymotion-prefix)
+nmap <C-o> :NERDTreeToggle<CR>
+nmap <C-p> :GFiles<CR>
+nmap <C-s> :Ag<space>
+nmap <Leader> <Plug>(easymotion-prefix)
+nmap ycf :let @+=@%<CR>
 
 filetype plugin on
-call matchadd('ColorColumn', '\%81v', 100)
+
+" Show a mark for characters at column 120
+call matchadd('ColorColumn', '\%120v', 100)
 
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
