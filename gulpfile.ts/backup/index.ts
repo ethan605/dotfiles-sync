@@ -10,6 +10,7 @@ import git from './git';
 import gnupg from './gnupg';
 import hyper from './hyper';
 import karabiner from './karabiner';
+import kitty from './kitty';
 import neovim from './neovim';
 import ohMyZsh from './oh-my-zsh';
 import passwordProtect from './password-protect';
@@ -22,7 +23,7 @@ gulp.task(
   'backup',
   gulp.series(
     cleanUp,
-    gulp.parallel(brew, git, gnupg, hyper, karabiner, neovim, ohMyZsh, sublime, vscode),
+    gulp.parallel(brew, git, gnupg, hyper, karabiner, kitty, neovim, ohMyZsh, sublime, vscode),
     passwordProtect
   )
 );

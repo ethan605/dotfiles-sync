@@ -16,7 +16,7 @@ cmake 3.15.4
 coreutils 8.31
 dfc 3.1.1_1
 dfu-programmer 0.7.2
-docker 19.03.3
+docker 19.03.4
 docker-compose 1.24.1_1
 docker-machine 0.16.2
 ffmpeg 4.2.1_1
@@ -38,7 +38,7 @@ gettext 0.20.1
 giflib 5.1.4_1
 git 2.23.0_1
 git-lfs 2.8.0
-glib 2.62.1
+glib 2.62.2
 gmp 6.1.2_2
 gnupg 2.2.17
 gnutls 3.6.10
@@ -49,7 +49,7 @@ harfbuzz 2.6.2
 hdf5 1.10.5_1
 hicolor-icon-theme 0.17
 htop 2.2.0_1
-hwloc 2.0.4
+hwloc 2.1.0
 icu4c 64.2
 ilmbase 2.3.0
 imagemagick 7.0.8-68
@@ -114,10 +114,10 @@ nettle 3.4.1
 nginx 1.17.3_1
 node 12.12.0
 npth 1.6
-nspr 4.22
+nspr 4.23
 nss 3.46.1
 oniguruma 6.9.3
-open-mpi 4.0.1_2
+open-mpi 4.0.2
 opencore-amr 0.1.5
 openexr 2.3.0
 openjpeg 2.3.1
