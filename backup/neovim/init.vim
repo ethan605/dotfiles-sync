@@ -26,7 +26,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'skielbasa/vim-material-monokai'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'lifepillar/vim-solarized8'
+Plug 'tomasiser/vim-code-dark'
+Plug 'kaicataldo/material.vim'
 
 call plug#end()
 
@@ -107,6 +108,7 @@ set rtp+=/usr/local/opt/fzf
 " Color scheme
 syntax on
 colorscheme material-monokai
+" colorscheme material
 
 " ALE highlight colors
 hi ALEError         ctermbg=NONE    cterm=undercurl
