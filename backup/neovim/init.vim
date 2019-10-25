@@ -1,4 +1,4 @@
-" First install VimPlug: https://github.com/junegunn/vim-plug
+" Plugins management with VimPlug: https://github.com/junegunn/vim-plug
 call plug#begin()
 
 Plug '/usr/local/bin/fzf'
@@ -14,6 +14,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
+Plug 'kaicataldo/material.vim'
 Plug 'liuchengxu/vista.vim'
 Plug 'mattn/emmet-vim'
 Plug 'mkitt/tabline.vim'
@@ -25,9 +26,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
 Plug 'skielbasa/vim-material-monokai'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tomasiser/vim-code-dark'
-Plug 'kaicataldo/material.vim'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -36,7 +36,22 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-function SmarterNERDTreeToggle()
+function! s:select_current_word()
+  if !get(g:, 'coc_cursors_activated', 0)
+    return "\<Plug>(coc-cursors-word)"
+  endif
+  return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
+endfunc
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+function! s:smarter_NERDTreeToggle()
   if &filetype == 'nerdtree'
     :NERDTreeToggle
   else
@@ -45,7 +60,8 @@ function SmarterNERDTreeToggle()
 endfunction
 
 " For vim-airline
-let g:airline_theme='powerlineish'
+let g:airline_theme = 'powerlineish'
+let g:airline_powerline_fonts = 1
 
 " For ALE
 let g:ale_echo_msg_error_str = 'E'
@@ -83,6 +99,8 @@ set expandtab           " Insert spaces when TAB is pressed.
 set formatoptions+=o    " Continue comment marker in new lines.
 set linespace=0         " Set line-spacing to minimum.
 set modeline            " Enable modeline.
+set nobackup            " Some servers have issues with backup files
+set nowritebackup       " Some servers have issues with backup files
 set noerrorbells        " No beeps.
 set nojoinspaces        " Prevents inserting two spaces after punctuation on a join (J)
 set nostartofline       " Do not jump to first character with page commands.
@@ -133,8 +151,11 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+" Use <C-c> to trigger completion.
+inoremap <silent><expr> <C-c> coc#refresh()
+
+" Use <C-space> to confirm completion
+inoremap <expr> <C-space> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
@@ -151,14 +172,26 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" nmap <C-o> :NERDTreeToggle<CR>
-nmap <silent> <C-o> :call SmarterNERDTreeToggle()<CR>
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" Multiple cursors
+nmap <expr><silent> <C-d> <SID>select_current_word()
+
+" Toggle NERDTree with focusing current file's location
+nmap <silent> <C-o> :call <SID>smarter_NERDTreeToggle()<CR>
+
+" Open Git included files
 nmap <C-p> :GFiles<CR>
+
+" Search globally with RipGrep
 nmap <C-s> :Rg<space>
-" nmap <Leader> <Plug>(easymotion-prefix)
 
 " Copy current file's path
 nmap ycf :let @+=@%<CR>
+
+" Easymotion prefix
+nmap <Leader> <Plug>(easymotion-prefix)
 
 " Show a mark for characters at column 120
 call matchadd('ColorColumn', '\%120v', 100)
