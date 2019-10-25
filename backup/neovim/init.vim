@@ -117,6 +117,7 @@ hi ALEErrorSign     ctermbg=NONE    cterm=NONE
 hi ALEWarningSign   ctermbg=NONE    cterm=NONE
 
 " Search highlight colors
+hi ColorColumn      ctermfg=White   ctermbg=Red
 hi Search           ctermfg=White   ctermbg=DarkMagenta
 
 " TabLine highlight colors
