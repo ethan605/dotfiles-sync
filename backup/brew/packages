@@ -139,6 +139,7 @@ python 3.7.4_1
 python@2 2.7.16_1
 qt 5.13.1
 readline 8.0.1
+reattach-to-user-namespace 2.8
 ripgrep 11.0.2
 rtmpdump 2.4+20151223_1
 rubberband 1.8.2_1

@@ -2,7 +2,7 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-export ANDROID_HOME=~/Library/Android/sdk
+export ANDROID_HOME="~/Library/Android/sdk"
 export EDITOR=code
 export FZF_DEFAULT_COMMAND='rg --files --hidden --smartcase --glob "!.git/*"'
 export GOOGLE_APPLICATION_CREDENTIALS="~/Documents/Workspaces/Dev/pi-top/matt-sandbox-155112-6b6046440734.json"
@@ -14,11 +14,12 @@ export JEKYLL_GITHUB_TOKEN=""
 export REACT_EDITOR=code
 export TOOLCHAINS=swift
 
+PATH="/usr/local/bin:$(getconf PATH)"
 PATH=$JAVA_HOME:$PATH
 PATH=$ANDROID_HOME:$PATH
 PATH=$ANDROID_HOME/tools:$PATH
 PATH=$ANDROID_HOME/platform-tools:$PATH
-# PATH=./node_modules/.bin:$PATH
+PATH=./node_modules/.bin:$PATH
 export PATH
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
@@ -27,6 +28,11 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 ZSH=$HOME/.oh-my-zsh
 plugins=(git osx zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
+
+# Loading tmux with default session
+if [ -z "$TMUX" ]; then
+  tmux attach -t default || tmux new -s default
+fi
 
 # Loading nvm
 [ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh"
@@ -73,5 +79,7 @@ alias policy-on="sudo spctl --master-enable"
 alias rnclean="watchman watch-del-all && rm -rf node_modules && rm -fr $TMPDIR/react-* && npm cache clean --force && yarn cache clean"
 alias rndev="adb shell input keyevent 82"
 alias rnlog-android="adb logcat *:S ReactNative:V ReactNativeJS:V"
+
+alias tmx="tmux attach -t default || tmux new -s default"
 
 alias uptodate="brew update --verbose && brew upgrade --verbose && brew cleanup --prune-prefix && upgrade_oh_my_zsh --verbose"

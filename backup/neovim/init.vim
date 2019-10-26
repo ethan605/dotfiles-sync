@@ -12,9 +12,9 @@ Plug 'dense-analysis/ale'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
-Plug 'kaicataldo/material.vim'
 Plug 'liuchengxu/vista.vim'
 Plug 'mattn/emmet-vim'
 Plug 'mkitt/tabline.vim'
@@ -30,34 +30,6 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-function! s:select_current_word()
-  if !get(g:, 'coc_cursors_activated', 0)
-    return "\<Plug>(coc-cursors-word)"
-  endif
-  return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
-endfunc
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-function! s:smarter_NERDTreeToggle()
-  if &filetype == 'nerdtree'
-    :NERDTreeToggle
-  else
-    :NERDTreeFind
-  endif
-endfunction
 
 " For vim-airline
 let g:airline_theme = 'powerlineish'
@@ -91,34 +63,41 @@ let g:materialmonokai_subtle_spell=1
 " set foldnestmax=10			" Max nesting for code folding
 " set nofoldenable				" Not folding by default
 " set paste               " Paste from a windows or from vim
-set background=dark     " For dark themes
-set clipboard+=unnamed  " Use system clipboard over vim's buffers
-set cmdheight=2         " Better display for messages
-set encoding=UTF-8      " Encoding
-set expandtab           " Insert spaces when TAB is pressed.
-set formatoptions+=o    " Continue comment marker in new lines.
-set linespace=0         " Set line-spacing to minimum.
-set modeline            " Enable modeline.
-set nobackup            " Some servers have issues with backup files
-set nowritebackup       " Some servers have issues with backup files
-set noerrorbells        " No beeps.
-set nojoinspaces        " Prevents inserting two spaces after punctuation on a join (J)
-set nostartofline       " Do not jump to first character with page commands.
-set number              " Show the line numbers on the left side.
-set ruler               " Show the line and column numbers of the cursor.
-set scrolloff=3         " Show next 3 lines while scrolling.
-set shiftwidth=2        " Indentation amount for < and > commands.
-set shortmess+=c        " don't give 'ins-completion-menu' messages.
-set showcmd             " Show (partial) command in status line.
-set showmatch           " Show matching brackets.
-set showmode            " Show current mode.
-set sidescrolloff=5     " Show next 5 columns while side-scrolling.
-set signcolumn=yes      " always show signcolumns
-set splitbelow          " Horizontal split below current.
-set splitright          " Vertical split to right of current.
-set tabstop=2           " Render TABs using this many spaces.
-set textwidth=0         " Hard-wrap long lines as you type them.
-set updatetime=300      " You will have bad experience for diagnostic messages when it's default 4000.
+set autoread              " Auto reload file from outside changes
+set autowrite             " Auto reload file from outside changes
+set background=dark       " For dark themes
+set backupcopy=yes
+set backupdir=~/tmp,/tmp
+set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
+set clipboard+=unnamed    " Use system clipboard over vim's buffers
+set cmdheight=2           " Better display for messages
+set directory=/tmp        " Location for temporary files
+set encoding=UTF-8        " Encoding
+set expandtab             " Insert spaces when TAB is pressed.
+set formatoptions+=o      " Continue comment marker in new lines.
+set linespace=0           " Set line-spacing to minimum.
+set modeline              " Enable modeline.
+set nobackup              " Some LSP servers have issues with backup files
+set noerrorbells          " No beeps.
+set nojoinspaces          " Prevents inserting two spaces after punctuation on a join (J)
+set nostartofline         " Do not jump to first character with page commands.
+set noswapfile            " Disable swap files
+set nowritebackup         " Some LSP servers have issues with backup files
+set number relativenumber " Show hybrid line numbers on the left side.
+set ruler                 " Show the line and column numbers of the cursor.
+set scrolloff=3           " Show next 3 lines while scrolling.
+set shiftwidth=2          " Indentation amount for < and > commands.
+set shortmess+=c          " don't give 'ins-completion-menu' messages.
+set showcmd               " Show (partial) command in status line.
+set showmatch             " Show matching brackets.
+set showmode              " Show current mode.
+set sidescrolloff=5       " Show next 5 columns while side-scrolling.
+set signcolumn=yes        " always show signcolumns
+set splitbelow            " Horizontal split below current.
+set splitright            " Vertical split to right of current.
+set tabstop=2             " Render TABs using this many spaces.
+set textwidth=0           " Hard-wrap long lines as you type them.
+set updatetime=300        " You will have bad experience for diagnostic messages when it's default 4000.
 
 " For fzf
 set rtp+=/usr/local/opt/fzf 
@@ -126,29 +105,66 @@ set rtp+=/usr/local/opt/fzf
 " Color scheme
 syntax on
 colorscheme material-monokai
-" colorscheme material
+
+" Custom functions
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+function! s:select_current_word()
+  if !get(g:, 'coc_cursors_activated', 0)
+    return "\<Plug>(coc-cursors-word)"
+  endif
+  return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
+endfunc
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+function! s:smarter_NERDTreeToggle()
+  if &filetype == 'nerdtree'
+    :NERDTreeToggle
+  else
+    :NERDTreeFind
+  endif
+endfunction
 
 " ALE highlight colors
-hi ALEError         ctermbg=NONE    cterm=undercurl
-hi ALEWarning       ctermbg=NONE    cterm=undercurl
-hi ALEErrorSign     ctermbg=NONE    cterm=NONE
-hi ALEWarningSign   ctermbg=NONE    cterm=NONE
+hi ALEError         ctermbg=NONE          cterm=undercurl
+hi ALEWarning       ctermbg=NONE          cterm=undercurl
+hi ALEErrorSign     ctermbg=NONE          cterm=NONE
+hi ALEWarningSign   ctermbg=NONE          cterm=NONE
+
+" Line limit column colors
+hi ColorColumn      ctermbg=Red           ctermfg=White   
 
 " Search highlight colors
-hi ColorColumn      ctermfg=White   ctermbg=Red
-hi Search           ctermfg=White   ctermbg=DarkMagenta
+hi Search           ctermbg=DarkYellow    ctermfg=White   
+
+" Line numbers colors
+hi LineNr           ctermfg=DarkGrey
+hi CursorLineNr     ctermfg=White         ctermbg=bg
 
 " TabLine highlight colors
-hi TabLine          ctermfg=White   ctermbg=Black       
-hi TabLineFill      ctermfg=White   ctermbg=Black       
-hi TabLineSel       ctermfg=White   ctermbg=DarkBlue    
+hi TabLine          ctermbg=bg            ctermfg=White          
+hi TabLineFill      ctermbg=bg            ctermfg=White          
+hi TabLineSel       ctermbg=bg            ctermfg=White       
+
+" Visual selection colors
+hi Visual           ctermfg=White
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " Use <C-c> to trigger completion.
@@ -176,7 +192,7 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Multiple cursors
-nmap <expr><silent> <C-d> <SID>select_current_word()
+" nmap <expr><silent> <C-d> <SID>select_current_word()
 
 " Toggle NERDTree with focusing current file's location
 nmap <silent> <C-o> :call <SID>smarter_NERDTreeToggle()<CR>
