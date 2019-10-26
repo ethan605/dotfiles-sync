@@ -5,6 +5,7 @@ import vinylPaths from 'vinyl-paths';
 // Constants
 import { BACKUP_DIR } from '../constants';
 
+import alacritty from './alacritty';
 import brew from './brew';
 import git from './git';
 import gnupg from './gnupg';
@@ -15,6 +16,7 @@ import neovim from './neovim';
 import ohMyZsh from './oh-my-zsh';
 import passwordProtect from './password-protect';
 import sublime from './sublime';
+import tmux from './tmux';
 import vscode from './vscode';
 
 const cleanUp = (): NodeJS.ReadWriteStream => gulp.src(BACKUP_DIR, { allowEmpty: true }).pipe(vinylPaths(del));
@@ -23,7 +25,7 @@ gulp.task(
   'backup',
   gulp.series(
     cleanUp,
-    gulp.parallel(brew, git, gnupg, hyper, karabiner, kitty, neovim, ohMyZsh, sublime, vscode),
+    gulp.parallel(alacritty, brew, git, gnupg, hyper, karabiner, kitty, neovim, ohMyZsh, sublime, tmux, vscode),
     passwordProtect
   )
 );
