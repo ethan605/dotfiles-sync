@@ -29,11 +29,6 @@ ZSH=$HOME/.oh-my-zsh
 plugins=(git osx zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
-# Loading tmux with default session
-if [ -z "$TMUX" ]; then
-  tmux attach -t default || tmux new -s default
-fi
-
 # Loading nvm
 [ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh"
 
@@ -83,3 +78,8 @@ alias rnlog-android="adb logcat *:S ReactNative:V ReactNativeJS:V"
 alias tmx="tmux attach -t default || tmux new -s default"
 
 alias uptodate="brew update --verbose && brew upgrade --verbose && brew cleanup --prune-prefix && upgrade_oh_my_zsh --verbose"
+
+# Loading tmux with default session
+if [ -z "$TMUX" ]; then
+  tmx
+fi

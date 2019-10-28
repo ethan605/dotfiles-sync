@@ -58,6 +58,9 @@ let g:materialmonokai_italic=1
 let g:materialmonokai_subtle_airline=1
 let g:materialmonokai_subtle_spell=1
 
+" Show hidden files in NERDTree
+let NERDTreeShowHidden=1
+
 " set foldlevel=2					" Fold level
 " set foldmethod=indent   " Code folding by indents
 " set foldnestmax=10			" Max nesting for code folding
