@@ -28,6 +28,7 @@ Plug 'skielbasa/vim-material-monokai'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tomasiser/vim-code-dark'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'pangloss/vim-javascript'
 
 call plug#end()
 
@@ -61,10 +62,9 @@ let g:materialmonokai_subtle_spell=1
 " Show hidden files in NERDTree
 let NERDTreeShowHidden=1
 
-" set foldlevel=2					" Fold level
+" set foldlevel=2					  " Fold level
 " set foldmethod=indent   " Code folding by indents
-" set foldnestmax=10			" Max nesting for code folding
-" set nofoldenable				" Not folding by default
+" set foldnestmax=10			  " Max nesting for code folding
 " set paste               " Paste from a windows or from vim
 set autoread              " Auto reload file from outside changes
 set autowrite             " Auto reload file from outside changes
@@ -78,10 +78,12 @@ set directory=/tmp        " Location for temporary files
 set encoding=UTF-8        " Encoding
 set expandtab             " Insert spaces when TAB is pressed.
 set formatoptions+=o      " Continue comment marker in new lines.
+set ignorecase            " Search with smart case
 set linespace=0           " Set line-spacing to minimum.
 set modeline              " Enable modeline.
 set nobackup              " Some LSP servers have issues with backup files
 set noerrorbells          " No beeps.
+set nofoldenable				  " Not folding by default
 set nojoinspaces          " Prevents inserting two spaces after punctuation on a join (J)
 set nostartofline         " Do not jump to first character with page commands.
 set noswapfile            " Disable swap files
@@ -96,6 +98,7 @@ set showmatch             " Show matching brackets.
 set showmode              " Show current mode.
 set sidescrolloff=5       " Show next 5 columns while side-scrolling.
 set signcolumn=yes        " always show signcolumns
+set smartcase             " Search with smart case
 set splitbelow            " Horizontal split below current.
 set splitright            " Vertical split to right of current.
 set tabstop=2             " Render TABs using this many spaces.
@@ -155,9 +158,9 @@ hi LineNr           ctermfg=DarkGrey
 hi CursorLineNr     ctermfg=White         ctermbg=bg
 
 " TabLine highlight colors
-hi TabLine          ctermbg=bg            ctermfg=White          
-hi TabLineFill      ctermbg=bg            ctermfg=White          
-hi TabLineSel       ctermbg=bg            ctermfg=White       
+hi TabLine          cterm=NONE            ctermbg=bg    ctermfg=White
+hi TabLineFill      cterm=NONE            
+hi TabLineSel       cterm=BOLD,INVERSE
 
 " Visual selection colors
 hi Visual           ctermfg=White
@@ -220,7 +223,7 @@ filetype plugin on
 " Autofix for Prettier on save
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
 
-" Auto start Terminal mode when open Terminal
-if exists('##TermOpen')
-  autocmd TermOpen * startinsert
-endif
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END
