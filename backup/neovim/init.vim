@@ -221,4 +221,6 @@ filetype plugin on
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
 
 " Auto start Terminal mode when open Terminal
-autocmd TermOpen * startinsert
+if exists('##TermOpen')
+  autocmd TermOpen * startinsert
+endif
