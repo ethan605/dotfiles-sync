@@ -148,10 +148,10 @@ hi ALEErrorSign     ctermbg=NONE          cterm=NONE
 hi ALEWarningSign   ctermbg=NONE          cterm=NONE
 
 " Line limit column colors
-hi ColorColumn      ctermbg=Red           ctermfg=White   
+hi ColorColumn      ctermbg=Red           ctermfg=White 
 
 " Search highlight colors
-hi Search           ctermbg=DarkYellow    ctermfg=White   
+hi Search           ctermbg=DarkYellow    ctermfg=White 
 
 " Line numbers colors
 hi LineNr           ctermfg=DarkGrey
@@ -159,7 +159,7 @@ hi CursorLineNr     ctermfg=White         ctermbg=bg
 
 " TabLine highlight colors
 hi TabLine          cterm=NONE            ctermbg=bg    ctermfg=White
-hi TabLineFill      cterm=NONE            
+hi TabLineFill      cterm=NONE
 hi TabLineSel       cterm=BOLD,INVERSE
 
 " Visual selection colors
@@ -203,7 +203,7 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 " Toggle NERDTree with focusing current file's location
 nmap <silent> <C-o> :call <SID>smarter_NERDTreeToggle()<CR>
 
-" Open Git included files
+" Quick files opening
 nmap <C-p> :GFiles<CR>
 
 " Search globally with RipGrep
