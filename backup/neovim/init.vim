@@ -8,7 +8,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 Plug 'ap/vim-css-color'
 Plug 'bling/vim-airline'
-Plug 'dense-analysis/ale'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
@@ -20,7 +19,7 @@ Plug 'mattn/emmet-vim'
 Plug 'mkitt/tabline.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'ryanoasis/vim-devicons'
+" Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdTree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
@@ -34,12 +33,7 @@ call plug#end()
 
 " For vim-airline
 let g:airline_theme = 'powerlineish'
-let g:airline_powerline_fonts = 1
-
-" For ALE
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:airline_powerline_fonts = 0
 
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<c-j>'
@@ -63,15 +57,12 @@ let g:materialmonokai_subtle_spell=1
 let NERDTreeShowHidden=1
 
 " set foldlevel=2					  " Fold level
-" set foldmethod=indent   " Code folding by indents
+" set foldmethod=indent     " Code folding by indents
 " set foldnestmax=10			  " Max nesting for code folding
-" set paste               " Paste from a windows or from vim
-set autoread              " Auto reload file from outside changes
-set autowrite             " Auto reload file from outside changes
-set background=dark       " For dark themes
-set backupcopy=yes
-set backupdir=~/tmp,/tmp
-set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
+" set paste                 " Paste from a windows or from vim
+set autoread                " Auto reload file from outside changes
+set autowrite               " Auto reload file from outside changes
+set background=dark         " For dark themes
 set clipboard+=unnamed    " Use system clipboard over vim's buffers
 set cmdheight=2           " Better display for messages
 set directory=/tmp        " Location for temporary files
@@ -105,7 +96,12 @@ set tabstop=2             " Render TABs using this many spaces.
 set textwidth=0           " Hard-wrap long lines as you type them.
 set updatetime=300        " You will have bad experience for diagnostic messages when it's default 4000.
 
-" For fzf
+" Configure backups
+set backupcopy=yes
+set backupdir=~/tmp,/tmp
+set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
+
+" Configure fzf
 set rtp+=/usr/local/opt/fzf 
 
 " Color scheme
