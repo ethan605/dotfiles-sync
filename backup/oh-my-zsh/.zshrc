@@ -3,7 +3,7 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 export ANDROID_HOME="~/Library/Android/sdk"
-export EDITOR=code
+export EDITOR=nvim
 export FZF_DEFAULT_COMMAND='rg --files --hidden --smartcase --glob "!.git/*"'
 export GOOGLE_APPLICATION_CREDENTIALS="~/Documents/Workspaces/Dev/pi-top/matt-sandbox-155112-6b6046440734.json"
 export GOOGLE_PROJECT_ID="matt-sandbox-155112"
@@ -11,7 +11,7 @@ export GPG_TTY=$(tty)
 export HOMEBREW_GITHUB_API_TOKEN=""
 export JAVA_HOME=$(/usr/libexec/java_home)
 export JEKYLL_GITHUB_TOKEN=""
-export REACT_EDITOR=code
+export REACT_EDITOR=nvim
 export TOOLCHAINS=swift
 
 PATH="/usr/local/bin:$(getconf PATH)"
@@ -97,8 +97,8 @@ alias tmx="tmux attach -t default || tmux new -s default"
 
 alias uptodate="brew update --verbose && brew upgrade --verbose && brew cleanup --prune-prefix && upgrade_oh_my_zsh --verbose"
 
-alias nano=nvim
-alias vi=nvim
+# alias nano=nvim
+# alias vi=nvim
 
 # Loading tmux with default session
 if [ -z "$TMUX" ]; then
