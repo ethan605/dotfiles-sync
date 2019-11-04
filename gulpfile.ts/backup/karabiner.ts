@@ -8,6 +8,6 @@ import { wrapHomeDir } from '../helpers';
 import { BACKUP_DIR } from '../constants';
 
 const karabiner = (): NodeJS.ReadWriteStream =>
-  gulp.src(wrapHomeDir('.config/karabiner/**/*.json')).pipe(gulp.dest(`${BACKUP_DIR}/karabiner`));
+  gulp.src(wrapHomeDir('.config/karabiner/karabiner.json')).pipe(gulp.dest(`${BACKUP_DIR}/karabiner`));
 
 export default karabiner;

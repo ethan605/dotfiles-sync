@@ -198,6 +198,7 @@ tmux_conf_theme_right_separator_sub='|'
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
+# Possible icons: ⚙︎ ⚛︎ ☯︎ ☮︎ ♉︎
 tmux_conf_theme_status_left=' #S '
 tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R | #{username}#{root} | #{hostname} '
 
