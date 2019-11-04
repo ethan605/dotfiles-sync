@@ -9,13 +9,11 @@ import alacritty from './alacritty';
 import brew from './brew';
 import git from './git';
 import gnupg from './gnupg';
-import hyper from './hyper';
 import karabiner from './karabiner';
 import kitty from './kitty';
 import neovim from './neovim';
 import ohMyZsh from './oh-my-zsh';
 import passwordProtect from './password-protect';
-import sublime from './sublime';
 import tmux from './tmux';
 import vim from './vim';
 import vscode from './vscode';
@@ -26,7 +24,7 @@ gulp.task(
   'backup',
   gulp.series(
     cleanUp,
-    gulp.parallel(alacritty, brew, git, gnupg, hyper, karabiner, kitty, neovim, ohMyZsh, sublime, tmux, vim, vscode),
+    gulp.parallel(alacritty, brew, git, gnupg, karabiner, kitty, neovim, ohMyZsh, tmux, vim, vscode),
     passwordProtect
   )
 );
