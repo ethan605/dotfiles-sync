@@ -54,7 +54,9 @@
     "typescript": "3.5",
     "vinyl-paths": "^3.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "gulp-rename": "^1.4.0"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"

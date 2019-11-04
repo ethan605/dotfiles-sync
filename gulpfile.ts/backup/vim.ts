@@ -7,8 +7,6 @@ import { wrapHomeDir } from '../helpers';
 // Constants
 import { BACKUP_DIR } from '../constants';
 
-const vim = (): NodeJS.ReadWriteStream => {
-  return gulp.src(wrapHomeDir('.vimrc')).pipe(gulp.dest(`${BACKUP_DIR}/vim`));
-};
+const vim = (): NodeJS.ReadWriteStream => gulp.src(wrapHomeDir('.vimrc')).pipe(gulp.dest(`${BACKUP_DIR}/vim`));
 
 export default vim;

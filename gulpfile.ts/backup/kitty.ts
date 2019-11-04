@@ -7,8 +7,7 @@ import { wrapHomeDir } from '../helpers';
 // Constants
 import { BACKUP_DIR } from '../constants';
 
-const kitty = (): NodeJS.ReadWriteStream => {
-  return gulp.src(wrapHomeDir('.config/kitty/**/*.conf')).pipe(gulp.dest(`${BACKUP_DIR}/kitty`));
-};
+const kitty = (): NodeJS.ReadWriteStream =>
+  gulp.src(wrapHomeDir('.config/kitty/**/*.conf')).pipe(gulp.dest(`${BACKUP_DIR}/kitty`));
 
 export default kitty;

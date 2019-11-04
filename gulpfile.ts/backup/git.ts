@@ -7,8 +7,6 @@ import { wrapHomeDir } from '../helpers';
 // Constants
 import { BACKUP_DIR } from '../constants';
 
-const git = (): NodeJS.ReadWriteStream => {
-  return gulp.src(wrapHomeDir('.gitconfig')).pipe(gulp.dest(`${BACKUP_DIR}/git`));
-};
+const git = (): NodeJS.ReadWriteStream => gulp.src(wrapHomeDir('.gitconfig')).pipe(gulp.dest(`${BACKUP_DIR}/git`));
 
 export default git;
