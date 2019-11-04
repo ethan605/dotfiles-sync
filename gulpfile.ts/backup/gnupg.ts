@@ -8,6 +8,6 @@ import { wrapHomeDir } from '../helpers';
 import { BACKUP_DIR } from '../constants';
 
 const gnupg = (): NodeJS.ReadWriteStream =>
-  gulp.src(wrapHomeDir('.gnupg/*.conf')).pipe(gulp.dest(`${BACKUP_DIR}/gpgnu`));
+  gulp.src(wrapHomeDir('.gnupg/*.conf')).pipe(gulp.dest(`${BACKUP_DIR}/gnupg`));
 
 export default gnupg;
