@@ -1,6 +1,7 @@
 " Plugins management with VimPlug: https://github.com/junegunn/vim-plug
 call plug#begin()
 
+" Plug 'ryanoasis/vim-devicons'
 Plug '/usr/local/bin/fzf'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
@@ -18,16 +19,16 @@ Plug 'liuchengxu/vista.vim'
 Plug 'mattn/emmet-vim'
 Plug 'mkitt/tabline.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-" Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdTree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
 Plug 'skielbasa/vim-material-monokai'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tomasiser/vim-code-dark'
+Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'pangloss/vim-javascript'
 
 call plug#end()
 
@@ -35,11 +36,14 @@ call plug#end()
 let g:airline_theme = 'powerlineish'
 let g:airline_powerline_fonts = 0
 
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+" Use <c-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<c-j>'
 
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+" Use <c-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<c-k>'
+
+" For indentLine
+let g:indentLine_char = '│'
 
 " For NERDTree
 let g:NERDSpaceDelims = 1 
@@ -118,7 +122,7 @@ function! s:select_current_word()
   if !get(g:, 'coc_cursors_activated', 0)
     return "\<Plug>(coc-cursors-word)"
   endif
-  return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
+  return "*\<Plug>(coc-cursors-word):nohlsearch\<cr>"
 endfunc
 
 function! s:show_documentation()
@@ -138,51 +142,54 @@ function! s:smarter_NERDTreeToggle()
 endfunction
 
 " ALE highlight colors
-hi ALEError         ctermbg=NONE          cterm=undercurl
-hi ALEWarning       ctermbg=NONE          cterm=undercurl
-hi ALEErrorSign     ctermbg=NONE          cterm=NONE
-hi ALEWarningSign   ctermbg=NONE          cterm=NONE
+hi ALEError         ctermbg=none          cterm=undercurl
+hi ALEWarning       ctermbg=none          cterm=undercurl
+hi ALEErrorSign     ctermbg=none          cterm=none
+hi ALEWarningSign   ctermbg=none          cterm=none
 
 " Line limit column colors
-hi ColorColumn      ctermbg=Red           ctermfg=White 
+hi ColorColumn      ctermbg=red           ctermfg=fg 
+
+" Matched parentheses colors
+hi MatchParen       cterm=bold            ctermbg=none      ctermfg=darkmagenta
 
 " Search highlight colors
-hi Search           ctermbg=DarkYellow    ctermfg=White 
+hi Search           ctermbg=darkyellow    ctermfg=white 
 
 " Line numbers colors
-hi LineNr           ctermfg=DarkGrey
-hi CursorLineNr     ctermfg=White         ctermbg=bg
+hi LineNr           ctermfg=darkgrey
+hi CursorLineNr     ctermfg=white         ctermbg=bg
 
 " TabLine highlight colors
-hi TabLine          cterm=NONE            ctermbg=bg    ctermfg=White
-hi TabLineFill      cterm=NONE
-hi TabLineSel       cterm=BOLD,INVERSE
+hi TabLine          cterm=none            ctermbg=bg        ctermfg=white
+hi TabLineFill      cterm=none
+hi TabLineSel       cterm=bold,inverse
 
 " Visual selection colors
 hi Visual           ctermfg=White
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
+inoremap <silent><expr> <tab>
+  \ pumvisible() ? "\<c-n>" :
+  \ <sid>check_back_space() ? "\<tab>" :
   \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<c-h>"
 
-" Use <C-c> to trigger completion.
-inoremap <silent><expr> <C-c> coc#refresh()
+" Use <c-c> to trigger completion.
+inoremap <silent><expr> <c-c> coc#refresh()
 
-" Use <C-space> to confirm completion
-inoremap <expr> <C-space> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Use <c-space> to confirm completion
+inoremap <expr> <c-space> pumvisible() ? "\<c-y>" : "\<c-g>u\<cr>"
 
-" Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
+" Use <c-l> for trigger snippet expand.
+imap <c-l> <Plug>(coc-snippets-expand)
 
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
+" Use <c-j> for select text for visual placeholder of snippet.
+vmap <c-j> <Plug>(coc-snippets-select)
 
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
+" Use <c-j> for both expand and jump (make expand higher priority.)
+imap <c-j> <Plug>(coc-snippets-expand-jump)
 
 " coc.nvim gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -191,25 +198,26 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-" Multiple cursors
-" nmap <expr><silent> <C-d> <SID>select_current_word()
+nnoremap <silent> K :call <sid>show_documentation()<cr>
 
 " Toggle NERDTree with focusing current file's location
-nmap <silent> <C-o> :call <SID>smarter_NERDTreeToggle()<CR>
+nmap <silent> <c-o> :call <sid>smarter_NERDTreeToggle()<cr>
 
 " Quick files opening
-nmap <C-p> :GFiles<CR>
+nmap <silent> <c-p> :GFiles<cr>
+nmap <silent> <c-g> :GFiles?<cr>
 
 " Search globally with RipGrep
-nmap <C-s> :Rg<space>
+nmap <c-s> :Rg<space>
 
 " Copy current file's path
-nmap ycf :let @+=@%<CR>
+nmap <silent> ycf :let @+=@%<cr>
 
 " Easymotion prefix
-nmap <Leader> <Plug>(easymotion-prefix)
+nmap <silent> <leader> <Plug>(easymotion-prefix)
+
+" Leader + space to hide search highlights
+nmap <silent> <leader><space> :nohlsearch<cr>
 
 " Show a mark for characters at column 120
 call matchadd('ColorColumn', '\%120v', 100)

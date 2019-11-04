@@ -14,8 +14,8 @@ const copyInitVim = (): NodeJS.ReadWriteStream => gulp.src(wrapHomeDir('.config/
 
 const copyCocExtensions = (): NodeJS.ReadWriteStream =>
   gulp
-    .src(wrapHomeDir('.config/coc/package.json'))
-    .pipe(gulpRename({ basename: 'coc-packages', extname: 'json' }))
+    .src(wrapHomeDir('.config/coc/extensions/package.json'))
+    .pipe(gulpRename({ basename: 'coc-extensions', extname: '.json' }))
     .pipe(gulp.dest(dest));
 
 export default gulp.parallel(copyInitVim, copyCocExtensions);
