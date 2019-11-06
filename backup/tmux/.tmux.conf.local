@@ -156,12 +156,13 @@ tmux_conf_theme_window_status_activity_attr=underscore
 
 # window bell status style
 tmux_conf_theme_window_status_bell_fg='#ffff00'         # yellow
-tmux_conf_theme_window_status_bell_bg='default'
-tmux_conf_theme_window_status_bell_attr='blink,bold'
+tmux_conf_theme_window_status_bell_bg=default
+tmux_conf_theme_window_status_bell_attr=blink,bold
 
 # window last status style
 tmux_conf_theme_window_status_last_bg=default
-tmux_conf_theme_window_status_last_fg='#00afff'         # light blue
+# tmux_conf_theme_window_status_last_fg='#00afff'         # light blue
+tmux_conf_theme_window_status_last_fg=colour81
 tmux_conf_theme_window_status_last_attr=none
 
 # status left/right sections separators
@@ -198,7 +199,6 @@ tmux_conf_theme_right_separator_sub='|'
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-# Possible icons: ⚙︎ ⚛︎ ☯︎ ☮︎ ♉︎
 tmux_conf_theme_status_left=' #S '
 tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R | #{username}#{root} | #{hostname} '
 
