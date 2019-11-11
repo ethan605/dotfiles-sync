@@ -320,6 +320,9 @@ set -g mode-keys vi
 # unbind C-b
 # set -g prefix C-a
 # bind C-a send-prefix
+bind-key { swap-window -t -1
+bind-key } swap-window -t 1
+bind-key S setw synchronize-panes
 
 # move status line to top
 set -g status-position top
