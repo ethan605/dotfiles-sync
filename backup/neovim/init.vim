@@ -67,38 +67,38 @@ let NERDTreeShowHidden=1
 set autoread                " Auto reload file from outside changes
 set autowrite               " Auto reload file from outside changes
 set background=dark         " For dark themes
-set clipboard+=unnamed    " Use system clipboard over vim's buffers
-set cmdheight=2           " Better display for messages
-set directory=/tmp        " Location for temporary files
-set encoding=UTF-8        " Encoding
-set expandtab             " Insert spaces when TAB is pressed.
-set formatoptions+=o      " Continue comment marker in new lines.
-set ignorecase            " Search with smart case
-set linespace=0           " Set line-spacing to minimum.
-set modeline              " Enable modeline.
-set nobackup              " Some LSP servers have issues with backup files
-set noerrorbells          " No beeps.
-set nofoldenable				  " Not folding by default
-set nojoinspaces          " Prevents inserting two spaces after punctuation on a join (J)
-set nostartofline         " Do not jump to first character with page commands.
-set noswapfile            " Disable swap files
-set nowritebackup         " Some LSP servers have issues with backup files
-set number relativenumber " Show hybrid line numbers on the left side.
-set ruler                 " Show the line and column numbers of the cursor.
-set scrolloff=3           " Show next 3 lines while scrolling.
-set shiftwidth=2          " Indentation amount for < and > commands.
-set shortmess+=c          " don't give 'ins-completion-menu' messages.
-set showcmd               " Show (partial) command in status line.
-set showmatch             " Show matching brackets.
-set showmode              " Show current mode.
-set sidescrolloff=5       " Show next 5 columns while side-scrolling.
-set signcolumn=yes        " always show signcolumns
-set smartcase             " Search with smart case
-set splitbelow            " Horizontal split below current.
-set splitright            " Vertical split to right of current.
-set tabstop=2             " Render TABs using this many spaces.
-set textwidth=0           " Hard-wrap long lines as you type them.
-set updatetime=300        " You will have bad experience for diagnostic messages when it's default 4000.
+set clipboard+=unnamed      " Use system clipboard over vim's buffers
+set cmdheight=2             " Better display for messages
+set directory=/tmp          " Location for temporary files
+set encoding=UTF-8          " Encoding
+set expandtab               " Insert spaces when TAB is pressed.
+set formatoptions+=o        " Continue comment marker in new lines.
+set ignorecase              " Search with smart case
+set linespace=0             " Set line-spacing to minimum.
+set modeline                " Enable modeline.
+set nobackup                " Some LSP servers have issues with backup files
+set noerrorbells            " No beeps.
+set nofoldenable				    " Not folding by default
+set nojoinspaces            " Prevents inserting two spaces after punctuation on a join (J)
+set nostartofline           " Do not jump to first character with page commands.
+set noswapfile              " Disable swap files
+set nowritebackup           " Some LSP servers have issues with backup files
+set number relativenumber   " Show hybrid line numbers on the left side.
+set ruler                   " Show the line and column numbers of the cursor.
+set scrolloff=3             " Show next 3 lines while scrolling.
+set shiftwidth=2            " Indentation amount for < and > commands.
+set shortmess+=c            " don't give 'ins-completion-menu' messages.
+set showcmd                 " Show (partial) command in status line.
+set showmatch               " Show matching brackets.
+set showmode                " Show current mode.
+set sidescrolloff=5         " Show next 5 columns while side-scrolling.
+set signcolumn=yes          " always show signcolumns
+set smartcase               " Search with smart case
+set splitbelow              " Horizontal split below current.
+set splitright              " Vertical split to right of current.
+set tabstop=2               " Render TABs using this many spaces.
+set textwidth=0             " Hard-wrap long lines as you type them.
+set updatetime=300          " You will have bad experience for diagnostic messages when it's default 4000.
 
 " Configure backups
 set backupcopy=yes
