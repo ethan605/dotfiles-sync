@@ -200,19 +200,19 @@ tmux_conf_theme_right_separator_sub='|'
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_status_left=' λ #S '
-tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R | #{username}#{root} | #{hostname} '
+tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , #{cpu_fg_color}#{cpu_icon} #{cpu_percentage} , %R | #{username}#{root} | #{hostname} '
 
 # status left style
 # tmux_conf_theme_status_left_bg='#ffff00,#ff00af,#00afff'  # yellow, pink, white blue
 # tmux_conf_theme_status_left_fg='#000000,#e4e4e4,#e4e4e4'  # black, white , white
-tmux_conf_theme_status_left_bg=colour84,colour202,colour81
+tmux_conf_theme_status_left_bg=colour82,colour196,colour81
 tmux_conf_theme_status_left_fg=colour0,default,colour0
 tmux_conf_theme_status_left_attr=bold,none,none
 
 # status right style
 # tmux_conf_theme_status_right_bg='#080808,#d70000,#e4e4e4' # dark gray, red, white
 # tmux_conf_theme_status_right_fg='#8a8a8a,#e4e4e4,#000000' # light gray, white, black
-tmux_conf_theme_status_right_bg=colour0,colour202,colour84
+tmux_conf_theme_status_right_bg=colour0,colour196,colour82
 tmux_conf_theme_status_right_fg=default,default,colour0
 tmux_conf_theme_status_right_attr=none,bold,bold
 
@@ -334,10 +334,13 @@ set -g default-shell /bin/zsh
 # default XTERM colorscheme
 set -g default-terminal "xterm-256color"
 
-set -g @tpm_plugins '           \
-  tmux-plugins/tpm              \
-  tmux_plugins/tpm-open         \
-  tmux_plugins/tpm-urlview      \
-'
+# tmux-cpu configs
+set -g @cpu_low_icon "="
+set -g @cpu_medium_icon "≡"
+set -g @cpu_high_icon "≣"
+set -g @cpu_low_fg_color "#[fg=colour82]"
+set -g @cpu_medium_fg_color "#[fg=colour202]"
+set -g @cpu_hight_fg_color "#[fg=colour196]"
+set -g @cpu_percentage_format "%1d%%"
 
 # }}}
