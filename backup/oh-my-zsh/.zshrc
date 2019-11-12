@@ -2,25 +2,33 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+# Paths
 export ANDROID_HOME="~/Library/Android/sdk"
-export EDITOR=nvim
-export FZF_DEFAULT_COMMAND='rg --files --hidden --smartcase --glob "!.git/*"'
-export GOOGLE_APPLICATION_CREDENTIALS="~/Documents/Workspaces/Dev/pi-top/matt-sandbox-155112-6b6046440734.json"
-export GOOGLE_PROJECT_ID="matt-sandbox-155112"
-export GPG_TTY=$(tty)
-export HOMEBREW_GITHUB_API_TOKEN=""
 export JAVA_HOME=$(/usr/libexec/java_home)
-export JEKYLL_GITHUB_TOKEN=""
-export REACT_EDITOR=nvim
-export TOOLCHAINS=swift
-
-PATH="/usr/local/bin:$(getconf PATH)"
+PATH="/usr/local/bin:$(getconf PATH)" # To get nvm works in tmux
 PATH=$JAVA_HOME:$PATH
 PATH=$ANDROID_HOME:$PATH
 PATH=$ANDROID_HOME/tools:$PATH
 PATH=$ANDROID_HOME/platform-tools:$PATH
 PATH=./node_modules/.bin:$PATH
 export PATH
+
+# Default editors
+export EDITOR=nvim
+export REACT_EDITOR=nvim
+
+# Tokens
+export HOMEBREW_GITHUB_API_TOKEN=""
+export JEKYLL_GITHUB_TOKEN=""
+
+# Google Cloud configs
+export GOOGLE_APPLICATION_CREDENTIALS="~/Documents/Workspaces/Dev/pi-top/matt-sandbox-155112-6b6046440734.json"
+export GOOGLE_PROJECT_ID="matt-sandbox-155112"
+
+# Misc
+export FZF_DEFAULT_COMMAND='rg --files --hidden --smartcase --glob "!.git/*"'
+export GPG_TTY=$(tty)
+export TOOLCHAINS=swift
 
 # Color for less and man 
 export MANPAGER='less -s -M +Gg'
@@ -40,10 +48,9 @@ export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
 export GROFF_NO_SGR=1
 
-fpath+=${ZDOTDIR:-~}/.zsh_functions
-
 # Oh-my-zsh configurations
 ZSH=$HOME/.oh-my-zsh
+fpath+=${ZDOTDIR:-~}/.zsh_functions
 plugins=(git osx zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
@@ -74,11 +81,13 @@ load-nvmrc
 
 # Pure prompt
 autoload -U promptinit; promptinit
-PURE_PROMPT_SYMBOL="λ"
+# PURE_PROMPT_SYMBOL="λ"
+PURE_PROMPT_SYMBOL="ૐ "
 prompt pure
 
 # Aliases
-alias adb-screenshot="adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ~/Downloads/Android_screenshot_`date +%Y-%m-%d_%H.%M.%S`.png"
+alias adb-screenshot="adb shell screencap -p \
+  | perl -pe 's/\x0D\x0A/\x0A/g' > ~/Downloads/Android_screenshot_`date +%Y-%m-%d_%H.%M.%S`.png"
 alias auth-ssh="ssh-add /Users/ethanify/.ssh/*_rsa"
 
 alias gdf="git diff --color"
