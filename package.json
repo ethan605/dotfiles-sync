@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Ethan's system files & automated backup-restore scripts",
   "scripts": {
-    "backup": "gulp backup",
+    "backup": "./scripts/update_and_backup.sh",
     "lint": "eslint . --ext \".ts\""
   },
   "repository": "git://github.com/ethan605/dotfiles.git",
