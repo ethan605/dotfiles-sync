@@ -12,7 +12,7 @@ NORMAL='\033[0m'
 print_step() {
   local step=$1
   local message=$2
-  printf "\n${BOLD}${GREEN}❯ ${step}. ${message}${NORMAL}\n\n"
+  printf "\n${GREEN}${BOLD}❯ ${step}. ${message}${NORMAL}\n\n"
 }
 
 # Updating system files
