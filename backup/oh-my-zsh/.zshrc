@@ -104,8 +104,6 @@ alias rnlog-android="adb logcat *:S ReactNative:V ReactNativeJS:V"
 
 alias tmx="tmux attach -t default || tmux new -s default"
 
-alias uptodate="brew update --verbose && brew upgrade --verbose && brew cleanup --prune-prefix && upgrade_oh_my_zsh --verbose"
-
 alias nano=nvim
 alias vi=nvim
 
