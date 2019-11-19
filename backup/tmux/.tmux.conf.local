@@ -343,4 +343,11 @@ set -g @cpu_medium_fg_color "#[fg=colour202]"
 set -g @cpu_hight_fg_color "#[fg=colour196]"
 set -g @cpu_percentage_format "%1d%%"
 
+set -g @tpm_plugins '           \
+  tmux-plugins/tpm              \
+  tmux_plugins/tpm-open         \
+  tmux_plugins/tpm-urlview      \
+  tmux-plugins/tmux-cpu         \
+'
+
 # }}}

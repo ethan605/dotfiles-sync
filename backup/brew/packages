@@ -17,7 +17,7 @@ coreutils 8.31
 dfc 3.1.1_1
 dfu-programmer 0.7.2
 docker 19.03.5
-docker-compose 1.24.1_1
+docker-compose 1.25.0
 docker-machine 0.16.2
 emacs 26.3
 ffmpeg 4.2.1_2
@@ -55,8 +55,8 @@ htop 2.2.0_1
 hwloc 2.1.0
 icu4c 64.2
 ilmbase 2.3.0
-imagemagick 7.0.9-4
-imagemagick@6 6.9.10-73
+imagemagick 7.0.9-5
+imagemagick@6 6.9.10-74
 isl 0.21
 jemalloc 5.2.1
 jpeg 9c
