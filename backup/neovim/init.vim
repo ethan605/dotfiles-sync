@@ -9,6 +9,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 Plug 'ap/vim-css-color'
 Plug 'bling/vim-airline'
+Plug 'connorholyday/vim-snazzy'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
@@ -26,7 +27,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
 Plug 'skielbasa/vim-material-monokai'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'tomasiser/vim-code-dark'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -110,7 +110,8 @@ set rtp+=/usr/local/opt/fzf
 
 " Color scheme
 syntax on
-colorscheme material-monokai
+" colorscheme material-monokai
+colorscheme snazzy
 
 " Custom functions
 function! s:check_back_space() abort
@@ -141,32 +142,16 @@ function! s:smarter_NERDTreeToggle()
   endif
 endfunction
 
-" ALE highlight colors
-hi ALEError         ctermbg=none          cterm=undercurl
-hi ALEWarning       ctermbg=none          cterm=undercurl
-hi ALEErrorSign     ctermbg=none          cterm=none
-hi ALEWarningSign   ctermbg=none          cterm=none
-
 " Line limit column colors
-hi ColorColumn      ctermbg=red           ctermfg=fg 
+hi ColorColumn      guibg=red           guifg=fg 
 
 " Matched parentheses colors
-hi MatchParen       cterm=bold            ctermbg=none      ctermfg=darkmagenta
-
-" Search highlight colors
-hi Search           ctermbg=darkyellow    ctermfg=white 
-
-" Line numbers colors
-hi LineNr           ctermfg=darkgrey
-hi CursorLineNr     ctermfg=white         ctermbg=bg
+hi MatchParen       gui=bold            guibg=none      guifg=#ff6ac1
 
 " TabLine highlight colors
-hi TabLine          cterm=none            ctermbg=bg        ctermfg=white
-hi TabLineFill      cterm=none
-hi TabLineSel       cterm=bold,inverse
-
-" Visual selection colors
-hi Visual           ctermfg=White
+hi TabLine          gui=none            guibg=bg        guifg=white
+hi TabLineFill      gui=none            guibg=bg
+hi TabLineSel       gui=bold,inverse
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -224,10 +209,10 @@ call matchadd('ColorColumn', '\%120v', 100)
 
 filetype plugin on
 
-" Autofix for Prettier on save
+" Autofix for Prettier on save" Autofix for Prettier on save" Autofix for Prettier on save" Autofix for Prettier on save" Autofix for Prettier on save
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
 
 augroup javascript_folding
-    au!
-    au FileType javascript setlocal foldmethod=syntax
+  au!
+  au FileType javascript setlocal foldmethod=syntax
 augroup END

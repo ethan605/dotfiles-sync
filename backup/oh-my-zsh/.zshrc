@@ -81,8 +81,8 @@ load-nvmrc
 
 # Pure prompt
 autoload -U promptinit; promptinit
-# PURE_PROMPT_SYMBOL="λ"
-PURE_PROMPT_SYMBOL="ૐ "
+PURE_PROMPT_SYMBOL="λ"
+# PURE_PROMPT_SYMBOL="❯"
 prompt pure
 
 # Aliases
