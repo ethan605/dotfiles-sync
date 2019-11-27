@@ -1682,9 +1682,9 @@ copy-props@^2.0.1:
     is-plain-object "^2.0.1"
 
 core-js-compat@^3.1.1:
-  version "3.4.2"
-  resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.4.2.tgz#652fa7c54652b7f6586a893e37001df55ea2ac37"
-  integrity sha512-W0Aj+LM3EAxxjD0Kp2o4be8UlnxIZHNupBv2znqrheR4aY2nOn91794k/xoSp+SxqqriiZpTsSwBtZr60cbkwQ==
+  version "3.4.3"
+  resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.4.3.tgz#54f2c5cd77b8b5acc5048904cc795722c9d590d1"
+  integrity sha512-HgW7pxjAdq6EMxT5uOhbTfjgZo8fvWn0D6QXVlWs3z1Eerux7tRrJ4gcgnZNn6S0OMPHlClJuIEPp0hnow44Sg==
   dependencies:
     browserslist "^4.7.3"
     semver "^6.3.0"
@@ -2242,9 +2242,9 @@ expand-tilde@^2.0.0, expand-tilde@^2.0.2:
     homedir-polyfill "^1.0.1"
 
 ext@^1.1.2:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/ext/-/ext-1.2.0.tgz#8dd8d2dd21bcced3045be09621fa0cbf73908ba4"
-  integrity sha512-0ccUQK/9e3NreLFg6K6np8aPyRgwycx+oFGtfx1dSp7Wj00Ozw9r05FgBRlzjf2XBM7LAzwgLyDscRrtSU91hA==
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/ext/-/ext-1.2.1.tgz#67e635e8d1c63a3250766a593aa8c3d6db332a32"
+  integrity sha512-x+OKKC57tNiLhDW26UmWtvQBpvO+2wxdC/A0jP7RkmjAc4gze9/U98hQyIYJUzo9A+o9ntMHpC+LH3pWMSbrVQ==
   dependencies:
     type "^2.0.0"
 
@@ -4873,9 +4873,9 @@ resolve-url@^0.2.1:
   integrity sha1-LGN/53yJOv0qZj/iGqkIAGjiBSo=
 
 resolve@^1.1.6, resolve@^1.1.7, resolve@^1.10.0, resolve@^1.11.0, resolve@^1.12.0, resolve@^1.3.2, resolve@^1.4.0, resolve@^1.5.0:
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.13.0.tgz#e879eb397efb40511056ede7300b6ac28c51290b"
-  integrity sha512-HHZ3hmOrk5SvybTb18xq4Ek2uLqLO5/goFCYUyvn26nWox4hdlKlfC/+dChIZ6qc4ZeYcN9ekTz0yyHsFgumMw==
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.13.1.tgz#be0aa4c06acd53083505abb35f4d66932ab35d16"
+  integrity sha512-CxqObCX8K8YtAhOBRg+lrcdn+LK+WYOS8tSjqSFbjtrI5PnS63QPhZl4+yKfrU9tdsbMu9Anr/amegT87M9Z6w==
   dependencies:
     path-parse "^1.0.6"
 
