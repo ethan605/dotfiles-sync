@@ -9,15 +9,17 @@ YELLOW='\033[1;33m'
 BOLD='\033[1m'
 NORMAL='\033[0m'
 
+steps_count=0
+
 print_step() {
-  local step=$1
-  local message=$2
-  printf "\n${GREEN}${BOLD}❯ ${step}. ${message}${NORMAL}\n\n"
+  let steps_count++
+  local message=$1
+  printf "\n${GREEN}${BOLD}❯ ${steps_count}. ${message}${NORMAL}\n\n"
 }
 
 # Updating system files
 update_system_files() {
-  print_step 1 "Updating system files"
+  print_step "Updating system files"
   brew update --verbose
   brew upgrade --verbose
   brew cleanup --prune-prefix
@@ -26,14 +28,16 @@ update_system_files() {
 
 # Upgrading Node modules
 update_node_modules() {
-  print_step 2 "Upgrading Node modules"
+  print_step "Upgrading Node modules"
   yarn upgrade
 }
 
 # Running backup scripts
 backup() {
-  print_step 3 "Backing up"
+  print_step "Backing up"
   gulp backup
 }
 
-update_system_files && update_node_modules && backup
+update_system_files && \
+# update_node_modules && \
+backup
