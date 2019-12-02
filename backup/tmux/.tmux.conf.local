@@ -347,7 +347,7 @@ set -g @tpm_plugins '           \
   tmux-plugins/tpm              \
   tmux_plugins/tpm-open         \
   tmux_plugins/tpm-urlview      \
-  tmux-plugins/tmux-cpu         \
+  tmux_plugins/tmux-cpu         \
 '
 
 # }}}

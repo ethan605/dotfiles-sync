@@ -22,8 +22,8 @@ export HOMEBREW_GITHUB_API_TOKEN=""
 export JEKYLL_GITHUB_TOKEN=""
 
 # Google Cloud configs
-export GOOGLE_APPLICATION_CREDENTIALS="~/Documents/Workspaces/Dev/pi-top/matt-sandbox-155112-6b6046440734.json"
-export GOOGLE_PROJECT_ID="matt-sandbox-155112"
+export GOOGLE_APPLICATION_CREDENTIALS=""
+export GOOGLE_PROJECT_ID=""
 
 # Misc
 export FZF_DEFAULT_COMMAND='rg --files --hidden --smartcase --glob "!.git/*"'
