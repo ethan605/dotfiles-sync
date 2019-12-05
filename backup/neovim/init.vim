@@ -29,6 +29,7 @@ Plug 'skielbasa/vim-material-monokai'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'alampros/vim-styled-jsx'
 
 call plug#end()
 
