@@ -45,6 +45,7 @@ let g:coc_snippet_prev = '<c-k>'
 
 " For indentLine
 let g:indentLine_char = '│'
+let g:indentLine_conceallevel = '0'
 
 " For NERDTree
 let g:NERDSpaceDelims = 1 
@@ -70,6 +71,7 @@ set autowrite               " Auto reload file from outside changes
 set background=dark         " For dark themes
 set clipboard+=unnamed      " Use system clipboard over vim's buffers
 set cmdheight=2             " Better display for messages
+" set conceallevel=0          " Disable markdown conceal
 set directory=/tmp          " Location for temporary files
 set encoding=UTF-8          " Encoding
 set expandtab               " Insert spaces when TAB is pressed.

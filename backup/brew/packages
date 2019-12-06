@@ -122,7 +122,7 @@ nginx 1.17.3_1
 node 13.2.0
 notmuch 0.29.2
 npth 1.6
-nspr 4.23
+nspr 4.24
 nss 3.47.1
 oniguruma 6.9.4
 open-mpi 4.0.2

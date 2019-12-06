@@ -303,14 +303,15 @@ tmux_conf_copy_to_os_clipboard=true
 # 5. User customizations {{{
 # this is the place to override or undo settings
 
-# replace C-b by C-a instead of using both prefixes
-# set -gu prefix2
-# unbind C-a
-# unbind C-b
-# set -g prefix C-a
-# bind C-a send-prefix
-bind-key < swap-window -t -1
-bind-key > swap-window -t 1
+# quick navigating between windows
+bind-key '{' select-window -p
+bind-key '}' select-window -n
+
+# quick swapping windows
+bind-key < swap-window -t -1 \; select-window -p
+bind-key > swap-window -t +1 \; select-window -n
+
+# quick synchronizing panes
 bind-key S setw synchronize-panes
 
 # increase history size
@@ -320,7 +321,7 @@ set -g history-limit 10000
 # set -g mouse on
 
 # force Vi mode
-#   really you should export VISUAL or EDITOR environment variable, see manual
+# really you should export VISUAL or EDITOR environment variable, see manual
 set -g status-keys vi
 set -g mode-keys vi
 
