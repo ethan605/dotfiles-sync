@@ -42,7 +42,7 @@ git-lfs 2.8.0
 glib 2.62.3
 gmime 3.2.5
 gmp 6.1.2_2
-gnupg 2.2.18
+gnupg 2.2.19
 gnutls 3.6.11.1
 gobject-introspection 1.62.0
 gpgme 1.13.1
@@ -118,9 +118,9 @@ ncurses 6.1
 neomutt 20191129
 neovim 0.4.3
 nettle 3.4.1
-nginx 1.17.3_1
+nginx 1.17.6
 node 13.2.0
-notmuch 0.29.2
+notmuch 0.29.3
 npth 1.6
 nspr 4.24
 nss 3.47.1
