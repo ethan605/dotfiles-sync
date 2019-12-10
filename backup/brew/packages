@@ -55,7 +55,7 @@ htop 2.2.0_1
 hwloc 2.1.0
 icu4c 64.2
 ilmbase 2.3.0
-imagemagick 7.0.9-7
+imagemagick 7.0.9-8
 imagemagick@6 6.9.10-77
 isl 0.21
 jemalloc 5.2.1
@@ -115,11 +115,11 @@ mozjpeg 3.3.1_1
 mpfr 4.0.2
 msgpack 3.2.0
 ncurses 6.1
-neomutt 20191129
+neomutt 20191207
 neovim 0.4.3
 nettle 3.4.1
 nginx 1.17.6
-node 13.2.0
+node 13.3.0
 notmuch 0.29.3
 npth 1.6
 nspr 4.24
@@ -159,6 +159,7 @@ speex 1.2.0
 sphinx-doc 2.2.1
 sqlite 3.30.1
 stress 1.0.4
+swaks 20190914.0
 szip 2.1.1_1
 talloc 2.3.0
 telnet 60
@@ -171,7 +172,7 @@ tree 1.8.0
 unbound 1.9.5
 unibilium 2.0.0
 urlview 0.9-20
-vips 8.8.3_3
+vips 8.8.4
 watchman 4.9.0_3
 webp 1.0.3
 x264 r2917_1
