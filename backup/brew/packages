@@ -28,7 +28,7 @@ fontconfig 2.13.1
 fontforge 20190801_1
 freetype 2.10.1
 frei0r 1.6.1
-fribidi 1.0.7
+fribidi 1.0.8
 fzf 0.19.0
 gcc 9.2.0_2
 gcc-arm-none-eabi 20180627
@@ -113,7 +113,7 @@ lzo 2.10
 mongodb-community 4.2.1
 mozjpeg 3.3.1_1
 mpfr 4.0.2
-msgpack 3.2.0
+msgpack 3.2.1
 ncurses 6.1
 neomutt 20191207
 neovim 0.4.3
@@ -169,7 +169,7 @@ theora 1.1.1
 tmux 3.0a
 tokyo-cabinet 1.4.48
 tree 1.8.0
-unbound 1.9.5
+unbound 1.9.6
 unibilium 2.0.0
 urlview 0.9-20
 vips 8.8.4
