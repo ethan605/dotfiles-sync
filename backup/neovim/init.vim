@@ -30,6 +30,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'alampros/vim-styled-jsx'
+Plug 'andreshazard/vim-freemarker'
 
 call plug#end()
 

@@ -12,7 +12,7 @@ axel 2.17.6
 blueutil 2.5.1
 cairo 1.16.0_2
 cfitsio 3.450_1
-cmake 3.15.5
+cmake 3.16.1
 coreutils 8.31
 dfc 3.1.1_1
 dfu-programmer 0.7.2
@@ -29,7 +29,7 @@ fontforge 20190801_1
 freetype 2.10.1
 frei0r 1.6.1
 fribidi 1.0.8
-fzf 0.19.0
+fzf 0.20.0
 gcc 9.2.0_2
 gcc-arm-none-eabi 20180627
 gdbm 1.18.1
@@ -114,12 +114,13 @@ mongodb-community 4.2.1
 mozjpeg 3.3.1_1
 mpfr 4.0.2
 msgpack 3.2.1
+mvnvm 1.0.13
 ncurses 6.1
 neomutt 20191207
 neovim 0.4.3
 nettle 3.4.1
 nginx 1.17.6
-node 13.3.0
+node 13.4.0
 notmuch 0.29.3
 npth 1.6
 nspr 4.24
