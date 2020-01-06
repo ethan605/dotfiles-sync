@@ -6,7 +6,7 @@ atk 2.34.1
 autoconf 2.69
 automake 1.16.1_1
 avr-binutils 2.33.1
-avr-gcc@7 7.4.0
+avr-gcc@7 7.4.0_1
 avrdude 6.3_1
 axel 2.17.6
 blueutil 2.5.1
@@ -38,7 +38,7 @@ gdmap 0.8.1_2
 gettext 0.20.1
 giflib 5.2.1
 git 2.24.1
-git-lfs 2.8.0
+git-lfs 2.9.2
 glib 2.62.4
 gmime 3.2.5
 gmp 6.1.2_2
@@ -55,14 +55,14 @@ htop 2.2.0_1
 hwloc 2.1.0
 icu4c 64.2
 ilmbase 2.3.0
-imagemagick 7.0.9-12
-imagemagick@6 6.9.10-81
+imagemagick 7.0.9-13
+imagemagick@6 6.9.10-83
 isl 0.22
 jemalloc 5.2.1
 jpeg 9c
 jq 1.6
 lame 3.100
-leptonica 1.78.0_1
+leptonica 1.79.0
 libass 0.14.0_1
 libassuan 2.5.3
 libbluray 1.1.2
