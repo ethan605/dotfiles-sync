@@ -31,6 +31,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'alampros/vim-styled-jsx'
 Plug 'andreshazard/vim-freemarker'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 call plug#end()
 
