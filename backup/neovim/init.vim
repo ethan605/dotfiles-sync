@@ -1,12 +1,13 @@
 " Plugins management with VimPlug: https://github.com/junegunn/vim-plug
 call plug#begin()
 
-" Plug 'ryanoasis/vim-devicons'
 Plug '/usr/local/bin/fzf'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
+Plug 'alampros/vim-styled-jsx'
+Plug 'andreshazard/vim-freemarker'
 Plug 'ap/vim-css-color'
 Plug 'bling/vim-airline'
 Plug 'connorholyday/vim-snazzy'
@@ -22,22 +23,21 @@ Plug 'mkitt/tabline.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdTree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
 Plug 'skielbasa/vim-material-monokai'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'alampros/vim-styled-jsx'
-Plug 'andreshazard/vim-freemarker'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 call plug#end()
 
 " For vim-airline
 let g:airline_theme = 'powerlineish'
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 
 " Use <c-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<c-j>'
@@ -214,7 +214,7 @@ call matchadd('ColorColumn', '\%120v', 100)
 
 filetype plugin on
 
-" Autofix for Prettier on save" Autofix for Prettier on save" Autofix for Prettier on save" Autofix for Prettier on save" Autofix for Prettier on save
+" Autofix for Prettier on save
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
 
 augroup javascript_folding
