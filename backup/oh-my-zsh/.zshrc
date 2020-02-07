@@ -109,6 +109,6 @@ alias nano=nvim
 alias vi=nvim
 
 # Loading tmux with default session
-# if [ -z "$TMUX" ]; then
-  # tmx
-# fi
+if [ -z "$TMUX" ]; then
+  tmx
+fi

@@ -55,8 +55,8 @@ htop 2.2.0_1
 hwloc 2.1.0
 icu4c 64.2
 ilmbase 2.4.0
-imagemagick 7.0.9-20
-imagemagick@6 6.9.10-90
+imagemagick 7.0.9-21
+imagemagick@6 6.9.10-91
 isl 0.22
 jemalloc 5.2.1
 jpeg 9d
@@ -121,7 +121,7 @@ neomutt 20191207
 neovim 0.4.3
 nettle 3.4.1
 nginx 1.17.8
-node 13.7.0
+node 13.8.0
 notmuch 0.29.3
 npth 1.6
 nspr 4.25
@@ -183,5 +183,5 @@ x265 3.2.1
 xapian 1.4.14
 xvid 1.3.7
 xz 5.2.4
-yarn 1.21.1
+yarn 1.22.0
 zlib 1.2.11
