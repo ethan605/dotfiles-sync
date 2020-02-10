@@ -74,7 +74,7 @@ libexif 0.6.21
 libffi 3.2.1
 libftdi0 0.20
 libgcrypt 1.8.5
-libgpg-error 1.36
+libgpg-error 1.37
 libgsf 1.14.46_1
 libheif 1.6.2
 libhid 0.2.16
@@ -125,7 +125,7 @@ node 13.8.0
 notmuch 0.29.3
 npth 1.6
 nspr 4.25
-nss 3.49.2
+nss 3.50
 oniguruma 6.9.4
 open-mpi 4.0.2
 opencore-amr 0.1.5
@@ -159,7 +159,7 @@ sdl2 2.0.10
 shared-mime-info 1.15
 snappy 1.1.8
 speex 1.2.0
-sphinx-doc 2.3.1
+sphinx-doc 2.4.0
 sqlite 3.31.1
 stress 1.0.4
 swaks 20190914.0
