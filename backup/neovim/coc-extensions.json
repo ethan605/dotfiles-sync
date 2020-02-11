@@ -1,8 +1,8 @@
 {
   "dependencies": {
     "coc-css": ">=1.2.2",
-    "coc-eslint": ">=1.2.5",
-    "coc-html": ">=1.2.1",
+    "coc-eslint": ">=1.2.6",
+    "coc-html": ">=1.2.3",
     "coc-json": ">=1.2.4",
     "coc-snippets": ">=2.1.18",
     "coc-tabnine": ">=1.2.2",

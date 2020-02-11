@@ -27,7 +27,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdTree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
-Plug 'skielbasa/vim-material-monokai'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
@@ -116,8 +115,8 @@ set rtp+=/usr/local/opt/fzf
 
 " Color scheme
 syntax on
-" colorscheme material-monokai
 colorscheme snazzy
+" set termguicolors
 
 " Custom functions
 function! s:check_back_space() abort
@@ -158,6 +157,8 @@ hi MatchParen       gui=bold            guibg=none      guifg=#ff6ac1
 hi TabLine          gui=none            guibg=bg        guifg=white
 hi TabLineFill      gui=none            guibg=bg
 hi TabLineSel       gui=bold,inverse
+
+hi CocUnderline     cterm=undercurl     gui=undercurl
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.

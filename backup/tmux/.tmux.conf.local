@@ -333,7 +333,11 @@ set -g default-command /bin/zsh
 set -g default-shell /bin/zsh
 
 # default XTERM colorscheme
-set -g default-terminal "xterm-256color"
+# set -g default-terminal "xterm-256color"
+
+# to support undercurls (curly underlines)
+set -g default-terminal "xterm-kitty"
+set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
 
 # tmux-cpu configs
 set -g @cpu_low_icon "="
