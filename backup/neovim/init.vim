@@ -147,6 +147,9 @@ function! s:smarter_NERDTreeToggle()
   endif
 endfunction
 
+" coc.nvim
+hi CocUnderline     cterm=undercurl     gui=undercurl
+
 " Line limit column colors
 hi ColorColumn      guibg=red           guifg=fg 
 
@@ -158,7 +161,10 @@ hi TabLine          gui=none            guibg=bg        guifg=white
 hi TabLineFill      gui=none            guibg=bg
 hi TabLineSel       gui=bold,inverse
 
-hi CocUnderline     cterm=undercurl     gui=undercurl
+hi SpellBad         gui=undercurl       guibg=none      guifg=lightred
+hi SpellCap         gui=undercurl       guibg=none      guifg=lightred
+hi SpellLocal       gui=undercurl       guibg=none      guifg=lightred
+hi SpellRare        gui=undercurl       guibg=none      guifg=lightred
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.

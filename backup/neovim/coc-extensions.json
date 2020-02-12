@@ -5,6 +5,7 @@
     "coc-html": ">=1.2.3",
     "coc-json": ">=1.2.4",
     "coc-snippets": ">=2.1.18",
+    "coc-spell-checker": ">=1.1.0",
     "coc-tabnine": ">=1.2.2",
     "coc-tsserver": ">=1.4.9"
   }
