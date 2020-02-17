@@ -16,7 +16,7 @@ cmake 3.16.4
 coreutils 8.31
 dfc 3.1.1_1
 dfu-programmer 0.7.2
-docker 19.03.5
+docker 19.03.6
 docker-compose 1.25.4
 ffmpeg 4.2.2_1
 fftw 3.3.8_1
@@ -38,7 +38,7 @@ giflib 5.2.1
 git 2.25.0_1
 git-lfs 2.10.0
 glib 2.62.4
-gmime 3.2.5
+gmime 3.2.6
 gmp 6.1.2_2
 gnupg 2.2.19
 gnutls 3.6.12
@@ -53,7 +53,7 @@ htop 2.2.0_1
 hwloc 2.1.0
 icu4c 64.2
 ilmbase 2.4.0
-imagemagick 7.0.9-21
+imagemagick 7.0.9-23
 imagemagick@6 6.9.10-91
 isl 0.22
 jemalloc 5.2.1
