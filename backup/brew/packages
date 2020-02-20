@@ -18,7 +18,7 @@ dfc 3.1.1_1
 dfu-programmer 0.7.2
 docker 19.03.6
 docker-compose 1.25.4
-ffmpeg 4.2.2_1
+ffmpeg 4.2.2_2
 fftw 3.3.8_1
 fish 3.1.0
 flac 1.3.3
@@ -37,9 +37,9 @@ gettext 0.20.1
 giflib 5.2.1
 git 2.25.0_1
 git-lfs 2.10.0
-glib 2.62.4
+glib 2.62.5
 gmime 3.2.6
-gmp 6.1.2_2
+gmp 6.2.0
 gnupg 2.2.19
 gnutls 3.6.12
 gobject-introspection 1.62.0
@@ -74,7 +74,7 @@ libftdi0 0.20
 libgcrypt 1.8.5
 libgpg-error 1.37
 libgsf 1.14.46_1
-libheif 1.6.2
+libheif 1.6.2_1
 libhid 0.2.16
 libidn 1.35
 libidn2 2.3.0
@@ -154,7 +154,7 @@ sdl2 2.0.10
 shared-mime-info 1.15
 snappy 1.1.8
 speex 1.2.0
-sphinx-doc 2.4.1
+sphinx-doc 2.4.2
 sqlite 3.31.1
 stress 1.0.4
 swaks 20190914.0
@@ -174,7 +174,7 @@ vips 8.9.1
 watchman 4.9.0_3
 webp 1.1.0
 x264 r2917_1
-x265 3.2.1
+x265 3.3
 xapian 1.4.14
 xvid 1.3.7
 xz 5.2.4
