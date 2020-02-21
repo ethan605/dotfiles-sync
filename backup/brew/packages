@@ -113,7 +113,7 @@ mongodb-community 4.2.3
 mozjpeg 3.3.1_1
 mpfr 4.0.2
 msgpack 3.2.1
-mvnvm 1.0.13
+mvnvm 1.0.13_1
 ncurses 6.1_1
 neovim 0.4.3
 nettle 3.4.1
@@ -125,6 +125,7 @@ oniguruma 6.9.4
 open-mpi 4.0.2
 opencore-amr 0.1.5
 openexr 2.4.0
+openjdk 13.0.2+8_2
 openjpeg 2.3.1
 openslide 3.4.1_5
 openssl 1.0.2t
@@ -144,7 +145,7 @@ python 3.7.6_1
 python@2 2.7.17_1
 python@3.8 3.8.1
 qt 5.14.1
-readline 8.0.1
+readline 8.0.4
 reattach-to-user-namespace 2.8
 ripgrep 11.0.2
 rtmpdump 2.4+20151223_1
