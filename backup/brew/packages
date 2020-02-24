@@ -5,7 +5,7 @@ asciinema 2.0.2_1
 atk 2.34.1
 autoconf 2.69
 automake 1.16.1_1
-avr-binutils 2.33.1
+avr-binutils 2.34
 avr-gcc@7 7.4.0_1
 avrdude 6.3_1
 axel 2.17.7
@@ -114,7 +114,7 @@ mozjpeg 3.3.1_1
 mpfr 4.0.2
 msgpack 3.2.1
 mvnvm 1.0.13_1
-ncurses 6.1_1
+ncurses 6.2
 neovim 0.4.3
 nettle 3.4.1
 node 13.8.0
