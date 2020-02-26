@@ -155,7 +155,7 @@ sdl2 2.0.10
 shared-mime-info 1.15
 snappy 1.1.8
 speex 1.2.0
-sphinx-doc 2.4.2
+sphinx-doc 2.4.3
 sqlite 3.31.1
 stress 1.0.4
 swaks 20190914.0
@@ -168,7 +168,7 @@ theora 1.1.1
 tmux 3.0a
 tokyo-cabinet 1.4.48
 tree 1.8.0
-unbound 1.9.6
+unbound 1.10.0
 unibilium 2.0.0
 urlview 0.9-20
 vips 8.9.1
