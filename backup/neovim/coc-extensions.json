@@ -4,7 +4,7 @@
     "coc-eslint": ">=1.2.6",
     "coc-html": ">=1.2.3",
     "coc-java": ">=1.4.6",
-    "coc-json": ">=1.2.4",
+    "coc-json": ">=1.2.5",
     "coc-snippets": ">=2.1.19",
     "coc-spell-checker": ">=1.1.0",
     "coc-tabnine": ">=1.2.2",
