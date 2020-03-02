@@ -165,12 +165,13 @@ telnet 63
 tesseract 4.1.1
 the_silver_searcher 2.2.0
 theora 1.1.1
-tmux 3.0a
+tmux 3.0a_1
 tokyo-cabinet 1.4.48
 tree 1.8.0
 unbound 1.10.0
 unibilium 2.0.0
 urlview 0.9-20
+utf8proc 2.4.0
 vips 8.9.1
 watchman 4.9.0_3
 webp 1.1.0
