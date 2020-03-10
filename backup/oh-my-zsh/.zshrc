@@ -6,6 +6,7 @@ export LC_ALL=en_US.UTF-8
 export ANDROID_HOME="~/Library/Android/sdk"
 export JAVA_HOME=$(/usr/libexec/java_home)
 PATH="/usr/local/bin:$(getconf PATH)" # To get nvm works in tmux
+PATH="/usr/local/sbin:$PATH"
 PATH=$JAVA_HOME:$PATH
 PATH=$ANDROID_HOME:$PATH
 PATH=$ANDROID_HOME/tools:$PATH
