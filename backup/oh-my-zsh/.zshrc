@@ -83,8 +83,8 @@ load-nvmrc
 
 # Pure prompt
 autoload -U promptinit; promptinit
-PURE_PROMPT_SYMBOL="λ"
-# PURE_PROMPT_SYMBOL="❯"
+fpath+=$HOME/.zsh/pure
+PURE_PROMPT_SYMBOL="λ" # originally "❯"
 prompt pure
 
 # Aliases
