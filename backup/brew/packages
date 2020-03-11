@@ -138,7 +138,7 @@ pipenv 2018.11.26_3
 pixman 0.38.4
 pkg-config 0.29.2
 poppler 0.86.1
-python 3.7.6_1
+python 3.7.7
 python@2 2.7.17_1
 python@3.8 3.8.1
 qt 5.14.1
@@ -151,6 +151,7 @@ screenfetch 3.9.1
 sdl2 2.0.10
 shared-mime-info 1.15
 snappy 1.1.8
+speedtest 1.0.0
 speex 1.2.0
 sphinx-doc 2.4.4
 sqlite 3.31.1
