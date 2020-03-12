@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 # Please adapt and uncomment the following lines:
-	name = Ethan Nguyen
+	name = Ethan
 	email = thanhnx.605@gmail.com
 	signingkey = 9C6CEB919ED2CEFE
 [filter "lfs"]

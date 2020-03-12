@@ -1,6 +1,6 @@
 adns 1.5.1
 aom 1.0.0
-asciinema 2.0.2_1
+asciinema 2.0.2_2
 atk 2.34.1
 autoconf 2.69
 automake 1.16.1_1
@@ -34,7 +34,7 @@ gettext 0.20.1
 giflib 5.2.1
 git 2.25.1
 git-lfs 2.10.0
-glib 2.64.0
+glib 2.64.1
 gmime 3.2.6
 gmp 6.2.0
 gnupg 2.2.19
@@ -134,13 +134,13 @@ pcre 8.44
 pcre2 10.34
 pinentry 1.1.0_1
 pinentry-mac 0.9.4
-pipenv 2018.11.26_3
+pipenv 2018.11.26_4
 pixman 0.38.4
 pkg-config 0.29.2
 poppler 0.86.1
 python 3.7.7
 python@2 2.7.17_1
-python@3.8 3.8.1
+python@3.8 3.8.2
 qt 5.14.1
 readline 8.0.4
 reattach-to-user-namespace 2.8
