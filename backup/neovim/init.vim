@@ -2,6 +2,7 @@
 call plug#begin()
 
 Plug '/usr/local/bin/fzf'
+Plug 'APZelos/blamer.nvim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
@@ -21,6 +22,7 @@ Plug 'liuchengxu/vista.vim'
 Plug 'mattn/emmet-vim'
 Plug 'mkitt/tabline.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'niftylettuce/vim-jinja'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'ryanoasis/vim-devicons'
@@ -29,16 +31,20 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
-Plug 'niftylettuce/vim-jinja'
 
 call plug#end()
 
 " For vim-airline
 let g:airline_theme = 'powerlineish'
 let g:airline_powerline_fonts = 1
+
+" For blamer.vim
+let g:blamer_delay = 500
+let g:blamer_enabled = 1
+let g:blamer_show_in_visual_modes = 0
 
 " Use <c-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<c-j>'

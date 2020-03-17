@@ -15,6 +15,7 @@ EditorConfig.EditorConfig
 EQuimper.react-native-react-redux
 eriklynd.json-tools
 esbenp.prettier-vscode
+extr0py.vscode-relative-line-numbers
 file-icons.file-icons
 formulahendry.auto-close-tag
 formulahendry.auto-rename-tag
@@ -45,6 +46,7 @@ Orta.vscode-jest
 Prisma.vscode-graphql
 rebornix.ruby
 richie5um2.vscode-sort-json
+ronnidc.nunjucks
 shanoor.vscode-nginx
 shinnn.stylelint
 sidneys1.gitconfig

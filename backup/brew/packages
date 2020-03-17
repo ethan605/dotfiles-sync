@@ -91,7 +91,7 @@ libtasn1 4.16.0
 libtermkey 0.22
 libtiff 4.1.0
 libtool 2.4.6_1
-libuninameslist 20190701
+libuninameslist 20200313
 libunistring 0.9.10
 libusb 1.0.23
 libusb-compat 0.1.5_1
@@ -144,7 +144,7 @@ python@3.8 3.8.2
 qt 5.14.1
 readline 8.0.4
 reattach-to-user-namespace 2.8
-ripgrep 11.0.2
+ripgrep 12.0.0
 rtmpdump 2.4+20151223_1
 rubberband 1.8.2_1
 screenfetch 3.9.1
