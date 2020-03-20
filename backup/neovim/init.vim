@@ -44,12 +44,14 @@ let g:airline_powerline_fonts = 1
 " For blamer.vim
 let g:blamer_delay = 500
 let g:blamer_enabled = 1
+let g:blamer_prefix = ' • '
 let g:blamer_show_in_visual_modes = 0
+let g:blamer_template = '<author>, <author-time> • <summary>'
 
-" Use <c-j> for jump to next placeholder, it's default of coc.nvim
+" For coc.nvim
 let g:coc_snippet_next = '<c-j>'
 
-" Use <c-k> for jump to previous placeholder, it's default of coc.nvim
+" For coc.nvim
 let g:coc_snippet_prev = '<c-k>'
 
 " For indentLine
@@ -60,7 +62,7 @@ let g:indentLine_conceallevel = '0'
 let g:NERDSpaceDelims = 1 
 let g:NERDTreeIgnore = ['\~$', 'vendor', 'node_modules']
 
-" Auto format for Prettier
+" For Prettier
 let g:prettier#autoformat = 0
 
 " For material-monokai
