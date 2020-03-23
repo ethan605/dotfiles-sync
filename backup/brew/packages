@@ -3,9 +3,9 @@ aom 1.0.0
 asciinema 2.0.2_2
 atk 2.34.1
 autoconf 2.69
-automake 1.16.1_1
+automake 1.16.2
 avr-binutils 2.34
-avr-gcc@7 7.4.0_1
+avr-gcc@7 7.5.0
 avrdude 6.3_1
 axel 2.17.7
 blueutil 2.5.1
@@ -32,10 +32,10 @@ gdk-pixbuf 2.40.0
 gdmap 0.8.1_2
 gettext 0.20.1
 giflib 5.2.1
-git 2.25.2
+git 2.26.0
 git-lfs 2.10.0
 glib 2.64.1
-gmime 3.2.6
+gmime 3.2.7
 gmp 6.2.0
 gnupg 2.2.19
 gnutls 3.6.12
