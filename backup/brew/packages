@@ -37,7 +37,7 @@ git-lfs 2.10.0
 glib 2.64.1
 gmime 3.2.7
 gmp 6.2.0
-gnupg 2.2.19
+gnupg 2.2.20
 gnutls 3.6.12
 gobject-introspection 1.64.0
 gpgme 1.13.1
