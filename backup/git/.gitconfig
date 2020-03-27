@@ -1,6 +1,4 @@
-# This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
 	name = Ethan
 	email = thanhnx.605@gmail.com
 	signingkey = 9C6CEB919ED2CEFE
@@ -10,4 +8,6 @@
 	required = true
 	clean = git-lfs clean -- %f
 [commit]
+	gpgsign = true
+[tag]
 	gpgsign = true

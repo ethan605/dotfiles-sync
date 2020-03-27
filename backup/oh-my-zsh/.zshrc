@@ -53,7 +53,7 @@ export GROFF_NO_SGR=1
 # Oh-my-zsh configurations
 ZSH=$HOME/.oh-my-zsh
 fpath+=${ZDOTDIR:-~}/.zsh_functions
-plugins=(git osx zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git github npm nvm osx vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # Loading nvm
