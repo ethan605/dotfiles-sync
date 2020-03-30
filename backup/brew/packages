@@ -8,7 +8,7 @@ avr-binutils 2.34
 avr-gcc@7 7.5.0
 avrdude 6.3_1
 axel 2.17.7
-blueutil 2.5.1
+blueutil 2.6.0
 cairo 1.16.0_2
 cfitsio 3.470
 cmake 3.17.0_1
@@ -70,7 +70,7 @@ libffi 3.2.1
 libftdi0 0.20
 libgcrypt 1.8.5
 libgpg-error 1.37
-libgsf 1.14.46_1
+libgsf 1.14.47
 libheif 1.6.2_1
 libhid 0.2.16
 libidn 1.35
@@ -148,7 +148,7 @@ ripgrep 12.0.0
 rtmpdump 2.4+20151223_1
 rubberband 1.8.2_1
 screenfetch 3.9.1
-sdl2 2.0.12
+sdl2 2.0.12_1
 shared-mime-info 1.15
 snappy 1.1.8
 speedtest 1.0.0
