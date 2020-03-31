@@ -144,7 +144,7 @@ python@3.8 3.8.2
 qt 5.14.1
 readline 8.0.4
 reattach-to-user-namespace 2.8
-ripgrep 12.0.0
+ripgrep 12.0.1
 rtmpdump 2.4+20151223_1
 rubberband 1.8.2_1
 screenfetch 3.9.1
