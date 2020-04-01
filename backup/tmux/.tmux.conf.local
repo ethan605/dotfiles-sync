@@ -350,8 +350,8 @@ set -g @cpu_percentage_format "%1d%%"
 
 set -g @tpm_plugins '           \
   tmux-plugins/tpm              \
-  tmux_plugins/tpm-open         \
-  tmux_plugins/tpm-urlview      \
+  tmux_plugins/tmux-open        \
+  tmux_plugins/tmux-urlview     \
   tmux_plugins/tmux-cpu         \
 '
 
