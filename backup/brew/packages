@@ -39,7 +39,7 @@ gmime 3.2.7
 gmp 6.2.0
 gnupg 2.2.20
 gnutls 3.6.12
-gobject-introspection 1.64.0_1
+gobject-introspection 1.64.1
 gpgme 1.13.1
 graphite2 1.3.14
 gtk+ 2.24.32_3
@@ -171,7 +171,7 @@ tree 1.8.0
 unbound 1.10.0
 unibilium 2.0.0
 urlview 0.9-20
-utf8proc 2.4.0
+utf8proc 2.5.0
 vips 8.9.1_1
 watchman 4.9.0_3
 webp 1.1.0
