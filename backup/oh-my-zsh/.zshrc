@@ -53,7 +53,7 @@ export GROFF_NO_SGR=1
 # Oh-my-zsh configurations
 ZSH=$HOME/.oh-my-zsh
 fpath+=${ZDOTDIR:-~}/.zsh_functions
-plugins=(git github npm nvm osx vi-mode zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(docker git github npm nvm osx vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # Loading nvm
@@ -91,9 +91,6 @@ prompt pure
 alias adb-screenshot="adb shell screencap -p \
   | perl -pe 's/\x0D\x0A/\x0A/g' > ~/Downloads/Android_screenshot_`date +%Y-%m-%d_%H.%M.%S`.png"
 alias auth-ssh="ssh-add /Users/ethanify/.ssh/*_rsa"
-
-alias gdf="git diff --color"
-alias gs="git status"
 
 alias launch-android-emu="cd $ANDROID_HOME/tools && emulator -avd"
 
