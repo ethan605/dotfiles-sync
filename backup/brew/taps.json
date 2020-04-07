@@ -1,0 +1,16 @@
+[
+  "d12frosted/emacs-plus",
+  "heroku/brew",
+  "homebrew/cask",
+  "homebrew/cask-drivers",
+  "homebrew/cask-fonts",
+  "homebrew/core",
+  "homebrew/services",
+  "huytd/cask-fonts",
+  "mongodb/brew",
+  "osx-cross/avr",
+  "prisma/prisma",
+  "px4/px4",
+  "teamookla/speedtest",
+  "wix/brew"
+]
