@@ -4,8 +4,8 @@ Manual instructions to restore dotfiles, automation is under WIP
 
 ## 1. Prerequisites
 
-- Install `brew`, then install all formulaes.
-- Install `nvm` then `node` with version from `.nvmrc`.
+- Install `brew`, then install all formulaes from `backup/brew/packages.json`.
+- Install `nvm` and `node` versions from `backup/nvm/versions.json`.
 
 ## 2. Details
 
