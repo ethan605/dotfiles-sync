@@ -8,33 +8,33 @@ read_json_array() {
   jq -r '.[]' "$json_path"
 }
 
-brew_fetch_taps() {
-  print_sub_step "Fetch taps"
+brew_restore_taps() {
+  print_sub_step "Restore taps"
   for tap in $(read_json_array ./backup/brew/taps.json); do
     brew tap "$tap"
   done
 }
 
-brew_install_formulaes() {
-  print_sub_step "Install formulaes"
+brew_restore_formulaes() {
+  print_sub_step "Restore formulaes"
   brew install $(read_json_array ./backup/brew/formulaes.json)
 }
 
-brew_install_casks() {
-  print_sub_step "Install casks"
+brew_restore_casks() {
+  print_sub_step "Restore casks"
   brew cask install $(read_json_array ./scripts/test_data.json)
 }
 
-install_homebrew() {
+restore_homebrew() {
   print_step "Install Homebrew"
   # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" && \
-  # brew install jq && \
-  # brew_fetch_taps && \
-  brew_install_formulaes && \
-  brew_install_casks
+  brew install jq && \
+  brew_restore_taps && \
+  brew_restore_formulaes && \
+  brew_restore_casks
 }
 
-install_nvm() {
+restore_nvm() {
   print_step "Install NVM"
   brew install nvm && \
   unset PREFIX && \
@@ -45,7 +45,7 @@ install_nvm() {
   npm config set prefix $NVM_DIR/versions/node/$(nvm version node)
 }
 
-install_homebrew
+restore_homebrew
 
-# install_homebrew && \
-  # install_nvm
+# restore_homebrew && \
+  # restore_nvm
