@@ -50,14 +50,15 @@ export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
 export GROFF_NO_SGR=1
 
+# Loading nvm
+export NVM_DIR=$(brew --prefix nvm)
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 # Oh-my-zsh configurations
 ZSH=$HOME/.oh-my-zsh
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 plugins=(docker git github npm nvm osx vi-mode zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
-
-# Loading nvm
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # Auto call `nvm use` in folders with .nvmrc
 autoload -U add-zsh-hook
@@ -83,8 +84,8 @@ load-nvmrc
 
 # Pure prompt
 autoload -U promptinit; promptinit
-fpath+=$HOME/.zsh/pure
-PURE_PROMPT_SYMBOL="λ" # originally "❯"
+PURE_PROMPT_SYMBOL="λ"            # originally "❯"
+PURE_PROMPT_VICMD_SYMBOL="ε"      # originally "❮"
 prompt pure
 
 # Aliases
@@ -96,6 +97,8 @@ alias docker-rm-all='docker rm $(docker ps -laq)'
 
 alias launch-android-emu="cd $ANDROID_HOME/tools && emulator -avd"
 
+alias npm-fix-prefix="nvm use --delete-prefix node && \
+  npm config set prefix $NVM_DIR/versions/node/$(nvm version node)"
 alias nvm-upgrade='(
   cd "$NVM_DIR"
   git fetch --tags origin
@@ -119,6 +122,6 @@ alias vi=nvim
 alias tmx="tmux attach -t default || tmux new -s default"
 
 # Loading tmux with default session
-if [ -z "$TMUX" ]; then
-  tmx
-fi
+# if [ -z "$TMUX" ]; then
+  # tmx
+# fi

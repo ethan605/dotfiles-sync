@@ -40,17 +40,14 @@ call plug#end()
 let g:airline_theme = 'powerlineish'
 let g:airline_powerline_fonts = 1
 
-" For blamer.vim
+" For blamer.nvim
 let g:blamer_delay = 500
 let g:blamer_enabled = 1
-" let g:blamer_prefix = ' • '
 let g:blamer_show_in_visual_modes = 0
 let g:blamer_template = '<author>, <author-time> • <summary>'
 
 " For coc.nvim
 let g:coc_snippet_next = '<c-j>'
-
-" For coc.nvim
 let g:coc_snippet_prev = '<c-k>'
 
 " For indentLine
