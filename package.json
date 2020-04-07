@@ -4,6 +4,7 @@
   "description": "Ethan's system files & automated backup-restore scripts",
   "scripts": {
     "backup": "./scripts/update_and_backup.sh",
+    "list-encrypted-archive": "gpgtar --list-archive",
     "lint": "eslint . --ext \".ts\""
   },
   "repository": "git://github.com/ethan605/dotfiles.git",
