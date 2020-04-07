@@ -8,8 +8,8 @@
   - [x] Install formulaes from `backup/brew/formulaes.json`.
   - [x] Install casks from `backup/brew/casks.json`.
 - [x] Nvm
-  - [ ] Install `node` versions from `backup/nvm/nodeVersions.json`
-  - [ ] Install global packages from `backup/nvm/globalNpmPackages.json`
+  - [x] Install `node` versions from `backup/nvm/nodeVersions.json`
+  - [x] Install global packages from `backup/nvm/globalNpmPackages.json`
 - [ ] GnuPG
   - [ ] Restore `backup/gnupg/*.conf` => `~/gnupg/*.conf`
 - [ ] Git
