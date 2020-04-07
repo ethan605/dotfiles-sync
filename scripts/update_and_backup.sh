@@ -25,6 +25,6 @@ commit_and_push() {
   git push origin $(git branch --show-current)
 }
 
-# update_system_files && \
+update_system_files && \
   backup && \
   commit_and_push
