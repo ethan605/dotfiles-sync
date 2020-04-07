@@ -11,8 +11,8 @@ import { readCommandOutputs } from '../helpers';
 import { BACKUP_DIR } from '../constants';
 
 const nvm = (): NodeJS.ReadWriteStream => {
-  const nvmLs = readCommandOutputs('source $NVM_DIR/nvm.sh && nvm_ls').toString();
-  const versions = _.compact(nvmLs.split('\n'));
+  const output = readCommandOutputs('source $NVM_DIR/nvm.sh && nvm_ls').toString();
+  const versions = _.compact(output.split('\n'));
   return file('versions.json', JSON.stringify(versions), { src: true }).pipe(gulp.dest(`${BACKUP_DIR}/nvm`));
 };
 
