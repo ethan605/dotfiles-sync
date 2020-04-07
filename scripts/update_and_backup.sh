@@ -26,18 +26,10 @@ update_system_files() {
   env ZSH=~/.oh-my-zsh sh ~/.oh-my-zsh/tools/upgrade.sh --verbose
 }
 
-# Upgrading Node modules
-update_node_modules() {
-  print_step "Upgrading Node modules"
-  yarn upgrade
-}
-
 # Running backup scripts
 backup() {
   print_step "Backing up"
   gulp backup
 }
 
-update_system_files && \
-# update_node_modules && \
-backup
+update_system_files && backup
