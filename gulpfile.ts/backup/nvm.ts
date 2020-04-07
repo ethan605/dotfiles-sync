@@ -6,7 +6,7 @@ import { composeReadCommandTask } from '../helpers';
 import type { ReadCommandTask } from '../helpers';
 
 const TASKS: ReadCommandTask[] = [
-  { title: 'nodeVersions', command: 'source $NVM_DIR/nvm.sh && nvm_ls' },
+  { title: 'nodeVersions', command: 'source $NVM_DIR/nvm.sh && nvm_ls | grep -E "^v"' },
   {
     title: 'globalNpmPackages',
     command: 'ls $(npm config get prefix)/lib/node_modules',
