@@ -4,7 +4,10 @@ Manual instructions to restore dotfiles, automation is under WIP
 
 ## 1. Prerequisites
 
-- Install `brew`, then install all formulaes from `backup/brew/packages.json`.
+- Install `brew`, then:
+  - Fetch taps from `backup/brew/taps.json`.
+  - Install formulaes from `backup/brew/formulaes.json`.
+  - Install casks from `backup/brew/casks.json`.
 - Install `nvm` and `node` versions from `backup/nvm/versions.json`.
 
 ## 2. Details
