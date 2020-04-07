@@ -20,8 +20,8 @@ backup() {
 
 commit_and_push() {
   print_step "Submitting"
-  git add ./backup
-  git commit -m ":package: Backup"
+  git add ./backup && \
+  git commit -m ":package: Backup" && \
   git push origin $(git branch --show-current)
 }
 
