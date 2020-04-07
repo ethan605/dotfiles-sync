@@ -24,5 +24,4 @@ const vscode = (): NodeJS.ReadWriteStream => {
     .pipe(gulp.dest(`${BACKUP_DIR}/vscode`));
 };
 
-gulp.task('vscode', vscode);
 export default vscode;
