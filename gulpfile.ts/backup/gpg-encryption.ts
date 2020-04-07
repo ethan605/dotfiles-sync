@@ -26,12 +26,12 @@ const PROTECTED_SOURCES: Source[] = [
   },
 ];
 
-const encryptSource = (source: Source): Undertaker.Task => {
+const composeEncryptionTask = (source: Source): Undertaker.Task => {
   const { path, title } = source;
   const target = [BACKUP_DIR, title].join('/');
   const options = ['--encrypt', '--sign', `--recipient ${GPG_RECIPIENT}`, `--output ../${title}.gpgtar`].join(' ');
 
-  const encryptTask = (): NodeJS.ReadWriteStream =>
+  const encryptionTask = (): NodeJS.ReadWriteStream =>
     gulp
       .src(path)
       .pipe(gulp.dest(target))
@@ -41,9 +41,9 @@ const encryptSource = (source: Source): Undertaker.Task => {
       });
 
   // Rename sub tasks
-  Object.defineProperty(encryptTask, 'name', { value: `encrypt${_.capitalize(title)}`, configurable: true });
+  Object.defineProperty(encryptionTask, 'name', { value: `encrypt${_.capitalize(title)}`, configurable: true });
 
-  return encryptTask;
+  return encryptionTask;
 };
 
-export default gulp.parallel(_.map(PROTECTED_SOURCES, source => encryptSource(source)));
+export default gulp.parallel(PROTECTED_SOURCES.map(composeEncryptionTask));
