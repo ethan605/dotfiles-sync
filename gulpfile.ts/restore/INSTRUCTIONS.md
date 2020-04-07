@@ -17,7 +17,6 @@
 - [ ] Tmux
   - [ ] Restore `backup/tmux/.tmux.conf` => `~/.tmux.conf`
   - [ ] Restore `backup/tmux/.tmux.conf.local` => `~/.tmux.conf.local`
-  - [ ] Kill all Tmux sessions and start over
 - [ ] Oh-my-zsh
   - [ ] Restore `backup/oh-my-zsh/.zshrc` => `~/.zshrc`
   - [ ] Run `source ~/.zshrc`
