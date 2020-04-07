@@ -14,5 +14,10 @@ steps_count=0
 print_step() {
   let steps_count++
   local message=$1
-  printf "\n${GREEN}${BOLD}❯ ${steps_count}. ${message}${NORMAL}\n\n"
+  printf "\n${GREEN}${BOLD}❯ ${steps_count}. ${message}${NORMAL}\n"
+}
+
+print_sub_step() {
+  local message=$1
+  printf "\n${CYAN}- ${message}${NORMAL}\n"
 }
