@@ -1,103 +1,38 @@
 # Instructions to restore
 
-Manual instructions to restore dotfiles, automation is under WIP
+(In order of prerequisites)
 
-## 1. Prerequisites
-
-- Install `brew`, then:
+- Homebrew
+  - Install `brew`
   - Fetch taps from `backup/brew/taps.json`.
   - Install formulaes from `backup/brew/formulaes.json`.
   - Install casks from `backup/brew/casks.json`.
-- Install `nvm` and `node` versions from `backup/nvm/versions.json`.
-
-## 2. Details
-
-### 2.1. Alacritty
-
-##### Files map
-
-- `backup/alacrity/alacritty.yml` => `~/.config/alacritty/alacritty.yml`
-
-##### After restore
-
-- Restart Alacritty
-
-### 2.2. Homebrew
-
-WIP
-
-### 2.3. Git
-
-##### Files map
-
-- `backup/git/.gitconfig` => `~/.gitconfig`
-
-### 2.4. GnuPG
-
-##### Files map
-
-- `backup/gnupg/*.conf` => `~/gnupg/*.conf`
-
-### 2.5. Karabiner
-
-##### Files map
-
-- `backup/karabiner/**/*.json` => `~/.config/karabiner/**/*.json`
-
-### 2.6. Kitty
-
-##### Files map
-
-- `backup/kitty/**/*.conf` => `~/.config/kitty/**/*.conf`
-
-##### After restore
-
-- Restart Kitty
-
-### 2.7. Neovim
-
-##### Files map
-
-- `backup/neovim/init.vit` => `~/.config/nvim/init.nvim`
-- `backup/neovim/coc-extensions.json` => `~/.config/coc/extensions/package.json`
-
-##### After restore
-
-- Restart Neovim
-- Run this in Command mode: `:PlugInstall`
-
-### 2.8. Oh-my-zsh
-
-##### Files map
-
-- `backup/oh-my-zsh/.zshrc` => `~/.zshrc`
-
-##### After restore
-
-- Run this in terminal: `source ~/.zshrc`
-
-### 2.9. Tmux
-
-##### Files map
-
-- `backup/tmux/.tmux.conf` => `~/.tmux.conf`
-- `backup/tmux/.tmux.conf.local` => `~/.tmux.conf.local`
-
-##### After restore
-
-- Kill all Tmux sessions and start over
-
-### 2.10. Vim
-
-##### Files map
-
-- `backup/vim/.vimrc` => `~/.vimrc`
-
-##### After restore
-
-- Restart Vim
-- Run this in Command mode: `:PlugInstall`
-
-### 2.11. Visual Studio Code
-
-WIP
+- Nvm
+  - Install `node` versions from `backup/nvm/nodeVersions.json`
+  - Install global packages from `backup/nvm/globalNpmPackages.json`
+- GnuPG
+  - Restore `backup/gnupg/*.conf` => `~/gnupg/*.conf`
+- Git
+  - Restore `backup/git/.gitconfig` => `~/.gitconfig`
+- Tmux
+  - Restore `backup/tmux/.tmux.conf` => `~/.tmux.conf`
+  - Restore `backup/tmux/.tmux.conf.local` => `~/.tmux.conf.local`
+  - Kill all Tmux sessions and start over
+- Oh-my-zsh
+  - Restore `backup/oh-my-zsh/.zshrc` => `~/.zshrc`
+  - Run `source ~/.zshrc`
+- Alacritty
+  - Restore `backup/alacrity/alacritty.yml` => `~/.config/alacritty/alacritty.yml`
+- Karabiner
+  - Restore `backup/karabiner/**/*.json` => `~/.config/karabiner/**/*.json`
+- Kitty
+  - Restore `backup/kitty/**/*.conf` => `~/.config/kitty/**/*.conf`
+- Neovim
+  - Restore `backup/neovim/init.vit` => `~/.config/nvim/init.nvim`
+  - Restore `backup/neovim/coc-extensions.json` => `~/.config/coc/extensions/package.json`
+  - Run `nvim --cmd 'PlugInstall | qa'` to install all plugins then quit
+- Vim
+  - Restore `backup/vim/.vimrc` => `~/.vimrc`
+  - Start and run in Command mode: `:PlugInstall`
+- Visual Studio Code
+  - Restore `backup/vscode/settings.json` => `Library/Application Support/Code/User/settings.json`
