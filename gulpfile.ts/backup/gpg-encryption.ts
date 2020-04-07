@@ -2,7 +2,6 @@ import { execSync } from 'child_process';
 import _ from 'lodash';
 import del from 'del';
 import gulp from 'gulp';
-import vinylPaths from 'vinyl-paths';
 import Undertaker from 'undertaker';
 
 // Constants
@@ -28,31 +27,23 @@ const PROTECTED_SOURCES: Source[] = [
 ];
 
 const encryptSource = (source: Source): Undertaker.Task => {
-  const vPaths = vinylPaths();
   const { path, title } = source;
   const target = [BACKUP_DIR, title].join('/');
-
-  const taskName = `encrypt${_.capitalize(title)}`;
+  const options = ['--encrypt', '--sign', `--recipient ${GPG_RECIPIENT}`, `--output ../${title}.gpgtar`].join(' ');
 
   const encryptTask = (): NodeJS.ReadWriteStream =>
     gulp
       .src(path)
       .pipe(gulp.dest(target))
-      .pipe(vPaths)
       .on('end', async () => {
-        execSync(`
-          cd ${target} &&
-          gpgtar --encrypt --sign --recipient ${GPG_RECIPIENT} --output ../${title}.gpgtar *
-        `);
-
-        await del(vPaths.paths);
+        execSync(`cd ${target} && gpgtar ${options} * &> /dev/null`);
+        await del(target);
       });
 
-  Object.defineProperty(encryptTask, 'name', { value: taskName, configurable: true });
+  // Rename sub tasks
+  Object.defineProperty(encryptTask, 'name', { value: `encrypt${_.capitalize(title)}`, configurable: true });
 
   return encryptTask;
 };
-
-// gulp.task('gpg-encryption', gulp.parallel(_.map(PROTECTED_SOURCES, source => encryptSource(source))));
 
 export default gulp.parallel(_.map(PROTECTED_SOURCES, source => encryptSource(source)));

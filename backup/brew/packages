@@ -82,7 +82,7 @@ libmpc 1.1.0
 libogg 1.3.4
 libomp 10.0.0
 libpng 1.6.37
-librsvg 2.46.4
+librsvg 2.48.2
 libsamplerate 0.1.9_1
 libsndfile 1.0.28
 libsoxr 0.1.3
@@ -107,7 +107,7 @@ little-cms2 2.9
 lmdb 0.9.24
 luajit 2.0.5
 lzo 2.10
-mongodb-community 4.2.3
+mongodb-community 4.2.5
 mozjpeg 3.3.1_1
 mpfr 4.0.2
 msgpack 3.2.1

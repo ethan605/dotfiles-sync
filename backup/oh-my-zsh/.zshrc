@@ -90,21 +90,33 @@ prompt pure
 # Aliases
 alias adb-screenshot="adb shell screencap -p \
   | perl -pe 's/\x0D\x0A/\x0A/g' > ~/Downloads/Android_screenshot_`date +%Y-%m-%d_%H.%M.%S`.png"
-alias auth-ssh="ssh-add /Users/ethanify/.ssh/*_rsa"
+
+alias docker-stop-all='docker stop -t0 $(docker ps -q)'
+alias docker-rm-all='docker rm $(docker ps -laq)'
 
 alias launch-android-emu="cd $ANDROID_HOME/tools && emulator -avd"
+
+alias nvm-upgrade='(
+  cd "$NVM_DIR"
+  git fetch --tags origin
+  git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
+) && \. "$NVM_DIR/nvm.sh"'
 
 alias policy-off="sudo spctl --master-disable"
 alias policy-on="sudo spctl --master-enable"
 
-alias rnclean="watchman watch-del-all && rm -rf node_modules && rm -fr $TMPDIR/react-* && npm cache clean --force && yarn cache clean"
+alias rnclean="watchman watch-del-all &&
+  rm -rf node_modules &&
+  rm -fr $TMPDIR/react-* &&
+  npm cache clean --force &&
+  yarn cache clean"
 alias rndev="adb shell input keyevent 82"
 alias rnlog-android="adb logcat *:S ReactNative:V ReactNativeJS:V"
 
-alias tmx="tmux attach -t default || tmux new -s default"
-
 alias nano=nvim
 alias vi=nvim
+
+alias tmx="tmux attach -t default || tmux new -s default"
 
 # Loading tmux with default session
 if [ -z "$TMUX" ]; then
