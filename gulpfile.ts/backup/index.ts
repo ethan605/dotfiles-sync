@@ -14,7 +14,7 @@ import kitty from './kitty';
 import neovim from './neovim';
 import nvm from './nvm';
 import ohMyZsh from './oh-my-zsh';
-import gpgEncryption from './gpg-encryption';
+import protectedSources from './protected-sources';
 import tmux from './tmux';
 import vim from './vim';
 import vscode from './vscode';
@@ -25,6 +25,20 @@ gulp.task(
   'backup',
   gulp.series(
     cleanUp,
-    gulp.parallel(alacritty, brew, git, gnupg, karabiner, kitty, neovim, nvm, ohMyZsh, tmux, vim, vscode, gpgEncryption)
+    gulp.parallel(
+      alacritty,
+      brew,
+      git,
+      gnupg,
+      karabiner,
+      kitty,
+      neovim,
+      nvm,
+      ohMyZsh,
+      protectedSources,
+      tmux,
+      vim,
+      vscode
+    )
   )
 );

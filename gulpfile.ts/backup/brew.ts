@@ -29,7 +29,7 @@ const composeBackupTask = ({ command, title }: Task): Undertaker.Task => {
     file(`${title}.json`, JSON.stringify(data), { src: true }).pipe(gulp.dest(`${BACKUP_DIR}/brew`));
 
   // Rename sub tasks
-  Object.defineProperty(backupTask, 'name', { value: `backupBrew${_.capitalize(title)}`, configurable: true });
+  Object.defineProperty(backupTask, 'name', { value: `brew${_.capitalize(title)}`, configurable: true });
 
   return backupTask;
 };

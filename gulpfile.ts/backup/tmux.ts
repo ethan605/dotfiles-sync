@@ -7,7 +7,7 @@ import { wrapHomeDir } from '../helpers';
 // Constants
 import { BACKUP_DIR } from '../constants';
 
-const tmux = (): NodeJS.ReadWriteStream =>
-  gulp.src([wrapHomeDir('.tmux.conf'), wrapHomeDir('.tmux.conf.local')]).pipe(gulp.dest(`${BACKUP_DIR}/tmux`));
+const SOURCES = ['.tmux.conf', '.tmux.conf.local'].map(src => wrapHomeDir(src));
+const tmux = (): NodeJS.ReadWriteStream => gulp.src(SOURCES).pipe(gulp.dest(`${BACKUP_DIR}/tmux`));
 
 export default tmux;
