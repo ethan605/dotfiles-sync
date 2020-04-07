@@ -57,7 +57,7 @@ plugins=(docker git github npm nvm osx vi-mode zsh-autosuggestions zsh-syntax-hi
 source $ZSH/oh-my-zsh.sh
 
 # Loading nvm
-[ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # Auto call `nvm use` in folders with .nvmrc
 autoload -U add-zsh-hook
