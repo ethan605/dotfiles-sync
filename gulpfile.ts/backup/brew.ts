@@ -16,5 +16,4 @@ const brew = (): NodeJS.ReadWriteStream => {
   return file('packages.json', JSON.stringify(packages), { src: true }).pipe(gulp.dest(`${BACKUP_DIR}/brew`));
 };
 
-gulp.task('brew', brew);
 export default brew;
