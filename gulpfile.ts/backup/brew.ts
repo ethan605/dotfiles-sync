@@ -34,5 +34,4 @@ const composeBackupTask = ({ command, title }: Task): Undertaker.Task => {
   return backupTask;
 };
 
-gulp.task('brew', gulp.parallel(TASKS.map(composeBackupTask)));
 export default gulp.parallel(TASKS.map(composeBackupTask));
