@@ -2,7 +2,14 @@
 
 Manual instructions to restore dotfiles, automation is under WIP
 
-### 1. Alacritty
+## 1. Prerequisites
+
+- Install `brew`, then install all formulaes.
+- Install `nvm` then `node` with version from `.nvmrc`.
+
+## 2. Details
+
+### 2.1. Alacritty
 
 ##### Files map
 
@@ -12,29 +19,29 @@ Manual instructions to restore dotfiles, automation is under WIP
 
 - Restart Alacritty
 
-### 2. Homebrew
+### 2.2. Homebrew
 
 WIP
 
-### 3. Git
+### 2.3. Git
 
 ##### Files map
 
 - `backup/git/.gitconfig` => `~/.gitconfig`
 
-### 4. GnuPG
+### 2.4. GnuPG
 
 ##### Files map
 
 - `backup/gnupg/*.conf` => `~/gnupg/*.conf`
 
-### 5. Karabiner
+### 2.5. Karabiner
 
 ##### Files map
 
 - `backup/karabiner/**/*.json` => `~/.config/karabiner/**/*.json`
 
-### 6. Kitty
+### 2.6. Kitty
 
 ##### Files map
 
@@ -44,7 +51,7 @@ WIP
 
 - Restart Kitty
 
-### 7. Neovim
+### 2.7. Neovim
 
 ##### Files map
 
@@ -56,7 +63,7 @@ WIP
 - Restart Neovim
 - Run this in Command mode: `:PlugInstall`
 
-### 8. Oh-my-zsh
+### 2.8. Oh-my-zsh
 
 ##### Files map
 
@@ -66,7 +73,7 @@ WIP
 
 - Run this in terminal: `source ~/.zshrc`
 
-### 9. Tmux
+### 2.9. Tmux
 
 ##### Files map
 
@@ -77,7 +84,7 @@ WIP
 
 - Kill all Tmux sessions and start over
 
-### 10. Vim
+### 2.10. Vim
 
 ##### Files map
 
@@ -88,6 +95,6 @@ WIP
 - Restart Vim
 - Run this in Command mode: `:PlugInstall`
 
-### 11. Visual Studio Code
+### 2.11. Visual Studio Code
 
 WIP
