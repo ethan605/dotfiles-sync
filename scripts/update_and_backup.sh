@@ -26,5 +26,5 @@ commit_and_push() {
 }
 
 update_system_files && \
-  backup && \
-  commit_and_push
+backup && \
+commit_and_push

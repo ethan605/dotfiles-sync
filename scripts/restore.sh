@@ -58,5 +58,24 @@ restore_nvm() {
   nvm_restore_global_npm_packages
 }
 
+restore_pnupg() {
+  print_step "Restore GnuPG"
+  gpg --import ~/Downloads/gpg_private_key.asc && \
+  gpg --edit-key thanhnx.605@gmail.com && \
+  cp ./backup/gnupg/*.conf ~/.gnupg
+}
+
+restore_secrets() {
+  print_sub_step "Gradle"
+  mkdir -p ~/.gradle && \
+  gpgtar --decrypt --directory ~/.gradle ./backup/gradle.gpgtar
+
+  print_sub_step "SSH"
+  mkdir -p ~/.ssh && \
+  gpgtar --decrypt --directory ~/.ssh ./backup/ssh.gpgtar
+}
+
 restore_homebrew && \
-  restore_nvm
+restore_nvm && \
+restore_pnupg && \
+restore_secrets

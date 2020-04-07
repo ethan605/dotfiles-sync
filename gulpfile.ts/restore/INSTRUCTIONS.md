@@ -10,8 +10,12 @@
 - [x] Nvm
   - [x] Install `node` versions from `backup/nvm/nodeVersions.json`
   - [x] Install global packages from `backup/nvm/globalNpmPackages.json`
-- [ ] GnuPG
-  - [ ] Restore `backup/gnupg/*.conf` => `~/gnupg/*.conf`
+- [x] GnuPG
+  - [x] Import private key from Keybase
+  - [x] Restore `backup/gnupg/*.conf` => `~/gnupg/*.conf`
+- [x] Secrets
+  - [x] Gradle properties from `./backup/gradle.gpgtar`
+  - [x] SSH keys from `./backup/ssh.gpgtar`
 - [ ] Git
   - [ ] Restore `backup/git/.gitconfig` => `~/.gitconfig`
 - [ ] Tmux
