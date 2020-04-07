@@ -4,9 +4,9 @@ source scripts/helpers.sh
 # Updating system files
 update_system_files() {
   print_step "Updating system files"
-  # brew update --verbose && \
-  # brew upgrade --verbose && \
-  # brew cask upgrade --verbose && \
+  brew update --verbose && \
+  brew upgrade --verbose && \
+  brew cask upgrade --verbose && \
   brew cleanup --prune-prefix && \
   env ZSH=~/.oh-my-zsh sh ~/.oh-my-zsh/tools/upgrade.sh --verbose
 }
