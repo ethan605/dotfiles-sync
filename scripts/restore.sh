@@ -58,7 +58,10 @@ restore_pnupg() {
   print_step "Restore GnuPG"
   gpg --import ~/Downloads/gpg_private_key.asc && \
   gpg --edit-key thanhnx.605@gmail.com && \
-  cp ./backup/gnupg/*.conf ~/.gnupg
+  cp ./backup/gnupg/*.conf ~/.gnupg && \
+  killall gpg-agent && \
+  gpg-agent --daemon && \
+  echo "test" | gpg --clearsign &> /dev/null
 }
 
 restore_secrets() {
