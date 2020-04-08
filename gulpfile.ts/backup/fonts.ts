@@ -4,11 +4,11 @@ import gulp from 'gulp';
 import { composeZipTask, wrapHomeDir } from '../helpers';
 import type { ZipConfig } from '../helpers';
 
-const SOURCES: ZipConfig[] = [
+const ZIP_SOURCES: ZipConfig[] = [
   {
-    title: 'operatorMonoLig',
     path: wrapHomeDir('Library/Fonts/OperatorMonoLig-*'),
+    title: 'operatorMonoLig',
   },
 ];
 
-export default gulp.parallel(SOURCES.map(composeZipTask('fonts')));
+export default gulp.parallel(ZIP_SOURCES.map(composeZipTask('fonts')));
