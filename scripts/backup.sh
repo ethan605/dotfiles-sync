@@ -3,7 +3,7 @@ source scripts/helpers.sh
 
 # Updating system files
 update_system_files() {
-  print_step "Updating system files"
+  print_step "Update system files"
   brew update --verbose && \
   brew upgrade --verbose && \
   # brew cask upgrade --verbose && \
@@ -13,13 +13,13 @@ update_system_files() {
 
 # Running backup scripts
 backup() {
-  print_step "Backing up"
+  print_step "Backup sources"
   unset PREFIX && \
   ./node_modules/.bin/gulp backup
 }
 
 commit_and_push() {
-  print_step "Submitting"
+  print_step "Commit and push"
   git add ./backup && \
   git commit -m ":package: Backup" && \
   git push origin $(git branch --show-current)
