@@ -1,21 +1,22 @@
 #!/bin/bash
 source scripts/helpers.sh
 
-# Updating system files
-update_system_files() {
+update_system_sources() {
   print_step "Update system files"
   brew update --verbose && \
   brew upgrade --verbose && \
-  # brew cask upgrade --verbose && \
   brew cleanup --prune-prefix && \
   env ZSH=~/.oh-my-zsh sh ~/.oh-my-zsh/tools/upgrade.sh --verbose
 }
 
-# Running backup scripts
+independent_update_tasks() {
+  print_step "Run independent update tasks"
+  brew cask upgrade --verbose
+}
+
 backup() {
   print_step "Backup sources"
-  unset PREFIX && \
-  ./node_modules/.bin/gulp backup
+  PREFIX='' ./node_modules/.bin/gulp backup
 }
 
 commit_and_push() {
@@ -25,6 +26,8 @@ commit_and_push() {
   git push origin $(git branch --show-current)
 }
 
-update_system_files && \
+update_system_sources && \
 backup && \
 commit_and_push
+
+independent_update_tasks
