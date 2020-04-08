@@ -3,9 +3,9 @@ import gulp from 'gulp';
 
 // Helpers
 import { composeReadCommandTask } from '../helpers';
-import type { ReadCommandTask } from '../helpers';
+import type { ReadCommandConfig } from '../helpers';
 
-const TASKS: ReadCommandTask[] = [
+const TASKS: ReadCommandConfig[] = [
   { title: 'nodeVersions', command: 'source $NVM_DIR/nvm.sh && nvm_ls | grep -E "^v"' },
   {
     title: 'globalNpmPackages',

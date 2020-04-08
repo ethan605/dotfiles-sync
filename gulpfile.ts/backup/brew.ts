@@ -3,9 +3,9 @@ import gulp from 'gulp';
 
 // Helpers
 import { composeReadCommandTask } from '../helpers';
-import type { ReadCommandTask } from '../helpers';
+import type { ReadCommandConfig } from '../helpers';
 
-const TASKS: ReadCommandTask[] = [
+const TASKS: ReadCommandConfig[] = [
   { title: 'formulaes', command: 'brew list' },
   { title: 'casks', command: 'brew cask list' },
   { title: 'taps', command: 'brew tap' },
