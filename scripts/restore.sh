@@ -3,6 +3,15 @@ source scripts/helpers.sh
 
 NODE_VERSION=v12.16
 BREW_CONTENT_URL=https://raw.githubusercontent.com/Homebrew/install/master
+TEMP_DIR=/tmp/ethan605/dotfiles
+
+prepare() {
+  mkdir -p "$TEMP_DIR"
+}
+
+clean_up() {
+  rm -rf "$TEMP_DIR"
+}
 
 brew_restore_taps() {
   print_sub_step "Taps"
@@ -64,17 +73,26 @@ restore_pnupg() {
   echo "test" | gpg --clearsign &> /dev/null
 }
 
-restore_secrets() {
-  print_sub_step "Gradle"
-  mkdir -p ~/.gradle && \
-  gpgtar --decrypt --directory ~/.gradle ./backup/gradle.gpgtar
+restore_secret_source() {
+  local dest="$HOME/.$1"
+  local source="$1.gpgtar"
 
-  print_sub_step "SSH"
-  mkdir -p ~/.ssh && \
-  gpgtar --decrypt --directory ~/.ssh ./backup/ssh.gpgtar
+  mkdir -p "$dest" && \
+  curl -o "$TEMP_DIR/$source" -fsSL "$BACKUP_CONTENT_URL/$source" && \
+  gpgtar --decrypt --directory "$dest" "$TEMP_DIR/$source"
 }
 
+restore_secrets() {
+  print_sub_step "Gradle"
+  restore_secret_source gradle
+
+  print_sub_step "SSH keys"
+  restore_secret_source ssh
+}
+
+prepare && \
 # restore_homebrew && \
 # restore_nvm && \
-restore_pnupg && \
+# restore_pnupg && \
 restore_secrets
+clean_up

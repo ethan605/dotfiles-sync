@@ -23,8 +23,18 @@ print_sub_step() {
   printf "\n${CYAN}- ${message}${NORMAL}\n"
 }
 
+download_backup_source() {
+  local full_source="$1"
+  curl -fsSL "$BACKUP_CONTENT_URL/$full_source"
+}
+
 read_remote_json_array() {
-  local backup_source="$1"
-  curl -fsSL "$BACKUP_CONTENT_URL/$backup_source.json" | jq -r '.[]'
+  local source="$1"
+  curl -fsSL "$BACKUP_CONTENT_URL/$source.json" | jq -r '.[]'
+}
+
+download_and_unzip() {
+  local source="$1"
+  curl -o "./restore/$source.zip" -fsSL "$BACKUP_CONTENT_URL/$source.zip"
 }
 
