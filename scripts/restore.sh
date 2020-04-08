@@ -2,32 +2,28 @@
 source scripts/helpers.sh
 
 NODE_VERSION=v12.16
-
-read_json_array() {
-  local json_path="$1"
-  jq -r '.[]' "$json_path"
-}
+BREW_CONTENT_URL=https://raw.githubusercontent.com/Homebrew/install/master
 
 brew_restore_taps() {
   print_sub_step "Taps"
-  for tap in $(read_json_array ./backup/brew/taps.json); do
+  for tap in $(read_remote_json_array brew/taps); do
     brew tap "$tap"
   done
 }
 
 brew_restore_formulaes() {
   print_sub_step "Formulaes"
-  brew install $(read_json_array ./backup/brew/formulaes.json)
+  brew install $(read_remote_json_array brew/formulaes)
 }
 
 brew_restore_casks() {
   print_sub_step "Casks"
-  brew cask install $(read_json_array ./backup/brew/casks.json)
+  brew cask install $(read_remote_json_array brew/casks)
 }
 
 restore_homebrew() {
   print_step "Restore Homebrew"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" && \
+  /bin/bash -c "$(curl -fsSL $BREW_CONTENT_URL/install.sh)" && \
   brew install jq && \
   brew_restore_taps && \
   brew_restore_formulaes && \
@@ -36,14 +32,14 @@ restore_homebrew() {
 
 nvm_restore_node_versions() {
   print_sub_step "Node versions"
-  for version in $(read_json_array ./backup/nvm/nodeVersions.json); do
+  for version in $(read_remote_json_array nvm/nodeVersions); do
     nvm install "$version"
   done
 }
 
 nvm_restore_global_npm_packages() {
   print_sub_step "Global NPM packages"
-  npm install --global $(read_json_array ./backup/nvm/globalNpmPackages.json)
+  npm install --global $(read_remote_json_array nvm/globalNpmPackages)
 }
 
 restore_nvm() {
@@ -75,7 +71,7 @@ restore_secrets() {
   gpgtar --decrypt --directory ~/.ssh ./backup/ssh.gpgtar
 }
 
-restore_homebrew && \
-restore_nvm && \
+# restore_homebrew && \
+# restore_nvm && \
 restore_pnupg && \
 restore_secrets

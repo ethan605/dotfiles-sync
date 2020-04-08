@@ -9,6 +9,7 @@ YELLOW='\033[1;33m'
 BOLD='\033[1m'
 NORMAL='\033[0m'
 
+BACKUP_CONTENT_URL=https://raw.githubusercontent.com/ethan605/dotfiles/master/backup
 steps_count=0
 
 print_step() {
@@ -21,3 +22,9 @@ print_sub_step() {
   local message=$1
   printf "\n${CYAN}- ${message}${NORMAL}\n"
 }
+
+read_remote_json_array() {
+  local backup_source="$1"
+  curl -fsSL "$BACKUP_CONTENT_URL/$backup_source.json" | jq -r '.[]'
+}
+
