@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Ethan's system files & automated backup-restore scripts",
   "scripts": {
-    "backup": "/bin/bash ./scripts/update_and_backup.sh",
+    "backup": "/bin/bash ./scripts/backup.sh",
     "list-encrypted-archive": "gpgtar --list-archive",
     "lint": "eslint . --ext \".ts\"",
     "restore": "/bin/bash ./scripts/restore.sh"
