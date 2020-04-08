@@ -1,8 +1,6 @@
 import { execSync } from 'child_process';
 import del from 'del';
 import _ from 'lodash';
-import path from 'path';
-import vinylPaths from 'vinyl-paths';
 import Undertaker from 'undertaker';
 
 // Gulp modules
@@ -42,12 +40,12 @@ export const composeReadCommandTask = (prefix: string) => (config: ReadCommandCo
 };
 
 export const composeZipTask = (prefix: string) => (config: ZipConfig): Undertaker.Task => {
-  const { path: srcPath, title } = config;
+  const { path, title } = config;
   const destPath = `${BACKUP_DIR}/${title}`;
 
   const zipTask = (): NodeJS.ReadWriteStream =>
     gulp
-      .src(srcPath)
+      .src(path)
       .pipe(gulp.dest(destPath))
       .on('end', async () => {
         execSync(`cd ${BACKUP_DIR} && zip -0r ${title}.zip ${title}/*`);
