@@ -24,6 +24,8 @@
 - [ ] Oh-my-zsh
   - [ ] Restore `backup/oh-my-zsh/.zshrc` => `~/.zshrc`
   - [ ] Run `source ~/.zshrc`
+- [ ] Fonts
+  - [ ] Operator Mono Lig
 - [ ] Alacritty
   - [ ] Restore `backup/alacrity/alacritty.yml` => `~/.config/alacritty/alacritty.yml`
 - [ ] Karabiner
