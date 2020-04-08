@@ -30,9 +30,9 @@
   - [x] Restore `backup/alacrity/alacritty.yml` => `~/.config/alacritty/alacritty.yml`
 - [x] Karabiner
   - [x] Restore `backup/karabiner/karabiner.json` => `~/.config/karabiner/karabiner.json`
-- [ ] Kitty
+- [x] Kitty
   - [x] Restore `backup/kitty/kitty.conf` => `~/.config/kitty/kitty.conf`
-  - [ ] Restore `backup/kitty/colorschemes.zip` => `~/.config/kitty/colorschemes/`
+  - [x] Restore `backup/kitty/colorschemes.zip` => `~/.config/kitty/colorschemes/`
 - [x] Neovim
   - [x] Restore `backup/neovim/init.vit` => `~/.config/nvim/init.nvim`
   - [x] Restore `backup/neovim/coc-extensions.json` => `~/.config/coc/extensions/package.json`

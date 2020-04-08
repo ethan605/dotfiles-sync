@@ -99,17 +99,21 @@ restore_secrets() {
 }
 
 download_and_unzip() {
-  local source="$1.zip"
-  curl -o $TEMP_DIR/$source -fsSL $BACKUP_CONTENT_URL/$source && \
-  unzip -q -d $TEMP_DIR $TEMP_DIR/$source
+  local srcDir="$1"
+  local srcFile="$2"
+  local dest="$3"
+
+  mkdir -p $TEMP_DIR/$srcDir && \
+  curl -o $TEMP_DIR/$srcDir/$srcFile.zip -fsSL $BACKUP_CONTENT_URL/$srcDir/$srcFile.zip && \
+  unzip -q -d $TEMP_DIR/$srcDir $TEMP_DIR/$srcDir/$srcFile.zip && \
+  cp $TEMP_DIR/$srcDir/$srcFile/* $dest
 }
 
 restore_fonts() {
   print_step "Restore fonts"
 
   print_sub_step "Operator Mono Lig"
-  download_and_unzip operatorMonoLig
-  cp $TEMP_DIR/operatorMonoLig/* $HOME/Library/Fonts
+  download_and_unzip fonts operatorMonoLig $HOME/Library/Fonts
 }
 
 download_and_restore_file() {
@@ -121,6 +125,7 @@ download_and_restore_file() {
 restore_neovim() {
   local coc_dir="$HOME/.config/coc/extensions"
 
+  mkdir -p $HOME/.config/nvim && \
   download_and_restore_file neovim/init.vim $HOME/.config/nvim/init.vim && \
   nvim -c 'PlugInstall | qa' && \
   mkdir -p $coc_dir && \
@@ -130,8 +135,11 @@ restore_neovim() {
 }
 
 restore_vscode() {
+  local vscode_dir="$HOME/Library/Application Support/Code/User/settings.json"
+
+  mkdir -p $vscode_dir && \
   download_and_restore_file vscode/settings.json $TEMP_DIR/vscode-settings.json && \
-  mv $TEMP_DIR/vscode-settings.json "$HOME/Library/Application Support/Code/User/settings.json"
+  mv $TEMP_DIR/vscode-settings.json $vscode_dir
 
   for extension in $(read_remote_json_array vscode/extensions); do
     code --install-extension $extension
@@ -142,16 +150,20 @@ restore_files_directly() {
   print_step "Restore files directly"
 
   print_sub_step "Alacritty"
+  mkdir -p $HOME/.config/alacritty && \
   download_and_restore_file alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 
   print_sub_step "Git"
   download_and_restore_file git/.gitconfig $HOME/.gitconfig
 
   print_sub_step "Karabiner"
+  mkdir -p $HOME/.config/karabiner && \
   download_and_restore_file karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json
 
   print_sub_step "Kitty"
+  mkdir -p $HOME/.config/kitty/colorschemes && \
   download_and_restore_file kitty/kitty.conf $HOME/.config/kitty/kitty.conf
+  download_and_unzip kitty colorschemes $HOME/.config/kitty/colorschemes
 
   print_sub_step "Neovim"
   restore_neovim
@@ -174,9 +186,9 @@ restore_files_directly() {
 trap clean_up EXIT
 
 prepare && \
-restore_homebrew && \
-restore_nvm && \
-restore_pnupg && \
+# restore_homebrew && \
+# restore_nvm && \
+# restore_pnupg && \
 restore_secrets && \
 restore_fonts && \
 restore_files_directly
