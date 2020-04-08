@@ -1,5 +1,5 @@
 [user]
-	name = Ethan
+	name = Ethan Nguyen
 	email = thanhnx.605@gmail.com
 	signingkey = 9C6CEB919ED2CEFE
 [filter "lfs"]
@@ -11,3 +11,14 @@
 	gpgsign = true
 [tag]
 	gpgsign = true
+[filesystem "Oracle Corporation|1.8.0_144|/dev/disk1s5"]
+	timestampResolution = 1001 milliseconds
+	minRacyThreshold = 0 nanoseconds
+[core]
+	excludesfile = /Users/ethanify/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
