@@ -14,6 +14,7 @@ interface WrapperOptions {
 }
 
 export interface ZipConfig {
+  innerDest?: boolean;
   path: string;
   title: string;
 }
@@ -40,15 +41,16 @@ export const composeReadCommandTask = (prefix: string) => (config: ReadCommandCo
 };
 
 export const composeZipTask = (prefix: string) => (config: ZipConfig): Undertaker.Task => {
-  const { path, title } = config;
-  const destPath = `${BACKUP_DIR}/${title}`;
+  const { innerDest = false, path, title } = config;
+  const destDir = _.compact([BACKUP_DIR, innerDest && prefix]).join('/');
+  const destPath = `${destDir}/${title}`;
 
   const zipTask = (): NodeJS.ReadWriteStream =>
     gulp
       .src(path)
       .pipe(gulp.dest(destPath))
       .on('end', async () => {
-        execSync(`cd ${BACKUP_DIR} && zip -0r ${title}.zip ${title}/*`);
+        execSync(`cd ${destDir} && zip -0r ${title}.zip ${title}/*`);
         await del(destPath);
       });
 

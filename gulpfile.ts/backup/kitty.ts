@@ -2,12 +2,17 @@
 import gulp from 'gulp';
 
 // Helpers
-import { wrapHomeDir } from '../helpers';
+import { composeZipTask, wrapHomeDir } from '../helpers';
+import type { ZipConfig } from '../helpers';
 
 // Constants
 import { BACKUP_DIR } from '../constants';
 
-const kitty = (): NodeJS.ReadWriteStream =>
-  gulp.src(wrapHomeDir('.config/kitty/**/*.conf')).pipe(gulp.dest(`${BACKUP_DIR}/kitty`));
+const ZIP_SOURCES: ZipConfig[] = [
+  { innerDest: true, path: wrapHomeDir('.config/kitty/colorschemes/*'), title: 'colorschemes' },
+];
 
-export default kitty;
+const kittyConf = (): NodeJS.ReadWriteStream =>
+  gulp.src(wrapHomeDir('.config/kitty/kitty.conf')).pipe(gulp.dest(`${BACKUP_DIR}/kitty`));
+
+export default gulp.parallel(kittyConf, ...ZIP_SOURCES.map(composeZipTask('kitty')));
