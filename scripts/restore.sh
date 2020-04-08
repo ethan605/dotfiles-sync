@@ -7,10 +7,11 @@ TEMP_DIR=/tmp/ethan605/dotfiles
 
 clean_up() {
   rm -rf $TEMP_DIR
+  print_step "Clean up temp dir"
 }
 
 prepare() {
-  clean_up
+  rm -rf $TEMP_DIR
   mkdir -p $TEMP_DIR
 }
 
@@ -100,7 +101,7 @@ restore_secrets() {
 download_and_unzip() {
   local source="$1.zip"
   curl -o $TEMP_DIR/$source -fsSL $BACKUP_CONTENT_URL/$source && \
-  unzip -d $TEMP_DIR $TEMP_DIR/$source
+  unzip -q -d $TEMP_DIR $TEMP_DIR/$source
 }
 
 restore_fonts() {
@@ -111,10 +112,11 @@ restore_fonts() {
   cp $TEMP_DIR/operatorMonoLig/* $HOME/Library/Fonts
 }
 
+trap clean_up EXIT
+
 prepare && \
 restore_homebrew && \
 restore_nvm && \
 restore_pnupg && \
 restore_secrets && \
-restore_fonts && \
-clean_up
+restore_fonts
