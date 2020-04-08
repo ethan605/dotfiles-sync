@@ -112,6 +112,65 @@ restore_fonts() {
   cp $TEMP_DIR/operatorMonoLig/* $HOME/Library/Fonts
 }
 
+download_and_restore_file() {
+  local source="$1"
+  local dest="$2"
+  curl -o $dest -fsSL $BACKUP_CONTENT_URL/$source
+}
+
+restore_neovim() {
+  local coc_dir="$HOME/.config/coc/extensions"
+
+  download_and_restore_file neovim/init.vim $HOME/.config/nvim/init.vim && \
+  nvim -c 'PlugInstall | qa' && \
+  mkdir -p $coc_dir && \
+  download_and_restore_file neovim/coc-extensions.json $coc_dir/package.json && \
+  cd $coc_dir && \
+  npm install --no-package-lock
+}
+
+restore_vscode() {
+  download_and_restore_file vscode/settings.json $TEMP_DIR/vscode-settings.json && \
+  mv $TEMP_DIR/vscode-settings.json "$HOME/Library/Application Support/Code/User/settings.json"
+
+  for extension in $(read_remote_json_array vscode/extensions); do
+    code --install-extension $extension
+  done
+}
+
+restore_files_directly() {
+  print_step "Restore files directly"
+
+  print_sub_step "Alacritty"
+  download_and_restore_file alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
+
+  print_sub_step "Git"
+  download_and_restore_file git/.gitconfig $HOME/.gitconfig
+
+  print_sub_step "Karabiner"
+  download_and_restore_file karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json
+
+  print_sub_step "Kitty"
+  download_and_restore_file kitty/kitty.conf $HOME/.config/kitty/kitty.conf
+
+  print_sub_step "Neovim"
+  restore_neovim
+
+  print_sub_step "Oh-my-zsh"
+  download_and_restore_file oh-my-zsh/.zshrc $HOME/.zshrc && \
+  /bin/zsh -c "PREFIX='' source $HOME/.zshrc"
+
+  print_sub_step "Tmux"
+  download_and_restore_file tmux/.tmux.conf $HOME/.tmux.conf
+  download_and_restore_file "tmux/.tmux.conf.local" "$HOME/.tmux.conf.local"
+
+  print_sub_step "Vim"
+  download_and_restore_file vim/.vimrc $HOME/.vimrc
+  
+  print_sub_step "VSCode"
+  restore_vscode
+}
+
 trap clean_up EXIT
 
 prepare && \
@@ -119,4 +178,5 @@ restore_homebrew && \
 restore_nvm && \
 restore_pnupg && \
 restore_secrets && \
-restore_fonts
+restore_fonts && \
+restore_files_directly

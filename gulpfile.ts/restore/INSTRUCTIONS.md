@@ -16,28 +16,30 @@
 - [x] Secrets
   - [x] Gradle properties from `./backup/gradle.gpgtar`
   - [x] SSH keys from `./backup/ssh.gpgtar`
-- [ ] Git
-  - [ ] Restore `backup/git/.gitconfig` => `~/.gitconfig`
-- [ ] Tmux
-  - [ ] Restore `backup/tmux/.tmux.conf` => `~/.tmux.conf`
-  - [ ] Restore `backup/tmux/.tmux.conf.local` => `~/.tmux.conf.local`
-- [ ] Oh-my-zsh
-  - [ ] Restore `backup/oh-my-zsh/.zshrc` => `~/.zshrc`
-  - [ ] Run `source ~/.zshrc`
-- [ ] Fonts
-  - [ ] Operator Mono Lig
-- [ ] Alacritty
-  - [ ] Restore `backup/alacrity/alacritty.yml` => `~/.config/alacritty/alacritty.yml`
-- [ ] Karabiner
-  - [ ] Restore `backup/karabiner/**/*.json` => `~/.config/karabiner/**/*.json`
+- [x] Git
+  - [x] Restore `backup/git/.gitconfig` => `~/.gitconfig`
+- [x] Tmux
+  - [x] Restore `backup/tmux/.tmux.conf` => `~/.tmux.conf`
+  - [x] Restore `backup/tmux/.tmux.conf.local` => `~/.tmux.conf.local`
+- [x] Oh-my-zsh
+  - [x] Restore `backup/oh-my-zsh/.zshrc` => `~/.zshrc`
+  - [x] Run `source ~/.zshrc`
+- [x] Fonts
+  - [x] Operator Mono Lig
+- [x] Alacritty
+  - [x] Restore `backup/alacrity/alacritty.yml` => `~/.config/alacritty/alacritty.yml`
+- [x] Karabiner
+  - [x] Restore `backup/karabiner/karabiner.json` => `~/.config/karabiner/karabiner.json`
 - [ ] Kitty
-  - [ ] Restore `backup/kitty/**/*.conf` => `~/.config/kitty/**/*.conf`
-- [ ] Neovim
-  - [ ] Restore `backup/neovim/init.vit` => `~/.config/nvim/init.nvim`
-  - [ ] Restore `backup/neovim/coc-extensions.json` => `~/.config/coc/extensions/package.json`
-  - [ ] Run `nvim --cmd 'PlugInstall | qa'` to install all plugins then quit
+  - [x] Restore `backup/kitty/kitty.conf` => `~/.config/kitty/kitty.conf`
+  - [ ] Restore `backup/kitty/colorschemes.zip` => `~/.config/kitty/colorschemes/`
+- [x] Neovim
+  - [x] Restore `backup/neovim/init.vit` => `~/.config/nvim/init.nvim`
+  - [x] Restore `backup/neovim/coc-extensions.json` => `~/.config/coc/extensions/package.json`
+  - [x] Run `nvim --cmd 'PlugInstall | qa'` to install all plugins then quit
 - [ ] Vim
-  - [ ] Restore `backup/vim/.vimrc` => `~/.vimrc`
+  - [x] Restore `backup/vim/.vimrc` => `~/.vimrc`
   - [ ] Start and run in Command mode: `:PlugInstall`
-- [ ] Visual Studio Code
-  - [ ] Restore `backup/vscode/settings.json` => `Library/Application Support/Code/User/settings.json`
+- [x] Visual Studio Code
+  - [x] Restore `backup/vscode/settings.json` => `~Library/Application\ Support/Code/User/settings.json`
+  - [x] Restore installed extensions from `backup/vscode/extensions.json`
