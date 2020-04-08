@@ -7,6 +7,7 @@ import { BACKUP_DIR } from '../constants';
 
 import alacritty from './alacritty';
 import brew from './brew';
+import fonts from './fonts';
 import git from './git';
 import gnupg from './gnupg';
 import karabiner from './karabiner';
@@ -28,6 +29,7 @@ gulp.task(
     gulp.parallel(
       alacritty,
       brew,
+      fonts,
       git,
       gnupg,
       karabiner,
