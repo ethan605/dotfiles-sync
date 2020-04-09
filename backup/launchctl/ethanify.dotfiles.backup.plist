@@ -16,6 +16,13 @@
 	<string>/tmp/ethanify.dotfiles.backup.stderr</string>
 	<key>StandardOutPath</key>
 	<string>/tmp/ethanify.dotfiles.backup.stdout</string>
+	<key>StartCalendarInterval</key>
+	<dict>
+		<key>Hour</key>
+		<integer>22</integer>
+		<key>Minute</key>
+		<integer>0</integer>
+	</dict>
 	<key>ThrottleInterval</key>
 	<integer>86400</integer>
 </dict>
