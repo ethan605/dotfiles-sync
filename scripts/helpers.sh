@@ -23,6 +23,11 @@ print_sub_step() {
   printf "\n${CYAN}- ${message}${NORMAL}\n"
 }
 
+print_timestamp() {
+  local prefix=$1
+  printf "\n${ORANGE}$prefix at $(date +"%Y-%m-%d %H:%M:%S %z")${NORMAL}\n"
+}
+
 read_remote_json_array() {
   local source="$1"
   curl -fsSL $BACKUP_CONTENT_URL/$source.json | jq -r '.[]'
