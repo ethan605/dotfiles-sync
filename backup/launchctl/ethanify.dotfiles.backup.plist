@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>KeepAlive</key>
+	<true/>
+	<key>Label</key>
+	<string>ethanify.dotfiles.backup</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/bash</string>
+		<string>-c</string>
+		<string>"$HOME/Documents/Workspaces/Personal/dotfiles/scripts/backup.sh"</string>
+	</array>
+	<key>StandardErrorPath</key>
+	<string>/tmp/ethanify.dotfiles.backup.stderr</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/ethanify.dotfiles.backup.stdout</string>
+	<key>ThrottleInterval</key>
+	<integer>86400</integer>
+</dict>
+</plist>

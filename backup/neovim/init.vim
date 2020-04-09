@@ -12,6 +12,7 @@ Plug 'andreshazard/vim-freemarker'
 Plug 'ap/vim-css-color'
 Plug 'bling/vim-airline'
 Plug 'connorholyday/vim-snazzy'
+Plug 'darfink/vim-plist'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
@@ -33,7 +34,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'darfink/vim-plist'
 
 call plug#end()
 
