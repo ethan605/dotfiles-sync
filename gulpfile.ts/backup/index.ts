@@ -12,6 +12,7 @@ import git from './git';
 import gnupg from './gnupg';
 import karabiner from './karabiner';
 import kitty from './kitty';
+import launchctl from './launchctl';
 import neovim from './neovim';
 import nvm from './nvm';
 import ohMyZsh from './oh-my-zsh';
@@ -34,6 +35,7 @@ gulp.task(
       gnupg,
       karabiner,
       kitty,
+      launchctl,
       neovim,
       nvm,
       ohMyZsh,

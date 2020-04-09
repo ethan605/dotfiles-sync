@@ -41,5 +41,8 @@
   - [x] Restore `backup/vim/.vimrc` => `~/.vimrc`
   - [ ] Start and run in Command mode: `:PlugInstall`
 - [x] Visual Studio Code
-  - [x] Restore `backup/vscode/settings.json` => `~Library/Application\ Support/Code/User/settings.json`
+  - [x] Restore `backup/vscode/settings.json` => `~/Library/Application\ Support/Code/User/settings.json`
   - [x] Restore installed extensions from `backup/vscode/extensions.json`
+- [ ] Launchctl
+  - [ ] Restore `backup/launchctl/ethanify.dotfiles.backup.plist` => `~/Library/LaunchAgents/ethanify.dotfiles.backup.plist`
+  - [ ] Run `launchctl load ~/Library/LaunchAgents/ethanify.dotfiles.backup.plist`
