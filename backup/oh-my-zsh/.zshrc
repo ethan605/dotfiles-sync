@@ -122,6 +122,6 @@ alias vi=nvim
 alias tmx="tmux attach -t default || tmux new -s default"
 
 # Loading tmux with default session
-# if [ -z "$TMUX" ]; then
-  # tmx
-# fi
+if [ -z "$TMUX" ]; then
+  tmx
+fi
