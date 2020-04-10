@@ -16,14 +16,14 @@
 - [x] Secrets
   - [x] Gradle properties from `./backup/gradle.gpgtar`
   - [x] SSH keys from `./backup/ssh.gpgtar`
-  - [ ] `chmod` the `~/.ssh` folder to grant read access for user only
+  - [x] `chmod` the `~/.ssh` folder to grant read access for user only
 - [x] Git
   - [x] Restore `backup/git/.gitconfig` => `~/.gitconfig`
 - [x] Tmux
   - [x] Restore `backup/tmux/.tmux.conf` => `~/.tmux.conf`
   - [x] Restore `backup/tmux/.tmux.conf.local` => `~/.tmux.conf.local`
 - [x] Oh-my-zsh
-  - [ ] Install oh-my-zsh
+  - [x] Install `oh-my-zsh`
   - [x] Restore `backup/oh-my-zsh/.zshrc` => `~/.zshrc`
   - [x] Run `source ~/.zshrc`
 - [x] Fonts
