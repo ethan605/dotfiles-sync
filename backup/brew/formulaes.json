@@ -169,6 +169,7 @@
   "szip",
   "talloc",
   "telnet",
+  "terminal-notifier",
   "tesseract",
   "the_silver_searcher",
   "theora",
