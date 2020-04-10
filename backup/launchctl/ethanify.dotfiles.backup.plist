@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>KeepAlive</key>
-	<true/>
+	<false/>
 	<key>Label</key>
 	<string>ethanify.dotfiles.backup</string>
 	<key>ProgramArguments</key>
@@ -12,6 +12,8 @@
 		<string>-c</string>
 		<string>"$HOME/Documents/Workspaces/Personal/dotfiles/scripts/backup.sh"</string>
 	</array>
+	<key>RunAtLoad</key>
+	<true/>
 	<key>StandardErrorPath</key>
 	<string>/tmp/ethanify.dotfiles.backup.stderr</string>
 	<key>StandardOutPath</key>
@@ -23,7 +25,5 @@
 		<key>Minute</key>
 		<integer>0</integer>
 	</dict>
-	<key>ThrottleInterval</key>
-	<integer>86400</integer>
 </dict>
 </plist>
