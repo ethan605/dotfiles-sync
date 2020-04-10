@@ -190,5 +190,7 @@
   "xvid",
   "xz",
   "yarn",
-  "zlib"
+  "zlib",
+  "zsh-autosuggestions",
+  "zsh-syntax-highlighting"
 ]

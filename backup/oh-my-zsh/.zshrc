@@ -52,13 +52,16 @@ export GROFF_NO_SGR=1
 
 # Loading nvm
 export NVM_DIR=$(brew --prefix nvm)
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 
 # Oh-my-zsh configurations
 ZSH=$HOME/.oh-my-zsh
 fpath+=${ZDOTDIR:-~}/.zsh_functions
-plugins=(docker git github npm nvm osx vi-mode zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(docker git github npm nvm osx vi-mode)
+
 source $ZSH/oh-my-zsh.sh
+source "$(brew --prefix zsh-autosuggestions)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$(brew --prefix zsh-syntax-highlighting)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # Auto call `nvm use` in folders with .nvmrc
 autoload -U add-zsh-hook
