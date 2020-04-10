@@ -12,5 +12,4 @@ const launchctl = (): NodeJS.ReadWriteStream =>
     .src(wrapHomeDir('Library/LaunchAgents/ethanify.dotfiles.backup.plist'))
     .pipe(gulp.dest(`${BACKUP_DIR}/launchctl`));
 
-gulp.task('launchctl', launchctl);
 export default launchctl;

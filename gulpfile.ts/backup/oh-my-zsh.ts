@@ -10,12 +10,7 @@ import { BACKUP_DIR } from '../constants';
 
 const DEST_DIR = `${BACKUP_DIR}/oh-my-zsh`;
 
-const ohMyZshCustoms = (): NodeJS.ReadWriteStream =>
-  gulp
-    .src([wrapHomeDir('.oh-my-zsh/custom/**/*'), wrapHomeDir('.oh-my-zsh/**/*example*', { excluded: true })])
-    .pipe(gulp.dest(DEST_DIR));
-
-const ohMyZshRemoveSensitiveData = (): NodeJS.ReadWriteStream =>
+const zshrc = (): NodeJS.ReadWriteStream =>
   gulp
     .src(wrapHomeDir('.zshrc'))
     .pipe(replace(/HOMEBREW_GITHUB_API_TOKEN=".*"/, 'HOMEBREW_GITHUB_API_TOKEN=""'))
@@ -25,4 +20,4 @@ const ohMyZshRemoveSensitiveData = (): NodeJS.ReadWriteStream =>
     .pipe(replace(/GOOGLE_PROJECT_ID=".*"/, 'GOOGLE_PROJECT_ID=""'))
     .pipe(gulp.dest(DEST_DIR));
 
-export default gulp.parallel(ohMyZshCustoms, ohMyZshRemoveSensitiveData);
+export default zshrc;
