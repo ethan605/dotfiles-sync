@@ -16,12 +16,14 @@
 - [x] Secrets
   - [x] Gradle properties from `./backup/gradle.gpgtar`
   - [x] SSH keys from `./backup/ssh.gpgtar`
+  - [ ] `chmod` the `~/.ssh` folder to grant read access for user only
 - [x] Git
   - [x] Restore `backup/git/.gitconfig` => `~/.gitconfig`
 - [x] Tmux
   - [x] Restore `backup/tmux/.tmux.conf` => `~/.tmux.conf`
   - [x] Restore `backup/tmux/.tmux.conf.local` => `~/.tmux.conf.local`
 - [x] Oh-my-zsh
+  - [ ] Install oh-my-zsh
   - [x] Restore `backup/oh-my-zsh/.zshrc` => `~/.zshrc`
   - [x] Run `source ~/.zshrc`
 - [x] Fonts
@@ -44,5 +46,6 @@
   - [x] Restore `backup/vscode/settings.json` => `~/Library/Application\ Support/Code/User/settings.json`
   - [x] Restore installed extensions from `backup/vscode/extensions.json`
 - [ ] Launchctl
-  - [ ] Restore `backup/launchctl/ethanify.dotfiles.backup.plist` => `~/Library/LaunchAgents/ethanify.dotfiles.backup.plist`
+  - [ ] Restore `backup/launchctl/ethanify.dotfiles.backup.plist` =>
+        `~/Library/LaunchAgents/ethanify.dotfiles.backup.plist`
   - [ ] Run `launchctl load ~/Library/LaunchAgents/ethanify.dotfiles.backup.plist`
