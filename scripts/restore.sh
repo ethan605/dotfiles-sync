@@ -1,18 +1,22 @@
 #!/bin/bash
 source scripts/helpers.sh
 
+PATH=/usr/bin:/usr/local/bin:$PATH
 NODE_VERSION=v12.16
-BREW_CONTENT_URL=https://raw.githubusercontent.com/Homebrew/install/master
-TEMP_DIR=/tmp/ethan605/dotfiles
-
-clean_up() {
-  rm -rf $TEMP_DIR
-  print_step "Clean up temp dir"
-}
 
 prepare() {
+  print_step "Prepare resources"
+
   rm -rf $TEMP_DIR
   mkdir -p $TEMP_DIR
+
+  if [ ! $(command -v brew) ]; then
+    sh -c "$(curl -fsSL $GITHUB_CONTENT_URL/Homebrew/install/master/install.sh)"
+  fi
+
+  if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    sh -c "$(curl -fsSL $GITHUB_CONTENT_URL/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  fi
 }
 
 brew_restore_taps() {
@@ -35,7 +39,6 @@ brew_restore_casks() {
 restore_homebrew() {
   print_step "Restore Homebrew"
 
-  /bin/bash -c "$(curl -fsSL $BREW_CONTENT_URL/install.sh)" && \
   brew install jq && \
   brew_restore_taps && \
   brew_restore_formulaes && \
@@ -68,12 +71,12 @@ restore_nvm() {
   nvm_restore_global_npm_packages
 }
 
-restore_pnupg() {
+restore_gnupg() {
   print_step "Restore GnuPG"
 
-  gpg --import ~/Downloads/gpg_private_key.asc && \
+  gpg --import /Volumes/Keybase/private/ethan605/.keys/pgp/9d5aa3a830b5e5a7f30cea889c6ceb919ed2cefe.asc && \
   gpg --edit-key thanhnx.605@gmail.com && \
-  cp ./backup/gnupg/*.conf ~/.gnupg && \
+  cp ./backup/gnupg/*.conf $HOME/.gnupg && \
   killall gpg-agent && \
   gpg-agent --daemon && \
   echo "test" | gpg --clearsign &> /dev/null
@@ -96,17 +99,8 @@ restore_secrets() {
 
   print_sub_step "SSH keys"
   restore_secret_source ssh
-}
-
-download_and_unzip() {
-  local srcDir="$1"
-  local srcFile="$2"
-  local dest="$3"
-
-  mkdir -p $TEMP_DIR/$srcDir && \
-  curl -o $TEMP_DIR/$srcDir/$srcFile.zip -fsSL $BACKUP_CONTENT_URL/$srcDir/$srcFile.zip && \
-  unzip -q -d $TEMP_DIR/$srcDir $TEMP_DIR/$srcDir/$srcFile.zip && \
-  cp $TEMP_DIR/$srcDir/$srcFile/* $dest
+  chmod a=-,u=r $HOME/.ssh/*_rsa
+  chmod a=-,u=r $HOME/.ssh/*_rsa
 }
 
 restore_fonts() {
@@ -114,12 +108,6 @@ restore_fonts() {
 
   print_sub_step "Operator Mono Lig"
   download_and_unzip fonts operatorMonoLig $HOME/Library/Fonts
-}
-
-download_and_restore_file() {
-  local source="$1"
-  local dest="$2"
-  curl -o $dest -fsSL $BACKUP_CONTENT_URL/$source
 }
 
 restore_neovim() {
@@ -186,9 +174,9 @@ restore_files_directly() {
 trap clean_up EXIT
 
 prepare && \
-# restore_homebrew && \
-# restore_nvm && \
-# restore_pnupg && \
+restore_homebrew && \
+restore_nvm && \
+restore_gnupg && \
 restore_secrets && \
 restore_fonts && \
 restore_files_directly
