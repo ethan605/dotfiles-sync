@@ -32,7 +32,8 @@ commit_and_push() {
   git push origin $(git branch --show-current)
 }
 
-print_timestamp "Start backup"
+print_timestamp "Backup started"
+push_notification "Started"
 
 cd $WORK_DIR
 update_system_sources && \
@@ -40,4 +41,5 @@ run_gulp_tasks && \
 commit_and_push && \
 independent_update_tasks
 
-print_timestamp "Finish backup"
+print_timestamp "Backup finished" true
+push_notification "Finished" true

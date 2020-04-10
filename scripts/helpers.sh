@@ -8,9 +8,10 @@ YELLOW='\033[1;33m'
 BOLD='\033[1m'
 NORMAL='\033[0m'
 
+JOB_ID="ethanify.dotfiles.backup"
 GITHUB_CONTENT_URL=https://raw.githubusercontent.com
 BACKUP_CONTENT_URL=$GITHUB_CONTENT_URL/ethan605/dotfiles/master/backup
-TEMP_DIR=/tmp/ethanify.dotfiles.backup
+TEMP_DIR=/tmp/$JOB_ID
 
 steps_count=0
 
@@ -25,9 +26,39 @@ print_sub_step() {
   printf "\n${CYAN}- ${message}${NORMAL}\n"
 }
 
+format_date_time() {
+  date +"%Y-%m-%d %H:%M:%S %z"
+}
+
 print_timestamp() {
   local prefix=$1
-  printf "\n${ORANGE}$prefix at $(date +"%Y-%m-%d %H:%M:%S %z")${NORMAL}\n"
+  local show_commit_hash=$2
+  local commit_hash=$(/usr/local/bin/git rev-parse --short HEAD)
+
+  if [ $show_commit_hash ]; then
+    printf "\n${ORANGE}$prefix at $(format_date_time)\n${GREEN}Commit hash: $commit_hash${NORMAL}\n"
+  else
+    printf "\n${ORANGE}$prefix at $(format_date_time)${NORMAL}\n"
+  fi
+}
+
+push_notification() {
+  local prefix=$1
+  local show_commit_hash=$2
+  local commit_hash=$(/usr/local/bin/git rev-parse --short HEAD)
+
+  if [ $show_commit_hash ]; then
+    /usr/local/bin/terminal-notifier \
+      -message "Commit hash: $commit_hash" \
+      -title "Scheduled dotfiles backup" \
+      -subtitle "$prefix at: $(format_date_time)" \
+      -sender com.apple.Automator
+  else
+    /usr/local/bin/terminal-notifier \
+      -message "$prefix at: $(format_date_time)" \
+      -title "Scheduled dotfiles backup" \
+      -sender com.apple.Automator
+  fi
 }
 
 clean_up() {

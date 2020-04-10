@@ -123,11 +123,11 @@ restore_neovim() {
 }
 
 restore_vscode() {
-  local vscode_dir="$HOME/Library/Application Support/Code/User/settings.json"
+  local vscode_user_dir="$HOME/Library/Application Support/Code/User"
 
-  mkdir -p $vscode_dir && \
+  mkdir -p $vscode_user_dir && \
   download_and_restore_file vscode/settings.json $TEMP_DIR/vscode-settings.json && \
-  mv $TEMP_DIR/vscode-settings.json $vscode_dir
+  mv $TEMP_DIR/vscode-settings.json "$vscode_user_dir/settings.json"
 
   for extension in $(read_remote_json_array vscode/extensions); do
     code --install-extension $extension
