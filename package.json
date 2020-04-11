@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "Ethan's system files & automated backup-restore scripts",
   "scripts": {
-    "backup": "/bin/sh ./scripts/backup.sh",
-    "list-encrypted-archive": "gpgtar --list-archive",
+    "backup": "gulp backup",
     "lint": "eslint . --ext \".ts\"",
-    "restore": "/bin/sh ./scripts/restore.sh"
+    "list-encrypted-archive": "gpgtar --list-archive"
   },
   "repository": "git://github.com/ethan605/dotfiles.git",
   "keywords": [

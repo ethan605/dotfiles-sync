@@ -10,11 +10,11 @@ prepare() {
   rm -rf $TEMP_DIR
   mkdir -p $TEMP_DIR
 
-  if [ ! $(command -v brew) ]; then
+  if [[ ! $(command -v brew) ]]; then
     sh -c "$(curl -fsSL $GITHUB_CONTENT_URL/Homebrew/install/master/install.sh)"
   fi
 
-  if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
     sh -c "$(curl -fsSL $GITHUB_CONTENT_URL/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   fi
 }
@@ -171,12 +171,15 @@ restore_files_directly() {
   restore_vscode
 }
 
-trap clean_up EXIT
+restore() {
+  prepare && \
+  restore_homebrew && \
+  restore_nvm && \
+  restore_gnupg && \
+  restore_secrets && \
+  restore_fonts && \
+  restore_files_directly
+}
 
-prepare && \
-restore_homebrew && \
-restore_nvm && \
-restore_gnupg && \
-restore_secrets && \
-restore_fonts && \
-restore_files_directly
+trap clean_up EXIT
+restore

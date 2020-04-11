@@ -1,10 +1,9 @@
 #!/bin/bash
-WORK_DIR=$HOME/Documents/Workspaces/Personal/dotfiles
-PATH=/usr/local/bin:$WORK_DIR/node_modules/.bin:$PATH
+WORKING_DIR=$HOME/.dotfiles
+PATH=/usr/local/bin:$PATH
 ZSH=$HOME/.oh-my-zsh
-unset PREFIX
 
-source $WORK_DIR/scripts/helpers.sh
+source $WORKING_DIR/scripts/helpers.sh
 source /usr/local/opt/nvm/nvm.sh
 
 update_system_sources() {
@@ -22,7 +21,7 @@ independent_update_tasks() {
 
 run_gulp_tasks() {
   print_step "Backup sources"
-  gulp backup
+  $WORKING_DIR/node_modules/.bin/gulp backup
 }
 
 commit_and_push() {
@@ -32,14 +31,19 @@ commit_and_push() {
   git push origin $(git branch --show-current)
 }
 
-print_timestamp "Backup started"
-push_notification "Started"
+backup() {
+  cd $WORKING_DIR
 
-cd $WORK_DIR
-update_system_sources && \
-run_gulp_tasks && \
-commit_and_push && \
-independent_update_tasks
+  print_timestamp "Backup started" false
+  push_notification "Started" false
 
-print_timestamp "Backup finished" true
-push_notification "Finished" true
+  update_system_sources && \
+  run_gulp_tasks && \
+  commit_and_push && \
+  independent_update_tasks
+
+  print_timestamp "Backup finished" true
+  push_notification "Finished" true
+}
+
+backup

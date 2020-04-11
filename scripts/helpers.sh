@@ -1,4 +1,9 @@
 #!/bin/bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
 CYAN='\033[0;36m'
 GREEN='\033[0;32m'
 ORANGE='\033[0;33m'
@@ -32,10 +37,10 @@ format_date_time() {
 
 print_timestamp() {
   local prefix=$1
-  local show_commit_hash=$2
+  local show_commit_hash=${2:-false}
   local commit_hash=$(/usr/local/bin/git rev-parse --short HEAD)
 
-  if [ $show_commit_hash ]; then
+  if [[ $show_commit_hash = true ]]; then
     printf "\n${ORANGE}$prefix at $(format_date_time)\n${GREEN}Commit hash: $commit_hash${NORMAL}\n"
   else
     printf "\n${ORANGE}$prefix at $(format_date_time)${NORMAL}\n"
@@ -44,10 +49,10 @@ print_timestamp() {
 
 push_notification() {
   local prefix=$1
-  local show_commit_hash=$2
+  local show_commit_hash=${2:-false}
   local commit_hash=$(/usr/local/bin/git rev-parse --short HEAD)
 
-  if [ $show_commit_hash ]; then
+  if [[ $show_commit_hash = true ]]; then
     /usr/local/bin/terminal-notifier \
       -message "Commit hash: $commit_hash" \
       -title "Scheduled dotfiles backup" \
