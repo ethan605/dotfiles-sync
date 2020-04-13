@@ -18,6 +18,7 @@ import nvm from './nvm';
 import ohMyZsh from './oh-my-zsh';
 import protectedSources from './protected-sources';
 import tmux from './tmux';
+import vifm from './vifm';
 import vim from './vim';
 import vscode from './vscode';
 
@@ -41,6 +42,7 @@ gulp.task(
       ohMyZsh,
       protectedSources,
       tmux,
+      vifm,
       vim,
       vscode
     )
