@@ -36,9 +36,14 @@
   - [x] Restore `backup/kitty/kitty.conf` => `~/.config/kitty/kitty.conf`
   - [x] Restore `backup/kitty/colorschemes.zip` => `~/.config/kitty/colorschemes/`
 - [x] Neovim
+  - [x] Install `vim-plug`
   - [x] Restore `backup/neovim/init.vit` => `~/.config/nvim/init.nvim`
   - [x] Restore `backup/neovim/coc-extensions.json` => `~/.config/coc/extensions/package.json`
   - [x] Run `nvim --cmd 'PlugInstall | qa'` to install all plugins then quit
+- [ ] Vifm
+  - [ ] Restore `backup/vifm/vifmrc` => `~/.config/vifm/vifmrc`
+  - [ ] Restore `backup/vifm/colors.zip` => `~/.config/vifm/colors`
+  - [ ] Restore `backup/vifm/scripts.zip` => `~/.config/vifm/scripts`
 - [ ] Vim
   - [x] Restore `backup/vim/.vimrc` => `~/.vimrc`
   - [ ] Start and run in Command mode: `:PlugInstall`

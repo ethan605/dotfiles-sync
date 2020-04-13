@@ -113,6 +113,9 @@ restore_fonts() {
 restore_neovim() {
   local coc_dir="$HOME/.config/coc/extensions"
 
+  curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    $GITHUB_CONTENT_URL/junegunn/vim-plug/master/plug.vim
+
   mkdir -p $HOME/.config/nvim && \
   download_and_restore_file neovim/init.vim $HOME/.config/nvim/init.vim && \
   nvim --headless +PlugInstall +q && \
@@ -164,11 +167,17 @@ restore_files_directly() {
   download_and_restore_file tmux/.tmux.conf $HOME/.tmux.conf
   download_and_restore_file "tmux/.tmux.conf.local" "$HOME/.tmux.conf.local"
 
+  print_sub_step "Vifm"
+  download_and_restore_file vifm/vifmrc $HOME/.config/vifm/vifmrc
+
   print_sub_step "Vim"
   download_and_restore_file vim/.vimrc $HOME/.vimrc
   
   print_sub_step "VSCode"
   restore_vscode
+
+  print_sub_step "Launchctl"
+  download_and_restore_file launchctl/$JOB_ID.plist $HOME/Library/LaunchAgents/$JOB_ID.plist
 }
 
 restore() {
