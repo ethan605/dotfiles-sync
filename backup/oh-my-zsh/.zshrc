@@ -2,15 +2,23 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-# Paths
-export ANDROID_HOME="~/Library/Android/sdk"
+# Rewrite $PATH & get nvm works in tmux
+PATH="/usr/local/bin:/usr/local/sbin:$(getconf PATH)"
+
+# Replace macOS utilities with GNU ones
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
+PATH="/usr/local/opt/gnu-indent/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+
+# Java & Android
+export ANDROID_HOME="$HOME/Library/Android/sdk"
 export JAVA_HOME=$(/usr/libexec/java_home)
-PATH="/usr/local/bin:$(getconf PATH)" # To get nvm works in tmux
-PATH="/usr/local/sbin:$PATH"
 PATH=$JAVA_HOME:$PATH
-PATH=$ANDROID_HOME:$PATH
-PATH=$ANDROID_HOME/tools:$PATH
-PATH=$ANDROID_HOME/platform-tools:$PATH
+PATH=$ANDROID_HOME:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 PATH=./node_modules/.bin:$PATH
 export PATH
 
@@ -93,12 +101,12 @@ prompt pure
 
 # Aliases
 alias adb-screenshot="adb shell screencap -p \
-  | perl -pe 's/\x0D\x0A/\x0A/g' > ~/Downloads/Android_screenshot_`date +%Y-%m-%d_%H.%M.%S`.png"
+  | perl -pe 's/\x0D\x0A/\x0A/g' > $HOME/Downloads/Android_screenshot_$(date +%Y-%m-%d_%H.%M.%S).png"
 
-alias docker-stop-all='docker stop -t0 $(docker ps -q)'
-alias docker-rm-all='docker rm $(docker ps -laq)'
+alias docker-stop-all="docker stop -t0 $(docker ps -q)"
+alias docker-rm-all="docker rm $(docker ps -laq)"
 
-alias launch-android-emu="cd $ANDROID_HOME/tools && emulator -avd"
+alias ls="ls --color=always --human-readable --no-group --time-style=+'[%Y-%m-%d %H:%M:%S]'"
 
 alias npm-fix-prefix="nvm use --delete-prefix node && \
   npm config set prefix $NVM_DIR/versions/node/$(nvm version node)"

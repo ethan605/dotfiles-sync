@@ -122,12 +122,18 @@ set rtp+=/usr/local/opt/fzf
 " Color scheme
 syntax on
 colorscheme snazzy
-" set termguicolors
+set termguicolors
 
 " Custom functions
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+function! s:check_eslint_rules()
+  silent !clear
+  let location = system('eslint --format=json ' . bufname('%') . ' | jq -r ".[0].messages[0] | (.line, .column)"')
+  call cursor(split(location, '\n'))
 endfunction
 
 function! s:select_current_word()
@@ -213,6 +219,9 @@ nmap <silent> <c-g> :GFiles?<cr>
 
 " Search globally with RipGrep
 nmap <c-s> :Rg<space>
+
+" Check linting rules in current file
+nmap <silent> esl :call <sid>check_eslint_rules()<cr>
 
 " Copy current file's path
 nmap <silent> ycf :let @+=@%<cr>
