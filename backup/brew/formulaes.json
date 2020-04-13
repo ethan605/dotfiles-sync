@@ -14,6 +14,7 @@
   "blueutil",
   "boost",
   "cairo",
+  "catimg",
   "cfitsio",
   "cmake",
   "coreutils",
@@ -205,6 +206,7 @@
   "utf8proc",
   "vifm",
   "vips",
+  "w3m",
   "watchman",
   "webp",
   "webtorrent-cli",
@@ -214,6 +216,7 @@
   "xvid",
   "xz",
   "yarn",
+  "youtube-dl",
   "zlib",
   "zsh-autosuggestions",
   "zsh-syntax-highlighting"

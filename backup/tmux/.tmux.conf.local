@@ -334,6 +334,7 @@ set -g default-shell /bin/zsh
 
 # default XTERM colorscheme
 # set -g default-terminal "xterm-256color"
+set -ga terminal-overrides ",xterm-256color*:Tc"
 
 # to support undercurls (curly underlines)
 set -g default-terminal "xterm-kitty"
