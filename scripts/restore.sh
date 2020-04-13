@@ -115,7 +115,7 @@ restore_neovim() {
 
   mkdir -p $HOME/.config/nvim && \
   download_and_restore_file neovim/init.vim $HOME/.config/nvim/init.vim && \
-  nvim -c 'PlugInstall | qa' && \
+  nvim --headless +PlugInstall +q && \
   mkdir -p $coc_dir && \
   download_and_restore_file neovim/coc-extensions.json $coc_dir/package.json && \
   cd $coc_dir && \
