@@ -19,7 +19,13 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 export JAVA_HOME=$(/usr/libexec/java_home)
 PATH=$JAVA_HOME:$PATH
 PATH=$ANDROID_HOME:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+
+# Local node env
 PATH=./node_modules/.bin:$PATH
+
+# rvm
+PATH="$HOME/.rvm/bin:$PATH"
+
 export PATH
 
 # Default editors
@@ -62,6 +68,8 @@ export GROFF_NO_SGR=1
 export NVM_DIR=$(brew --prefix nvm)
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 
+bindkey "^]" forward-word
+
 # Oh-my-zsh configurations
 ZSH=$HOME/.oh-my-zsh
 fpath+=${ZDOTDIR:-~}/.zsh_functions
@@ -99,6 +107,10 @@ PURE_PROMPT_SYMBOL="λ"            # originally "❯"
 PURE_PROMPT_VICMD_SYMBOL="ε"      # originally "❮"
 prompt pure
 
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 # Aliases
 alias adb-screenshot="adb shell screencap -p \
   | perl -pe 's/\x0D\x0A/\x0A/g' > $HOME/Downloads/Android_screenshot_$(date +%Y-%m-%d_%H.%M.%S).png"
@@ -110,11 +122,6 @@ alias ls="ls --color=always --human-readable --no-group --time-style=+'[%Y-%m-%d
 
 alias npm-fix-prefix="nvm use --delete-prefix node && \
   npm config set prefix $NVM_DIR/versions/node/$(nvm version node)"
-alias nvm-upgrade='(
-  cd "$NVM_DIR"
-  git fetch --tags origin
-  git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
-) && \. "$NVM_DIR/nvm.sh"'
 
 alias policy-off="sudo spctl --master-disable"
 alias policy-on="sudo spctl --master-enable"
@@ -133,6 +140,6 @@ alias vi=nvim
 alias tmx="tmux attach -t default || tmux new -s default"
 
 # Loading tmux with default session
-if [ -z "$TMUX" ]; then
-  tmx
-fi
+# if [ -z "$TMUX" ]; then
+  # tmx
+# fi

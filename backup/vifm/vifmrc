@@ -15,7 +15,7 @@ view
 
 " Trash Directory
 " The default is to move files that are deleted with dd or :d to
-" the trash directory.  If you change this you will not be able to move
+" the trash directory. If you change this you will not be able to move
 " files by deleting them and then using p to put the file in the new location.
 " I recommend not changing this until you are familiar with vifm.
 " This probably shouldn't be an option.
