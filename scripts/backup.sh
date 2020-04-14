@@ -8,15 +8,16 @@ source /usr/local/opt/nvm/nvm.sh
 
 update_system_sources() {
   print_step "Update system files"
-  brew update --verbose && \
-  brew upgrade --verbose && \
-  brew cleanup --prune-prefix && \
+  brew update --verbose
+  brew upgrade --verbose
+  brew cleanup --prune-prefix
   sh $HOME/.oh-my-zsh/tools/upgrade.sh --verbose
 }
 
 independent_update_tasks() {
   print_step "Run independent update tasks"
   brew cask upgrade --verbose
+  nvim --headless +PlugUpgrade +PlugUpdate +CocUpdateSync +qa
 }
 
 run_gulp_tasks() {
@@ -26,8 +27,8 @@ run_gulp_tasks() {
 
 commit_and_push() {
   print_step "Commit and push"
-  git add ./backup && \
-  git commit -m ":package: Backup" && \
+  git add ./backup
+  git commit -m ":package: Backup"
   git push origin $(git branch --show-current)
 }
 
@@ -37,9 +38,9 @@ backup() {
   print_timestamp "Backup started" false
   push_notification "Started" false
 
-  update_system_sources && \
-  run_gulp_tasks && \
-  commit_and_push && \
+  update_system_sources
+  run_gulp_tasks
+  commit_and_push
   independent_update_tasks
 
   print_timestamp "Backup finished" true
