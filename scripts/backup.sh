@@ -38,9 +38,9 @@ backup() {
   print_timestamp "Backup started" false
   push_notification "Started" false
 
-  update_system_sources
-  run_gulp_tasks
-  commit_and_push
+  update_system_sources && \
+  run_gulp_tasks && \
+  commit_and_push && \
   independent_update_tasks
 
   print_timestamp "Backup finished" true
