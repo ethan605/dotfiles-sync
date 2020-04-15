@@ -138,4 +138,6 @@ add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
 # Loading tmux with default session
-[[ -z $TMUX ]] && tmx
+if [[ -z $TMUX ]]; then
+  tmx
+fi
