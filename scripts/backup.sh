@@ -12,12 +12,12 @@ update_system_sources() {
   brew upgrade --verbose
   brew cleanup --prune-prefix
   sh $HOME/.oh-my-zsh/tools/upgrade.sh --verbose
+  nvim --headless +PlugUpgrade +PlugUpdate +CocUpdateSync +qa
 }
 
 independent_update_tasks() {
   print_step "Run independent update tasks"
   brew cask upgrade --verbose
-  nvim --headless +PlugUpgrade +PlugUpdate +CocUpdateSync +qa
 }
 
 run_gulp_tasks() {

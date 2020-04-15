@@ -38,31 +38,34 @@ format_date_time() {
 print_timestamp() {
   local prefix=$1
   local show_commit_hash=${2:-false}
-  local commit_hash=$(/usr/local/bin/git rev-parse --short HEAD)
+  local commit_hash=$(/usr/local/bin/git rev-parse HEAD)
+  local commit_url="https://github.com/ethan605/dotfiles/commit/$commit_hash"
 
   if [[ $show_commit_hash = true ]]; then
-    printf "\n${ORANGE}$prefix at $(format_date_time)\n${GREEN}Commit hash: $commit_hash${NORMAL}\n"
+    printf "\n${ORANGE}$prefix at $(format_date_time)\n${GREEN}Commit URL: $commit_url${NORMAL}\n"
   else
     printf "\n${ORANGE}$prefix at $(format_date_time)${NORMAL}\n"
   fi
 }
 
 push_notification() {
-  local prefix=$1
+  local timestamp="$1 at: $(format_date_time)"
   local show_commit_hash=${2:-false}
   local commit_hash=$(/usr/local/bin/git rev-parse --short HEAD)
+  local title="Scheduled dotfiles backup"
+  local sender="com.apple.Automator"
 
   if [[ $show_commit_hash = true ]]; then
     /usr/local/bin/terminal-notifier \
       -message "Commit hash: $commit_hash" \
-      -title "Scheduled dotfiles backup" \
-      -subtitle "$prefix at: $(format_date_time)" \
-      -sender com.apple.Automator
+      -title "$title" \
+      -subtitle "$timestamp" \
+      -sender $sender
   else
     /usr/local/bin/terminal-notifier \
-      -message "$prefix at: $(format_date_time)" \
-      -title "Scheduled dotfiles backup" \
-      -sender com.apple.Automator
+      -message "$timestamp" \
+      -title "$title" \
+      -sender $sender
   fi
 }
 
