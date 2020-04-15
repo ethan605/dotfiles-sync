@@ -2,7 +2,7 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-# Rewrite $PATH & get nvm works in tmux
+# Rewrite $PATH
 PATH="/usr/local/bin:/usr/local/sbin:$(getconf PATH)"
 
 # Replace macOS utilities with GNU ones
@@ -14,18 +14,17 @@ PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 
-# Java & Android
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export JAVA_HOME=$(/usr/libexec/java_home)
 PATH=$JAVA_HOME:$PATH
 PATH=$ANDROID_HOME:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 
 # Local node env
+export NVM_DIR=$(brew --prefix nvm)
 PATH=./node_modules/.bin:$PATH
 
 # rvm
 PATH="$HOME/.rvm/bin:$PATH"
-
 export PATH
 
 # Default editors
@@ -64,10 +63,7 @@ export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
 export GROFF_NO_SGR=1
 
-# Loading nvm
-export NVM_DIR=$(brew --prefix nvm)
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-
+# Ctrl + ] to move forward by word
 bindkey "^]" forward-word
 
 # Oh-my-zsh configurations
@@ -78,6 +74,46 @@ plugins=(docker git github npm nvm osx vi-mode)
 source $ZSH/oh-my-zsh.sh
 source "$(brew --prefix zsh-autosuggestions)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$(brew --prefix zsh-syntax-highlighting)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+# Aliases
+alias adb-screenshot="adb shell screencap -p \
+  | perl -pe 's/\x0D\x0A/\x0A/g' > $HOME/Downloads/Android_screenshot_$(date +%Y-%m-%d_%H.%M.%S).png"
+
+alias docker-stop-all="docker stop -t0 $(docker ps -q)"
+alias docker-rm-all="docker rm $(docker ps -laq)"
+
+alias load-nvm="[[ -s $NVM_DIR/nvm.sh ]] && source $NVM_DIR/nvm.sh"
+alias load-pyenv="command -v pyenv 1>/dev/null 2>&1 && eval '$(pyenv init -)'"
+
+alias npm-fix-prefix="nvm use --delete-prefix node && \
+  npm config set prefix $NVM_DIR/versions/node/$(nvm version node)"
+
+alias policy-off="sudo spctl --master-disable"
+alias policy-on="sudo spctl --master-enable"
+
+alias rnclean="watchman watch-del-all &&
+  rm -rf node_modules &&
+  rm -fr $TMPDIR/react-* &&
+  npm cache clean --force &&
+  yarn cache clean"
+alias rndev="adb shell input keyevent 82"
+alias rnlog-android="adb logcat *:S ReactNative:V ReactNativeJS:V"
+
+alias tmx="tmux attach -t default || tmux new -s default"
+
+# Remap existing commands
+alias ls="ls --almost-all --color=always --human-readable --time-style=+'[%Y-%m-%d %H:%M:%S]'"
+alias nano=nvim
+alias vi=nvim
+
+# Pure prompt
+autoload -U promptinit; promptinit
+PURE_PROMPT_SYMBOL="λ"            # originally "❯"
+PURE_PROMPT_VICMD_SYMBOL="ε"      # originally "❮"
+prompt pure
+
+load-nvm
+load-pyenv
 
 # Auto call `nvm use` in folders with .nvmrc
 autoload -U add-zsh-hook
@@ -101,45 +137,5 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
-# Pure prompt
-autoload -U promptinit; promptinit
-PURE_PROMPT_SYMBOL="λ"            # originally "❯"
-PURE_PROMPT_VICMD_SYMBOL="ε"      # originally "❮"
-prompt pure
-
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
-# Aliases
-alias adb-screenshot="adb shell screencap -p \
-  | perl -pe 's/\x0D\x0A/\x0A/g' > $HOME/Downloads/Android_screenshot_$(date +%Y-%m-%d_%H.%M.%S).png"
-
-alias docker-stop-all="docker stop -t0 $(docker ps -q)"
-alias docker-rm-all="docker rm $(docker ps -laq)"
-
-alias ls="ls --color=always --human-readable --no-group --time-style=+'[%Y-%m-%d %H:%M:%S]'"
-
-alias npm-fix-prefix="nvm use --delete-prefix node && \
-  npm config set prefix $NVM_DIR/versions/node/$(nvm version node)"
-
-alias policy-off="sudo spctl --master-disable"
-alias policy-on="sudo spctl --master-enable"
-
-alias rnclean="watchman watch-del-all &&
-  rm -rf node_modules &&
-  rm -fr $TMPDIR/react-* &&
-  npm cache clean --force &&
-  yarn cache clean"
-alias rndev="adb shell input keyevent 82"
-alias rnlog-android="adb logcat *:S ReactNative:V ReactNativeJS:V"
-
-alias nano=nvim
-alias vi=nvim
-
-alias tmx="tmux attach -t default || tmux new -s default"
-
 # Loading tmux with default session
-# if [ -z "$TMUX" ]; then
-  # tmx
-# fi
+[[ -z $TMUX ]] && tmx

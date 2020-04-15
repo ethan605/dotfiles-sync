@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "coc-css": ">=1.2.2",
+    "coc-css": ">=1.2.3",
     "coc-eslint": ">=1.2.6",
     "coc-html": ">=1.2.4",
     "coc-java": ">=1.4.8",
@@ -8,6 +8,6 @@
     "coc-snippets": ">=2.1.24",
     "coc-spell-checker": ">=1.1.0",
     "coc-tabnine": ">=1.2.2",
-    "coc-tsserver": ">=1.4.12"
+    "coc-tsserver": ">=1.4.14"
   }
 }
