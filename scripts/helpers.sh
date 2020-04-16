@@ -1,8 +1,4 @@
 #!/bin/bash
-set -o errexit
-set -o pipefail
-set -o nounset
-
 CYAN='\033[0;36m'
 GREEN='\033[0;32m'
 ORANGE='\033[0;33m'

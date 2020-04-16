@@ -20,7 +20,7 @@ clean_up() {
 prepare() {
   mkdir -p $TEMP_DIR
 
-  curl --output $TEMP_DIR/helpers.sh -fsSL https://raw.githubusercontent.com/ethan605/dotfiles/master/scripts/helpers.sh
+  curl --output $TEMP_DIR/helpers.sh -fsSL $GITHUB_CONTENT_URL/ethan605/dotfiles/master/scripts/helpers.sh
   source $TEMP_DIR/helpers.sh
 
   print_step "Prepare resources"

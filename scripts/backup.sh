@@ -1,6 +1,10 @@
 #!/bin/bash
-WORKING_DIR=$HOME/.dotfiles
+set -o errexit
+set -o pipefail
+set -o nounset
+
 PATH=/usr/local/bin:$PATH
+WORKING_DIR=$HOME/.dotfiles
 ZSH=$HOME/.oh-my-zsh
 
 source $WORKING_DIR/scripts/helpers.sh
