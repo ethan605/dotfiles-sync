@@ -1,14 +1,29 @@
 #!/bin/bash
-source scripts/helpers.sh
+set -o errexit
+set -o pipefail
+set -o nounset
 
-PATH=/usr/bin:/usr/local/bin:$PATH
-NODE_VERSION=v12.16
+PATH="/usr/bin:/usr/local/bin:$PATH"
+GITHUB_CONTENT_URL="https://raw.githubusercontent.com"
+BACKUP_CONTENT_URL="$GITHUB_CONTENT_URL/ethan605/dotfiles/master/backup"
+JOB_ID="ethanify.dotfiles.backup"
+NODE_VERSION="v12.16"
+TEMP_DIR="/tmp/$JOB_ID"
+
+unset PREFIX
+
+clean_up() {
+  print_step "Clean up temp files"
+  rm -rf $TEMP_DIR
+}
 
 prepare() {
-  print_step "Prepare resources"
-
-  rm -rf $TEMP_DIR
   mkdir -p $TEMP_DIR
+
+  curl --output $TEMP_DIR/helpers.sh -fsSL https://raw.githubusercontent.com/ethan605/dotfiles/master/scripts/helpers.sh
+  source $TEMP_DIR/helpers.sh
+
+  print_step "Prepare resources"
 
   if [[ ! $(command -v brew) ]]; then
     sh -c "$(curl -fsSL $GITHUB_CONTENT_URL/Homebrew/install/master/install.sh)"
@@ -17,6 +32,28 @@ prepare() {
   if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
     sh -c "$(curl -fsSL $GITHUB_CONTENT_URL/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   fi
+}
+
+download_and_restore_file() {
+  local source="$1"
+  local dest="$2"
+  curl -o $dest -fsSL $BACKUP_CONTENT_URL/$source
+}
+
+download_and_unzip() {
+  local srcDir="$1"
+  local srcFile="$2"
+  local dest="$3"
+
+  mkdir -p $TEMP_DIR/$srcDir && \
+  curl -o $TEMP_DIR/$srcDir/$srcFile.zip -fsSL $BACKUP_CONTENT_URL/$srcDir/$srcFile.zip && \
+  unzip -q -d $TEMP_DIR/$srcDir $TEMP_DIR/$srcDir/$srcFile.zip && \
+  cp $TEMP_DIR/$srcDir/$srcFile/* $dest
+}
+
+read_remote_json_array() {
+  local source="$1"
+  curl -fsSL $BACKUP_CONTENT_URL/$source.json | jq -r '.[]'
 }
 
 brew_restore_taps() {
@@ -61,13 +98,15 @@ nvm_restore_global_npm_packages() {
 restore_nvm() {
   print_step "Restore NVM"
 
-  brew install nvm && \
-  unset PREFIX && \
-  source $NVM_DIR/nvm.sh && \
-  nvm_restore_node_versions && \
-  nvm use --default --delete-prefix $NODE_VERSION && \
-  nvm alias default node && \
-  npm config set prefix $NVM_DIR/versions/node/$(nvm version node) && \
+  brew install nvm
+  local nvm_dir=$(brew --prefix nvm)
+
+  source $nvm_dir/nvm.sh
+  nvm_restore_node_versions
+  nvm alias node $NODE_VERSION
+  nvm alias default node
+  nvm use --default --delete-prefix node
+  npm config set prefix $nvm_dir/versions/node/$(nvm version node)
   nvm_restore_global_npm_packages
 }
 

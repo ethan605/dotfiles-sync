@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set -o errexit
 set -o pipefail
 set -o nounset
@@ -12,11 +11,6 @@ YELLOW='\033[1;33m'
 
 BOLD='\033[1m'
 NORMAL='\033[0m'
-
-JOB_ID="ethanify.dotfiles.backup"
-GITHUB_CONTENT_URL=https://raw.githubusercontent.com
-BACKUP_CONTENT_URL=$GITHUB_CONTENT_URL/ethan605/dotfiles/master/backup
-TEMP_DIR=/tmp/$JOB_ID
 
 steps_count=0
 
@@ -67,31 +61,4 @@ push_notification() {
       -title "$title" \
       -sender $sender
   fi
-}
-
-clean_up() {
-  print_step "Clean up temp files"
-  rm -rf $TEMP_DIR
-}
-
-download_and_restore_file() {
-  local source="$1"
-  local dest="$2"
-  curl -o $dest -fsSL $BACKUP_CONTENT_URL/$source
-}
-
-download_and_unzip() {
-  local srcDir="$1"
-  local srcFile="$2"
-  local dest="$3"
-
-  mkdir -p $TEMP_DIR/$srcDir && \
-  curl -o $TEMP_DIR/$srcDir/$srcFile.zip -fsSL $BACKUP_CONTENT_URL/$srcDir/$srcFile.zip && \
-  unzip -q -d $TEMP_DIR/$srcDir $TEMP_DIR/$srcDir/$srcFile.zip && \
-  cp $TEMP_DIR/$srcDir/$srcFile/* $dest
-}
-
-read_remote_json_array() {
-  local source="$1"
-  curl -fsSL $BACKUP_CONTENT_URL/$source.json | jq -r '.[]'
 }
