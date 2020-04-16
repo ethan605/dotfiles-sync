@@ -45,9 +45,9 @@ download_and_unzip() {
   local srcFile="$2"
   local dest="$3"
 
-  mkdir -p $TEMP_DIR/$srcDir && \
-  curl -o $TEMP_DIR/$srcDir/$srcFile.zip -fsSL $BACKUP_CONTENT_URL/$srcDir/$srcFile.zip && \
-  unzip -q -d $TEMP_DIR/$srcDir $TEMP_DIR/$srcDir/$srcFile.zip && \
+  mkdir -p $TEMP_DIR/$srcDir
+  curl -o $TEMP_DIR/$srcDir/$srcFile.zip -fsSL $BACKUP_CONTENT_URL/$srcDir/$srcFile.zip
+  unzip -q -d $TEMP_DIR/$srcDir $TEMP_DIR/$srcDir/$srcFile.zip
   cp $TEMP_DIR/$srcDir/$srcFile/* $dest
 }
 
@@ -76,9 +76,9 @@ brew_restore_casks() {
 restore_homebrew() {
   print_step "Restore Homebrew"
 
-  brew install jq && \
-  brew_restore_taps && \
-  brew_restore_formulaes && \
+  brew install jq
+  brew_restore_taps
+  brew_restore_formulaes
   brew_restore_casks
 }
 
@@ -106,18 +106,27 @@ restore_nvm() {
   nvm alias node $NODE_VERSION
   nvm alias default node
   nvm use --default --delete-prefix node
-  npm config set prefix $nvm_dir/versions/node/$(nvm version node)
+  npm config set prefix "$nvm_dir/versions/node/$(nvm version node)"
   nvm_restore_global_npm_packages
+}
+
+restore_rvm() {
+  print_step "Restore RVM"
+
+  gpg --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+  curl -sSL https://get.rvm.io | bash -s stable
+  rvm install 2.7
 }
 
 restore_gnupg() {
   print_step "Restore GnuPG"
 
-  gpg --import /Volumes/Keybase/private/ethan605/.keys/pgp/9d5aa3a830b5e5a7f30cea889c6ceb919ed2cefe.asc && \
-  gpg --edit-key thanhnx.605@gmail.com && \
-  cp ./backup/gnupg/*.conf $HOME/.gnupg && \
-  killall gpg-agent && \
-  gpg-agent --daemon && \
+  gpg --import /Volumes/Keybase/private/ethan605/.keys/pgp/9d5aa3a830b5e5a7f30cea889c6ceb919ed2cefe.asc
+  gpg --edit-key thanhnx.605@gmail.com
+  download_and_restore_file gnupg/gpg.conf $HOME/.gnupg/gpg.conf
+  download_and_restore_file gnupg/gpg-agent.conf $HOME/.gnupg/gpg-agent.conf
+  killall gpg-agent
+  gpg-agent --daemon
   echo "test" | gpg --clearsign &> /dev/null
 }
 
@@ -125,8 +134,8 @@ restore_secret_source() {
   local dest="$HOME/.$1"
   local source="$1.gpgtar"
 
-  mkdir -p $dest && \
-  curl -o $TEMP_DIR/$source -fsSL $BACKUP_CONTENT_URL/$source && \
+  mkdir -p $dest
+  curl -o $TEMP_DIR/$source -fsSL $BACKUP_CONTENT_URL/$source
   gpgtar --decrypt --directory $dest $TEMP_DIR/$source
 }
 
@@ -138,7 +147,6 @@ restore_secrets() {
 
   print_sub_step "SSH keys"
   restore_secret_source ssh
-  chmod a=-,u=r $HOME/.ssh/*_rsa
   chmod a=-,u=r $HOME/.ssh/*_rsa
 }
 
@@ -155,20 +163,20 @@ restore_neovim() {
   curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     $GITHUB_CONTENT_URL/junegunn/vim-plug/master/plug.vim
 
-  mkdir -p $HOME/.config/nvim && \
-  download_and_restore_file neovim/init.vim $HOME/.config/nvim/init.vim && \
-  nvim --headless +PlugInstall +q && \
-  mkdir -p $coc_dir && \
-  download_and_restore_file neovim/coc-extensions.json $coc_dir/package.json && \
-  cd $coc_dir && \
+  mkdir -p $HOME/.config/nvim
+  download_and_restore_file neovim/init.vim $HOME/.config/nvim/init.vim
+  nvim --headless +PlugInstall +qa
+  mkdir -p $coc_dir
+  download_and_restore_file neovim/coc-extensions.json $coc_dir/package.json
+  cd $coc_dir
   npm install --no-package-lock
 }
 
 restore_vscode() {
   local vscode_user_dir="$HOME/Library/Application Support/Code/User"
 
-  mkdir -p $vscode_user_dir && \
-  download_and_restore_file vscode/settings.json $TEMP_DIR/vscode-settings.json && \
+  mkdir -p $vscode_user_dir
+  download_and_restore_file vscode/settings.json $TEMP_DIR/vscode-settings.json
   mv $TEMP_DIR/vscode-settings.json "$vscode_user_dir/settings.json"
 
   for extension in $(read_remote_json_array vscode/extensions); do
@@ -180,18 +188,18 @@ restore_files_directly() {
   print_step "Restore files directly"
 
   print_sub_step "Alacritty"
-  mkdir -p $HOME/.config/alacritty && \
+  mkdir -p $HOME/.config/alacritty
   download_and_restore_file alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 
   print_sub_step "Git"
   download_and_restore_file git/.gitconfig $HOME/.gitconfig
 
   print_sub_step "Karabiner"
-  mkdir -p $HOME/.config/karabiner && \
+  mkdir -p $HOME/.config/karabiner
   download_and_restore_file karabiner/karabiner.json $HOME/.config/karabiner/karabiner.json
 
   print_sub_step "Kitty"
-  mkdir -p $HOME/.config/kitty/colorschemes && \
+  mkdir -p $HOME/.config/kitty/colorschemes
   download_and_restore_file kitty/kitty.conf $HOME/.config/kitty/kitty.conf
   download_and_unzip kitty colorschemes $HOME/.config/kitty/colorschemes
 
@@ -199,8 +207,7 @@ restore_files_directly() {
   restore_neovim
 
   print_sub_step "Oh-my-zsh"
-  download_and_restore_file oh-my-zsh/.zshrc $HOME/.zshrc && \
-  /bin/zsh -c "PREFIX='' source $HOME/.zshrc"
+  download_and_restore_file oh-my-zsh/.zshrc $HOME/.zshrc
 
   print_sub_step "Tmux"
   download_and_restore_file tmux/.tmux.conf $HOME/.tmux.conf
@@ -223,6 +230,7 @@ restore() {
   prepare && \
   restore_homebrew && \
   restore_nvm && \
+  restore_rvm && \
   restore_gnupg && \
   restore_secrets && \
   restore_fonts && \
