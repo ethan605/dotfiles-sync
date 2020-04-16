@@ -301,7 +301,8 @@ tmux_conf_copy_to_os_clipboard=true
 # }}}
 
 # 5. User customizations {{{
-# this is the place to override or undo settings
+set -gu prefix2
+unbind C-a
 
 # quick navigating between windows
 bind-key '{' select-window -p
@@ -332,13 +333,12 @@ set -g status-position top
 set -g default-command /bin/zsh
 set -g default-shell /bin/zsh
 
-# default XTERM colorscheme
-# set -g default-terminal "xterm-256color"
-set -ga terminal-overrides ",xterm-256color*:Tc"
-
 # to support undercurls (curly underlines)
 set -g default-terminal "xterm-kitty"
 set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'
+
+# to support true colors
+set -as terminal-overrides ",xterm-256color*:Tc"
 
 # tmux-cpu configs
 set -g @cpu_low_icon "="
