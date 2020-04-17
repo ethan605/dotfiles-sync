@@ -3,13 +3,13 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-PATH="/usr/bin:/usr/local/bin:$PATH"
-GITHUB_CONTENT_URL="https://raw.githubusercontent.com"
-BACKUP_CONTENT_URL="$GITHUB_CONTENT_URL/ethan605/dotfiles/master/backup"
-JOB_ID="ethanify.dotfiles.backup"
-NODE_VERSION="v12.16"
-TEMP_DIR="/tmp/$JOB_ID"
+readonly GITHUB_CONTENT_URL="https://raw.githubusercontent.com"
+readonly BACKUP_CONTENT_URL="$GITHUB_CONTENT_URL/ethan605/dotfiles/master/backup"
+readonly JOB_ID="ethanify.dotfiles.backup"
+readonly NODE_VERSION="v12.16"
+readonly TEMP_DIR="/tmp/$JOB_ID"
 
+PATH="/usr/bin:/usr/local/bin:$PATH"
 unset PREFIX
 
 clean_up() {

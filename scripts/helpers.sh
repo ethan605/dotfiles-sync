@@ -1,12 +1,12 @@
 #!/bin/bash
-CYAN='\033[0;36m'
-GREEN='\033[0;32m'
-ORANGE='\033[0;33m'
-RED='\033[0;31m'
-YELLOW='\033[1;33m'
+readonly CYAN='\033[0;36m'
+readonly GREEN='\033[0;32m'
+readonly ORANGE='\033[0;33m'
+readonly RED='\033[0;31m'
+readonly YELLOW='\033[1;33m'
 
-BOLD='\033[1m'
-NORMAL='\033[0m'
+readonly BOLD='\033[1m'
+readonly NORMAL='\033[0m'
 
 steps_count=0
 
