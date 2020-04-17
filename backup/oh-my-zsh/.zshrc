@@ -79,6 +79,8 @@ source "$(brew --prefix zsh-syntax-highlighting)/share/zsh-syntax-highlighting/z
 alias adb-screenshot="adb shell screencap -p \
   | perl -pe 's/\x0D\x0A/\x0A/g' > $HOME/Downloads/Android_screenshot_$(date +%Y-%m-%d_%H.%M.%S).png"
 
+alias batc="env -uCOLORTERM bat --color always --number --wrap never --pager never"
+
 alias docker-stop-all="docker stop -t0 $(docker ps -q)"
 alias docker-rm-all="docker rm $(docker ps -laq)"
 
@@ -138,6 +140,6 @@ add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
 # Loading tmux with default session
-if [[ -z $TMUX ]]; then
-  tmx
-fi
+# if [[ -z $TMUX ]]; then
+  # tmx
+# fi
