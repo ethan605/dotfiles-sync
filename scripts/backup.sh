@@ -44,11 +44,11 @@ backup() {
 
   update_system_sources && \
   run_gulp_tasks && \
-  commit_and_push && \
-  independent_update_tasks
+  commit_and_push
 
   print_timestamp "Backup finished" true
   push_notification "Finished" true
 }
 
 backup
+independent_update_tasks
