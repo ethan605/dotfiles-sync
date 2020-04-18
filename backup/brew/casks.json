@@ -13,6 +13,7 @@
   "font-haskplex-nerd",
   "google-cloud-sdk",
   "gotiengviet",
+  "iterm2",
   "karabiner-elements",
   "keybase",
   "kitty",
@@ -30,5 +31,6 @@
   "vlc",
   "vlc-webplugin",
   "vox",
-  "vox-preferences-pane"
+  "vox-preferences-pane",
+  "yandex-disk"
 ]

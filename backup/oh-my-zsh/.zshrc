@@ -20,12 +20,8 @@ PATH=$JAVA_HOME:$PATH
 PATH=$ANDROID_HOME:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 
 # Local node env
-export NVM_DIR=$(brew --prefix nvm)
 PATH=./node_modules/.bin:$PATH
-
-# rvm
-PATH="$HOME/.rvm/bin:$PATH"
-export PATH
+export PATH="$HOME/.rvm/bin:$PATH"
 
 # Default editors
 export EDITOR=nvim
@@ -69,56 +65,32 @@ bindkey "^]" forward-word
 # Oh-my-zsh configurations
 ZSH=$HOME/.oh-my-zsh
 fpath+=${ZDOTDIR:-~}/.zsh_functions
-plugins=(docker git github npm nvm osx vi-mode)
+plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
-source "$(brew --prefix zsh-autosuggestions)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "$(brew --prefix zsh-syntax-highlighting)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source ~/.zsh-defer/zsh-defer.plugin.zsh
 
-# Aliases
-alias adb-screenshot="adb shell screencap -p \
-  | perl -pe 's/\x0D\x0A/\x0A/g' > $HOME/Downloads/Android_screenshot_$(date +%Y-%m-%d_%H.%M.%S).png"
+zsh-defer source /usr/local/opt/zsh-autosuggestions/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+zsh-defer source /usr/local/opt/zsh-syntax-highlighting/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-alias batc="env -uCOLORTERM bat --color always --number --wrap never --pager never"
-
-alias docker-stop-all="docker stop -t0 $(docker ps -q)"
-alias docker-rm-all="docker rm $(docker ps -laq)"
-
-alias load-nvm="[[ -s $NVM_DIR/nvm.sh ]] && source $NVM_DIR/nvm.sh"
-alias load-pyenv="command -v pyenv 1>/dev/null 2>&1 && eval '$(pyenv init -)'"
-
-alias npm-fix-prefix="nvm use --delete-prefix node && \
-  npm config set prefix $NVM_DIR/versions/node/$(nvm version node)"
-
-alias policy-off="sudo spctl --master-disable"
-alias policy-on="sudo spctl --master-enable"
-
-alias rnclean="watchman watch-del-all &&
-  rm -rf node_modules &&
-  rm -fr $TMPDIR/react-* &&
-  npm cache clean --force &&
-  yarn cache clean"
-alias rndev="adb shell input keyevent 82"
-alias rnlog-android="adb logcat *:S ReactNative:V ReactNativeJS:V"
-
-alias tmx="tmux attach -t default || tmux new -s default"
-
-# Remap existing commands
-alias ls="ls --almost-all --color=always --human-readable --time-style=+'[%Y-%m-%d %H:%M:%S]'"
-alias nano=nvim
-alias vi=nvim
+autoload -U promptinit; promptinit
+autoload -U add-zsh-hook
 
 # Pure prompt
-autoload -U promptinit; promptinit
-PURE_PROMPT_SYMBOL="λ"            # originally "❯"
-PURE_PROMPT_VICMD_SYMBOL="ε"      # originally "❮"
-prompt pure
+load-pure-prompt() {
+  PURE_PROMPT_SYMBOL="λ"            # originally "❯"
+  PURE_PROMPT_VICMD_SYMBOL="ε"      # originally "❮"
+  prompt pure
+}
 
-load-nvm
-load-pyenv
+load-nvm() {
+  export NVM_DIR=$(brew --prefix nvm)
+  if [[ -s $NVM_DIR/nvm.sh ]]; then
+    zsh-defer source $NVM_DIR/nvm.sh
+  fi
+}
 
 # Auto call `nvm use` in folders with .nvmrc
-autoload -U add-zsh-hook
 load-nvmrc() {
   local node_version="$(nvm version)"
   local nvmrc_path="$(nvm_find_nvmrc)"
@@ -137,9 +109,49 @@ load-nvmrc() {
   fi
 }
 add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+
+# Aliases
+alias adb-screenshot="adb shell screencap -p \
+  | perl -pe 's/\x0D\x0A/\x0A/g' > $HOME/Downloads/Android_screenshot_$(date +%Y-%m-%d_%H.%M.%S).png"
+
+alias batc="env -uCOLORTERM bat --color always --number --wrap never --pager never"
+
+alias docker-stop-all="docker stop -t0 $(docker ps -q)"
+alias docker-rm-all="docker rm $(docker ps -laq)"
+
+alias load-pyenv="command -v pyenv 1>/dev/null 2>&1 && zsh-defer eval '$(pyenv init -)'"
+
+alias npm-fix-prefix='nvm use --delete-prefix node && \
+  npm config set prefix $NVM_DIR/versions/node/$(nvm version node)'
+
+alias policy-off="sudo spctl --master-disable"
+alias policy-on="sudo spctl --master-enable"
+
+alias rnclean="watchman watch-del-all &&
+  rm -rf node_modules &&
+  rm -fr $TMPDIR/react-* &&
+  npm cache clean --force &&
+  yarn cache clean"
+alias rndev="adb shell input keyevent 82"
+alias rnlog-android="adb logcat *:S ReactNative:V ReactNativeJS:V"
+
+alias tmx="tmux attach -t default || tmux new -s default"
+
+# Remap existing commands
+alias ls="/usr/local/opt/coreutils/libexec/gnubin/ls --almost-all --color=always --human-readable --time-style=+'[%Y-%m-%d %H:%M:%S]'"
+alias rm="rm -i"
+alias nano=nvim
+alias vi=nvim
+
+load-pure-prompt
+load-pyenv
+load-nvm
+zsh-defer load-nvmrc
 
 # Loading tmux with default session
 # if [[ -z $TMUX ]]; then
   # tmx
 # fi
+
+# For iTerm2 only
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

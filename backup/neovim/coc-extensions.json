@@ -8,6 +8,6 @@
     "coc-snippets": ">=2.1.25",
     "coc-spell-checker": ">=1.1.0",
     "coc-tabnine": ">=1.2.2",
-    "coc-tsserver": ">=1.4.15"
+    "coc-tsserver": ">=1.5.1"
   }
 }
