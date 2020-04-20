@@ -15,12 +15,12 @@ import kitty from './kitty';
 import launchctl from './launchctl';
 import neovim from './neovim';
 import nvm from './nvm';
-import ohMyZsh from './oh-my-zsh';
 import protectedSources from './protected-sources';
 import tmux from './tmux';
 import vifm from './vifm';
 import vim from './vim';
 import vscode from './vscode';
+import zsh from './zsh';
 
 const cleanUp = (): NodeJS.ReadWriteStream => gulp.src(BACKUP_DIR, { allowEmpty: true }).pipe(vinylPaths(del));
 
@@ -39,12 +39,12 @@ gulp.task(
       launchctl,
       neovim,
       nvm,
-      ohMyZsh,
       protectedSources,
       tmux,
       vifm,
       vim,
-      vscode
+      vscode,
+      zsh
     )
   )
 );

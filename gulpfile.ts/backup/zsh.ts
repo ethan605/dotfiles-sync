@@ -8,7 +8,7 @@ import { wrapHomeDir } from '../helpers';
 // Constants
 import { BACKUP_DIR } from '../constants';
 
-const DEST_DIR = `${BACKUP_DIR}/oh-my-zsh`;
+const DEST_DIR = `${BACKUP_DIR}/zsh`;
 
 const zshrc = (): NodeJS.ReadWriteStream =>
   gulp
