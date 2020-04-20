@@ -41,74 +41,86 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --smartcase --glob "!.git/*"'
 export GPG_TTY=$(tty)
 export TOOLCHAINS=swift
 
-# Color for less and man 
-export MANPAGER='less -s -M +Gg'
-export LESS="--RAW-CONTROL-CHARS"
-export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
-export LESS_TERMCAP_md=$(tput bold; tput setaf 6) # cyan
-export LESS_TERMCAP_me=$(tput sgr0)
-export LESS_TERMCAP_so=$(tput bold; tput setaf 3; tput setab 4) # yellow on blue
-export LESS_TERMCAP_se=$(tput rmso; tput sgr0)
-export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 7) # white
-export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
-export LESS_TERMCAP_mr=$(tput rev)
-export LESS_TERMCAP_mh=$(tput dim)
-export LESS_TERMCAP_ZN=$(tput ssubm)
-export LESS_TERMCAP_ZV=$(tput rsubm)
-export LESS_TERMCAP_ZO=$(tput ssupm)
-export LESS_TERMCAP_ZW=$(tput rsupm)
-export GROFF_NO_SGR=1
-
 # Ctrl + ] to move forward by word
 bindkey "^]" forward-word
 
-# Oh-my-zsh configurations
-ZSH=$HOME/.oh-my-zsh
-fpath+=${ZDOTDIR:-~}/.zsh_functions
-plugins=(git vi-mode)
-
-source $ZSH/oh-my-zsh.sh
-source ~/.zsh-defer/zsh-defer.plugin.zsh
-
-zsh-defer source /usr/local/opt/zsh-autosuggestions/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-zsh-defer source /usr/local/opt/zsh-syntax-highlighting/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-autoload -U promptinit; promptinit
-autoload -U add-zsh-hook
+# Color for less and man 
+__load-manpage-colors() {
+  export MANPAGER='less -s -M +Gg'
+  export LESS="--RAW-CONTROL-CHARS"
+  export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
+  export LESS_TERMCAP_md=$(tput bold; tput setaf 6) # cyan
+  export LESS_TERMCAP_me=$(tput sgr0)
+  export LESS_TERMCAP_so=$(tput bold; tput setaf 3; tput setab 4) # yellow on blue
+  export LESS_TERMCAP_se=$(tput rmso; tput sgr0)
+  export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 7) # white
+  export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
+  export LESS_TERMCAP_mr=$(tput rev)
+  export LESS_TERMCAP_mh=$(tput dim)
+  export LESS_TERMCAP_ZN=$(tput ssubm)
+  export LESS_TERMCAP_ZV=$(tput rsubm)
+  export LESS_TERMCAP_ZO=$(tput ssupm)
+  export LESS_TERMCAP_ZW=$(tput rsupm)
+  export GROFF_NO_SGR=1
+}
 
 # Pure prompt
-load-pure-prompt() {
+__load-pure-prompt() {
   PURE_PROMPT_SYMBOL="λ"            # originally "❯"
   PURE_PROMPT_VICMD_SYMBOL="ε"      # originally "❮"
   prompt pure
 }
 
-load-nvm() {
+__load-nvm() {
   export NVM_DIR=$(brew --prefix nvm)
+
   if [[ -s $NVM_DIR/nvm.sh ]]; then
-    zsh-defer source $NVM_DIR/nvm.sh
+    source $NVM_DIR/nvm.sh
   fi
 }
 
 # Auto call `nvm use` in folders with .nvmrc
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
+__load-nvmrc() {
+  local node_version=$(nvm version)
+  local nvmrc_path=$(nvm_find_nvmrc)
 
-  if [ -n "$nvmrc_path" ]; then
+  if [[ -n $nvmrc_path ]]; then
     local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
 
-    if [ "$nvmrc_node_version" = "N/A" ]; then
+    if [[ $nvmrc_node_version = "N/A" ]]; then
       nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+    elif [[ $nvmrc_node_version != $node_version ]]; then
       nvm use
     fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
+  elif [[ $node_version != $(nvm version default) ]]; then
     echo "Reverting to nvm default version"
     nvm use default
   fi
 }
-add-zsh-hook chpwd load-nvmrc
+
+__load-plugins() {
+  source $(brew --prefix zsh-autosuggestions)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source $(brew --prefix zsh-syntax-highlighting)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+}
+
+# Oh-my-zsh configurations
+__load-oh-my-zsh() {
+  ZSH=$HOME/.oh-my-zsh
+  plugins=(git vi-mode)
+  fpath+=(~/.zsh_functions ~/.zsh-defer)
+  source $ZSH/oh-my-zsh.sh
+}
+
+__load-pyenv() {
+  [[ $(command -v pyenv) ]] && eval "$(pyenv init -)"
+}
+
+autoload -U add-zsh-hook; add-zsh-hook chpwd __load-nvmrc
+autoload -U promptinit; promptinit
+autoload -Uz zsh-defer
+
+__load-oh-my-zsh
+__load-pure-prompt
 
 # Aliases
 alias adb-screenshot="adb shell screencap -p \
@@ -118,8 +130,6 @@ alias batc="env -uCOLORTERM bat --color always --number --wrap never --pager nev
 
 alias docker-stop-all="docker stop -t0 $(docker ps -q)"
 alias docker-rm-all="docker rm $(docker ps -laq)"
-
-alias load-pyenv="command -v pyenv 1>/dev/null 2>&1 && zsh-defer eval '$(pyenv init -)'"
 
 alias npm-fix-prefix='nvm use --delete-prefix node && \
   npm config set prefix $NVM_DIR/versions/node/$(nvm version node)'
@@ -138,15 +148,18 @@ alias rnlog-android="adb logcat *:S ReactNative:V ReactNativeJS:V"
 alias tmx="tmux attach -t default || tmux new -s default"
 
 # Remap existing commands
-alias ls="/usr/local/opt/coreutils/libexec/gnubin/ls --almost-all --color=always --human-readable --time-style=+'[%Y-%m-%d %H:%M:%S]'"
+alias ls="/usr/local/opt/coreutils/libexec/gnubin/ls --almost-all --color=always --human-readable \
+  --time-style=+'[%Y-%m-%d %H:%M:%S]'"
 alias rm="rm -i"
 alias nano=nvim
 alias vi=nvim
 
-load-pure-prompt
-load-pyenv
-load-nvm
-zsh-defer load-nvmrc
+# Defered loads
+zsh-defer __load-manpage-colors
+zsh-defer __load-nvm
+zsh-defer __load-nvmrc
+zsh-defer __load-plugins
+zsh-defer __load-pyenv
 
 # Loading tmux with default session
 # if [[ -z $TMUX ]]; then
