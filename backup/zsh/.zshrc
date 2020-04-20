@@ -38,7 +38,6 @@ export GOOGLE_PROJECT_ID=""
 
 # Misc
 export FZF_DEFAULT_COMMAND='rg --files --hidden --smartcase --glob "!.git/*"'
-export GPG_TTY=$(tty)
 export TOOLCHAINS=swift
 
 # Ctrl + ] to move forward by word
@@ -155,10 +154,10 @@ alias nano=nvim
 alias vi=nvim
 
 # Defered loads
+zsh-defer __load-plugins
 zsh-defer __load-manpage-colors
 zsh-defer __load-nvm
 zsh-defer __load-nvmrc
-zsh-defer __load-plugins
 zsh-defer __load-pyenv
 
 # Loading tmux with default session
