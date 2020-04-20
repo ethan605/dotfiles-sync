@@ -40,10 +40,11 @@
   - [x] Restore `backup/neovim/init.vit` => `~/.config/nvim/init.nvim`
   - [x] Restore `backup/neovim/coc-extensions.json` => `~/.config/coc/extensions/package.json`
   - [x] Run `nvim --cmd 'PlugInstall | qa'` to install all plugins then quit
-- [ ] Vifm
-  - [ ] Restore `backup/vifm/vifmrc` => `~/.config/vifm/vifmrc`
-  - [ ] Restore `backup/vifm/colors.zip` => `~/.config/vifm/colors`
-  - [ ] Restore `backup/vifm/scripts.zip` => `~/.config/vifm/scripts`
+- [x] Vifm
+  - [x] Restore `backup/vifm/vifmrc` => `~/.config/vifm/vifmrc`
+  - [x] Restore `backup/vifm/colors.zip` => `~/.config/vifm/colors`
+  - [x] Restore `backup/vifm/scripts.zip` => `~/.config/vifm/scripts`
+  - [ ] Restore `fontpreview` from `https://github.com/ethan605/fontpreview` (pull & run `make install`)
 - [ ] Vim
   - [x] Restore `backup/vim/.vimrc` => `~/.vimrc`
   - [ ] Start and run in Command mode: `:PlugInstall`
