@@ -245,7 +245,7 @@ nnoremap mkd :mkdir<space>
 
 " Icons {{{
 " file types
-set classify='  :dir:/,  :exe:,  :reg:,  :link:'
+set classify='  :dir:/,  :exe:,  :reg:,  :link:'
 " various file names
 set classify+='  ::../::,  ::copying::,  ::*.epub,,*.fb2,,*.djvu,,*.prc::,  ::*.pdf::'
 " archives
