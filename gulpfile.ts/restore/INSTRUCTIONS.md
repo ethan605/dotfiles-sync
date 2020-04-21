@@ -40,6 +40,9 @@
   - [x] Restore `backup/neovim/init.vit` => `~/.config/nvim/init.nvim`
   - [x] Restore `backup/neovim/coc-extensions.json` => `~/.config/coc/extensions/package.json`
   - [x] Run `nvim --cmd 'PlugInstall | qa'` to install all plugins then quit
+- [ ] QMK
+  - [ ] Restore `backup/qmk/qmk.init` => `~/Library/Application Support/qmk/qmk.ini`
+  - [ ] Clone `https://github.com/ethan605/qmk_firmware` then run `qmk setup` from inside the folder
 - [x] Vifm
   - [x] Restore `backup/vifm/vifmrc` => `~/.config/vifm/vifmrc`
   - [x] Restore `backup/vifm/colors.zip` => `~/.config/vifm/colors`

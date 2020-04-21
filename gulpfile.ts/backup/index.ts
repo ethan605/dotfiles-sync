@@ -16,6 +16,7 @@ import launchctl from './launchctl';
 import neovim from './neovim';
 import nvm from './nvm';
 import protectedSources from './protected-sources';
+import qmk from './qmk';
 import tmux from './tmux';
 import vifm from './vifm';
 import vim from './vim';
@@ -40,6 +41,7 @@ gulp.task(
       neovim,
       nvm,
       protectedSources,
+      qmk,
       tmux,
       vifm,
       vim,
