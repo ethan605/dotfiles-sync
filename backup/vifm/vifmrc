@@ -1,6 +1,5 @@
 " 1. General config {{{
 set vicmd=nvim
-
 " This makes vifm perform file operations on its own instead of relying on
 " standard utilities like `cp`.  While using `cp` and alike is a more universal
 " solution, it's also much slower when processing large amounts of files and
@@ -28,9 +27,6 @@ set undolevels=100
 " If you would like to run an executable file when you
 " press return on the file name set this.
 set norunexec
-
-" Selected color scheme
-colorscheme minimal
 
 " Format for displaying time in file list. For example:
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
@@ -72,6 +68,11 @@ set vifminfo=dhistory,chistory,state,shistory,phistory,fhistory,dirstack,registe
 " Dont show delete confirmation
 set confirm-=delete
 
+set dotfiles
+
+" Selected color scheme
+colorscheme minimal
+
 " ------------------------------------------------------------------------------
 
 " :com[mand][!] command_name action
@@ -103,59 +104,76 @@ command! reload :write | restart
 " {{{ File preview & file opening  
 
 " CSV/Excel
-filextype *.csv,*.xlsx libreoffice %c %i
 fileviewer *.csv sed "s/,,,,/,,-,,/g;s/,,/ /g" %c | column -t | sed "s/ - /  /g" | cut -c -%pw
 
 " Text based files
-filetype <text/*>,*.css,*.s[ac]ss,*.html,*.js,*.jsx,*.json,*.jsonp,*.lock,*.md,*.ts,*.tsx,*.sh,*.txt,*.xml
+filetype <text/*>,
+  \*.styl,*.s[ac]ss,*.htm,*.html,*.slim,*.ejs,*.css,*.less,*.md,*.mdx,*.markdown,*.rmd,*.json,*.jsonp,*.bson,
+  \*.js,*.mjs,*.[jt]sx,*.rb,.rvmrc,*.php,*.py,*.pyc,*.pyo,*.pyd,*.coffee,*.mustache,*.hbs,*.conf,*.ini,
+  \*.yml,*.yaml,*.toml,*.bat,*.twig,*.cpp,*.c++,*.cxx,*.c[cp],*.m,*.c,
+  \*.cs,*.h,*.hh,*.hpp,*.hxx,*.hs,*.lhs,*.lua,*.java,*.sh,*.fish,*.bash,*.[ckz]sh,*.awk,*.ps1,*.ml,*.mli,*.diff,
+  \*.db,*.sql,*.dump,*.clj,*.cljc,*.cljs,*.edn,*.scala,*.go,*.dart,*.xul,*.sln,*.suo,*.pl,*.pm,*.t,*.rss,
+  \*.f#,*.fsscript,*.fsx,*.fs,*.fsi,*.rs,*.rlib,*.d,*.erl,*.hrl,*.ex,*.exs,*.eex,*.leex,*.vim,*.psb,
+  \*.ts,*.jl,*.pp,*.vue,*.elm,*.swift,*.xcplayground,*.xml,
+  \*.txt,*.log,*.lock,
+  \.bashrc,.zshrc,.bashprofile,.nvmrc,.yarnrc,.vimrc,.gvimrc,_vimrc,_gvimrc,makefile,.env,.env.*,
+  \.gitattributes,.gitconfig,.gitignore,license,procfile,dockerfile,jenkinsfile,vagrantfile
   \ nvim %c
-fileviewer <text/*>,*.css,*.s[ac]ss,*.html,*.js,*.jsx,*.json,*.jsonp,*.lock,*.md,*.ts,*.tsx,*.sh,*.txt,*.xml
+fileviewer <text/*>,*.txt,
+  \*.styl,*.s[ac]ss,*.htm,*.html,*.slim,*.ejs,*.css,*.less,*.md,*.mdx,*.markdown,*.rmd,*.json,*.jsonp,*.bson,
+  \*.js,*.mjs,*.[jt]sx,*.rb,.rvmrc,*.php,*.py,*.pyc,*.pyo,*.pyd,*.coffee,*.mustache,*.hbs,*.conf,*.ini,
+  \*.yml,*.yaml,*.toml,*.bat,*.twig,*.cpp,*.c++,*.cxx,*.c[cp],*.m,*.c,
+  \*.cs,*.h,*.hh,*.hpp,*.hxx,*.hs,*.lhs,*.lua,*.java,*.sh,*.fish,*.bash,*.[ckz]sh,*.awk,*.ps1,*.ml,*.mli,*.diff,
+  \*.db,*.sql,*.dump,*.clj,*.cljc,*.cljs,*.edn,*.scala,*.go,*.dart,*.xul,*.sln,*.suo,*.pl,*.pm,*.t,*.rss,
+  \*.f#,*.fsscript,*.fsx,*.fs,*.fsi,*.rs,*.rlib,*.d,*.erl,*.hrl,*.ex,*.exs,*.eex,*.leex,*.vim,*.psb,
+  \*.ts,*.jl,*.pp,*.vue,*.elm,*.swift,*.xcplayground,*.xml,
+  \*.txt,*.log,*.lock,
+  \.bashrc,.zshrc,.bashprofile,.nvmrc,.yarnrc,.vimrc,.gvimrc,_vimrc,_gvimrc,makefile,.env,.env.*,
+  \.gitattributes,.gitconfig,.gitignore,.prettier*,.eslint*,.babel*,
+  \license,procfile,dockerfile,jenkinsfile,vagrantfile
   \ env -uCOLORTERM bat --color always --number --wrap never --pager never %c
 
 " PDFs
-filextype *.pdf zathura %c %i &
 fileviewer *.pdf
-  \ vifmimg pdf %px %py %pw %ph %c
+  \ vifm-preview pdf %px %py %pw %ph %c
   \ %pc
-  \ vifmimg clear
+  \ vifm-preview clear
 
 " ePUBs
-filextype *.epub zathura %c %i &
 fileviewer *.epub
-  \ vifmimg epub %px %py %pw %ph %c
+  \ vifm-preview epub %px %py %pw %ph %c
   \ %pc
-  \ vifmimg clear
+  \ vifm-preview clear
 
 " Fonts
 fileviewer *.otf,*.ttf,*.woff
-  \ vifmimg font %px %py %pw %ph %c
+  \ vifm-preview font %px %py %pw %ph %c
   \ %pc
-  \ vifmimg clear
+  \ vifm-preview clear
 
 " Audios
 filextype <audio/*>,*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
   \ mpv %c %i &
 fileviewer <audio/*>,*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
-  \ vifmimg audio %px %py %pw %ph %c
+  \ vifm-preview audio %px %py %pw %ph %c
   \ %pc
-  \ vifmimg clear
+  \ vifm-preview clear
 
 " Videos
 filextype <video/*>,*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
   \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
   \*.as[fx]
-  \ mpv %c %i &
+  \ vlc --fullscreen %c &> /dev/null &
 fileviewer <video/*>
-  \ vifmimg video %px %py %pw %ph %c
+  \ vifm-preview video %px %py %pw %ph %c
   \ %pc
-  \ vifmimg clear
+  \ vifm-preview clear
 
 " Images
-filetype <image/*> mpv %c %i &
 fileviewer <image/*>
-  \ vifmimg image %px %py %pw %ph %c
+  \ vifm-preview image %px %py %pw %ph %c
   \ %pc
-  \ vifmimg clear
+  \ vifm-preview clear
 
 " Archives
 fileviewer *.zip,*.jar,*.war,*.ear,*.oxt zip -sf %c
@@ -175,11 +193,9 @@ fileviewer */ ls --color --group-directories-first
 fileviewer .*/ ls --color --group-directories-first
 
 " Other files
-" Using xdg-open to open the highlighted file with a compatible program and
-" the reason why I am using "file" to preview other files is so that "vifm" 
-" does not lag when trying "cat" the file
-filetype * xdg-open %c
-fileviewer * file -b %c
+" Using macOS's builtin `open` command
+filextype * open %c &
+fileviewer * vifm-preview verbose %px %py %pw %ph %c
 " }}}
 
 
@@ -231,15 +247,97 @@ nnoremap mkd :mkdir<space>
 " file types
 set classify='  :dir:/,  :exe:,  :reg:,  :link:'
 " various file names
-set classify+='  ::../::,  ::*.sh::,  ::*.[hc]pp::,  ::*.[hc]::,  ::/^copying|license$/::,  ::.git/,,*.git/::,  ::*.epub,,*.fb2,,*.djvu::,  ::*.pdf::,  ::*.htm,,*.html,,**.[sx]html,,*.xml::'
+set classify+='  ::../::,  ::copying::,  ::*.epub,,*.fb2,,*.djvu,,*.prc::,  ::*.pdf::'
 " archives
 set classify+='  ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2,,*.xz,,*.z,,*.zip,,*.zoo::'
 " images
-set classify+='  ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.svgz,,*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd::'
+set classify+='  ::*.bmp,,*.gif,,*.ico,,*.jpeg,,*.jpg,,*.png,,*.ppm,,*.svg,,*.svgz,,*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd::'
 " audio
-set classify+='  ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
+set classify+='  ::*.aac,,*.ac3,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma::'
 " media
-set classify+='  ::*.avi,,*.ts,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
+set classify+='  ::*.avi,,*.axv,,*.divx,,*.flv,,*.m2v,,*.m4[pv],,*.m[ko]v,,*.mp[4g],,*.mp4v,,*.mpeg,,*.nuv,,*.ogv,,*.p[bg]m,,*.qt,,*.vob,,*.wmv,,*.xvid,,*.mka::'
 " office files
-set classify+='  ::*.doc,,*.docx::,  ::*.xls,,*.xls[mx]::,  ::*.pptx,,*.ppt::'
+set classify+='  ::*.doc,,*.docx::,  ::*.pptx,,*.ppt::,  ::*.xls,,*.xls[mx]::'
+
+" extracted from vim-devicons - exact matches
+set classify+=' 1 ::exact-match-case-sensitive-1.txt::'
+set classify+=' 2 ::exact-match-case-sensitive-2::'
+set classify+='  ::gruntfile.coffee,,gruntfile.[jlt]s::'
+set classify+='  ::gulpfile.coffee,,gulpfile.[jlt]s,,gulpfile.[jlt]s/::'
+set classify+='  ::mix.lock::'
+set classify+='  ::dropbox/::'
+set classify+='  ::.ds_store,,.bashrc,,.zshrc,,.bashprofile,,makefile,,cmakelists.txt,,.env,,.env.*,,.babel*::'
+set classify+='  ::.git*,,.git/,,*.git/::'
+set classify+='  ::.gitlab-ci.yml::'
+set classify+='  ::.vimrc,,.gvimrc,,_vimrc,,_gvimrc::'
+set classify+='  ::favicon.ico::'
+set classify+='  ::license::'
+set classify+='  ::.nvmrc,,node_modules/::'
+set classify+='  ::procfile::'
+set classify+='  ::dockerfile,,docker-compose.yml::'
+set classify+='  ::jenkinsfile::'
+set classify+='  ::package.json,,package-lock.json,,yarn.lock,,.yarnrc::'
+set classify+='  ::/Vagrantfile$/::'
+set classify+='  ::/.*jquery.*.js$/::'
+set classify+='  ::/.*angular.*.js$/::'
+set classify+='  ::/.*backbone.*.js$/::'
+set classify+='  ::/.*require.*.js$/::'
+set classify+='  ::/.*materialize.*.(css|js)$/::'
+set classify+='  ::/.*mootools.*.js$/::'
+
+" extracted from vim-devicons - extensions
+set classify+='  ::*.styl::'
+set classify+='  ::*.s[ac]ss::'
+set classify+='  ::*.htm,,*.html,,*.slim,,*.ejs::'
+set classify+='  ::*.css::'
+set classify+='  ::*.less::'
+set classify+='  ::*.md,,*.mdx,,*.markdown,,*.rmd::'
+set classify+='  ::*.json,,*.jsonp::'
+set classify+='  ::*.bson::'
+set classify+='  ::*.js,,*.mjs::'
+set classify+='  ::*.[jt]sx::'
+set classify+='  ::*.rb,,.rvmrc::'
+set classify+='  ::*.php::'
+set classify+='  ::*.py,,*.pyc,,*.pyo,,*.pyd::'
+set classify+='  ::*.coffee::'
+set classify+='  ::*.mustache,,*.hbs::'
+set classify+='  ::*.conf,,*.ini,,*.yml,,*.yaml,,*.toml,,*.bat::'
+set classify+='  ::*.jpg,,*.jpeg,,*.bmp,,*.png,,*.webp,,*.gif,,*.ico::'
+set classify+='  ::*.twig::'
+set classify+='  ::*.cpp,,*.c++,,*.cxx,,*.c[cp],,*.m::'
+set classify+='  ::*.c::'
+set classify+='  ::*.cs::'
+set classify+='  ::*.h,,*.hh,,*.hpp,,*.hxx::'
+set classify+='  ::*.hs,,*.lhs::'
+set classify+='  ::*.lua::'
+set classify+='  ::*.java::'
+set classify+='  ::*.sh,,*.fish,,*.bash,,*.[ckz]sh,,*.awk,,*.ps1::'
+set classify+=' λ ::*.ml,,*.mli::'
+set classify+='  ::*.diff::'
+set classify+='  ::*.db,,*.sql,,*.dump::'
+set classify+='  ::*.clj,,*.cljc::'
+set classify+='  ::*.cljs,,*.edn::'
+set classify+='  ::*.scala::'
+set classify+='  ::*.go::'
+set classify+='  ::*.dart::'
+set classify+='  ::*.xul::'
+set classify+='  ::*.sln,,*.suo,,.vscode/::'
+set classify+='  ::*.pl,,*.pm,,*.t::'
+set classify+='  ::*.rss::'
+set classify+='  ::*.f#,,*.fsscript,,*.fsx,,*.fs,,*.fsi::'
+set classify+='  ::*.rs,,*.rlib::'
+set classify+='  ::*.d::'
+set classify+='  ::*.erl,,*.hrl::'
+set classify+='  ::*.ex,,*.exs,,*.eex,,*.leex::'
+set classify+='  ::*.vim::'
+set classify+='  ::*.ai::'
+set classify+='  ::*.psd,,*.psb::'
+set classify+='  ::*.ts,,types/::'
+set classify+='  ::*.jl::'
+set classify+='  ::*.pp::'
+set classify+=' ﵂ ::*.vue::'
+set classify+='  ::*.elm::'
+set classify+='  ::*.swift,,*.xcplayground::'
+set classify+='  ::*.xml::'
+
 " }}}
