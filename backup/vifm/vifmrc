@@ -189,13 +189,13 @@ fileview ../ echo >/dev/null
 
 " Show ls in the preview window, it creates a similar look as ranger.
 " The default directory tree thing is really messy
-fileviewer */ ls --color --group-directories-first
-fileviewer .*/ ls --color --group-directories-first
+fileviewer */ vifm-preview dir %c
+fileviewer .*/ vifm-preview dir %c
 
 " Other files
 " Using macOS's builtin `open` command
 filextype * open %c &
-fileviewer * vifm-preview verbose %px %py %pw %ph %c
+fileviewer * vifm-preview verbose %c
 " }}}
 
 

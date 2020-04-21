@@ -20,8 +20,7 @@ PATH=$JAVA_HOME:$PATH
 PATH=$ANDROID_HOME:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 
 # Local node env
-PATH=./node_modules/.bin:$PATH
-export PATH="$HOME/.rvm/bin:$PATH"
+export PATH=./node_modules/.bin:$PATH
 
 # Default editors
 export EDITOR=nvim
@@ -63,18 +62,11 @@ __load-manpage-colors() {
   export GROFF_NO_SGR=1
 }
 
-# Pure prompt
-__load-pure-prompt() {
-  PURE_PROMPT_SYMBOL="λ"            # originally "❯"
-  PURE_PROMPT_VICMD_SYMBOL="ε"      # originally "❮"
-  prompt pure
-}
-
 __load-nvm() {
-  export NVM_DIR=$(brew --prefix nvm)
+  export NVM_DIR=/usr/local/opt/nvm
 
   if [[ -s $NVM_DIR/nvm.sh ]]; then
-    source $NVM_DIR/nvm.sh
+    source $NVM_DIR/nvm.sh --no-use
   fi
 }
 
@@ -97,21 +89,29 @@ __load-nvmrc() {
   fi
 }
 
-__load-plugins() {
-  source $(brew --prefix zsh-autosuggestions)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-  source $(brew --prefix zsh-syntax-highlighting)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-}
-
 # Oh-my-zsh configurations
 __load-oh-my-zsh() {
   ZSH=$HOME/.oh-my-zsh
-  plugins=(git vi-mode)
+  plugins=(git npm vi-mode)
   fpath+=(~/.zsh_functions ~/.zsh-defer)
   source $ZSH/oh-my-zsh.sh
+  source /usr/local/opt/zsh-autosuggestions/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source /usr/local/opt/zsh-syntax-highlighting/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+}
+
+# Pure prompt
+__load-pure-prompt() {
+  PURE_PROMPT_SYMBOL="λ"            # originally "❯"
+  PURE_PROMPT_VICMD_SYMBOL="ε"      # originally "❮"
+  prompt pure
 }
 
 __load-pyenv() {
   [[ $(command -v pyenv) ]] && eval "$(pyenv init -)"
+}
+
+__load-rvm() {
+  rvm use default
 }
 
 autoload -U add-zsh-hook; add-zsh-hook chpwd __load-nvmrc
@@ -120,6 +120,8 @@ autoload -Uz zsh-defer
 
 __load-oh-my-zsh
 __load-pure-prompt
+__load-manpage-colors
+__load-pyenv
 
 # Aliases
 alias adb-screenshot="adb shell screencap -p \
@@ -147,23 +149,18 @@ alias rnlog-android="adb logcat *:S ReactNative:V ReactNativeJS:V"
 alias tmx="tmux attach -t default || tmux new -s default"
 
 # Remap existing commands
-alias ls="/usr/local/opt/coreutils/libexec/gnubin/ls --almost-all --color=always --human-readable \
-  --time-style=+'[%Y-%m-%d %H:%M:%S]'"
+alias ls="/usr/local/opt/coreutils/libexec/gnubin/ls --almost-all --color --human-readable --time-style=+'[%Y-%m-%d %H:%M:%S]'"
 alias rm="rm -i"
 alias nano=nvim
 alias vi=nvim
 
 # Defered loads
-zsh-defer __load-plugins
-zsh-defer __load-manpage-colors
 zsh-defer __load-nvm
 zsh-defer __load-nvmrc
-zsh-defer __load-pyenv
+zsh-defer __load-rvm
 
 # Loading tmux with default session
 # if [[ -z $TMUX ]]; then
   # tmx
 # fi
 
-# For iTerm2 only
-# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
