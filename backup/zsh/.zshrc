@@ -20,7 +20,8 @@ PATH=$JAVA_HOME:$PATH
 PATH=$ANDROID_HOME:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 
 # Local node env
-export PATH=./node_modules/.bin:$PATH
+PATH=./node_modules/.bin:$PATH
+export PATH="$HOME/.rvm/bin:$PATH"
 
 # Default editors
 export EDITOR=nvim
@@ -89,16 +90,6 @@ __load-nvmrc() {
   fi
 }
 
-# Oh-my-zsh configurations
-__load-oh-my-zsh() {
-  ZSH=$HOME/.oh-my-zsh
-  plugins=(git npm vi-mode)
-  fpath+=(~/.zsh_functions ~/.zsh-defer)
-  source $ZSH/oh-my-zsh.sh
-  source /usr/local/opt/zsh-autosuggestions/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-  source /usr/local/opt/zsh-syntax-highlighting/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-}
-
 # Pure prompt
 __load-pure-prompt() {
   PURE_PROMPT_SYMBOL="λ"            # originally "❯"
@@ -110,17 +101,23 @@ __load-pyenv() {
   [[ $(command -v pyenv) ]] && eval "$(pyenv init -)"
 }
 
-__load-rvm() {
-  rvm use default
+__load-zsh-plugins() {
+  ZSH=$HOME/.oh-my-zsh
+  plugins=(git npm vi-mode)
+  fpath+=(~/.zsh_functions)
+  source $ZSH/oh-my-zsh.sh
+  source /usr/local/opt/zsh-autosuggestions/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source /usr/local/opt/zsh-syntax-highlighting/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 }
 
 autoload -U add-zsh-hook; add-zsh-hook chpwd __load-nvmrc
 autoload -U promptinit; promptinit
-autoload -Uz zsh-defer
 
-__load-oh-my-zsh
+__load-zsh-plugins
 __load-pure-prompt
 __load-manpage-colors
+__load-nvm
+__load-nvmrc &> /dev/null
 __load-pyenv
 
 # Aliases
@@ -148,19 +145,12 @@ alias rnlog-android="adb logcat *:S ReactNative:V ReactNativeJS:V"
 
 alias tmx="tmux attach -t default || tmux new -s default"
 
-# Remap existing commands
-alias ls="/usr/local/opt/coreutils/libexec/gnubin/ls --almost-all --color --human-readable --time-style=+'[%Y-%m-%d %H:%M:%S]'"
+# Remap system commands
+alias ls="ls --almost-all --color --human-readable --time-style=+'[%Y-%m-%d %H:%M:%S]'"
 alias rm="rm -i"
 alias nano=nvim
 alias vi=nvim
 
-# Defered loads
-zsh-defer __load-nvm
-zsh-defer __load-nvmrc
-zsh-defer __load-rvm
-
-# Loading tmux with default session
-# if [[ -z $TMUX ]]; then
-  # tmx
-# fi
+# Load tmux with default session
+# [[ -z $TMUX ]] && tmx
 
