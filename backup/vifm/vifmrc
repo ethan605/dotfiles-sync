@@ -43,8 +43,7 @@ set wildstyle=popup
 " registers (at most 5 files).  In other view, when available.
 set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 
-" Ignore case in search patterns unless it contains at least one uppercase
-" letter
+" Ignore case in search patterns unless it contains at least one uppercase letter
 set ignorecase
 set smartcase
 
@@ -68,9 +67,9 @@ set vifminfo=dhistory,chistory,state,shistory,phistory,fhistory,dirstack,registe
 " Dont show delete confirmation
 set confirm-=delete
 
+" Display hidden files
 set dotfiles
 
-" Selected color scheme
 colorscheme minimal
 
 " ------------------------------------------------------------------------------
@@ -108,29 +107,28 @@ fileviewer *.csv sed "s/,,,,/,,-,,/g;s/,,/ /g" %c | column -t | sed "s/ - /  /g"
 
 " Text based files
 filetype <text/*>,
-  \*.styl,*.s[ac]ss,*.htm,*.html,*.slim,*.ejs,*.css,*.less,*.md,*.mdx,*.markdown,*.rmd,*.json,*.jsonp,*.bson,
-  \*.js,*.mjs,*.[jt]sx,*.rb,.rvmrc,*.php,*.py,*.pyc,*.pyo,*.pyd,*.coffee,*.mustache,*.hbs,*.conf,*.ini,
-  \*.yml,*.yaml,*.toml,*.bat,*.twig,*.cpp,*.c++,*.cxx,*.c[cp],*.m,*.c,
-  \*.cs,*.h,*.hh,*.hpp,*.hxx,*.hs,*.lhs,*.lua,*.java,*.sh,*.fish,*.bash,*.[ckz]sh,*.awk,*.ps1,*.ml,*.mli,*.diff,
-  \*.db,*.sql,*.dump,*.clj,*.cljc,*.cljs,*.edn,*.scala,*.go,*.dart,*.xul,*.sln,*.suo,*.pl,*.pm,*.t,*.rss,
-  \*.f#,*.fsscript,*.fsx,*.fs,*.fsi,*.rs,*.rlib,*.d,*.erl,*.hrl,*.ex,*.exs,*.eex,*.leex,*.vim,*.psb,
-  \*.ts,*.jl,*.pp,*.vue,*.elm,*.swift,*.xcplayground,*.xml,
-  \*.txt,*.log,*.lock,
-  \.bashrc,.zshrc,.bashprofile,.nvmrc,.yarnrc,.vimrc,.gvimrc,_vimrc,_gvimrc,makefile,.env,.env.*,
-  \.gitattributes,.gitconfig,.gitignore,license,procfile,dockerfile,jenkinsfile,vagrantfile
+  \*.[ckz]sh,*.[jt]sx,*.awk,*.bash,*.bat,*.bson,*.c++,*.c,*.c[cp],*.clj,*.cljc,*.cljs,*.coffee,
+  \*.conf,*.cpp,*.cs,*.css,*.cxx,*.d,*.dart,*.db,*.diff,*.dump,*.edn,*.eex,*.ejs,*.elm,*.erl,*.ex,*.exs,
+  \*.f#,*.fish,*.fs,*.fsi,*.fsscript,*.fsx,*.gemspec,*.go,*.h,*.hbs,*.hh,*.hpp,*.hrl,*.hs,*.htm,*.html,*.hxx,
+  \*.ini,*.java,*.jl,*.js,*.json,*.jsonp,*.leex,*.less,*.lhs,*.lock,*.log,*.lua,*.m,*.markdown,*.md,*.mdx,*.mjs,
+  \*.ml,*.mli,*.mustache,*.php,*.pl,*.pm,*.pp,*.ps1,*.psb,*.py,*.pyc,*.pyd,*.pyo,*.rb,*.rlib,*.rmd,*.rs,*.rss,
+  \*.s[ac]ss,*.scala,*.sh,*.slim,*.sln,*.sql,*.styl,*.suo,*.swift,*.t,*.toml,*.ts,*.twig,*.txt,*.vim,*.vue,
+  \*.xcplayground,*.xml,*.xul,*.yaml,*.yml,
+  \.babel*,.bashprofile,.bashrc,.env,.env.*,.eslint*,.gitattributes,.gitconfig,.gitignore,
+  \.gvimrc,.nvmrc,.prettier*,.rvmrc,.vimrc,.yarnrc,.zshrc,Rakefile,_gvimrc,_vimrc,
+  \dockerfile,jenkinsfile,license,makefile,procfile,vagrantfile,*vagrantfile
   \ nvim %c
-fileviewer <text/*>,*.txt,
-  \*.styl,*.s[ac]ss,*.htm,*.html,*.slim,*.ejs,*.css,*.less,*.md,*.mdx,*.markdown,*.rmd,*.json,*.jsonp,*.bson,
-  \*.js,*.mjs,*.[jt]sx,*.rb,.rvmrc,*.php,*.py,*.pyc,*.pyo,*.pyd,*.coffee,*.mustache,*.hbs,*.conf,*.ini,
-  \*.yml,*.yaml,*.toml,*.bat,*.twig,*.cpp,*.c++,*.cxx,*.c[cp],*.m,*.c,
-  \*.cs,*.h,*.hh,*.hpp,*.hxx,*.hs,*.lhs,*.lua,*.java,*.sh,*.fish,*.bash,*.[ckz]sh,*.awk,*.ps1,*.ml,*.mli,*.diff,
-  \*.db,*.sql,*.dump,*.clj,*.cljc,*.cljs,*.edn,*.scala,*.go,*.dart,*.xul,*.sln,*.suo,*.pl,*.pm,*.t,*.rss,
-  \*.f#,*.fsscript,*.fsx,*.fs,*.fsi,*.rs,*.rlib,*.d,*.erl,*.hrl,*.ex,*.exs,*.eex,*.leex,*.vim,*.psb,
-  \*.ts,*.jl,*.pp,*.vue,*.elm,*.swift,*.xcplayground,*.xml,
-  \*.txt,*.log,*.lock,
-  \.bashrc,.zshrc,.bashprofile,.nvmrc,.yarnrc,.vimrc,.gvimrc,_vimrc,_gvimrc,makefile,.env,.env.*,
-  \.gitattributes,.gitconfig,.gitignore,.prettier*,.eslint*,.babel*,
-  \license,procfile,dockerfile,jenkinsfile,vagrantfile
+fileviewer <text/*>,
+  \*.[ckz]sh,*.[jt]sx,*.awk,*.bash,*.bat,*.bson,*.c++,*.c,*.c[cp],*.clj,*.cljc,*.cljs,*.coffee,
+  \*.conf,*.cpp,*.cs,*.css,*.cxx,*.d,*.dart,*.db,*.diff,*.dump,*.edn,*.eex,*.ejs,*.elm,*.erl,*.ex,*.exs,
+  \*.f#,*.fish,*.fs,*.fsi,*.fsscript,*.fsx,*.gemspec,*.go,*.h,*.hbs,*.hh,*.hpp,*.hrl,*.hs,*.htm,*.html,*.hxx,
+  \*.ini,*.java,*.jl,*.js,*.json,*.jsonp,*.leex,*.less,*.lhs,*.lock,*.log,*.lua,*.m,*.markdown,*.md,*.mdx,*.mjs,
+  \*.ml,*.mli,*.mustache,*.php,*.pl,*.pm,*.pp,*.ps1,*.psb,*.py,*.pyc,*.pyd,*.pyo,*.rb,*.rlib,*.rmd,*.rs,*.rss,
+  \*.s[ac]ss,*.scala,*.sh,*.slim,*.sln,*.sql,*.styl,*.suo,*.swift,*.t,*.toml,*.ts,*.twig,*.txt,*.vim,*.vue,
+  \*.xcplayground,*.xml,*.xul,*.yaml,*.yml,
+  \.*ignore,.babel*,.bashprofile,.bashrc,.env,.env.*,.eslint*,.gitattributes,.gitconfig,.gitignore,
+  \.gvimrc,.nvmrc,.prettier*,.rvmrc,.vimrc,.yarnrc,.zshrc,Rakefile,_gvimrc,_vimrc,
+  \dockerfile,jenkinsfile,license,makefile,procfile,vagrantfile,*vagrantfile
   \ env -uCOLORTERM bat --color always --number --wrap never --pager never %c
 
 " PDFs
@@ -195,7 +193,7 @@ fileviewer .*/ vifm-preview dir %c
 " Other files
 " Using macOS's builtin `open` command
 filextype * open %c &
-fileviewer * vifm-preview verbose %c
+fileviewer *,.ds_store vifm-preview verbose %c
 " }}}
 
 
@@ -209,7 +207,7 @@ nnoremap dcs :cd ~/Documents<cr>
 nnoremap dls :cd ~/Downloads<cr>
 nnoremap drb :cd ~/Dropbox<cr>
 nnoremap mov :cd ~/Movies<cr>
-nnoremap msc :cd ~/Music<cr>
+nnoremap msc :cd ~/MEGAsync/Music<cr>
 
 " Start shell in current directory
 nnoremap s :shell<cr>
@@ -246,16 +244,22 @@ nnoremap mkd :mkdir<space>
 " Icons {{{
 " file types
 set classify='  :dir:/,  :exe:,  :reg:,  :link:'
+
 " various file names
 set classify+='  ::../::,  ::copying::,  ::*.epub,,*.fb2,,*.djvu,,*.prc::,  ::*.pdf::'
+
 " archives
-set classify+='  ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2,,*.xz,,*.z,,*.zip,,*.zoo::'
+set classify+='  ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2,,*.xz,,*.z,,*.zip,,*.zoo::'
+
 " images
-set classify+='  ::*.bmp,,*.gif,,*.ico,,*.jpeg,,*.jpg,,*.png,,*.ppm,,*.svg,,*.svgz,,*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd::'
+set classify+='  ::*.bmp,,*.gif,,*.ico,,*.jpeg,,*.jpg,,*.png,,*.ppm,,*.svg,,*.svgz,,*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd::'
+
 " audio
-set classify+='  ::*.aac,,*.ac3,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma::'
+set classify+='  ::*.aac,,*.ac3,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma::'
+
 " media
 set classify+='  ::*.avi,,*.axv,,*.divx,,*.flv,,*.m2v,,*.m4[pv],,*.m[ko]v,,*.mp[4g],,*.mp4v,,*.mpeg,,*.nuv,,*.ogv,,*.p[bg]m,,*.qt,,*.vob,,*.wmv,,*.xvid,,*.mka::'
+
 " office files
 set classify+='  ::*.doc,,*.docx::,  ::*.pptx,,*.ppt::,  ::*.xls,,*.xls[mx]::'
 
@@ -277,6 +281,8 @@ set classify+='  ::procfile::'
 set classify+='  ::dockerfile,,docker-compose.yml::'
 set classify+='  ::jenkinsfile::'
 set classify+='  ::package.json,,package-lock.json,,yarn.lock,,.yarnrc::'
+set classify+='  ::Rakefile,,.rvmrc::'
+set classify+='  ::.vscode/::'
 set classify+='  ::/Vagrantfile$/::'
 set classify+='  ::/.*jquery.*.js$/::'
 set classify+='  ::/.*angular.*.js$/::'
@@ -286,58 +292,58 @@ set classify+='  ::/.*materialize.*.(css|js)$/::'
 set classify+='  ::/.*mootools.*.js$/::'
 
 " extracted from vim-devicons - extensions
+set classify+=' λ ::*.ml,,*.mli::'
+set classify+=' ﵂ ::*.vue::'
 set classify+='  ::*.styl::'
 set classify+='  ::*.s[ac]ss::'
-set classify+='  ::*.htm,,*.html,,*.slim,,*.ejs::'
-set classify+='  ::*.css::'
-set classify+='  ::*.less::'
+set classify+='  ::*.py,,*.pyc,,*.pyo,,*.pyd::'
+set classify+='  ::*.php::'
 set classify+='  ::*.md,,*.mdx,,*.markdown,,*.rmd::'
 set classify+='  ::*.json,,*.jsonp::'
-set classify+='  ::*.bson::'
 set classify+='  ::*.js,,*.mjs::'
-set classify+='  ::*.[jt]sx::'
-set classify+='  ::*.rb,,.rvmrc::'
-set classify+='  ::*.php::'
-set classify+='  ::*.py,,*.pyc,,*.pyo,,*.pyd::'
-set classify+='  ::*.coffee::'
-set classify+='  ::*.mustache,,*.hbs::'
-set classify+='  ::*.conf,,*.ini,,*.yml,,*.yaml,,*.toml,,*.bat::'
 set classify+='  ::*.jpg,,*.jpeg,,*.bmp,,*.png,,*.webp,,*.gif,,*.ico::'
+set classify+='  ::*.mustache,,*.hbs::'
+set classify+='  ::*.conf,,*.ini,,*.yml,,*.yaml,,*.toml,,*.bat,,.*ignore::'
+set classify+='  ::*.rss::'
+set classify+='  ::*.coffee::'
 set classify+='  ::*.twig::'
 set classify+='  ::*.cpp,,*.c++,,*.cxx,,*.c[cp],,*.m::'
 set classify+='  ::*.c::'
-set classify+='  ::*.cs::'
-set classify+='  ::*.h,,*.hh,,*.hpp,,*.hxx::'
 set classify+='  ::*.hs,,*.lhs::'
 set classify+='  ::*.lua::'
-set classify+='  ::*.java::'
-set classify+='  ::*.sh,,*.fish,,*.bash,,*.[ckz]sh,,*.awk,,*.ps1::'
-set classify+=' λ ::*.ml,,*.mli::'
-set classify+='  ::*.diff::'
-set classify+='  ::*.db,,*.sql,,*.dump::'
-set classify+='  ::*.clj,,*.cljc::'
-set classify+='  ::*.cljs,,*.edn::'
-set classify+='  ::*.scala::'
+set classify+='  ::*.jl::'
 set classify+='  ::*.go::'
-set classify+='  ::*.dart::'
+set classify+='  ::*.ts,,types/::'
+set classify+='  ::*.vim::'
+set classify+='  ::*.elm::'
+set classify+='  ::*.ex,,*.exs,,*.eex,,*.leex::'
+set classify+='  ::*.db,,*.sql,,*.dump::'
+set classify+='  ::*.sln,,*.suo::'
+set classify+='  ::*.diff::'
+set classify+='  ::*.htm,,*.html,,*.slim,,*.ejs::'
+set classify+='  ::*.scala::'
+set classify+='  ::*.java::'
 set classify+='  ::*.xul::'
-set classify+='  ::*.sln,,*.suo,,.vscode/::'
+set classify+='  ::*.css::'
+set classify+='  ::*.swift,,*.xcplayground::'
+set classify+='  ::*.less::'
+set classify+='  ::*.clj,,*.cljc::'
 set classify+='  ::*.pl,,*.pm,,*.t::'
-set classify+='  ::*.rss::'
+set classify+='  ::*.cljs,,*.edn::'
+set classify+='  ::*.rb,,*.gemspec::'
+set classify+='  ::*.sh,,*.fish,,*.bash,,*.[ckz]sh,,*.awk,,*.ps1::'
+set classify+='  ::*.dart::'
+set classify+='  ::*.bson::'
 set classify+='  ::*.f#,,*.fsscript,,*.fsx,,*.fs,,*.fsi::'
 set classify+='  ::*.rs,,*.rlib::'
 set classify+='  ::*.d::'
 set classify+='  ::*.erl,,*.hrl::'
-set classify+='  ::*.ex,,*.exs,,*.eex,,*.leex::'
-set classify+='  ::*.vim::'
+set classify+='  ::*.[jt]sx::'
+set classify+='  ::*.h,,*.hh,,*.hpp,,*.hxx::'
+set classify+='  ::*.pp::'
+set classify+='  ::*.xml::'
+set classify+='  ::*.cs::'
 set classify+='  ::*.ai::'
 set classify+='  ::*.psd,,*.psb::'
-set classify+='  ::*.ts,,types/::'
-set classify+='  ::*.jl::'
-set classify+='  ::*.pp::'
-set classify+=' ﵂ ::*.vue::'
-set classify+='  ::*.elm::'
-set classify+='  ::*.swift,,*.xcplayground::'
-set classify+='  ::*.xml::'
 
 " }}}
