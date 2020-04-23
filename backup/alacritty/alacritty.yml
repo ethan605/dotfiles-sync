@@ -96,18 +96,18 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: Operator Mono Lig Light
-    style: Light
+    family: Haskplex Nerd
+    style: Regular
 
   # Bold font face
   bold:
-    family: Operator Mono Lig Medium
-    style: Medium
+    family: Haskplex Nerd
+    style: Bold
 
   # Italic font face
   italic:
-    family: Operator Mono Lig Light
-    style: Light Italic
+    family: Hack Nerd
+    style: Italic
 
   # Point size
   size: 17.0
