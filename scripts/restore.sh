@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -o errexit
 set -o pipefail
 set -o nounset
@@ -12,12 +12,12 @@ readonly TEMP_DIR="/tmp/$JOB_ID"
 PATH="/usr/bin:/usr/local/bin:$PATH"
 unset PREFIX
 
-clean_up() {
+function clean_up() {
   print_step "Clean up temp files"
   rm -rf $TEMP_DIR
 }
 
-prepare() {
+function prepare() {
   mkdir -p $TEMP_DIR
 
   curl --output $TEMP_DIR/helpers.sh -fsSL $GITHUB_CONTENT_URL/ethan605/dotfiles/master/scripts/helpers.sh
@@ -34,13 +34,13 @@ prepare() {
   fi
 }
 
-download_and_restore_file() {
+function download_and_restore_file() {
   local source="$1"
   local dest="$2"
   curl -o $dest -fsSL $BACKUP_CONTENT_URL/$source
 }
 
-download_and_unzip() {
+function download_and_unzip() {
   local srcDir="$1"
   local srcFile="$2"
   local dest="$3"
@@ -51,29 +51,29 @@ download_and_unzip() {
   cp $TEMP_DIR/$srcDir/$srcFile/* $dest
 }
 
-read_remote_json_array() {
+function read_remote_json_array() {
   local source="$1"
   curl -fsSL $BACKUP_CONTENT_URL/$source.json | jq -r '.[]'
 }
 
-brew_restore_taps() {
+function brew_restore_taps() {
   print_sub_step "Taps"
   for tap in $(read_remote_json_array brew/taps); do
     brew tap $tap
   done
 }
 
-brew_restore_formulaes() {
+function brew_restore_formulaes() {
   print_sub_step "Formulaes"
   brew install $(read_remote_json_array brew/formulaes)
 }
 
-brew_restore_casks() {
+function brew_restore_casks() {
   print_sub_step "Casks"
   brew cask install $(read_remote_json_array brew/casks)
 }
 
-restore_homebrew() {
+function restore_homebrew() {
   print_step "Restore Homebrew"
 
   brew install jq
@@ -82,7 +82,7 @@ restore_homebrew() {
   brew_restore_casks
 }
 
-nvm_restore_node_versions() {
+function nvm_restore_node_versions() {
   print_sub_step "Node versions"
 
   for version in $(read_remote_json_array nvm/nodeVersions); do
@@ -90,12 +90,12 @@ nvm_restore_node_versions() {
   done
 }
 
-nvm_restore_global_npm_packages() {
+function nvm_restore_global_npm_packages() {
   print_sub_step "Global NPM packages"
   npm install --global $(read_remote_json_array nvm/globalNpmPackages)
 }
 
-restore_nvm() {
+function restore_nvm() {
   print_step "Restore NVM"
 
   brew install nvm
@@ -110,7 +110,7 @@ restore_nvm() {
   nvm_restore_global_npm_packages
 }
 
-restore_rvm() {
+function restore_rvm() {
   print_step "Restore RVM"
 
   gpg --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
@@ -118,7 +118,7 @@ restore_rvm() {
   rvm install 2.7
 }
 
-restore_gnupg() {
+function restore_gnupg() {
   print_step "Restore GnuPG"
 
   gpg --import /Volumes/Keybase/private/ethan605/.keys/pgp/9d5aa3a830b5e5a7f30cea889c6ceb919ed2cefe.asc
@@ -130,7 +130,7 @@ restore_gnupg() {
   echo "test" | gpg --clearsign &> /dev/null
 }
 
-restore_secret_source() {
+function restore_secret_source() {
   local dest="$HOME/.$1"
   local source="$1.gpgtar"
 
@@ -139,7 +139,7 @@ restore_secret_source() {
   gpgtar --decrypt --directory $dest $TEMP_DIR/$source
 }
 
-restore_secrets() {
+function restore_secrets() {
   print_step "Restore secret sources"
 
   print_sub_step "Gradle"
@@ -150,14 +150,14 @@ restore_secrets() {
   chmod a=-,u=r $HOME/.ssh/*_rsa
 }
 
-restore_fonts() {
+function restore_fonts() {
   print_step "Restore fonts"
 
   print_sub_step "Operator Mono Lig"
   download_and_unzip fonts operatorMonoLig $HOME/Library/Fonts
 }
 
-restore_neovim() {
+function restore_neovim() {
   local coc_dir="$HOME/.config/coc/extensions"
 
   curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -172,7 +172,7 @@ restore_neovim() {
   npm install --no-package-lock
 }
 
-restore_vscode() {
+function restore_vscode() {
   local vscode_user_dir="$HOME/Library/Application Support/Code/User"
 
   mkdir -p $vscode_user_dir
@@ -184,7 +184,7 @@ restore_vscode() {
   done
 }
 
-restore_files_directly() {
+function restore_files_directly() {
   print_step "Restore files directly"
 
   print_sub_step "Alacritty"
@@ -226,7 +226,7 @@ restore_files_directly() {
   download_and_restore_file launchctl/$JOB_ID.plist $HOME/Library/LaunchAgents/$JOB_ID.plist
 }
 
-restore() {
+function restore() {
   prepare && \
   restore_homebrew && \
   restore_nvm && \

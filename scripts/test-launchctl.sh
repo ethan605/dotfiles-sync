@@ -1,8 +1,12 @@
-#!/bin/bash
-WORKING_DIR=$HOME/.dotfiles
+#!/usr/bin/env bash
+set -o errexit
+set -o pipefail
+set -o nounset
+
+readonly WORKING_DIR=$HOME/.dotfiles
 source $WORKING_DIR/scripts/helpers.sh
 
-run_test() {
+function run_test() {
   cd $WORKING_DIR
 
   print_timestamp "Backup started"

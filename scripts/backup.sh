@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -o errexit
 set -o pipefail
 set -o nounset
@@ -11,7 +11,7 @@ ZSH=$HOME/.oh-my-zsh
 source $WORKING_DIR/scripts/helpers.sh
 source /usr/local/opt/nvm/nvm.sh
 
-update_system_sources() {
+function update_system_sources() {
   print_step "Update system files"
   brew update --verbose
   brew upgrade --verbose
@@ -20,24 +20,24 @@ update_system_sources() {
   nvim --headless +PlugUpgrade +PlugUpdate +CocUpdateSync +qa
 }
 
-independent_update_tasks() {
+function independent_update_tasks() {
   print_step "Run independent update tasks"
   brew cask upgrade --verbose
 }
 
-run_gulp_tasks() {
+function run_gulp_tasks() {
   print_step "Backup sources"
   $WORKING_DIR/node_modules/.bin/gulp backup
 }
 
-commit_and_push() {
+function commit_and_push() {
   print_step "Commit and push"
   git add ./backup
   git commit -m ":package: Backup"
   git push origin $(git branch --show-current)
 }
 
-backup() {
+function backup() {
   cd $WORKING_DIR
 
   print_timestamp "Backup started" false
