@@ -3,10 +3,10 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-readonly WORKING_DIR=$HOME/.dotfiles
-
 PATH=/usr/local/bin:$PATH
 ZSH=$HOME/.oh-my-zsh
+
+readonly WORKING_DIR=$HOME/.dotfiles
 
 source $WORKING_DIR/scripts/helpers.sh
 source /usr/local/opt/nvm/nvm.sh
@@ -15,7 +15,7 @@ function update_system_sources() {
   print_step "Update system files"
   brew update --verbose
   brew upgrade --verbose
-  brew cleanup --prune-prefix
+  brew cleanup
   sh $HOME/.oh-my-zsh/tools/upgrade.sh --verbose
   nvim --headless +PlugUpgrade +PlugUpdate +CocUpdateSync +qa
 }
@@ -27,7 +27,7 @@ function independent_update_tasks() {
 
 function run_gulp_tasks() {
   print_step "Backup sources"
-  $WORKING_DIR/node_modules/.bin/gulp backup
+  ./node_modules/.bin/gulp backup
 }
 
 function commit_and_push() {
