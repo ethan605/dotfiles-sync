@@ -98,7 +98,7 @@ __load-pure-prompt() {
 }
 
 __load-pyenv() {
-  [[ $(command -v pyenv) ]] && eval "$(pyenv init -)"
+  command -v pyenv > /dev/null && eval "$(pyenv init -)"
 }
 
 __load-zsh-plugins() {
@@ -121,16 +121,17 @@ __load-nvmrc &> /dev/null
 __load-pyenv
 
 # Aliases
-alias adb-screenshot="adb shell screencap -p \
-  | perl -pe 's/\x0D\x0A/\x0A/g' > $HOME/Downloads/Android_screenshot_$(date +%Y-%m-%d_%H.%M.%S).png"
+alias adb-screenshot="adb shell screencap -p | \
+  perl -pe 's/\x0D\x0A/\x0A/g' > \
+  $HOME/Downloads/Android_screenshot_$(date +%Y-%m-%d_%H.%M.%S).png"
 
 alias batc="env -uCOLORTERM bat --color always --number --wrap never --pager never"
 
-alias docker-stop-all="docker stop -t0 $(docker ps -q)"
-alias docker-rm-all="docker rm $(docker ps -laq)"
+alias docker-stop-all="command -v docker > /dev/null && docker stop -t0 $(docker ps -q)"
+alias docker-rm-all="command -v docker > /dev/null && docker rm $(docker ps -laq)"
 
-alias npm-fix-prefix='nvm use --delete-prefix node && \
-  npm config set prefix $NVM_DIR/versions/node/$(nvm version node)'
+alias npm-fix-prefix="nvm use --delete-prefix node && \
+  npm config set prefix $NVM_DIR/versions/node/$(nvm version node)"
 
 alias policy-off="sudo spctl --master-disable"
 alias policy-on="sudo spctl --master-enable"
@@ -153,4 +154,3 @@ alias vi=nvim
 
 # Load tmux with default session
 # [[ -z $TMUX ]] && tmx
-
