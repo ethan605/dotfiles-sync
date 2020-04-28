@@ -127,9 +127,6 @@ alias adb-screenshot="adb shell screencap -p | \
 
 alias batc="env -uCOLORTERM bat --color always --number --wrap never --pager never"
 
-alias docker-stop-all="command -v docker > /dev/null && docker stop -t0 $(docker ps -q)"
-alias docker-rm-all="command -v docker > /dev/null && docker rm $(docker ps -laq)"
-
 alias npm-fix-prefix="nvm use --delete-prefix node && \
   npm config set prefix $NVM_DIR/versions/node/$(nvm version node)"
 
