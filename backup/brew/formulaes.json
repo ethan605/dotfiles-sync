@@ -213,6 +213,7 @@
   "taglib",
   "talloc",
   "tcl-tk",
+  "teensy_loader_cli",
   "telnet",
   "terminal-notifier",
   "tesseract",
