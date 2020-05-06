@@ -10,11 +10,11 @@ Plug 'alampros/vim-styled-jsx'
 Plug 'andreshazard/vim-freemarker'
 Plug 'ap/vim-css-color'
 Plug 'bling/vim-airline'
-Plug 'skielbasa/vim-material-monokai'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'jiangmiao/auto-pairs'
+Plug 'jparise/vim-graphql'
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
 Plug 'mkitt/tabline.vim'
@@ -56,16 +56,11 @@ let g:materialmonokai_subtle_spell=1
 " Show hidden files in NERDTree
 let NERDTreeShowHidden=1
 
-" set foldlevel=2					  " Fold level
-" set foldmethod=indent     " Code folding by indents
-" set foldnestmax=10			  " Max nesting for code folding
-" set paste                 " Paste from a windows or from vim
 set autoread                " Auto reload file from outside changes
 set autowrite               " Auto reload file from outside changes
 set background=dark         " For dark themes
 set clipboard+=unnamed      " Use system clipboard over vim's buffers
 set cmdheight=2             " Better display for messages
-" set conceallevel=0        " Disable markdown conceal
 set directory=/tmp          " Location for temporary files
 set encoding=UTF-8          " Encoding
 set expandtab               " Insert spaces when TAB is pressed.
@@ -102,6 +97,13 @@ set backupcopy=yes
 set backupdir=~/tmp,/tmp
 set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
 
+" Configure code folding
+" set conceallevel=0        " Disable markdown conceal
+" set foldlevel=2					  " Fold level
+" set foldmethod=indent     " Code folding by indents
+" set foldnestmax=10			  " Max nesting for code folding
+
+" Configure special characters
 set t_ZH=[3m
 set t_ZR=[23m
 
@@ -110,29 +112,11 @@ set rtp+=/usr/local/opt/fzf
 
 " Color scheme
 syntax on
-set background=dark
-colorscheme material-monokai
-" set termguicolors
 
 " Custom functions
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-function! s:select_current_word()
-  if !get(g:, 'coc_cursors_activated', 0)
-    return "\<Plug>(coc-cursors-word)"
-  endif
-  return "*\<Plug>(coc-cursors-word):nohlsearch\<cr>"
-endfunc
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
 endfunction
 
 function! s:smarter_NERDTreeToggle()
@@ -144,52 +128,20 @@ function! s:smarter_NERDTreeToggle()
 endfunction
 
 " Line limit column colors
-hi ColorColumn      guibg=red           guifg=fg 
+" hi ColorColumn      ctermbg=red           ctermfg=fg 
 
 " Matched parentheses colors
-hi MatchParen       gui=bold            guibg=none      guifg=#ff6ac1
+hi MatchParen       cterm=bold            ctermbg=none      ctermfg=red
 
 " TabLine highlight colors
-hi TabLine          gui=none            guibg=bg        guifg=white
-hi TabLineFill      gui=none            guibg=bg
-hi TabLineSel       gui=bold,inverse
+hi TabLine          cterm=none            ctermbg=none        ctermfg=white
+hi TabLineFill      cterm=none            ctermbg=none
+hi TabLineSel       cterm=bold,inverse
 
-hi SpellBad         gui=undercurl       guibg=none      guifg=lightred
-hi SpellCap         gui=undercurl       guibg=none      guifg=lightred
-hi SpellLocal       gui=undercurl       guibg=none      guifg=lightred
-hi SpellRare        gui=undercurl       guibg=none      guifg=lightred
-
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <tab>
-  \ pumvisible() ? "\<c-n>" :
-  \ <sid>check_back_space() ? "\<tab>" :
-  \ coc#refresh()
-inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<c-h>"
-
-" Use <c-c> to trigger completion.
-inoremap <silent><expr> <c-c> coc#refresh()
-
-" Use <c-space> to confirm completion
-inoremap <expr> <c-space> pumvisible() ? "\<c-y>" : "\<c-g>u\<cr>"
-
-" Use <c-l> for trigger snippet expand.
-imap <c-l> <Plug>(coc-snippets-expand)
-
-" Use <c-j> for select text for visual placeholder of snippet.
-vmap <c-j> <Plug>(coc-snippets-select)
-
-" Use <c-j> for both expand and jump (make expand higher priority.)
-imap <c-j> <Plug>(coc-snippets-expand-jump)
-
-" coc.nvim gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <sid>show_documentation()<cr>
+hi SpellBad         cterm=undercurl       ctermbg=none      ctermfg=lightred
+hi SpellCap         cterm=undercurl       ctermbg=none      ctermfg=lightred
+hi SpellLocal       cterm=undercurl       ctermbg=none      ctermfg=lightred
+hi SpellRare        cterm=undercurl       ctermbg=none      ctermfg=lightred
 
 " Toggle NERDTree with focusing current file's location
 nmap <silent> <c-o> :call <sid>smarter_NERDTreeToggle()<cr>

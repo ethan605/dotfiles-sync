@@ -18,6 +18,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'jiangmiao/auto-pairs'
+Plug 'jparise/vim-graphql'
 Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
 Plug 'mkitt/tabline.vim'
@@ -70,16 +71,11 @@ let g:materialmonokai_subtle_spell=1
 " Show hidden files in NERDTree
 let NERDTreeShowHidden=1
 
-" set foldlevel=2					  " Fold level
-" set foldmethod=indent     " Code folding by indents
-" set foldnestmax=10			  " Max nesting for code folding
-" set paste                 " Paste from a windows or from vim
 set autoread                " Auto reload file from outside changes
 set autowrite               " Auto reload file from outside changes
 set background=dark         " For dark themes
 set clipboard+=unnamed      " Use system clipboard over vim's buffers
 set cmdheight=2             " Better display for messages
-" set conceallevel=0        " Disable markdown conceal
 set directory=/tmp          " Location for temporary files
 set encoding=UTF-8          " Encoding
 set expandtab               " Insert spaces when TAB is pressed.
@@ -116,6 +112,12 @@ set backupcopy=yes
 set backupdir=~/tmp,/tmp
 set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
 
+" Configure code folding
+" set conceallevel=0        " Disable markdown conceal
+" set foldlevel=2					  " Fold level
+" set foldmethod=indent     " Code folding by indents
+" set foldnestmax=10			  " Max nesting for code folding
+
 " Configure fzf
 set rtp+=/usr/local/opt/fzf 
 
@@ -128,12 +130,6 @@ set termguicolors
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-function! s:check_eslint_rules()
-  silent !clear
-  let location = system('eslint --format=json ' . bufname('%') . ' | jq -r ".[0].messages[0] | (.line, .column)"')
-  call cursor(split(location, '\n'))
 endfunction
 
 function! s:select_current_word()
@@ -207,6 +203,10 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" coc-eslint jumps
+nmap <silent> ]w <Plug>(coc-diagnostic-next)
+nmap <silent> [w <Plug>(coc-diagnostic-prev)
+
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <sid>show_documentation()<cr>
 
@@ -219,9 +219,6 @@ nmap <silent> <c-g> :GFiles?<cr>
 
 " Search globally with RipGrep
 nmap <c-s> :Rg<space>
-
-" Check linting rules in current file
-nmap <silent> esl :call <sid>check_eslint_rules()<cr>
 
 " Copy current file's path
 nmap <silent> ycf :let @+=@%<cr>

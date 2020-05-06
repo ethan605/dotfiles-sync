@@ -102,15 +102,15 @@ font:
   # Bold font face
   bold:
     family: Haskplex Nerd
-    style: Bold
+    style: Regular
 
   # Italic font face
   italic:
-    family: Hack Nerd
-    style: Italic
+    family: Operator Mono Lig Light
+    style: Light Italic
 
   # Point size
-  size: 17.0
+  size: 16.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
