@@ -30,6 +30,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
@@ -66,6 +67,7 @@ set encoding=UTF-8          " Encoding
 set expandtab               " Insert spaces when TAB is pressed.
 set formatoptions+=o        " Continue comment marker in new lines.
 set ignorecase              " Search with smart case
+set incsearch               " Highlight on search typing
 set linespace=0             " Set line-spacing to minimum.
 set modeline                " Enable modeline.
 set nobackup                " Some LSP servers have issues with backup files
@@ -112,6 +114,7 @@ set rtp+=/usr/local/opt/fzf
 
 " Color scheme
 syntax on
+colorscheme nord
 
 " Custom functions
 function! s:check_back_space() abort
@@ -128,7 +131,7 @@ function! s:smarter_NERDTreeToggle()
 endfunction
 
 " Line limit column colors
-" hi ColorColumn      ctermbg=red           ctermfg=fg 
+hi ColorColumn      ctermbg=red           ctermfg=white 
 
 " Matched parentheses colors
 hi MatchParen       cterm=bold            ctermbg=none      ctermfg=red
@@ -142,6 +145,9 @@ hi SpellBad         cterm=undercurl       ctermbg=none      ctermfg=lightred
 hi SpellCap         cterm=undercurl       ctermbg=none      ctermfg=lightred
 hi SpellLocal       cterm=undercurl       ctermbg=none      ctermfg=lightred
 hi SpellRare        cterm=undercurl       ctermbg=none      ctermfg=lightred
+
+" Visual selection
+hi Visual           ctermbg=white         ctermfg=black
 
 " Toggle NERDTree with focusing current file's location
 nmap <silent> <c-o> :call <sid>smarter_NERDTreeToggle()<cr>
