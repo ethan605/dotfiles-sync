@@ -1,5 +1,6 @@
 [
   "aaronthomas.vscode-snazzy-operator",
+  "af4jm.vscode-m3u",
   "alexdima.copy-relative-path",
   "andrejunges.Handlebars",
   "apollographql.vscode-apollo",
@@ -56,5 +57,6 @@
   "wingrunr21.vscode-ruby",
   "XadillaX.viml",
   "yzhang.markdown-all-in-one",
+  "zgm.cuesheet",
   "zhengxiaoyao0716.intelligence-change-case"
 ]
