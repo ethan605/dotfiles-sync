@@ -110,6 +110,7 @@
   "libidn2",
   "libimagequant",
   "libksba",
+  "liblqr",
   "libmatio",
   "libmpc",
   "libmpdclient",
