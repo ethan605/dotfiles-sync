@@ -147,7 +147,7 @@ function restore_secrets() {
 
   print_sub_step "SSH keys"
   restore_secret_source ssh
-  chmod a=-,u=r $HOME/.ssh/*_rsa
+  chmod a=-,u=r $HOME/.ssh/id_*
 }
 
 function restore_fonts() {
