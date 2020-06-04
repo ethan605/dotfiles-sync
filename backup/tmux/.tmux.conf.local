@@ -361,7 +361,7 @@ set -g @tpm_plugins '           \
   tmux_plugins/tmux-urlview     \
   tmux_plugins/tmux-cpu         \
   tmux-plugins/tmux-resurrect   \
-  tmux-plugins/tmux-continuum   \
 '
+  # tmux-plugins/tmux-continuum   \
 
 # }}}
