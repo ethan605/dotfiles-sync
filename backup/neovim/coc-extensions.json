@@ -5,7 +5,7 @@
     "coc-html": ">=1.2.4",
     "coc-java": ">=1.4.11",
     "coc-json": ">=1.2.6",
-    "coc-snippets": ">=2.1.26",
+    "coc-snippets": ">=2.1.27",
     "coc-spell-checker": ">=1.1.0",
     "coc-tabnine": ">=1.2.2",
     "coc-tsserver": ">=1.5.1"
