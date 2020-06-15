@@ -11,7 +11,7 @@ readonly NORMAL='\033[0m'
 steps_count=0
 
 print_step() {
-  let steps_count++
+  steps_count=$((steps_count+1))
   local message=$1
   printf "\n${GREEN}${BOLD}❯ ${steps_count}. ${message}${NORMAL}\n"
 }

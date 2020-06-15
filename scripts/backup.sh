@@ -17,7 +17,7 @@ function update_system_sources() {
   brew upgrade --verbose
   brew cleanup
   sh $HOME/.oh-my-zsh/tools/upgrade.sh --verbose
-  nvim --headless +PlugUpgrade +PlugUpdate +CocUpdateSync +qa
+  nvim --headless +PlugUpgrade +PlugUpdate +qa
 }
 
 function independent_update_tasks() {
