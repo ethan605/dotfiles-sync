@@ -26,3 +26,5 @@
 	ff = only
 [credential]
 	helper = osxkeychain
+[alias]
+	adog = log --all --decorate --oneline --graph
