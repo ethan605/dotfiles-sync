@@ -35,7 +35,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
@@ -63,6 +62,8 @@ let g:NERDTreeIgnore = ['\~$', 'vendor', 'node_modules']
 
 " For Prettier
 let g:prettier#autoformat = 0
+let g:prettier#autoformat_config_present = 1
+let g:prettier#config#config_precedence = 'file-override'
 
 " For material-monokai
 let g:materialmonokai_italic=1
@@ -236,7 +237,7 @@ call matchadd('ColorColumn', '\%120v', 100)
 filetype plugin on
 
 " Autofix for Prettier on save
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
 
 augroup javascript_folding
   au!
