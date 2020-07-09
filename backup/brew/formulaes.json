@@ -173,7 +173,6 @@
   "openjdk",
   "openjpeg",
   "openslide",
-  "openssl",
   "openssl@1.1",
   "opus",
   "orc",
