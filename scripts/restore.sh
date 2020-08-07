@@ -228,7 +228,7 @@ function restore_files_directly() {
 
 function restore() {
   prepare && \
-  restore_homebrew && \
+  # restore_homebrew && \
   restore_nvm && \
   restore_rvm && \
   # restore_gnupg && \
