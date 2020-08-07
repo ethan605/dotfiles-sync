@@ -231,8 +231,8 @@ function restore() {
   restore_homebrew && \
   restore_nvm && \
   restore_rvm && \
-  restore_gnupg && \
-  restore_secrets && \
+  # restore_gnupg && \
+  # restore_secrets && \
   restore_fonts && \
   restore_files_directly
 }
