@@ -121,7 +121,7 @@ function restore_rvm() {
 function restore_gnupg() {
   print_step "Restore GnuPG"
 
-  gpg --import /Volumes/Keybase/private/ethan605/.keys/pgp/9d5aa3a830b5e5a7f30cea889c6ceb919ed2cefe.asc
+  gpg --import ~/Downloads/ethan605.asc
   gpg --edit-key thanhnx.605@gmail.com
   download_and_restore_file gnupg/gpg.conf $HOME/.gnupg/gpg.conf
   download_and_restore_file gnupg/gpg-agent.conf $HOME/.gnupg/gpg-agent.conf
@@ -206,9 +206,6 @@ function restore_files_directly() {
   print_sub_step "Neovim"
   restore_neovim
 
-  print_sub_step "Oh-my-zsh"
-  download_and_restore_file oh-my-zsh/.zshrc $HOME/.zshrc
-
   print_sub_step "Tmux"
   download_and_restore_file tmux/.tmux.conf $HOME/.tmux.conf
   download_and_restore_file "tmux/.tmux.conf.local" "$HOME/.tmux.conf.local"
@@ -218,21 +215,24 @@ function restore_files_directly() {
 
   print_sub_step "Vim"
   download_and_restore_file vim/.vimrc $HOME/.vimrc
-  
-  print_sub_step "VSCode"
-  restore_vscode
 
-  print_sub_step "Launchctl"
-  download_and_restore_file launchctl/$JOB_ID.plist $HOME/Library/LaunchAgents/$JOB_ID.plist
+  print_sub_step "Zsh"
+  download_and_restore_file zsh/.zshrc $HOME/.zshrc
+  
+  # print_sub_step "VSCode"
+  # restore_vscode
+
+  # print_sub_step "Launchctl"
+  # download_and_restore_file launchctl/$JOB_ID.plist $HOME/Library/LaunchAgents/$JOB_ID.plist
 }
 
 function restore() {
   prepare && \
-  # restore_homebrew && \
+  restore_homebrew && \
   restore_nvm && \
   restore_rvm && \
-  # restore_gnupg && \
-  # restore_secrets && \
+  restore_gnupg && \
+  restore_secrets && \
   restore_fonts && \
   restore_files_directly
 }
