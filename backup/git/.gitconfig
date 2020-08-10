@@ -1,6 +1,6 @@
 [user]
 	name = Ethan Nguyen
-	email = thanhnx.605@gmail.com
+	email = ethan.nguyen@onfido.com
 	signingkey = 9C6CEB919ED2CEFE
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
@@ -15,7 +15,7 @@
 	timestampResolution = 1001 milliseconds
 	minRacyThreshold = 0 nanoseconds
 [core]
-	excludesfile = /Users/ethanify/.gitignore_global
+	excludesfile = /Users/ethan.nguyen/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

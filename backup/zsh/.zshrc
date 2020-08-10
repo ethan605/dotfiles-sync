@@ -14,10 +14,8 @@ PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export JAVA_HOME=$(/usr/libexec/java_home)
-PATH=$JAVA_HOME:$PATH
-PATH=$ANDROID_HOME:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+# Use JDK by Homebrew
+PATH="/usr/local/opt/openjdk/bin:$PATH"
 
 # Local node env
 PATH=./node_modules/.bin:$PATH
@@ -35,6 +33,13 @@ export PITOP_GITHUB_TOKEN=""
 # Google Cloud configs
 export GOOGLE_APPLICATION_CREDENTIALS=""
 export GOOGLE_PROJECT_ID=""
+
+# Onfido
+export SDK_TOKEN_FACTORY_SECRET=""
+export LOKALISE_TOKEN=""
+export LOKALISE_PROJECT_ID=""
+export BROWSERSTACK_USERNAME=""
+export BROWSERSTACK_ACCESS_KEY=""
 
 # Misc
 export FZF_DEFAULT_COMMAND='rg --files --hidden --smartcase --glob "!.git/*"'
