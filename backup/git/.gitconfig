@@ -1,7 +1,7 @@
 [user]
 	name = Ethan Nguyen
 	email = ethan.nguyen@onfido.com
-	signingkey = 9C6CEB919ED2CEFE
+	signingkey = C086CD9B4DBCBBC0
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
