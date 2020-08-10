@@ -172,6 +172,13 @@ function restore_neovim() {
   npm install --no-package-lock
 }
 
+function restore_qmk() {
+  local qmk_dir="$HOME/Library/Application Support/qmk"
+  mkdir -p "$qmk_dir"
+  download_and_restore_file qmk/qmk.ini $TEMP_DIR/qmk.ini
+  mv $TEMP_DIR/qmk.ini "$qmk_dir/qmk.ini"
+}
+
 function restore_vscode() {
   local vscode_user_dir="$HOME/Library/Application Support/Code/User"
 
@@ -206,6 +213,9 @@ function restore_files_directly() {
   print_sub_step "Neovim"
   restore_neovim
 
+  print_sub_step "Qmk"
+  restore_qmk
+
   print_sub_step "Tmux"
   download_and_restore_file tmux/.tmux.conf $HOME/.tmux.conf
   download_and_restore_file "tmux/.tmux.conf.local" "$HOME/.tmux.conf.local"
@@ -222,8 +232,8 @@ function restore_files_directly() {
   # print_sub_step "VSCode"
   # restore_vscode
 
-  # print_sub_step "Launchctl"
-  # download_and_restore_file launchctl/$JOB_ID.plist $HOME/Library/LaunchAgents/$JOB_ID.plist
+  print_sub_step "Launchctl"
+  download_and_restore_file launchctl/$JOB_ID.plist $HOME/Library/LaunchAgents/$JOB_ID.plist
 }
 
 function restore() {
