@@ -7,6 +7,7 @@
   "homebrew/core",
   "homebrew/services",
   "huytd/cask-fonts",
+  "lokalise/cli-2",
   "mongodb/brew",
   "osx-cross/arm",
   "osx-cross/avr",
