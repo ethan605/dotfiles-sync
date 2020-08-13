@@ -61,9 +61,9 @@ let g:NERDSpaceDelims = 1
 let g:NERDTreeIgnore = ['\~$', 'vendor', 'node_modules']
 
 " For Prettier
-let g:prettier#autoformat = 0
 let g:prettier#autoformat_config_present = 1
-let g:prettier#config#config_precedence = 'file-override'
+let g:prettier#config#arrow_parens = 'always'
+let g:prettier#config#trailing_comma = 'es5'
 
 " For material-monokai
 let g:materialmonokai_italic=1
@@ -237,7 +237,7 @@ call matchadd('ColorColumn', '\%120v', 100)
 filetype plugin on
 
 " Autofix for Prettier on save
-" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
 
 augroup javascript_folding
   au!
