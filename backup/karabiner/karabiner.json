@@ -215,14 +215,6 @@
               "to": {
                 "key_code": "left_shift"
               }
-            },
-            {
-              "from": {
-                "key_code": "non_us_backslash"
-              },
-              "to": {
-                "key_code": "grave_accent_and_tilde"
-              }
             }
           ]
         },
@@ -238,6 +230,14 @@
           "ignore": false,
           "manipulate_caps_lock_led": false,
           "simple_modifications": [
+            {
+              "from": {
+                "key_code": "caps_lock"
+              },
+              "to": {
+                "key_code": "left_control"
+              }
+            },
             {
               "from": {
                 "key_code": "left_command"
@@ -268,14 +268,6 @@
               },
               "to": {
                 "key_code": "backslash"
-              }
-            },
-            {
-              "from": {
-                "key_code": "caps_lock"
-              },
-              "to": {
-                "key_code": "left_control"
               }
             }
           ]
