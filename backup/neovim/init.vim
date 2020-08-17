@@ -27,8 +27,8 @@ Plug 'niftylettuce/vim-jinja'
 Plug 'pangloss/vim-javascript'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'ryanoasis/vim-devicons'
-Plug 'scrooloose/nerdTree'
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdTree'
+Plug 'preservim/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'terryma/vim-multiple-cursors'
