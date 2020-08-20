@@ -7,6 +7,7 @@ PATH="/usr/local/bin:/usr/local/sbin:$(getconf PATH)"
 
 # Replace macOS utilities with GNU ones
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/diffutils/bin:$PATH"
 PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
 PATH="/usr/local/opt/gnu-indent/libexec/gnubin:$PATH"

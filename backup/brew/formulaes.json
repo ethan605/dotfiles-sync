@@ -30,6 +30,7 @@
   "dfc",
   "dfu-programmer",
   "dfu-util",
+  "diffutils",
   "docbook",
   "docbook-xsl",
   "ffmpeg",
