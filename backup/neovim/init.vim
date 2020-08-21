@@ -15,6 +15,7 @@ Plug 'connorholyday/vim-snazzy'
 Plug 'darfink/vim-plist'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'flowtype/vim-flow'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'jiangmiao/auto-pairs'
@@ -25,10 +26,10 @@ Plug 'mkitt/tabline.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'niftylettuce/vim-jinja'
 Plug 'pangloss/vim-javascript'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdTree'
 Plug 'preservim/nerdcommenter'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'terryma/vim-multiple-cursors'
@@ -51,6 +52,9 @@ let g:blamer_template = '<author>, <author-time> • <summary>'
 " For coc.nvim
 let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
+
+" For vim-flow
+let g:flow#enable = 0
 
 " For indentLine
 let g:indentLine_char = '│'
