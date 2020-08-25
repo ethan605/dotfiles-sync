@@ -66,8 +66,6 @@ let g:NERDTreeIgnore = ['\~$', 'vendor', 'node_modules']
 
 " For Prettier
 let g:prettier#autoformat_config_present = 1
-let g:prettier#config#arrow_parens = 'always'
-let g:prettier#config#trailing_comma = 'es5'
 
 " For material-monokai
 let g:materialmonokai_italic=1
