@@ -16,6 +16,7 @@
 	minRacyThreshold = 0 nanoseconds
 [core]
 	excludesfile = /Users/ethan.nguyen/.gitignore_global
+	autocrlf = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

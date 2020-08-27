@@ -16,10 +16,13 @@ PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 
 # Use JDK by Homebrew
-PATH="/usr/local/opt/openjdk/bin:$PATH"
+export JAVA_HOME="/usr/local/opt/openjdk"
+PATH="$JAVA_HOME:$PATH"
 
 # Local node env
 PATH=./node_modules/.bin:$PATH
+
+# Global rvm env
 export PATH="$HOME/.rvm/bin:$PATH"
 
 # Default editors
