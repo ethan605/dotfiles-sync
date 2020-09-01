@@ -70,6 +70,7 @@
   "graphite2",
   "grep",
   "gtk+",
+  "guile",
   "harfbuzz",
   "hdf5",
   "hicolor-icon-theme",
