@@ -52,6 +52,10 @@ export TOOLCHAINS=swift
 # Ctrl + ] to move forward by word
 bindkey "^]" forward-word
 
+__load-autojump() {
+  [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+}
+
 # Color for less and man 
 __load-manpage-colors() {
   export MANPAGER='less -s -M +Gg'
@@ -124,6 +128,7 @@ autoload -U promptinit; promptinit
 
 __load-zsh-plugins
 __load-pure-prompt
+__load-autojump
 __load-manpage-colors
 __load-nvm
 __load-nvmrc &> /dev/null
