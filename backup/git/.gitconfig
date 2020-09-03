@@ -29,3 +29,7 @@
 	helper = osxkeychain
 [alias]
 	adog = log --all --decorate --oneline --graph
+[diff "gpg"]
+   textconv = gpg --no-tty --decrypt --quiet
+[blame "gpg"]
+   textconv = gpg --no-tty --decrypt --quiet
