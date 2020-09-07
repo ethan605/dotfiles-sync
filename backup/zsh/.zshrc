@@ -123,6 +123,12 @@ __load-zsh-plugins() {
   source /usr/local/opt/zsh-syntax-highlighting/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 }
 
+build_onfido_vpn_creds() {
+  read -r passwd < <(pass onelogin.com/onfido)
+  read -r otp < <(pass otp totp/onfido-vpn)
+  echo -n "$passwd$otp" | pbcopy
+}
+
 autoload -U add-zsh-hook; add-zsh-hook chpwd __load-nvmrc
 autoload -U promptinit; promptinit
 

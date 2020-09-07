@@ -26,6 +26,7 @@ Plug 'mkitt/tabline.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'niftylettuce/vim-jinja'
 Plug 'pangloss/vim-javascript'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'preservim/nerdTree'
 Plug 'preservim/nerdcommenter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
@@ -71,6 +72,10 @@ let g:prettier#autoformat_config_present = 1
 let g:materialmonokai_italic=1
 let g:materialmonokai_subtle_airline=1
 let g:materialmonokai_subtle_spell=1
+
+" Disable typescript from vim-polyglot
+" in favour of peitalin/vim-jsx-typescript
+let g:polyglot_disabled = ['typescript']
 
 " Show hidden files in NERDTree
 let NERDTreeShowHidden=1
@@ -240,6 +245,13 @@ filetype plugin on
 
 " Autofix for Prettier on save
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
+
+" Syntax highlight for JSX
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+
+" Performance tweaks for large files
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 augroup javascript_folding
   au!
