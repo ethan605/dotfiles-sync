@@ -124,8 +124,8 @@ __load-zsh-plugins() {
 }
 
 build_onfido_vpn_creds() {
-  read -r passwd < <(pass onelogin.com/onfido)
-  read -r otp < <(pass otp totp/onfido-vpn)
+  read -r passwd < <(pass onfido/onelogin)
+  read -r otp < <(pass otp onfido/vpn-otp)
   echo -n "$passwd$otp" | pbcopy
 }
 
