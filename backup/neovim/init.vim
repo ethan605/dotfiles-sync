@@ -246,9 +246,6 @@ filetype plugin on
 " Autofix for Prettier on save
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
 
-" Syntax highlight for JSX
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
-
 " Performance tweaks for large files
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
