@@ -1,6 +1,6 @@
 # Global variables
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+export LANG=en_GB.UTF-8
+export LC_ALL=en_GB.UTF-8
 
 # Rewrite $PATH
 PATH="/usr/local/bin:/usr/local/sbin:$(getconf PATH)"
@@ -162,6 +162,8 @@ alias rndev="adb shell input keyevent 82"
 alias rnlog-android="adb logcat *:S ReactNative:V ReactNativeJS:V"
 
 alias tmx="tmux attach -t default || tmux new -s default"
+alias tme="tmux attach -t ethanify || tmux new -s ethanify"
+alias tmo="tmux attach -t onfido || tmux new -s onfido"
 
 # Remap system commands
 alias ls="ls --almost-all --color --human-readable --time-style=+'[%Y-%m-%d %H:%M:%S]'"
