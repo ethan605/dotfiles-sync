@@ -4,7 +4,6 @@ call plug#begin()
 Plug '/usr/local/bin/fzf'
 Plug 'APZelos/blamer.nvim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 Plug 'alampros/vim-styled-jsx'
@@ -21,6 +20,7 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jparise/vim-graphql'
 Plug 'junegunn/fzf.vim'
+Plug 'kevinoid/vim-jsonc'
 Plug 'mattn/emmet-vim'
 Plug 'mkitt/tabline.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -37,8 +37,13 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
+
+" Disable typescript from vim-polyglot
+" in favour of peitalin/vim-jsx-typescript
+" let g:polyglot_disabled = ['typescript']
 
 " For vim-airline
 let g:airline_theme = 'powerlineish'
@@ -58,8 +63,8 @@ let g:coc_snippet_prev = '<c-k>'
 let g:flow#enable = 0
 
 " For indentLine
-let g:indentLine_char = '│'
-let g:indentLine_conceallevel = '0'
+let g:indentLine_char = '·'
+let g:indentLine_enabled = 1
 
 " For NERDTree
 let g:NERDSpaceDelims = 1 
@@ -72,10 +77,6 @@ let g:prettier#autoformat_config_present = 1
 let g:materialmonokai_italic=1
 let g:materialmonokai_subtle_airline=1
 let g:materialmonokai_subtle_spell=1
-
-" Disable typescript from vim-polyglot
-" in favour of peitalin/vim-jsx-typescript
-let g:polyglot_disabled = ['typescript']
 
 " Show hidden files in NERDTree
 let NERDTreeShowHidden=1
