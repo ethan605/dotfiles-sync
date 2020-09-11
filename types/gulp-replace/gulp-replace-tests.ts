@@ -10,12 +10,7 @@ replace(/bar/gi, 'bar');
 replace(/foo(.{3})/g, '$1foo');
 
 // String test, function replace
-replace('foo', match =>
-  match
-    .split('')
-    .reverse()
-    .join('')
-);
+replace('foo', match => match.split('').reverse().join(''));
 
 // Regex test, function replace
 replace(/foo(.{3})/g, (match, p1, offset, string) => {
