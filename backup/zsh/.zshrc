@@ -147,6 +147,8 @@ alias adb-screenshot="adb shell screencap -p | \
 
 alias batc="env -uCOLORTERM bat --color always --number --wrap never --pager never"
 
+alias color-palette="curl -s https://gist.githubusercontent.com/ethan605/ea1b698c3395b9339748e8a0131136a5/raw | bash"
+
 alias npm-fix-prefix="nvm use --delete-prefix node && \
   npm config set prefix $NVM_DIR/versions/node/$(nvm version node)"
 
