@@ -7,7 +7,7 @@ import type { ReadCommandConfig } from '../helpers';
 
 const TASKS: ReadCommandConfig[] = [
   { title: 'formulaes', command: 'brew list' },
-  { title: 'casks', command: 'brew list --casks' },
+  { title: 'casks', command: 'brew list --cask' },
   { title: 'taps', command: 'brew tap' },
 ];
 
