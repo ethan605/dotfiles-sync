@@ -16,7 +16,8 @@ PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 
 # Use JDK by Homebrew
-export JAVA_HOME="/usr/local/opt/openjdk"
+export JDK_HOME="/usr/local/opt/openjdk"
+export JAVA_HOME="$JDK_HOME/bin"
 PATH="$JAVA_HOME:$PATH"
 
 # Local node env
