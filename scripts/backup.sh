@@ -22,7 +22,7 @@ function update_system_sources() {
 
 function independent_update_tasks() {
   print_step "Run independent update tasks"
-  brew cask upgrade --verbose
+  brew upgrade --cask --verbose
 }
 
 function run_gulp_tasks() {
