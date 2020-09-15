@@ -11,6 +11,7 @@
   "huytd/cask-fonts",
   "lokalise/cli-2",
   "mongodb/brew",
+  "onfido/tools",
   "osx-cross/arm",
   "osx-cross/avr",
   "px4/px4",
