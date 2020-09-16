@@ -124,6 +124,10 @@ __load-zsh-plugins() {
   source /usr/local/opt/zsh-syntax-highlighting/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 }
 
+load-onfido-creds() {
+  source "/Users/ethan.nguyen/Library/Application Support/creds/nexus"
+}
+
 build_onfido_vpn_creds() {
   read -r passwd < <(pass onfido/onelogin)
   read -r otp < <(pass otp onfido/vpn-otp)
