@@ -30,15 +30,6 @@ export PATH="$HOME/.rvm/bin:$PATH"
 export EDITOR=nvim
 export REACT_EDITOR=nvim
 
-# Tokens
-export HOMEBREW_GITHUB_API_TOKEN=""
-export JEKYLL_GITHUB_TOKEN=""
-export PITOP_GITHUB_TOKEN=""
-
-# Google Cloud configs
-export GOOGLE_APPLICATION_CREDENTIALS=""
-export GOOGLE_PROJECT_ID=""
-
 # Onfido
 export SDK_TOKEN_FACTORY_SECRET=""
 export LOKALISE_TOKEN=""

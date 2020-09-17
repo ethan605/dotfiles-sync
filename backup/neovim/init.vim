@@ -86,6 +86,7 @@ set autowrite               " Auto reload file from outside changes
 set background=dark         " For dark themes
 set clipboard+=unnamed      " Use system clipboard over vim's buffers
 set cmdheight=2             " Better display for messages
+set conceallevel=0          " Disable markdown conceal
 set directory=/tmp          " Location for temporary files
 set encoding=UTF-8          " Encoding
 set expandtab               " Insert spaces when TAB is pressed.
@@ -123,7 +124,6 @@ set backupdir=~/tmp,/tmp
 set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
 
 " Configure code folding
-" set conceallevel=0        " Disable markdown conceal
 " set foldlevel=2					  " Fold level
 " set foldmethod=indent     " Code folding by indents
 " set foldnestmax=10			  " Max nesting for code folding
@@ -252,6 +252,9 @@ autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 augroup javascript_folding
-  au!
-  au FileType javascript setlocal foldmethod=syntax
+  autocmd!
+  autocmd FileType javascript setlocal foldmethod=syntax
 augroup END
+
+" Disable indentLine for markdowns
+autocmd FileType markdown let g:indentLine_enabled=0
