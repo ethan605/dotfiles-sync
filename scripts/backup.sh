@@ -9,7 +9,6 @@ ZSH=$HOME/.oh-my-zsh
 readonly WORKING_DIR=$HOME/.dotfiles
 
 source $WORKING_DIR/scripts/helpers.sh
-source /usr/local/opt/nvm/nvm.sh
 
 function update_system_sources() {
   print_step "Update system files"
