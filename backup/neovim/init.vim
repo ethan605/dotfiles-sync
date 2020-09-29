@@ -258,3 +258,5 @@ augroup END
 
 " Disable indentLine for markdowns
 autocmd FileType markdown let g:indentLine_enabled=0
+autocmd BufNewFile,BufRead vifmrc set syntax=vim
+autocmd BufNewFile,BufRead .prettierrc set syntax=json
