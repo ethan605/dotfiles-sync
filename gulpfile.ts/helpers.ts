@@ -31,7 +31,7 @@ export const composeReadCommandTask = (prefix: string) => (config: ReadCommandCo
   const output = readCommandOutputs(command).toString();
   const data = _.compact(output.split('\n'));
   const backupTask = (): NodeJS.ReadWriteStream =>
-    file(`${title}.json`, JSON.stringify(data), { src: true }).pipe(gulp.dest([BACKUP_DIR, prefix].join('/')));
+    file(`${title}.json`, JSON.stringify(data, null, 2), { src: true }).pipe(gulp.dest([BACKUP_DIR, prefix].join('/')));
 
   // Rename sub tasks
   Object.defineProperty(backupTask, 'name', { value: [prefix, _.capitalize(title)].join(''), configurable: true });

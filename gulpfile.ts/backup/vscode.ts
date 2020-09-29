@@ -20,7 +20,7 @@ const vscode = (): NodeJS.ReadWriteStream => {
 
   return gulp
     .src(settings)
-    .pipe(file('extensions.json', JSON.stringify(extensions)))
+    .pipe(file('extensions.json', JSON.stringify(extensions, null, 2)))
     .pipe(gulp.dest(`${BACKUP_DIR}/vscode`));
 };
 
