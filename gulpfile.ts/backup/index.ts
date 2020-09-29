@@ -18,7 +18,7 @@ import nvm from './nvm';
 import protectedSources from './protected-sources';
 import qmk from './qmk';
 import tmux from './tmux';
-// import vifm from './vifm';
+import vifm from './vifm';
 import vim from './vim';
 // import vscode from './vscode';
 import zsh from './zsh';
@@ -43,7 +43,7 @@ gulp.task(
       protectedSources,
       qmk,
       tmux,
-      // vifm,
+      vifm,
       vim,
       // vscode,
       zsh
