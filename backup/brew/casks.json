@@ -31,5 +31,6 @@
   "vimr",
   "vlc",
   "vox",
-  "vox-preferences-pane"
+  "vox-preferences-pane",
+  "xquartz"
 ]
