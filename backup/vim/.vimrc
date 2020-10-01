@@ -9,6 +9,7 @@ Plug 'airblade/vim-rooter'
 Plug 'alampros/vim-styled-jsx'
 Plug 'andreshazard/vim-freemarker'
 Plug 'ap/vim-css-color'
+Plug 'arcticicestudio/nord-vim'
 Plug 'bling/vim-airline'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
@@ -30,24 +31,27 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
+
+" Disable typescript from vim-polyglot
+" in favour of peitalin/vim-jsx-typescript
+" let g:polyglot_disabled = ['typescript']
 
 " For vim-airline
 let g:airline_theme = 'powerlineish'
 let g:airline_powerline_fonts = 1
 
 " For indentLine
-let g:indentLine_char = '│'
-let g:indentLine_conceallevel = '0'
+let g:indentLine_char = '·'
+let g:indentLine_enabled = 1
 
 " For NERDTree
 let g:NERDSpaceDelims = 1 
 let g:NERDTreeIgnore = ['\~$', 'vendor', 'node_modules']
 
 " For Prettier
-let g:prettier#autoformat = 0
+let g:prettier#autoformat_config_present = 0
 
 " For material-monokai
 let g:materialmonokai_italic=1
@@ -137,7 +141,7 @@ hi ColorColumn      ctermbg=red           ctermfg=white
 hi MatchParen       cterm=bold            ctermbg=none      ctermfg=red
 
 " TabLine highlight colors
-hi TabLine          cterm=none            ctermbg=none        ctermfg=white
+hi TabLine          cterm=none            ctermbg=none      ctermfg=white
 hi TabLineFill      cterm=none            ctermbg=none
 hi TabLineSel       cterm=bold,inverse
 
@@ -147,7 +151,7 @@ hi SpellLocal       cterm=undercurl       ctermbg=none      ctermfg=lightred
 hi SpellRare        cterm=undercurl       ctermbg=none      ctermfg=lightred
 
 " Visual selection
-hi Visual           ctermbg=white         ctermfg=black
+" hi Visual           ctermbg=white         ctermfg=black
 
 " Toggle NERDTree with focusing current file's location
 nmap <silent> <c-o> :call <sid>smarter_NERDTreeToggle()<cr>
@@ -176,8 +180,16 @@ filetype plugin on
 " Autofix for Prettier on save
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
 
+" Performance tweaks for large files
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
 augroup javascript_folding
   au!
   au FileType javascript setlocal foldmethod=syntax
 augroup END
 
+" Disable indentLine for markdowns
+autocmd FileType markdown let g:indentLine_enabled=0
+autocmd BufNewFile,BufRead vifmrc set syntax=vim
+autocmd BufNewFile,BufRead .prettierrc set syntax=json

@@ -132,7 +132,7 @@ alias adb-screenshot="adb shell screencap -p | \
   perl -pe 's/\x0D\x0A/\x0A/g' > \
   $HOME/Downloads/Android_screenshot_$(date +%Y-%m-%d_%H.%M.%S).png"
 
-alias batc="env -uCOLORTERM bat --color always --number --wrap never --pager never"
+alias batc="env -uCOLORTERM bat --number --color always --theme 'Sublime Snazzy' --wrap never"
 
 alias color-palette="curl -s https://gist.githubusercontent.com/ethan605/ea1b698c3395b9339748e8a0131136a5/raw | bash"
 
@@ -142,15 +142,6 @@ alias npm-fix-prefix="nvm use --delete-prefix node && \
 alias policy-off="sudo spctl --master-disable"
 alias policy-on="sudo spctl --master-enable"
 
-alias rnclean="watchman watch-del-all &&
-  rm -rf node_modules &&
-  rm -fr $TMPDIR/react-* &&
-  npm cache clean --force &&
-  yarn cache clean"
-alias rndev="adb shell input keyevent 82"
-alias rnlog-android="adb logcat *:S ReactNative:V ReactNativeJS:V"
-
-alias tmx="tmux attach -t default || tmux new -s default"
 alias tme="tmux attach -t ethanify || tmux new -s ethanify"
 alias tmo="tmux attach -t onfido || tmux new -s onfido"
 
@@ -159,6 +150,3 @@ alias ls="ls --almost-all --color --human-readable --time-style=+'[%Y-%m-%d %H:%
 alias rm="rm -i"
 alias nano=nvim
 alias vi=nvim
-
-# Load tmux with default session
-# [[ -z $TMUX ]] && tmx

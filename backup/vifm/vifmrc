@@ -111,12 +111,13 @@ filetype <text/*>,
   \*.d,*.dart,*.db,*.diff,*.dump,*.edn,*.eex,*.ejs,*.elm,*.erl,*.ex,*.exs,
   \*.f#,*.fish,*.fs,*.fsi,*.fsscript,*.fsx,*.gemspec,*.go,*.h,*.hbs,*.hh,*.hpp,*.hrl,*.hs,*.htm,*.html,*.hxx,*.ini,
   \*.java,*.jl,*.js,*.json,*.jsonp,*.leex,*.less,*.lhs,*.lock,*.log,*.lua,
-  \*.m,*.markdown,*.md,*.mdx,*.mjs,*.ml,*.mli,*.mustache,*.php,*.pl,*.pm,*.pp,*.ps1,*.psb,*.py,*.pyc,*.pyd,*.pyo,
+  \*.m,*.m3u,*.markdown,*.md,*.mdx,*.mjs,*.ml,*.mli,*.mustache,
+  \*.php,*.pl,*.pm,*.pp,*.ps1,*.psb,*.py,*.pyc,*.pyd,*.pyo,
   \*.rb,*.rlib,*.rmd,*.rs,*.rss,*.s[ac]ss,*.scala,*.sh,*.slim,*.sln,*.sql,*.srt,*.styl,*.suo,*.swift,
-  \*.t,*.toml,*.ts,*.twig,*.txt,*.vim,*.vue,*.xcplayground,*.xml,*.xul,*.yaml,*.yml,*vagrantfile
+  \*.t,*.toml,*.ts,*.twig,*.txt,*.vim,*.vue,*.xcplayground,*.xml,*.xul,*.yaml,*.yml,*vagrantfile,
   \.babel*,.bashprofile,.bashrc,.env,.env.*,.eslint*,.gitattributes,.gitconfig,.gitignore,.gvimrc,
   \.nvmrc,.prettier*,.rvmrc,.vimrc,.yarnrc,.zshrc,
-  \Rakefile,_gvimrc,_vimrc,dockerfile,jenkinsfile,license,makefile,procfile,vagrantfile,
+  \Rakefile,_gvimrc,_vimrc,dockerfile,jenkinsfile,license,makefile,procfile,vagrantfile
   \ nvim %c
 
 " Audio files
@@ -137,13 +138,14 @@ fileviewer <text/*>,
   \*.d,*.dart,*.db,*.diff,*.dump,*.edn,*.eex,*.ejs,*.elm,*.erl,*.ex,*.exs,
   \*.f#,*.fish,*.fs,*.fsi,*.fsscript,*.fsx,*.gemspec,*.go,*.h,*.hbs,*.hh,*.hpp,*.hrl,*.hs,*.htm,*.html,*.hxx,*.ini,
   \*.java,*.jl,*.js,*.json,*.jsonp,*.leex,*.less,*.lhs,*.lock,*.log,*.lua,
-  \*.m,*.markdown,*.md,*.mdx,*.mjs,*.ml,*.mli,*.mustache,*.php,*.pl,*.pm,*.pp,*.ps1,*.psb,*.py,*.pyc,*.pyd,*.pyo,
+  \*.m,*.m3u,*.markdown,*.md,*.mdx,*.mjs,*.ml,*.mli,*.mustache,
+  \*.php,*.pl,*.pm,*.pp,*.ps1,*.psb,*.py,*.pyc,*.pyd,*.pyo,
   \*.rb,*.rlib,*.rmd,*.rs,*.rss,*.s[ac]ss,*.scala,*.sh,*.slim,*.sln,*.sql,*.srt,*.styl,*.suo,*.swift,
-  \*.t,*.toml,*.ts,*.twig,*.txt,*.vim,*.vue,*.xcplayground,*.xml,*.xul,*.yaml,*.yml,*vagrantfile
+  \*.t,*.toml,*.ts,*.twig,*.txt,*.vim,*.vue,*.xcplayground,*.xml,*.xul,*.yaml,*.yml,*vagrantfile,
   \.babel*,.bashprofile,.bashrc,.env,.env.*,.eslint*,.gitattributes,.gitconfig,.gitignore,.gvimrc,
   \.nvmrc,.prettier*,.rvmrc,.vimrc,.yarnrc,.zshrc,
-  \Rakefile,_gvimrc,_vimrc,dockerfile,jenkinsfile,license,makefile,procfile,vagrantfile,
-  \ env -uCOLORTERM bat --number --color always --pager never %c
+  \Rakefile,_gvimrc,_vimrc,dockerfile,jenkinsfile,license,makefile,procfile,vagrantfile
+  \ env -uCOLORTERM bat --number --color always --pager never --theme 'Sublime Snazzy' --wrap never %c
 
 " Archives
 fileviewer *.zip,*.jar,*.war,*.ear,*.oxt zip -sf %c
@@ -159,8 +161,8 @@ fileviewer ../ echo > /dev/null
 
 " Show ls in the preview window, it creates a similar look as ranger.
 " The default directory tree thing is really messy
-fileviewer */ tree -alC -L 1 %c | sed -e 's/\\ / /g'
-fileviewer .*/ tree -alC -L 1 %c | sed -e 's/\\ / /g'
+fileviewer */ tree -alC -L 1 %c | sed -e 's/\\//g'
+fileviewer .*/ tree -alC -L 1 %c | sed -e 's/\\//g'
 
 " Other files
 fileviewer * file -b %c
@@ -177,7 +179,7 @@ nnoremap dcs :cd ~/Documents<cr>
 nnoremap dls :cd ~/Downloads<cr>
 nnoremap drb :cd ~/Dropbox<cr>
 nnoremap mov :cd ~/Movies<cr>
-nnoremap msc :cd ~/MEGAsync/Music<cr>
+nnoremap msc :cd ~/MEGA/Music<cr>
 
 " Start shell in current directory
 nnoremap s :shell<cr>

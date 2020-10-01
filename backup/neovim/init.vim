@@ -4,6 +4,7 @@ call plug#begin()
 Plug '/usr/local/bin/fzf'
 Plug 'APZelos/blamer.nvim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 Plug 'alampros/vim-styled-jsx'
@@ -37,7 +38,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
@@ -134,7 +134,6 @@ set rtp+=/usr/local/opt/fzf
 " Color scheme
 syntax on
 colorscheme snazzy
-set termguicolors
 
 " Custom functions
 function! s:check_back_space() abort
