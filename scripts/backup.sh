@@ -36,19 +36,21 @@ function commit_and_push() {
   git push origin $(git branch --show-current)
 }
 
-function backup() {
+function main() {
+  setup_nvm
   cd $WORKING_DIR
 
   print_timestamp "Backup started" false
   push_notification "Started" false
 
-  update_system_sources && \
   run_gulp_tasks && \
   commit_and_push
 
   print_timestamp "Backup finished" true
   push_notification "Finished" true
+
+  update_system_sources && \
+  independent_update_tasks
 }
 
-backup
-independent_update_tasks
+main

@@ -8,11 +8,12 @@ source $WORKING_DIR/scripts/helpers.sh
 
 function run_test() {
   cd $WORKING_DIR
+  setup_nvm
 
   print_timestamp "Backup started"
   push_notification "Started"
 
-  sleep 5
+  which node
 
   print_timestamp "Backup finished" true
   push_notification "Finished" true

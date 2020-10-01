@@ -10,22 +10,22 @@ readonly NORMAL='\033[0m'
 
 steps_count=0
 
-print_step() {
+function print_step() {
   steps_count=$((steps_count+1))
   local message=$1
   printf "\n${GREEN}${BOLD}❯ ${steps_count}. ${message}${NORMAL}\n"
 }
 
-print_sub_step() {
+function print_sub_step() {
   local message=$1
   printf "\n${CYAN}- ${message}${NORMAL}\n"
 }
 
-format_date_time() {
+function format_date_time() {
   date +"%Y-%m-%d %H:%M:%S %z"
 }
 
-print_timestamp() {
+function print_timestamp() {
   local prefix=$1
   local show_commit_hash=${2:-false}
   local commit_hash=$(/usr/local/bin/git rev-parse HEAD)
@@ -38,7 +38,7 @@ print_timestamp() {
   fi
 }
 
-push_notification() {
+function push_notification() {
   local timestamp="$1 at: $(format_date_time)"
   local show_commit_hash=${2:-false}
   local commit_hash=$(/usr/local/bin/git rev-parse --short HEAD)
@@ -58,3 +58,10 @@ push_notification() {
       -sender $sender
   fi
 }
+
+function setup_nvm() {
+  export NVM_DIR=/usr/local/opt/nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
+  nvm use --delete-prefix $(cat $NVM_DIR/alias/default)
+}
+
