@@ -304,7 +304,7 @@ set classify+='  ::*.xul::'
 " }}}
 
 " {{{ 5. Color scheme
-" Minimal
+" Minimal theme
 highlight clear
 
 highlight Win cterm=none ctermfg=255 ctermbg=none
