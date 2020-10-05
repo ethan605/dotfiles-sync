@@ -147,7 +147,7 @@ fileviewer */ tree -alC -L 1 %c | sed -e 's/\\//g'
 fileviewer .*/ tree -alC -L 1 %c | sed -e 's/\\//g'
 
 " All other files
-fileviewer *,.DS_Store file -b test.sh && echo "Mime: $(file -bI test.sh)"
+fileviewer *,.DS_Store file -b %c && echo "Mime: $(file -bI %c)"
 " }}}
 
 " {{{ 3. Key mappings 
@@ -189,6 +189,12 @@ nnoremap A cw
 
 " Make a new directory
 nnoremap mkd :mkdir<space>
+
+" Quickly shrink left pane
+nnoremap <c-v> <c-w>50|
+
+" Quickly quit vifm
+nnoremap qq :q<cr>
 " }}}
 
 " {{{ 4. Icons
@@ -243,62 +249,62 @@ set classify+='  ::/.*materialize.*.(css|js)$/::'
 set classify+='  ::/.*mootools.*.js$/::'
 
 " extracted from vim-devicons - extensions
-set classify+=' λ ::*.ml,,*.mli::'
-set classify+=' ﵂ ::*.vue::'
-set classify+='  ::*.styl::'
-set classify+='  ::*.s[ac]ss::'
-set classify+='  ::*.py,,*.pyc,,*.pyo,,*.pyd::'
-set classify+='  ::*.php::'
-set classify+='  ::*.md,,*.mdx,,*.markdown,,*.rmd::'
-set classify+='  ::*.json,,*.jsonp::'
-set classify+='  ::*.js,,*.mjs::'
-set classify+='  ::*.jpg,,*.jpeg,,*.bmp,,*.png,,*.webp,,*.gif,,*.ico::'
-set classify+='  ::*.mustache,,*.hbs::'
-set classify+='  ::*.conf,,*.ini,,*.yml,,*.yaml,,*.toml,,*.bat,,.*ignore::'
-set classify+='  ::*.rss::'
+set classify+='  ::*.ai::'
+set classify+='  ::*.awk,,*.bash,,*.[ckz]sh,,*.fish,,*.ps1,,*.sh::'
+set classify+='  ::*.bat,,*.conf,,.*ignore,,*.ini,,*.toml,,*.yml,,*.yaml::'
+set classify+='  ::*.bson::'
+set classify+='  ::*.c,,*.c[cp],,*.c++,,*.cpp,,*.cxx,,*.m::'
+set classify+='  ::*.clj,,*.cljc::'
+set classify+='  ::*.cljs,,*.edn::'
 set classify+='  ::*.coffee::'
-set classify+='  ::*.twig::'
-set classify+='  ::*.cpp,,*.c++,,*.cxx,,*.c[cp],,*.m::'
-set classify+='  ::*.c::'
-set classify+='  ::*.hs,,*.lhs::'
-set classify+='  ::*.lua::'
-set classify+='  ::*.jl::'
+set classify+='  ::*.cs::'
+set classify+='  ::*.css::'
+set classify+='  ::*.d::'
+set classify+='  ::*.dart::'
+set classify+='  ::*.db,,*.dump,,*.sql::'
+set classify+='  ::*.diff::'
+set classify+='  ::*.elm::'
+set classify+='  ::*.erl,,*.hrl::'
+set classify+='  ::*.ex,,*.eex,,*.exs,,*.leex::'
+set classify+='  ::*.f#,,*.fs,,*.fsi,,*.fsscript,,*.fsx::'
+set classify+='  ::*.gemspec,,*.rb::'
 set classify+='  ::*.go::'
+set classify+='  ::*.h,,*.hh,,*.hpp,,*.hxx::'
+set classify+='  ::*.hs,,*.lhs::'
+set classify+='  ::*.htm,,*.html,,*.slim,,*.ejs::'
+set classify+='  ::*.java::'
+set classify+='  ::*.jl::'
+set classify+='  ::*.jpg,,*.jpeg,,*.bmp,,*.png,,*.webp,,*.gif,,*.ico::'
+set classify+='  ::*.js,,*.mjs::'
+set classify+='  ::*.json,,*.jsonp::'
+set classify+='  ::*.[jt]sx::'
+set classify+='  ::*.less::'
+set classify+='  ::*.lua::'
+set classify+='  ::*.md,,*.mdx,,*.markdown,,*.rmd::'
+set classify+='λ  ::*.ml,,*.mli::'
+set classify+='  ::*.mustache,,*.hbs::'
+set classify+='  ::*.php::'
+set classify+='  ::*.pl,,*.pm,,*.t::'
+set classify+='  ::*.pp::'
+set classify+='  ::*.psb,,*.psd::'
+set classify+='  ::*.py,,*.pyc,,*.pyo,,*.pyd::'
+set classify+='  ::*.rlib,,*.rs::'
+set classify+='  ::*.rss::'
+set classify+='  ::*.s[ac]ss::'
+set classify+='  ::*.scala::'
+set classify+='  ::*.sln,,*.suo::'
+set classify+='  ::*.styl::'
+set classify+='  ::*.swift,,*.xcplayground::'
+set classify+='  ::*.twig::'
 set classify+='  ::*.ts,,types/::'
 set classify+='  ::*.vim::'
-set classify+='  ::*.elm::'
-set classify+='  ::*.ex,,*.exs,,*.eex,,*.leex::'
-set classify+='  ::*.db,,*.sql,,*.dump::'
-set classify+='  ::*.sln,,*.suo::'
-set classify+='  ::*.diff::'
-set classify+='  ::*.htm,,*.html,,*.slim,,*.ejs::'
-set classify+='  ::*.scala::'
-set classify+='  ::*.java::'
+set classify+='﵂  ::*.vue::'
+set classify+='  ::*.xml::'
 set classify+='  ::*.xul::'
-set classify+='  ::*.css::'
-set classify+='  ::*.swift,,*.xcplayground::'
-set classify+='  ::*.less::'
-set classify+='  ::*.clj,,*.cljc::'
-set classify+='  ::*.pl,,*.pm,,*.t::'
-set classify+='  ::*.cljs,,*.edn::'
-set classify+='  ::*.rb,,*.gemspec::'
-set classify+='  ::*.sh,,*.fish,,*.bash,,*.[ckz]sh,,*.awk,,*.ps1::'
-set classify+='  ::*.dart::'
-set classify+='  ::*.bson::'
-set classify+='  ::*.f#,,*.fsscript,,*.fsx,,*.fs,,*.fsi::'
-set classify+='  ::*.rs,,*.rlib::'
-set classify+='  ::*.d::'
-set classify+='  ::*.erl,,*.hrl::'
-set classify+='  ::*.[jt]sx::'
-set classify+='  ::*.h,,*.hh,,*.hpp,,*.hxx::'
-set classify+='  ::*.pp::'
-set classify+='  ::*.xml::'
-set classify+='  ::*.cs::'
-set classify+='  ::*.ai::'
-set classify+='  ::*.psd,,*.psb::'
 " }}}
 
 " {{{ 5. Color scheme
+" Minimal
 highlight clear
 
 highlight Win cterm=none ctermfg=255 ctermbg=none
