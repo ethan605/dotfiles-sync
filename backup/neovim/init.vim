@@ -66,18 +66,18 @@ let g:indentLine_enabled = 1
 
 " For NERDTree
 let g:NERDSpaceDelims = 1 
-let g:NERDTreeIgnore = ['\~$', 'vendor', 'node_modules']
+let g:NERDTreeIgnore = ['\~$', 'node_modules']
 
 " For Prettier
 let g:prettier#autoformat_config_present = 1
 
 " For material-monokai
-let g:materialmonokai_italic=1
-let g:materialmonokai_subtle_airline=1
-let g:materialmonokai_subtle_spell=1
+let g:materialmonokai_italic = 1
+let g:materialmonokai_subtle_airline = 1
+let g:materialmonokai_subtle_spell = 1
 
 " Show hidden files in NERDTree
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden = 1
 
 if has('nvim')
   " For blamer.nvim
@@ -89,6 +89,10 @@ if has('nvim')
   " For coc.nvim
   let g:coc_snippet_next = '<c-j>'
   let g:coc_snippet_prev = '<c-k>'
+endif
+
+if !has('nvim')
+  let g:NERDTreeGitStatusConcealBrackets = 1
 endif
 
 set autoread                " Auto reload file from outside changes
@@ -250,6 +254,9 @@ if has('nvim')
 
   " Use K to show documentation in preview window
   nnoremap <silent> K :call <sid>show_documentation()<cr>
+
+  " Search globally with RipGrep
+  nmap <c-s> :Rg<space>
 endif
 
 " Toggle NERDTree with focusing current file's location
@@ -258,9 +265,6 @@ nmap <silent> <c-o> :call <sid>smarter_NERDTreeToggle()<cr>
 " Quick files opening
 nmap <silent> <c-p> :GFiles<cr>
 nmap <silent> <c-g> :GFiles?<cr>
-
-" Search globally with RipGrep
-nmap <c-s> :Rg<space>
 
 " Copy current file's path
 nmap <silent> ycf :let @+=@%<cr>
