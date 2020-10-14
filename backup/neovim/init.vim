@@ -243,7 +243,7 @@ if has('nvim')
   imap <c-j> <Plug>(coc-snippets-expand-jump)
 
   " coc.nvim gotos
-  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<cr>
   nmap <silent> gy <Plug>(coc-type-definition)
   nmap <silent> gi <Plug>(coc-implementation)
   nmap <silent> gr <Plug>(coc-references)
@@ -275,8 +275,8 @@ nmap <silent> <leader> <Plug>(easymotion-prefix)
 " Leader + space to hide search highlights
 nmap <silent> <leader><space> :nohlsearch<cr>
 
-" Show a mark for characters at column 120
-call matchadd('ColorColumn', '\%120v', 100)
+" Show a mark for characters at column 100
+call matchadd('ColorColumn', '\%100v', 100)
 
 filetype plugin on
 
@@ -292,7 +292,13 @@ augroup javascript_folding
   autocmd FileType javascript setlocal foldmethod=syntax
 augroup END
 
-" Disable indentLine for markdowns
-autocmd FileType markdown let g:indentLine_enabled=0
+" Disable unnecessary conceals for markdowns
+augroup markdown_concealing
+  autocmd!
+  autocmd FileType markdown let g:indentLine_enabled=0
+  autocmd FileType markdown set conceallevel=0
+augroup END
+
+" Force syntax highlight for specific file types
 autocmd BufNewFile,BufRead vifmrc set syntax=vim
 autocmd BufNewFile,BufRead .prettierrc set syntax=json
