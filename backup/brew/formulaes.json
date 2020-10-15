@@ -23,7 +23,6 @@
   "browserpass",
   "cairo",
   "calc",
-  "ccls",
   "cfitsio",
   "clang-format",
   "cmake",
