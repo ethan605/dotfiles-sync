@@ -243,7 +243,8 @@ if has('nvim')
   imap <c-j> <Plug>(coc-snippets-expand-jump)
 
   " coc.nvim gotos
-  nmap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<cr>
+  " nmap <silent> gd :call CocAction('jumpDefinition', 'tab drop')<cr>
+  nmap <silent> gd <Plug>(coc-definition)
   nmap <silent> gy <Plug>(coc-type-definition)
   nmap <silent> gi <Plug>(coc-implementation)
   nmap <silent> gr <Plug>(coc-references)

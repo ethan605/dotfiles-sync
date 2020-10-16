@@ -164,6 +164,7 @@
   "lzip",
   "lzo",
   "mongodb-community",
+  "mongodb-database-tools",
   "mozjpeg",
   "mpfr",
   "mpv",
