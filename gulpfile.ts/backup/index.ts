@@ -13,6 +13,7 @@ import gnupg from './gnupg';
 import karabiner from './karabiner';
 import kitty from './kitty';
 import launchctl from './launchctl';
+import neomutt from './neomutt';
 import neovim from './neovim';
 import nvm from './nvm';
 import protectedSources from './protected-sources';
@@ -38,6 +39,7 @@ gulp.task(
       karabiner,
       kitty,
       launchctl,
+      neomutt,
       neovim,
       nvm,
       protectedSources,
