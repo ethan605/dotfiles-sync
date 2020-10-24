@@ -1,0 +1,122 @@
+#################################
+##### thanhnx.605@gmail.com #####
+#################################
+
+Create Both
+Expunge Both
+SyncState * # Save the synchronization state files in the relevant directory
+
+IMAPAccount primary
+Host imap.gmail.com
+User thanhnx.605@gmail.com
+Passcmd "pass mbsync/thanhnx.605"
+SSLType IMAPS
+Authmechs LOGIN
+CertificateFile ~/.config/neomutt/ca-certificates.cer
+
+IMAPStore primary-remote
+Account primary
+
+MaildirStore primary-local
+Path ~/.mail/primary/
+Inbox ~/.mail/primary/inbox/
+Subfolders Verbatim
+
+Channel primary
+Master :primary-remote:
+Slave :primary-local:
+Patterns INBOX College "College/*" Personal "Personal/*" Work "Work/*" "e-Personal/*"
+
+Create Both
+Expunge Both
+SyncState *
+
+Channel primary-Sent
+Master :primary-remote:"[Gmail]/Sent Mail"
+Slave :primary-local:Sent
+Create Both
+Expunge Both
+SyncState *
+
+Channel primary-Drafts
+Master :primary-remote:"[Gmail]/Drafts"
+Slave :primary-local:Drafts
+Create Both
+Expunge Both
+SyncState *
+
+Channel primary-Spam
+Master :primary-remote:"[Gmail]/Spam"
+Slave :primary-local:Spam
+Create Both
+Expunge Both
+SyncState *
+
+Channel primary-Trash
+Master :primary-remote:"[Gmail]/Bin"
+Slave :primary-local:Trash
+Create Both
+Expunge Both
+SyncState *
+
+Group primary
+Channel primary-*
+
+#################################
+##### xtnguyen605@gmail.com #####
+#################################
+
+IMAPAccount aliased
+Host imap.gmail.com
+User xtnguyen605@gmail.com
+Passcmd "pass mbsync/xtnguyen605"
+SSLType IMAPS
+Authmechs LOGIN
+CertificateFile ~/.config/neomutt/ca-certificates.cer
+
+IMAPStore aliased-remote
+Account aliased
+
+MaildirStore aliased-local
+Path ~/.mail/aliased/
+Inbox ~/.mail/aliased/inbox/
+Subfolders Verbatim
+
+Channel aliased
+Master :aliased-remote:
+Slave :aliased-local:
+Patterns INBOX
+Create Both
+Expunge Both
+SyncState *
+
+Channel aliased-Sent
+Master :aliased-remote:"[Gmail]/Sent Mail"
+Slave :aliased-local:Sent
+Create Both
+Expunge Both
+SyncState *
+
+Channel aliased-Drafts
+Master :aliased-remote:"[Gmail]/Drafts"
+Slave :aliased-local:Drafts
+Create Both
+Expunge Both
+SyncState *
+
+Channel aliased-Spam
+Master :aliased-remote:"[Gmail]/Spam"
+Slave :aliased-local:Spam
+Create Both
+Expunge Both
+SyncState *
+
+Channel aliased-Trash
+Master :aliased-remote:"[Gmail]/Trash"
+Slave :aliased-local:Trash
+Create Both
+Expunge Both
+SyncState *
+
+Group aliased
+Channel aliased-*
