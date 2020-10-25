@@ -95,20 +95,24 @@ mailboxes =Primary
 mailboxes =Primary/Inbox =Primary/Sent =Primary/Spam =Primary/Trash
 mailboxes =Primary/College
 mailboxes =Primary/College/HRTech =Primary/College/IBM =Primary/College/K54CA
-mailboxes =Primary/College/NCKH "=Primary/College/VNU Mail"
+mailboxes =Primary/College/NCKH =Primary/College/VNU
 mailboxes =Primary/Personal
 mailboxes =Primary/Personal/Family =Primary/Personal/Hobbies
 mailboxes =Primary/Personal/Housing =Primary/Personal/Insurance
 mailboxes =Primary/Work
-mailboxes "=Primary/Work/Jobs opportunities" =Primary/Work/Onaclover =Primary/Work/Onfido
+mailboxes =Primary/Work/Job-opportunities =Primary/Work/Onaclover =Primary/Work/Onfido
 mailboxes =Primary/Work/Others
-mailboxes =Primary/Work/Others/DaVinci ="Primary/Work/Others/EDM Courses" =Primary/Work/Others/Ecomedic
-mailboxes ="Primary/Work/Others/Hoa Chu Wellcare" ="Primary/Work/Others/Side projects"
-mailboxes ="Primary/Work/Others/Unica courses" =Primary/Work/Others/VitaFit
-mailboxes "=Primary/Work/Remote Working"
-mailboxes "=Primary/Work/Remote Working/GetTechTalent"
-mailboxes "=Primary/Work/Remote Working/Pangara"
-mailboxes "=Primary/Work/Remote Working/Pi-top"
+mailboxes =Primary/Work/Others/DaVinci =Primary/Work/Others/EDM-courses
+mailboxes =Primary/Work/Others/Ecomedic =Primary/Work/Others/Hoa-Chu-Wellcare
+mailboxes =Primary/Work/Others/PTTV
+mailboxes =Primary/Work/Others/Side-projects
+mailboxes =Primary/Work/Others/Side-projects/Cryptocurrencies
+mailboxes =Primary/Work/Others/Side-projects/TradingView
+mailboxes =Primary/Work/Others/Unica-courses =Primary/Work/Others/VitaFit
+mailboxes =Primary/Work/Remote-working
+mailboxes =Primary/Work/Remote-working/GetTechTalent
+mailboxes =Primary/Work/Remote-working/Pangara
+mailboxes =Primary/Work/Remote-working/Pi-top
 mailboxes =Primary/Work/Topica =Primary/Work/Vinova
 mailboxes =Primary/e-Personal
 mailboxes =Primary/e-Personal/e-Banking =Primary/e-Personal/e-Commerce =Primary/e-Personal/e-Tele

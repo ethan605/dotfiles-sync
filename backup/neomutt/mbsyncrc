@@ -6,7 +6,7 @@ Create Both
 Expunge Both
 SyncState * # Save the synchronization state files in the relevant directory
 
-IMAPAccount primary
+IMAPAccount Primary
 Host imap.gmail.com
 User thanhnx.605@gmail.com
 Passcmd "pass mbsync/thanhnx.605"
@@ -14,59 +14,59 @@ SSLType IMAPS
 Authmechs LOGIN
 CertificateFile ~/.config/neomutt/ca-certificates.cer
 
-IMAPStore primary-remote
-Account primary
+IMAPStore Primary-remote
+Account Primary
 
-MaildirStore primary-local
-Path ~/.mail/primary/
-Inbox ~/.mail/primary/inbox/
+MaildirStore Primary-local
+Path ~/.mail/Primary/
+Inbox ~/.mail/Primary/inbox/
 Subfolders Verbatim
 
-Channel primary
-Master :primary-remote:
-Slave :primary-local:
+Channel Primary
+Master :Primary-remote:
+Slave :Primary-local:
 Patterns INBOX College "College/*" Personal "Personal/*" Work "Work/*" "e-Personal/*"
 
 Create Both
 Expunge Both
 SyncState *
 
-Channel primary-Sent
-Master :primary-remote:"[Gmail]/Sent Mail"
-Slave :primary-local:Sent
+Channel Primary-Sent
+Master :Primary-remote:"[Gmail]/Sent Mail"
+Slave :Primary-local:Sent
 Create Both
 Expunge Both
 SyncState *
 
-Channel primary-Drafts
-Master :primary-remote:"[Gmail]/Drafts"
-Slave :primary-local:Drafts
+Channel Primary-Drafts
+Master :Primary-remote:"[Gmail]/Drafts"
+Slave :Primary-local:Drafts
 Create Both
 Expunge Both
 SyncState *
 
-Channel primary-Spam
-Master :primary-remote:"[Gmail]/Spam"
-Slave :primary-local:Spam
+Channel Primary-Spam
+Master :Primary-remote:"[Gmail]/Spam"
+Slave :Primary-local:Spam
 Create Both
 Expunge Both
 SyncState *
 
-Channel primary-Trash
-Master :primary-remote:"[Gmail]/Bin"
-Slave :primary-local:Trash
+Channel Primary-Trash
+Master :Primary-remote:"[Gmail]/Bin"
+Slave :Primary-local:Trash
 Create Both
 Expunge Both
 SyncState *
 
-Group primary
-Channel primary-*
+Group Primary
+Channel Primary-*
 
 #################################
 ##### xtnguyen605@gmail.com #####
 #################################
 
-IMAPAccount aliased
+IMAPAccount Aliased
 Host imap.gmail.com
 User xtnguyen605@gmail.com
 Passcmd "pass mbsync/xtnguyen605"
@@ -74,49 +74,49 @@ SSLType IMAPS
 Authmechs LOGIN
 CertificateFile ~/.config/neomutt/ca-certificates.cer
 
-IMAPStore aliased-remote
-Account aliased
+IMAPStore Aliased-remote
+Account Aliased
 
-MaildirStore aliased-local
-Path ~/.mail/aliased/
-Inbox ~/.mail/aliased/inbox/
+MaildirStore Aliased-local
+Path ~/.mail/Aliased/
+Inbox ~/.mail/Aliased/inbox/
 Subfolders Verbatim
 
-Channel aliased
-Master :aliased-remote:
-Slave :aliased-local:
+Channel Aliased
+Master :Aliased-remote:
+Slave :Aliased-local:
 Patterns INBOX
 Create Both
 Expunge Both
 SyncState *
 
-Channel aliased-Sent
-Master :aliased-remote:"[Gmail]/Sent Mail"
-Slave :aliased-local:Sent
+Channel Aliased-Sent
+Master :Aliased-remote:"[Gmail]/Sent Mail"
+Slave :Aliased-local:Sent
 Create Both
 Expunge Both
 SyncState *
 
-Channel aliased-Drafts
-Master :aliased-remote:"[Gmail]/Drafts"
-Slave :aliased-local:Drafts
+Channel Aliased-Drafts
+Master :Aliased-remote:"[Gmail]/Drafts"
+Slave :Aliased-local:Drafts
 Create Both
 Expunge Both
 SyncState *
 
-Channel aliased-Spam
-Master :aliased-remote:"[Gmail]/Spam"
-Slave :aliased-local:Spam
+Channel Aliased-Spam
+Master :Aliased-remote:"[Gmail]/Spam"
+Slave :Aliased-local:Spam
 Create Both
 Expunge Both
 SyncState *
 
-Channel aliased-Trash
-Master :aliased-remote:"[Gmail]/Trash"
-Slave :aliased-local:Trash
+Channel Aliased-Trash
+Master :Aliased-remote:"[Gmail]/Trash"
+Slave :Aliased-local:Trash
 Create Both
 Expunge Both
 SyncState *
 
-Group aliased
-Channel aliased-*
+Group Aliased
+Channel Aliased-*
