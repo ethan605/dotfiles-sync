@@ -7,17 +7,14 @@ import { wrapHomeDir } from '../helpers';
 // Constants
 import { BACKUP_DIR } from '../constants';
 
-const SOURCES = [
-  'bindings',
-  'colors',
-  'mailcap',
-  'mbsyncrc',
-  'msmtprc',
-  'neomuttrc',
-  'scripts/*',
-  'signatures/*',
-].map(src => wrapHomeDir(`.config/neomutt/${src}`));
+const RESOURCES = ['bindings', 'colors', 'mailcap', 'mbsyncrc', 'msmtprc', 'neomuttrc'].map(src =>
+  wrapHomeDir(`.config/neomutt/${src}`)
+);
 
-const neomutt = (): NodeJS.ReadWriteStream => gulp.src(SOURCES).pipe(gulp.dest(`${BACKUP_DIR}/neomutt`));
+const neomuttResources = (): NodeJS.ReadWriteStream => gulp.src(RESOURCES).pipe(gulp.dest(`${BACKUP_DIR}/neomutt`));
+const neomuttScripts = (): NodeJS.ReadWriteStream =>
+  gulp.src(wrapHomeDir(`.config/neomutt/scripts/*`)).pipe(gulp.dest(`${BACKUP_DIR}/neomutt/scripts`));
+const neomuttSignatures = (): NodeJS.ReadWriteStream =>
+  gulp.src(wrapHomeDir(`.config/neomutt/signatures/*`)).pipe(gulp.dest(`${BACKUP_DIR}/neomutt/signatures`));
 
-export default neomutt;
+export default gulp.parallel([neomuttResources, neomuttScripts, neomuttSignatures]);
