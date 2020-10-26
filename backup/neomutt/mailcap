@@ -2,17 +2,15 @@
 text/html; w3m -I %{charset} -T text/html; copiousoutput
 text/plain; nvim %s
 
-# PDF
+application/octet-stream; qlmanage -p %s >& /dev/null
 application/pdf; qlmanage -p %s >& /dev/null
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; qlmanage -p %s >& /dev/null
-image/pdf; qlmanage -p %s >& /dev/null
-
-# Images
 image/bmp; qlmanage -p %s >& /dev/null
 image/gif; qlmanage -p %s >& /dev/null
 image/jpeg; qlmanage -p %s >& /dev/null
 image/jpg; qlmanage -p %s >& /dev/null
 image/libm; qlmanage -p %s >& /dev/null
+image/pdf; qlmanage -p %s >& /dev/null
 image/png; qlmanage -p %s >& /dev/null
 image/tiff; qlmanage -p %s >& /dev/null
 image/x-png; qlmanage -p %s >& /dev/null
