@@ -1,4 +1,4 @@
-# vim: syntax=muttrc
+# vim: syntax=neomuttrc
 
 # Messages navigation
 bind index,pager k previous-entry
@@ -7,12 +7,14 @@ bind index,pager \cu half-up
 bind index,pager \cd half-down
 bind index,pager e next-line
 bind index,pager y previous-line
-bind index,pager g noop
-bind pager gg top
-bind index gg first-entry
 bind pager G bottom
 bind index G last-entry
 bind index o display-message
+
+# Remap `g` key
+bind index,pager g noop
+bind pager gg top
+bind index gg first-entry
 
 # Sidebar navigation
 bind index,pager \cj sidebar-next
@@ -25,9 +27,6 @@ bind index,pager @ compose-to-sender
 bind index,pager R group-reply
 bind index <tab> sync-mailbox
 bind index <space> collapse-thread
-
-# Save all attachments
-# macro index,pager S "<pipe-message>ripmime -i - -d ${HOME}/Downloads && rm ${HOME}/Downloads/textfile*" "Save all non-text attachments using ripmime"
 
 # View attachments properly.
 bind attach o view-mailcap
@@ -46,14 +45,15 @@ macro index,pager \cr \
   "<shell-escape>mbsync -a -c ${HOME}/.config/neomutt/mbsyncrc<enter>" \
   "sync all emails"
 
-# Move entry to a folder
-bind index,pager m noop
-macro index,pager mm \
-  ":source ${HOME}/.config/neomutt/scripts/fzf-save-message|<enter>" \
-  "move entry to a folder"
-macro index,pager ma \
+# Archive a message
+macro index,pager A \
   ":source ${HOME}/.config/neomutt/scripts/fzf-archive-message|<enter>" \
   "archive message"
+
+# Move message to a folder
+macro index,pager M \
+  ":source ${HOME}/.config/neomutt/scripts/fzf-save-message|<enter>" \
+  "move entry to a folder"
 
 # Open a folder
 macro index,pager \cp \
@@ -61,13 +61,12 @@ macro index,pager \cp \
   "open a folder"
 
 # Mark all entries as read
-bind index,pager n noop
-macro index na \
-  "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
-  "mark all new emails as read"
+#macro index AN \
+#  "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
+#  "mark all new emails as read"
 
 # Delete and sync
-bind index,pager d noop
-macro index,pager dd \
-  "<delete-message><sync-mailbox>" \
-  "delete and sync"
+#bind index,pager d noop
+#macro index,pager dd \
+#  "<delete-message><sync-mailbox>" \
+#  "delete and sync"

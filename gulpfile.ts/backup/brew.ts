@@ -6,7 +6,7 @@ import { composeReadCommandTask } from '../helpers';
 import type { ReadCommandConfig } from '../helpers';
 
 const TASKS: ReadCommandConfig[] = [
-  { title: 'formulaes', command: 'brew list' },
+  { title: 'formulaes', command: 'brew list --formula' },
   { title: 'casks', command: 'brew list --cask' },
   { title: 'taps', command: 'brew tap' },
 ];

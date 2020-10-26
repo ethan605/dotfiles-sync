@@ -8,7 +8,7 @@ User thanhnx.605@gmail.com
 Passcmd "pass mbsync/primary"
 SSLType IMAPS
 Authmechs LOGIN
-CertificateFile ~/.config/neomutt/ca-certificates.cer
+CertificateFile /usr/local/etc/openssl@1.1/cert.pem
 
 IMAPStore Primary-remote
 Account Primary
@@ -74,7 +74,7 @@ User xtnguyen605@gmail.com
 Passcmd "pass mbsync/uk-alias"
 SSLType IMAPS
 Authmechs LOGIN
-CertificateFile ~/.config/neomutt/ca-certificates.cer
+CertificateFile /usr/local/etc/openssl@1.1/cert.pem
 
 IMAPStore UK-Alias-remote
 Account UK-Alias
@@ -139,7 +139,7 @@ User thanhnx.605@live.com
 Passcmd "pass mbsync/outlook"
 SSLType IMAPS
 Authmechs LOGIN
-CertificateFile ~/.config/neomutt/ca-certificates.cer
+CertificateFile /usr/local/etc/openssl@1.1/cert.pem
 
 IMAPStore Outlook-remote
 Account Outlook
