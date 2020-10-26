@@ -7,7 +7,7 @@ import { wrapHomeDir } from '../helpers';
 // Constants
 import { BACKUP_DIR } from '../constants';
 
-const SOURCES = ['bindings', 'colors', 'mailcap', 'mbsyncrc', 'neomuttrc'].map(src =>
+const SOURCES = ['bindings', 'colors', 'mailcap', 'mbsyncrc', 'neomuttrc', 'scripts/*'].map(src =>
   wrapHomeDir(`.config/neomutt/${src}`)
 );
 

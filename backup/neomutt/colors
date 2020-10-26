@@ -1,4 +1,6 @@
-# basic colors ---------------------------------------------------------
+# vim: syntax=muttrc
+
+# Basic colors
 color normal        white           default
 color error         red             default
 color tilde         black           default
@@ -7,33 +9,30 @@ color markers       red             white
 color attachment    white           default
 color search        brightmagenta   default
 color indicator     brightblack     yellow
-color tree          green          default
+color tree          green           default
 
-# sidebarh
-color sidebar_new   default blue
+# Sidebar
+color sidebar_new   default         blue
 
-# index ----------------------------------------------------------------
-
+# Index
 color index         red             default         "~A"    # all messages
 color index         brightred       default         "~E"    # expired messages
 color index         blue            default         "~N"    # new messages
 color index         blue            default         "~O"    # old messages
 color index         brightmagenta   default         "~Q"    # messages that have been replied to
-color index         brightwhite           default         "~R"    # read messages
+color index         brightwhite     default         "~R"    # read messages
 color index         blue            default         "~U"    # unread messages
 color index         brightyellow    default         "~v"    # messages part of a collapsed thread
 color index         brightyellow    default         "~P"    # messages from me
 color index         red             default         "~F"    # flagged messages
 color index         black           red             "~D"    # deleted messages
 
-# message headers ------------------------------------------------------
-
+# Message headers
 color hdrdefault    brightgreen     default
 color header        brightyellow    default         "^(From)"
 color header        blue            default         "^(Subject)"
 
-# body -----------------------------------------------------------------
-
+# Body
 color quoted        blue            default
 color quoted1       cyan            default
 color quoted2       yellow          default

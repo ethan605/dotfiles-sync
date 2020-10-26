@@ -1,3 +1,5 @@
+# vim: syntax=muttrc
+
 # paths
 set folder            = ~/.mail
 set header_cache      = ~/.config/neomutt/cache/headers
@@ -41,6 +43,7 @@ unset mime_forward                   # forward attachments as part of body
 # status bar, date format, finding stuff etc.
 set status_chars = " *%A"
 set status_format = "[ Folder: %f ] [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]%>─%?p?( %p postponed )?"
+set status_on_top
 set date_format = "%d.%m.%Y %H:%M"
 set index_format = "[%Z] %?X?A&-? %D  %-20.20F  %s"
 set sort = threads
@@ -117,8 +120,10 @@ mailboxes =Primary/Work/Topica =Primary/Work/Vinova
 mailboxes =Primary/e-Personal
 mailboxes =Primary/e-Personal/e-Banking =Primary/e-Personal/e-Commerce =Primary/e-Personal/e-Tele
 mailboxes =Primary/e-Personal/e-Transport =Primary/e-Personal/e-Wallet
-mailboxes =Aliased
-mailboxes =Aliased/Inbox =Aliased/Sent =Aliased/Spam =Aliased/Trash
+mailboxes =UK-Alias
+mailboxes =UK-Alias/Inbox =UK-Alias/Sent =UK-Alias/Spam =UK-Alias/Archive =UK-Alias/Trash
+mailboxes =Outlook
+mailboxes =Outlook/Inbox =Outlook/Sent =Outlook/Spam =Outlook/Archive =Outlook/Trash
 
 # Colors and keybindings
 source ~/.config/neomutt/colors
@@ -136,8 +141,8 @@ folder-hook Primary "set postponed=+Primary/Drafts"
 folder-hook Primary "set record=+Primary/Sent"
 folder-hook Primary "set trash=+Primary/Trash"
 
-folder-hook Aliased "set from="Aliased@gmail.com""
-folder-hook Aliased "set spoolfile = "+Aliased/Inbox""
-folder-hook Aliased "set postponed=+Aliased/Drafts"
-folder-hook Aliased "set record=+Aliased/Sent"
-folder-hook Aliased "set trash=+Aliased/Trash"
+folder-hook UK-Alias "set from="UK-Alias@gmail.com""
+folder-hook UK-Alias "set spoolfile = "+UK-Alias/Inbox""
+folder-hook UK-Alias "set postponed=+UK-Alias/Drafts"
+folder-hook UK-Alias "set record=+UK-Alias/Sent"
+folder-hook UK-Alias "set trash=+UK-Alias/Trash"

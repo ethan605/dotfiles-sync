@@ -2,14 +2,10 @@
 ##### thanhnx.605@gmail.com #####
 #################################
 
-Create Both
-Expunge Both
-SyncState * # Save the synchronization state files in the relevant directory
-
 IMAPAccount Primary
 Host imap.gmail.com
 User thanhnx.605@gmail.com
-Passcmd "pass mbsync/thanhnx.605"
+Passcmd "pass mbsync/primary"
 SSLType IMAPS
 Authmechs LOGIN
 CertificateFile ~/.config/neomutt/ca-certificates.cer
@@ -25,8 +21,14 @@ Subfolders Verbatim
 Channel Primary
 Master :Primary-remote:
 Slave :Primary-local:
-Patterns INBOX College "College/*" Personal "Personal/*" Work "Work/*" "e-Personal/*"
+Patterns College "College/*" Personal "Personal/*" Work "Work/*" "e-Personal/*"
+Create Both
+Expunge Both
+SyncState *
 
+Channel Primary-Inbox
+Master :Primary-remote:INBOX
+Slave :Primary-local:Inbox
 Create Both
 Expunge Both
 SyncState *
@@ -66,57 +68,115 @@ Channel Primary-*
 ##### xtnguyen605@gmail.com #####
 #################################
 
-IMAPAccount Aliased
+IMAPAccount UK-Alias
 Host imap.gmail.com
 User xtnguyen605@gmail.com
-Passcmd "pass mbsync/xtnguyen605"
+Passcmd "pass mbsync/uk-alias"
 SSLType IMAPS
 Authmechs LOGIN
 CertificateFile ~/.config/neomutt/ca-certificates.cer
 
-IMAPStore Aliased-remote
-Account Aliased
+IMAPStore UK-Alias-remote
+Account UK-Alias
 
-MaildirStore Aliased-local
-Path ~/.mail/Aliased/
-Inbox ~/.mail/Aliased/inbox/
+MaildirStore UK-Alias-local
+Path ~/.mail/UK-Alias/
+Inbox ~/.mail/UK-Alias/inbox/
 Subfolders Verbatim
 
-Channel Aliased
-Master :Aliased-remote:
-Slave :Aliased-local:
-Patterns INBOX
+Channel UK-Alias-Inbox
+Master :UK-Alias-remote:INBOX
+Slave :UK-Alias-local:Inbox
 Create Both
 Expunge Both
 SyncState *
 
-Channel Aliased-Sent
-Master :Aliased-remote:"[Gmail]/Sent Mail"
-Slave :Aliased-local:Sent
+Channel UK-Alias-Sent
+Master :UK-Alias-remote:"[Gmail]/Sent Mail"
+Slave :UK-Alias-local:Sent
 Create Both
 Expunge Both
 SyncState *
 
-Channel Aliased-Drafts
-Master :Aliased-remote:"[Gmail]/Drafts"
-Slave :Aliased-local:Drafts
+Channel UK-Alias-Drafts
+Master :UK-Alias-remote:"[Gmail]/Drafts"
+Slave :UK-Alias-local:Drafts
 Create Both
 Expunge Both
 SyncState *
 
-Channel Aliased-Spam
-Master :Aliased-remote:"[Gmail]/Spam"
-Slave :Aliased-local:Spam
+Channel UK-Alias-Spam
+Master :UK-Alias-remote:"[Gmail]/Spam"
+Slave :UK-Alias-local:Spam
 Create Both
 Expunge Both
 SyncState *
 
-Channel Aliased-Trash
-Master :Aliased-remote:"[Gmail]/Trash"
-Slave :Aliased-local:Trash
+Channel UK-Alias-Archive
+Master :UK-Alias-remote:"[Gmail]/All Mail"
+Slave :UK-Alias-local:Archive
 Create Both
 Expunge Both
 SyncState *
 
-Group Aliased
-Channel Aliased-*
+Channel UK-Alias-Trash
+Master :UK-Alias-remote:"[Gmail]/Trash"
+Slave :UK-Alias-local:Trash
+Create Both
+Expunge Both
+SyncState *
+
+Group UK-Alias
+Channel UK-Alias-*
+
+#################################
+##### thanhnx.605@live.com ######
+#################################
+
+IMAPAccount Outlook
+Host outlook.office365.com
+User thanhnx.605@live.com
+Passcmd "pass mbsync/outlook"
+SSLType IMAPS
+Authmechs LOGIN
+CertificateFile ~/.config/neomutt/ca-certificates.cer
+
+IMAPStore Outlook-remote
+Account Outlook
+
+MaildirStore Outlook-local
+Path ~/.mail/Outlook/
+Inbox ~/.mail/Outlook/inbox/
+Subfolders Verbatim
+
+Channel Outlook
+Master :Outlook-remote:
+Slave :Outlook-local:
+Patterns Archive Drafts GetTechTalent Insurance Personal Sent Work
+Create Both
+Expunge Both
+SyncState *
+
+Channel Outlook-Inbo
+Master :Outlook-remote:INBOX
+Slave :Outlook-local:Inbox
+Create Both
+Expunge Both
+SyncState *
+
+Channel Outlook-Spam
+Master :Outlook-remote:Junk
+Slave :Outlook-local:Spam
+Create Both
+Expunge Both
+SyncState *
+
+Channel Outlook-Trash
+Master :Outlook-remote:Deleted
+Slave :Outlook-local:Trash
+Create Both
+Expunge Both
+SyncState *
+
+Group Outlook
+Channel Outlook-*

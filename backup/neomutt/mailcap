@@ -4,6 +4,7 @@ text/plain; nvim %s
 
 # PDF
 application/pdf; qlmanage -p %s >& /dev/null
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; qlmanage -p %s >& /dev/null
 image/pdf; qlmanage -p %s >& /dev/null
 
 # Images
