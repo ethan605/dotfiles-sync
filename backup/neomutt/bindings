@@ -28,45 +28,34 @@ bind index,pager R group-reply
 bind index <tab> sync-mailbox
 bind index <space> collapse-thread
 
-# View attachments properly.
+# View attachments properly
 bind attach o view-mailcap
 
 # Drafts
 bind compose P postpone-message
 bind index p recall-message
 
-# finding stuff
+# Finding stuff
 bind editor <tab> complete-query
 # macro index F "<shell-escape>mu find --clearlinks --format=links --linksdir=${HOME}/.mu/results " "mu find"
 # macro index \cf "<change-folder-readonly>${HOME}/.mu/results<enter>" "mu find results"
 
-# Sync all emails
 macro index,pager \cr \
   "<shell-escape>mbsync -a -c ${HOME}/.config/neomutt/mbsyncrc<enter>" \
   "sync all emails"
 
-# Archive a message
 macro index,pager A \
   ":source ${HOME}/.config/neomutt/scripts/fzf-archive-message|<enter>" \
   "archive message"
 
-# Move message to a folder
 macro index,pager M \
   ":source ${HOME}/.config/neomutt/scripts/fzf-save-message|<enter>" \
   "move entry to a folder"
 
-# Open a folder
 macro index,pager \cp \
   ":source ${HOME}/.config/neomutt/scripts/fzf-change-folder|<enter>" \
   "open a folder"
 
-# Mark all entries as read
-#macro index AN \
-#  "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
-#  "mark all new emails as read"
-
-# Delete and sync
-#bind index,pager d noop
-#macro index,pager dd \
-#  "<delete-message><sync-mailbox>" \
-#  "delete and sync"
+macro index,pager U \
+  "<pipe-message>urlscan<enter>" \
+  "extract urls in the message"

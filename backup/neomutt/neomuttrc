@@ -19,8 +19,11 @@ unset confirmappend
 unset move
 unset mark_old
 unset beep_new
-set new_mail_command="terminal-notifier -title '%v' -subtitle 'New Mail' \
-  -message '%n new messages, %u unread.' -activate 'com.apple.Terminal'"
+set new_mail_command="terminal-notifier \
+  -title '%v' \
+  -subtitle 'New mail' \
+  -message '%n new messages, %u unread.' \
+  -sender 'net.kovidgoyal.kitty'"
 
 # compose View Options
 set envelope_from_address             # which from?
