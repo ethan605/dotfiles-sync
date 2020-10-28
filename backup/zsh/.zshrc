@@ -38,7 +38,7 @@ export BROWSERSTACK_USERNAME=""
 export BROWSERSTACK_ACCESS_KEY=""
 
 # Misc
-export FZF_DEFAULT_COMMAND='rg --files --hidden --smartcase --glob "!.git/*"'
+# export FZF_DEFAULT_COMMAND='rg --files --hidden --smartcase --glob "!.git/*"'
 export TOOLCHAINS=swift
 
 # Ctrl + ] to move forward by word
@@ -70,6 +70,7 @@ __load-manpage-colors() {
 
 __load-nvm() {
   export NVM_DIR=/usr/local/opt/nvm
+  export NVM_LAZY_LOAD=true
 
   if [[ -s $NVM_DIR/nvm.sh ]]; then
     source $NVM_DIR/nvm.sh --no-use
@@ -119,12 +120,12 @@ __load-zsh-plugins() {
 autoload -U add-zsh-hook; add-zsh-hook chpwd __load-nvmrc
 autoload -U promptinit; promptinit
 
+__load-manpage-colors
+__load-autojump
 __load-zsh-plugins
 __load-pure-prompt
-__load-autojump
-__load-manpage-colors
 __load-nvm
-__load-nvmrc &> /dev/null
+# __load-nvmrc
 __load-pyenv
 
 # Aliases
@@ -136,8 +137,7 @@ alias batc="env -uCOLORTERM bat --number --color always --theme 'Sublime Snazzy'
 
 alias color-palette="curl -s https://gist.githubusercontent.com/ethan605/ea1b698c3395b9339748e8a0131136a5/raw | bash"
 
-alias npm-fix-prefix="nvm use --delete-prefix node && \
-  npm config set prefix $NVM_DIR/versions/node/$(nvm version node)"
+alias load-time="/usr/bin/time /usr/local/bin/zsh -ic exit"
 
 alias policy-off="sudo spctl --master-disable"
 alias policy-on="sudo spctl --master-enable"

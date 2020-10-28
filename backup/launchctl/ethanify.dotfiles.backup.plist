@@ -10,7 +10,7 @@
 	<array>
 		<string>/bin/bash</string>
 		<string>-c</string>
-		<string>"$HOME/.dotfiles/scripts/backup.sh"</string>
+		<string>"$HOME/.dotfiles-sync/scripts/backup.sh"</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>

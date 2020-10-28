@@ -25,6 +25,7 @@
   "cairo",
   "calc",
   "cfitsio",
+  "chezmoi",
   "clang-format",
   "cmake",
   "cmatrix",
