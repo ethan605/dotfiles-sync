@@ -7,9 +7,10 @@ import { wrapHomeDir } from '../helpers';
 // Constants
 import { BACKUP_DIR } from '../constants';
 
-const launchctl = (): NodeJS.ReadWriteStream =>
-  gulp
-    .src(wrapHomeDir('Library/LaunchAgents/ethanify.dotfiles.backup.plist'))
-    .pipe(gulp.dest(`${BACKUP_DIR}/launchctl`));
+const SOURCES = ['ethanify.dotfiles.backup', 'ethanify.dotfiles.mbsync'].map(src =>
+  wrapHomeDir(`Library/LaunchAgents/${src}.plist`)
+);
+
+const launchctl = (): NodeJS.ReadWriteStream => gulp.src(SOURCES).pipe(gulp.dest(`${BACKUP_DIR}/launchctl`));
 
 export default launchctl;

@@ -13,7 +13,7 @@ function format_date_time() {
 
 function main() {
   printf "\n${CYAN}Sync started at $(format_date_time)${NORMAL}\n"
-  mbsync -a -c $HOME/.config/neomutt/mbsyncrc && \
+  mbsync -a -c $HOME/.mbsyncrc && \
     cat $HOME/.mail/Primary/Inbox/.mbsyncstate && \
     printf "${GREEN}Sync done at $(format_date_time)${NORMAL}\n"
 }

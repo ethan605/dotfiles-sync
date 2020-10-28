@@ -41,7 +41,7 @@ bind editor <tab> complete-query
 # macro index \cf "<change-folder-readonly>${HOME}/.mu/results<enter>" "mu find results"
 
 macro index,pager \cr \
-  "<shell-escape>mbsync -a -c ${HOME}/.config/neomutt/mbsyncrc<enter>" \
+  "<shell-escape>mbsync -a<enter>" \
   "sync all emails"
 
 macro index,pager A \
