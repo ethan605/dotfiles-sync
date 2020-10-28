@@ -6,7 +6,7 @@ set -o nounset
 PATH=/usr/local/bin:$PATH
 ZSH=$HOME/.oh-my-zsh
 
-readonly WORKING_DIR=$HOME/.dotfiles
+readonly WORKING_DIR=$HOME/.dotfiles-sync
 
 source $WORKING_DIR/scripts/helpers.sh
 
