@@ -1,0 +1,7 @@
+{
+  "extends": "../tsconfig.types.json",
+  "files": [
+    "index.d.ts",
+    "gulp-file-tests.ts"
+  ]
+}

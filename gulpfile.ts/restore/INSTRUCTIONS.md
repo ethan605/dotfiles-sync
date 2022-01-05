@@ -1,0 +1,60 @@
+# Instructions to restore
+
+(In order of prerequisites)
+
+- [x] Homebrew
+  - [x] Install `brew`
+  - [x] Fetch taps from `backup/brew/taps.json`.
+  - [x] Install formulaes from `backup/brew/formulaes.json`.
+  - [x] Install casks from `backup/brew/casks.json`.
+- [x] Nvm
+  - [x] Install `node` versions from `backup/nvm/nodeVersions.json`
+  - [x] Install global packages from `backup/nvm/globalNpmPackages.json`
+- [x] GnuPG
+  - [x] Import private key from Keybase
+  - [x] Restore `backup/gnupg/*.conf` => `~/gnupg/*.conf`
+- [x] Secrets
+  - [x] Gradle properties from `./backup/gradle.gpgtar`
+  - [x] SSH keys from `./backup/ssh.gpgtar`
+  - [x] `chmod` the `~/.ssh` folder to grant read access for user only
+- [x] Git
+  - [x] Restore `backup/git/.gitconfig` => `~/.gitconfig`
+- [x] Tmux
+  - [x] Restore `backup/tmux/.tmux.conf` => `~/.tmux.conf`
+  - [x] Restore `backup/tmux/.tmux.conf.local` => `~/.tmux.conf.local`
+- [x] Oh-my-zsh
+  - [x] Install `oh-my-zsh`
+  - [x] Restore `backup/oh-my-zsh/.zshrc` => `~/.zshrc`
+  - [x] Run `source ~/.zshrc`
+- [x] Fonts
+  - [x] Operator Mono Lig
+- [x] Alacritty
+  - [x] Restore `backup/alacrity/alacritty.yml` => `~/.config/alacritty/alacritty.yml`
+- [x] Karabiner
+  - [x] Restore `backup/karabiner/karabiner.json` => `~/.config/karabiner/karabiner.json`
+- [x] Kitty
+  - [x] Restore `backup/kitty/kitty.conf` => `~/.config/kitty/kitty.conf`
+  - [x] Restore `backup/kitty/colorschemes.zip` => `~/.config/kitty/colorschemes/`
+- [x] Neovim
+  - [x] Install `vim-plug`
+  - [x] Restore `backup/neovim/init.vit` => `~/.config/nvim/init.nvim`
+  - [x] Restore `backup/neovim/coc-extensions.json` => `~/.config/coc/extensions/package.json`
+  - [x] Run `nvim --cmd 'PlugInstall | qa'` to install all plugins then quit
+- [ ] QMK
+  - [ ] Restore `backup/qmk/qmk.init` => `~/Library/Application Support/qmk/qmk.ini`
+  - [ ] Clone `https://github.com/ethan605/qmk_firmware` then run `qmk setup` from inside the folder
+- [x] Vifm
+  - [x] Restore `backup/vifm/vifmrc` => `~/.config/vifm/vifmrc`
+  - [x] Restore `backup/vifm/colors.zip` => `~/.config/vifm/colors`
+  - [x] Restore `backup/vifm/scripts.zip` => `~/.config/vifm/scripts`
+  - [ ] Restore `fontpreview` from `https://github.com/ethan605/fontpreview` (pull & run `make install`)
+- [ ] Vim
+  - [x] Restore `backup/vim/.vimrc` => `~/.vimrc`
+  - [ ] Start and run in Command mode: `:PlugInstall`
+- [x] Visual Studio Code
+  - [x] Restore `backup/vscode/settings.json` => `~/Library/Application\ Support/Code/User/settings.json`
+  - [x] Restore installed extensions from `backup/vscode/extensions.json`
+- [ ] Launchctl
+  - [ ] Restore `backup/launchctl/ethanify.dotfiles.backup.plist` =>
+        `~/Library/LaunchAgents/ethanify.dotfiles.backup.plist`
+  - [ ] Run `launchctl load ~/Library/LaunchAgents/ethanify.dotfiles.backup.plist`

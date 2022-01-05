@@ -1,0 +1,34 @@
+[user]
+	name = Ethan Nguyen
+	signingkey = C086CD9B4DBCBBC0
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[filesystem "Oracle Corporation|1.8.0_144|/dev/disk1s5"]
+	timestampResolution = 1001 milliseconds
+	minRacyThreshold = 0 nanoseconds
+[core]
+	excludesfile = /Users/ethan.nguyen/.gitignore_global
+	autocrlf = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[pull]
+	ff = only
+[credential]
+	helper = osxkeychain
+[alias]
+	adog = log --all --decorate --oneline --graph
+[diff "gpg"]
+   textconv = gpg --no-tty --decrypt --quiet
+[blame "gpg"]
+   textconv = gpg --no-tty --decrypt --quiet

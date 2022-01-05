@@ -1,0 +1,65 @@
+{
+  "name": "dotfiles",
+  "version": "1.0.0",
+  "description": "Ethan's system files & automated backup-restore scripts",
+  "scripts": {
+    "backup": "gulp backup",
+    "lint": "eslint . --ext \".ts\"",
+    "list-encrypted-archive": "gpgtar --list-archive"
+  },
+  "repository": "git://github.com/ethan605/dotfiles.git",
+  "keywords": [
+    "dotfiles",
+    "automation",
+    "scripts",
+    "gulp"
+  ],
+  "author": "ethan605",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ethan605/dotfiles/issues"
+  },
+  "homepage": "https://github.com/ethan605/dotfiles#readme",
+  "dependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-typescript": "^7.12.1",
+    "@types/gulp": "^4.0.6",
+    "@types/gulp-debug": "^2.0.31",
+    "@types/gulp-rename": "^0.0.33",
+    "@types/lodash": "^4.14.162",
+    "@types/vinyl-paths": "^0.0.31",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-debug": "^4.0.0",
+    "gulp-file": "^0.4.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.0.0",
+    "lodash": "^4.17.20",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2",
+    "vinyl-paths": "^3.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "@typescript-eslint/parser": "^4.5.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^7.12.0",
+    "eslint-config-prettier": "^6.14.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.2",
+    "prettier": "^2.1.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./**/*.(ts|js|json|md)": [
+      "prettier --write"
+    ]
+  }
+}

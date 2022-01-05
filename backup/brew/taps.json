@@ -1,0 +1,21 @@
+[
+  "amar1729/formulae",
+  "cjbassi/ytop",
+  "clementtsang/bottom",
+  "homebrew/bundle",
+  "homebrew/cask",
+  "homebrew/cask-drivers",
+  "homebrew/cask-fonts",
+  "homebrew/cask-versions",
+  "homebrew/core",
+  "homebrew/services",
+  "huytd/cask-fonts",
+  "lokalise/cli-2",
+  "mongodb/brew",
+  "osx-cross/arm",
+  "osx-cross/avr",
+  "px4/px4",
+  "qmk/qmk",
+  "simplydanny/pass-extensions",
+  "teamookla/speedtest"
+]
